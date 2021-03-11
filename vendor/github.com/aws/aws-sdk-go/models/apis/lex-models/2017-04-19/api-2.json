@@ -6,6 +6,7 @@
     "jsonVersion":"1.1",
     "protocol":"rest-json",
     "serviceFullName":"Amazon Lex Model Building Service",
+    "serviceId":"Lex Model Building Service",
     "signatureVersion":"v4",
     "signingName":"lex",
     "uid":"lex-models-2017-04-19"
@@ -387,6 +388,22 @@
         {"shape":"BadRequestException"}
       ]
     },
+    "GetImport":{
+      "name":"GetImport",
+      "http":{
+        "method":"GET",
+        "requestUri":"/imports/{importId}",
+        "responseCode":200
+      },
+      "input":{"shape":"GetImportRequest"},
+      "output":{"shape":"GetImportResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"LimitExceededException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"BadRequestException"}
+      ]
+    },
     "GetIntent":{
       "name":"GetIntent",
       "http":{
@@ -498,6 +515,22 @@
         {"shape":"BadRequestException"}
       ]
     },
+    "ListTagsForResource":{
+      "name":"ListTagsForResource",
+      "http":{
+        "method":"GET",
+        "requestUri":"/tags/{resourceArn}",
+        "responseCode":200
+      },
+      "input":{"shape":"ListTagsForResourceRequest"},
+      "output":{"shape":"ListTagsForResourceResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"BadRequestException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"LimitExceededException"}
+      ]
+    },
     "PutBot":{
       "name":"PutBot",
       "http":{
@@ -565,6 +598,55 @@
         {"shape":"BadRequestException"},
         {"shape":"PreconditionFailedException"}
       ]
+    },
+    "StartImport":{
+      "name":"StartImport",
+      "http":{
+        "method":"POST",
+        "requestUri":"/imports/",
+        "responseCode":201
+      },
+      "input":{"shape":"StartImportRequest"},
+      "output":{"shape":"StartImportResponse"},
+      "errors":[
+        {"shape":"LimitExceededException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"BadRequestException"}
+      ]
+    },
+    "TagResource":{
+      "name":"TagResource",
+      "http":{
+        "method":"POST",
+        "requestUri":"/tags/{resourceArn}",
+        "responseCode":204
+      },
+      "input":{"shape":"TagResourceRequest"},
+      "output":{"shape":"TagResourceResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"BadRequestException"},
+        {"shape":"ConflictException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"LimitExceededException"}
+      ]
+    },
+    "UntagResource":{
+      "name":"UntagResource",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/tags/{resourceArn}",
+        "responseCode":204
+      },
+      "input":{"shape":"UntagResourceRequest"},
+      "output":{"shape":"UntagResourceResponse"},
+      "errors":[
+        {"shape":"NotFoundException"},
+        {"shape":"BadRequestException"},
+        {"shape":"ConflictException"},
+        {"shape":"InternalFailureException"},
+        {"shape":"LimitExceededException"}
+      ]
     }
   },
   "shapes":{
@@ -572,13 +654,18 @@
       "type":"string",
       "max":100,
       "min":1,
-      "pattern":"^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)"
+      "pattern":"^([A-Za-z]_?)+$"
     },
     "AliasNameOrListAll":{
       "type":"string",
       "max":100,
       "min":1,
-      "pattern":"^(-|^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*))$"
+      "pattern":"^(-|^([A-Za-z]_?)+$)$"
+    },
+    "AmazonResourceName":{
+      "type":"string",
+      "max":1011,
+      "min":1
     },
     "BadRequestException":{
       "type":"structure",
@@ -588,6 +675,7 @@
       "error":{"httpStatusCode":400},
       "exception":true
     },
+    "Blob":{"type":"blob"},
     "Boolean":{"type":"boolean"},
     "BotAliasMetadata":{
       "type":"structure",
@@ -598,7 +686,8 @@
         "botName":{"shape":"BotName"},
         "lastUpdatedDate":{"shape":"Timestamp"},
         "createdDate":{"shape":"Timestamp"},
-        "checksum":{"shape":"String"}
+        "checksum":{"shape":"String"},
+        "conversationLogs":{"shape":"ConversationLogsResponse"}
       }
     },
     "BotAliasMetadataList":{
@@ -614,7 +703,9 @@
         "botName":{"shape":"BotName"},
         "createdDate":{"shape":"Timestamp"},
         "type":{"shape":"ChannelType"},
-        "botConfiguration":{"shape":"ChannelConfigurationMap"}
+        "botConfiguration":{"shape":"ChannelConfigurationMap"},
+        "status":{"shape":"ChannelStatus"},
+        "failureReason":{"shape":"String"}
       }
     },
     "BotChannelAssociationList":{
@@ -625,7 +716,7 @@
       "type":"string",
       "max":100,
       "min":1,
-      "pattern":"^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)"
+      "pattern":"^([A-Za-z]_?)+$"
     },
     "BotMetadata":{
       "type":"structure",
@@ -646,7 +737,7 @@
       "type":"string",
       "max":50,
       "min":2,
-      "pattern":"^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)"
+      "pattern":"^([A-Za-z]_?)+$"
     },
     "BotVersions":{
       "type":"list",
@@ -696,12 +787,21 @@
       "min":1,
       "sensitive":true
     },
+    "ChannelStatus":{
+      "type":"string",
+      "enum":[
+        "IN_PROGRESS",
+        "CREATED",
+        "FAILED"
+      ]
+    },
     "ChannelType":{
       "type":"string",
       "enum":[
         "Facebook",
         "Slack",
-        "Twilio-Sms"
+        "Twilio-Sms",
+        "Kik"
       ]
     },
     "CodeHook":{
@@ -714,6 +814,11 @@
         "uri":{"shape":"LambdaARN"},
         "messageVersion":{"shape":"MessageVersion"}
       }
+    },
+    "ConfidenceThreshold":{
+      "type":"double",
+      "max":1,
+      "min":0
     },
     "ConflictException":{
       "type":"structure",
@@ -732,8 +837,37 @@
       "type":"string",
       "enum":[
         "PlainText",
-        "SSML"
+        "SSML",
+        "CustomPayload"
       ]
+    },
+    "ContextTimeToLiveInSeconds":{
+      "type":"integer",
+      "max":86400,
+      "min":5
+    },
+    "ContextTurnsToLive":{
+      "type":"integer",
+      "max":20,
+      "min":1
+    },
+    "ConversationLogsRequest":{
+      "type":"structure",
+      "required":[
+        "logSettings",
+        "iamRoleArn"
+      ],
+      "members":{
+        "logSettings":{"shape":"LogSettingsRequestList"},
+        "iamRoleArn":{"shape":"IamRoleArn"}
+      }
+    },
+    "ConversationLogsResponse":{
+      "type":"structure",
+      "members":{
+        "logSettings":{"shape":"LogSettingsResponseList"},
+        "iamRoleArn":{"shape":"IamRoleArn"}
+      }
     },
     "Count":{"type":"integer"},
     "CreateBotVersionRequest":{
@@ -765,7 +899,9 @@
         "checksum":{"shape":"String"},
         "version":{"shape":"Version"},
         "locale":{"shape":"Locale"},
-        "childDirected":{"shape":"Boolean"}
+        "childDirected":{"shape":"Boolean"},
+        "enableModelImprovements":{"shape":"Boolean"},
+        "detectSentiment":{"shape":"Boolean"}
       }
     },
     "CreateIntentVersionRequest":{
@@ -797,7 +933,10 @@
         "lastUpdatedDate":{"shape":"Timestamp"},
         "createdDate":{"shape":"Timestamp"},
         "version":{"shape":"Version"},
-        "checksum":{"shape":"String"}
+        "checksum":{"shape":"String"},
+        "kendraConfiguration":{"shape":"KendraConfiguration"},
+        "inputContexts":{"shape":"InputContextList"},
+        "outputContexts":{"shape":"OutputContextList"}
       }
     },
     "CreateSlotTypeVersionRequest":{
@@ -822,14 +961,16 @@
         "createdDate":{"shape":"Timestamp"},
         "version":{"shape":"Version"},
         "checksum":{"shape":"String"},
-        "valueSelectionStrategy":{"shape":"SlotValueSelectionStrategy"}
+        "valueSelectionStrategy":{"shape":"SlotValueSelectionStrategy"},
+        "parentSlotTypeSignature":{"shape":"CustomOrBuiltinSlotTypeName"},
+        "slotTypeConfigurations":{"shape":"SlotTypeConfigurations"}
       }
     },
     "CustomOrBuiltinSlotTypeName":{
       "type":"string",
       "max":100,
       "min":1,
-      "pattern":"^([a-zA-Z]|AMAZON.)+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)"
+      "pattern":"^((AMAZON\\.)_?|[A-Za-z]_?)+"
     },
     "DeleteBotAliasRequest":{
       "type":"structure",
@@ -989,6 +1130,13 @@
       "max":200,
       "min":0
     },
+    "Destination":{
+      "type":"string",
+      "enum":[
+        "CLOUDWATCH_LOGS",
+        "S3"
+      ]
+    },
     "EnumerationValue":{
       "type":"structure",
       "required":["value"],
@@ -1001,7 +1149,7 @@
       "type":"list",
       "member":{"shape":"EnumerationValue"},
       "max":10000,
-      "min":1
+      "min":0
     },
     "ExportStatus":{
       "type":"string",
@@ -1013,7 +1161,10 @@
     },
     "ExportType":{
       "type":"string",
-      "enum":["ALEXA_SKILLS_KIT"]
+      "enum":[
+        "ALEXA_SKILLS_KIT",
+        "LEX"
+      ]
     },
     "FollowUpPrompt":{
       "type":"structure",
@@ -1069,7 +1220,8 @@
         "botName":{"shape":"BotName"},
         "lastUpdatedDate":{"shape":"Timestamp"},
         "createdDate":{"shape":"Timestamp"},
-        "checksum":{"shape":"String"}
+        "checksum":{"shape":"String"},
+        "conversationLogs":{"shape":"ConversationLogsResponse"}
       }
     },
     "GetBotAliasesRequest":{
@@ -1139,7 +1291,9 @@
         "botName":{"shape":"BotName"},
         "createdDate":{"shape":"Timestamp"},
         "type":{"shape":"ChannelType"},
-        "botConfiguration":{"shape":"ChannelConfigurationMap"}
+        "botConfiguration":{"shape":"ChannelConfigurationMap"},
+        "status":{"shape":"ChannelStatus"},
+        "failureReason":{"shape":"String"}
       }
     },
     "GetBotChannelAssociationsRequest":{
@@ -1208,6 +1362,8 @@
         "name":{"shape":"BotName"},
         "description":{"shape":"Description"},
         "intents":{"shape":"IntentList"},
+        "enableModelImprovements":{"shape":"Boolean"},
+        "nluIntentConfidenceThreshold":{"shape":"ConfidenceThreshold"},
         "clarificationPrompt":{"shape":"Prompt"},
         "abortStatement":{"shape":"Statement"},
         "status":{"shape":"Status"},
@@ -1219,7 +1375,8 @@
         "checksum":{"shape":"String"},
         "version":{"shape":"Version"},
         "locale":{"shape":"Locale"},
-        "childDirected":{"shape":"Boolean"}
+        "childDirected":{"shape":"Boolean"},
+        "detectSentiment":{"shape":"Boolean"}
       }
     },
     "GetBotVersionsRequest":{
@@ -1403,6 +1560,29 @@
         "url":{"shape":"String"}
       }
     },
+    "GetImportRequest":{
+      "type":"structure",
+      "required":["importId"],
+      "members":{
+        "importId":{
+          "shape":"String",
+          "location":"uri",
+          "locationName":"importId"
+        }
+      }
+    },
+    "GetImportResponse":{
+      "type":"structure",
+      "members":{
+        "name":{"shape":"Name"},
+        "resourceType":{"shape":"ResourceType"},
+        "mergeStrategy":{"shape":"MergeStrategy"},
+        "importId":{"shape":"String"},
+        "importStatus":{"shape":"ImportStatus"},
+        "failureReason":{"shape":"StringList"},
+        "createdDate":{"shape":"Timestamp"}
+      }
+    },
     "GetIntentRequest":{
       "type":"structure",
       "required":[
@@ -1439,7 +1619,10 @@
         "lastUpdatedDate":{"shape":"Timestamp"},
         "createdDate":{"shape":"Timestamp"},
         "version":{"shape":"Version"},
-        "checksum":{"shape":"String"}
+        "checksum":{"shape":"String"},
+        "kendraConfiguration":{"shape":"KendraConfiguration"},
+        "inputContexts":{"shape":"InputContextList"},
+        "outputContexts":{"shape":"OutputContextList"}
       }
     },
     "GetIntentVersionsRequest":{
@@ -1526,7 +1709,9 @@
         "createdDate":{"shape":"Timestamp"},
         "version":{"shape":"Version"},
         "checksum":{"shape":"String"},
-        "valueSelectionStrategy":{"shape":"SlotValueSelectionStrategy"}
+        "valueSelectionStrategy":{"shape":"SlotValueSelectionStrategy"},
+        "parentSlotTypeSignature":{"shape":"CustomOrBuiltinSlotTypeName"},
+        "slotTypeConfigurations":{"shape":"SlotTypeConfigurations"}
       }
     },
     "GetSlotTypeVersionsRequest":{
@@ -1616,6 +1801,45 @@
         "utterances":{"shape":"ListsOfUtterances"}
       }
     },
+    "GroupNumber":{
+      "type":"integer",
+      "box":true,
+      "max":5,
+      "min":1
+    },
+    "IamRoleArn":{
+      "type":"string",
+      "max":2048,
+      "min":20,
+      "pattern":"^arn:[\\w\\-]+:iam::[\\d]{12}:role/.+$"
+    },
+    "ImportStatus":{
+      "type":"string",
+      "enum":[
+        "IN_PROGRESS",
+        "COMPLETE",
+        "FAILED"
+      ]
+    },
+    "InputContext":{
+      "type":"structure",
+      "required":["name"],
+      "members":{
+        "name":{"shape":"InputContextName"}
+      }
+    },
+    "InputContextList":{
+      "type":"list",
+      "member":{"shape":"InputContext"},
+      "max":5,
+      "min":0
+    },
+    "InputContextName":{
+      "type":"string",
+      "max":100,
+      "min":1,
+      "pattern":"^([A-Za-z]_?)+$"
+    },
     "Intent":{
       "type":"structure",
       "required":[
@@ -1649,7 +1873,7 @@
       "type":"string",
       "max":100,
       "min":1,
-      "pattern":"^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)"
+      "pattern":"^([A-Za-z]_?)+$"
     },
     "IntentUtteranceList":{
       "type":"list",
@@ -1665,6 +1889,30 @@
       "error":{"httpStatusCode":500},
       "exception":true,
       "fault":true
+    },
+    "KendraConfiguration":{
+      "type":"structure",
+      "required":[
+        "kendraIndex",
+        "role"
+      ],
+      "members":{
+        "kendraIndex":{"shape":"KendraIndexArn"},
+        "queryFilterString":{"shape":"QueryFilterString"},
+        "role":{"shape":"roleArn"}
+      }
+    },
+    "KendraIndexArn":{
+      "type":"string",
+      "max":2048,
+      "min":20,
+      "pattern":"arn:aws:kendra:[a-z]+-[a-z]+-[0-9]:[0-9]{12}:index\\/[a-zA-Z0-9][a-zA-Z0-9_-]*"
+    },
+    "KmsKeyArn":{
+      "type":"string",
+      "max":2048,
+      "min":20,
+      "pattern":"^arn:[\\w\\-]+:kms:[\\w\\-]+:[\\d]{12}:(?:key\\/[\\w\\-]+|alias\\/[a-zA-Z0-9:\\/_\\-]{1,256})$"
     },
     "LambdaARN":{
       "type":"string",
@@ -1689,23 +1937,97 @@
       "type":"list",
       "member":{"shape":"UtteranceData"}
     },
+    "ListTagsForResourceRequest":{
+      "type":"structure",
+      "required":["resourceArn"],
+      "members":{
+        "resourceArn":{
+          "shape":"AmazonResourceName",
+          "location":"uri",
+          "locationName":"resourceArn"
+        }
+      }
+    },
+    "ListTagsForResourceResponse":{
+      "type":"structure",
+      "members":{
+        "tags":{"shape":"TagList"}
+      }
+    },
     "ListsOfUtterances":{
       "type":"list",
       "member":{"shape":"UtteranceList"}
     },
     "Locale":{
       "type":"string",
-      "enum":["en-US"]
+      "enum":[
+        "de-DE",
+        "en-AU",
+        "en-GB",
+        "en-US",
+        "es-419",
+        "es-ES",
+        "es-US",
+        "fr-FR",
+        "fr-CA",
+        "it-IT"
+      ]
     },
     "LocaleList":{
       "type":"list",
       "member":{"shape":"Locale"}
+    },
+    "LogSettingsRequest":{
+      "type":"structure",
+      "required":[
+        "logType",
+        "destination",
+        "resourceArn"
+      ],
+      "members":{
+        "logType":{"shape":"LogType"},
+        "destination":{"shape":"Destination"},
+        "kmsKeyArn":{"shape":"KmsKeyArn"},
+        "resourceArn":{"shape":"ResourceArn"}
+      }
+    },
+    "LogSettingsRequestList":{
+      "type":"list",
+      "member":{"shape":"LogSettingsRequest"}
+    },
+    "LogSettingsResponse":{
+      "type":"structure",
+      "members":{
+        "logType":{"shape":"LogType"},
+        "destination":{"shape":"Destination"},
+        "kmsKeyArn":{"shape":"KmsKeyArn"},
+        "resourceArn":{"shape":"ResourceArn"},
+        "resourcePrefix":{"shape":"ResourcePrefix"}
+      }
+    },
+    "LogSettingsResponseList":{
+      "type":"list",
+      "member":{"shape":"LogSettingsResponse"}
+    },
+    "LogType":{
+      "type":"string",
+      "enum":[
+        "AUDIO",
+        "TEXT"
+      ]
     },
     "MaxResults":{
       "type":"integer",
       "box":true,
       "max":50,
       "min":1
+    },
+    "MergeStrategy":{
+      "type":"string",
+      "enum":[
+        "OVERWRITE_LATEST",
+        "FAIL_ON_CONFLICT"
+      ]
     },
     "Message":{
       "type":"structure",
@@ -1715,13 +2037,14 @@
       ],
       "members":{
         "contentType":{"shape":"ContentType"},
-        "content":{"shape":"ContentString"}
+        "content":{"shape":"ContentString"},
+        "groupNumber":{"shape":"GroupNumber"}
       }
     },
     "MessageList":{
       "type":"list",
       "member":{"shape":"Message"},
-      "max":5,
+      "max":15,
       "min":1
     },
     "MessageVersion":{
@@ -1731,7 +2054,7 @@
     },
     "Name":{
       "type":"string",
-      "max":64,
+      "max":100,
       "min":1,
       "pattern":"[a-zA-Z_]+"
     },
@@ -1749,6 +2072,38 @@
       "max":64,
       "min":1,
       "pattern":"[0-9]+"
+    },
+    "ObfuscationSetting":{
+      "type":"string",
+      "enum":[
+        "NONE",
+        "DEFAULT_OBFUSCATION"
+      ]
+    },
+    "OutputContext":{
+      "type":"structure",
+      "required":[
+        "name",
+        "timeToLiveInSeconds",
+        "turnsToLive"
+      ],
+      "members":{
+        "name":{"shape":"OutputContextName"},
+        "timeToLiveInSeconds":{"shape":"ContextTimeToLiveInSeconds"},
+        "turnsToLive":{"shape":"ContextTurnsToLive"}
+      }
+    },
+    "OutputContextList":{
+      "type":"list",
+      "member":{"shape":"OutputContext"},
+      "max":10,
+      "min":0
+    },
+    "OutputContextName":{
+      "type":"string",
+      "max":100,
+      "min":1,
+      "pattern":"^([A-Za-z]_?)+$"
     },
     "PreconditionFailedException":{
       "type":"structure",
@@ -1807,7 +2162,9 @@
           "location":"uri",
           "locationName":"botName"
         },
-        "checksum":{"shape":"String"}
+        "checksum":{"shape":"String"},
+        "conversationLogs":{"shape":"ConversationLogsRequest"},
+        "tags":{"shape":"TagList"}
       }
     },
     "PutBotAliasResponse":{
@@ -1819,7 +2176,9 @@
         "botName":{"shape":"BotName"},
         "lastUpdatedDate":{"shape":"Timestamp"},
         "createdDate":{"shape":"Timestamp"},
-        "checksum":{"shape":"String"}
+        "checksum":{"shape":"String"},
+        "conversationLogs":{"shape":"ConversationLogsResponse"},
+        "tags":{"shape":"TagList"}
       }
     },
     "PutBotRequest":{
@@ -1837,6 +2196,8 @@
         },
         "description":{"shape":"Description"},
         "intents":{"shape":"IntentList"},
+        "enableModelImprovements":{"shape":"Boolean"},
+        "nluIntentConfidenceThreshold":{"shape":"ConfidenceThreshold"},
         "clarificationPrompt":{"shape":"Prompt"},
         "abortStatement":{"shape":"Statement"},
         "idleSessionTTLInSeconds":{"shape":"SessionTTL"},
@@ -1844,7 +2205,10 @@
         "checksum":{"shape":"String"},
         "processBehavior":{"shape":"ProcessBehavior"},
         "locale":{"shape":"Locale"},
-        "childDirected":{"shape":"Boolean"}
+        "childDirected":{"shape":"Boolean"},
+        "detectSentiment":{"shape":"Boolean"},
+        "createVersion":{"shape":"Boolean"},
+        "tags":{"shape":"TagList"}
       }
     },
     "PutBotResponse":{
@@ -1853,6 +2217,8 @@
         "name":{"shape":"BotName"},
         "description":{"shape":"Description"},
         "intents":{"shape":"IntentList"},
+        "enableModelImprovements":{"shape":"Boolean"},
+        "nluIntentConfidenceThreshold":{"shape":"ConfidenceThreshold"},
         "clarificationPrompt":{"shape":"Prompt"},
         "abortStatement":{"shape":"Statement"},
         "status":{"shape":"Status"},
@@ -1864,7 +2230,10 @@
         "checksum":{"shape":"String"},
         "version":{"shape":"Version"},
         "locale":{"shape":"Locale"},
-        "childDirected":{"shape":"Boolean"}
+        "childDirected":{"shape":"Boolean"},
+        "createVersion":{"shape":"Boolean"},
+        "detectSentiment":{"shape":"Boolean"},
+        "tags":{"shape":"TagList"}
       }
     },
     "PutIntentRequest":{
@@ -1886,7 +2255,11 @@
         "dialogCodeHook":{"shape":"CodeHook"},
         "fulfillmentActivity":{"shape":"FulfillmentActivity"},
         "parentIntentSignature":{"shape":"BuiltinIntentSignature"},
-        "checksum":{"shape":"String"}
+        "checksum":{"shape":"String"},
+        "createVersion":{"shape":"Boolean"},
+        "kendraConfiguration":{"shape":"KendraConfiguration"},
+        "inputContexts":{"shape":"InputContextList"},
+        "outputContexts":{"shape":"OutputContextList"}
       }
     },
     "PutIntentResponse":{
@@ -1906,7 +2279,11 @@
         "lastUpdatedDate":{"shape":"Timestamp"},
         "createdDate":{"shape":"Timestamp"},
         "version":{"shape":"Version"},
-        "checksum":{"shape":"String"}
+        "checksum":{"shape":"String"},
+        "createVersion":{"shape":"Boolean"},
+        "kendraConfiguration":{"shape":"KendraConfiguration"},
+        "inputContexts":{"shape":"InputContextList"},
+        "outputContexts":{"shape":"OutputContextList"}
       }
     },
     "PutSlotTypeRequest":{
@@ -1921,7 +2298,10 @@
         "description":{"shape":"Description"},
         "enumerationValues":{"shape":"EnumerationValues"},
         "checksum":{"shape":"String"},
-        "valueSelectionStrategy":{"shape":"SlotValueSelectionStrategy"}
+        "valueSelectionStrategy":{"shape":"SlotValueSelectionStrategy"},
+        "createVersion":{"shape":"Boolean"},
+        "parentSlotTypeSignature":{"shape":"CustomOrBuiltinSlotTypeName"},
+        "slotTypeConfigurations":{"shape":"SlotTypeConfigurations"}
       }
     },
     "PutSlotTypeResponse":{
@@ -1934,8 +2314,15 @@
         "createdDate":{"shape":"Timestamp"},
         "version":{"shape":"Version"},
         "checksum":{"shape":"String"},
-        "valueSelectionStrategy":{"shape":"SlotValueSelectionStrategy"}
+        "valueSelectionStrategy":{"shape":"SlotValueSelectionStrategy"},
+        "createVersion":{"shape":"Boolean"},
+        "parentSlotTypeSignature":{"shape":"CustomOrBuiltinSlotTypeName"},
+        "slotTypeConfigurations":{"shape":"SlotTypeConfigurations"}
       }
+    },
+    "QueryFilterString":{
+      "type":"string",
+      "min":0
     },
     "ReferenceType":{
       "type":"string",
@@ -1946,6 +2333,17 @@
         "BotChannel"
       ]
     },
+    "RegexPattern":{
+      "type":"string",
+      "max":100,
+      "min":1
+    },
+    "ResourceArn":{
+      "type":"string",
+      "max":2048,
+      "min":1,
+      "pattern":"^arn:[\\w\\-]+:(?:logs:[\\w\\-]+:[\\d]{12}:log-group:[\\.\\-_/#A-Za-z0-9]{1,512}(?::\\*)?|s3:::[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9])$"
+    },
     "ResourceInUseException":{
       "type":"structure",
       "members":{
@@ -1954,6 +2352,10 @@
       },
       "error":{"httpStatusCode":400},
       "exception":true
+    },
+    "ResourcePrefix":{
+      "type":"string",
+      "max":1024
     },
     "ResourceReference":{
       "type":"structure",
@@ -1964,7 +2366,11 @@
     },
     "ResourceType":{
       "type":"string",
-      "enum":["BOT"]
+      "enum":[
+        "BOT",
+        "INTENT",
+        "SLOT_TYPE"
+      ]
     },
     "ResponseCard":{
       "type":"string",
@@ -1991,7 +2397,9 @@
         "valueElicitationPrompt":{"shape":"Prompt"},
         "priority":{"shape":"Priority"},
         "sampleUtterances":{"shape":"SlotUtteranceList"},
-        "responseCard":{"shape":"ResponseCard"}
+        "responseCard":{"shape":"ResponseCard"},
+        "obfuscationSetting":{"shape":"ObfuscationSetting"},
+        "defaultValueSpec":{"shape":"SlotDefaultValueSpec"}
       }
     },
     "SlotConstraint":{
@@ -2000,6 +2408,31 @@
         "Required",
         "Optional"
       ]
+    },
+    "SlotDefaultValue":{
+      "type":"structure",
+      "required":["defaultValue"],
+      "members":{
+        "defaultValue":{"shape":"SlotDefaultValueString"}
+      }
+    },
+    "SlotDefaultValueList":{
+      "type":"list",
+      "member":{"shape":"SlotDefaultValue"},
+      "max":10,
+      "min":0
+    },
+    "SlotDefaultValueSpec":{
+      "type":"structure",
+      "required":["defaultValueList"],
+      "members":{
+        "defaultValueList":{"shape":"SlotDefaultValueList"}
+      }
+    },
+    "SlotDefaultValueString":{
+      "type":"string",
+      "max":202,
+      "min":1
     },
     "SlotList":{
       "type":"list",
@@ -2011,7 +2444,19 @@
       "type":"string",
       "max":100,
       "min":1,
-      "pattern":"^[a-zA-Z]+(((_|.)[a-zA-Z]+)*|([a-zA-Z]+(_|.))*|(_|.))"
+      "pattern":"^([A-Za-z](-|_|.)?)+$"
+    },
+    "SlotTypeConfiguration":{
+      "type":"structure",
+      "members":{
+        "regexConfiguration":{"shape":"SlotTypeRegexConfiguration"}
+      }
+    },
+    "SlotTypeConfigurations":{
+      "type":"list",
+      "member":{"shape":"SlotTypeConfiguration"},
+      "max":10,
+      "min":0
     },
     "SlotTypeMetadata":{
       "type":"structure",
@@ -2031,7 +2476,14 @@
       "type":"string",
       "max":100,
       "min":1,
-      "pattern":"^[a-zA-Z]+((_[a-zA-Z]+)*|([a-zA-Z]+_)*|_)"
+      "pattern":"^([A-Za-z]_?)+$"
+    },
+    "SlotTypeRegexConfiguration":{
+      "type":"structure",
+      "required":["pattern"],
+      "members":{
+        "pattern":{"shape":"RegexPattern"}
+      }
     },
     "SlotUtteranceList":{
       "type":"list",
@@ -2046,6 +2498,32 @@
         "TOP_RESOLUTION"
       ]
     },
+    "StartImportRequest":{
+      "type":"structure",
+      "required":[
+        "payload",
+        "resourceType",
+        "mergeStrategy"
+      ],
+      "members":{
+        "payload":{"shape":"Blob"},
+        "resourceType":{"shape":"ResourceType"},
+        "mergeStrategy":{"shape":"MergeStrategy"},
+        "tags":{"shape":"TagList"}
+      }
+    },
+    "StartImportResponse":{
+      "type":"structure",
+      "members":{
+        "name":{"shape":"Name"},
+        "resourceType":{"shape":"ResourceType"},
+        "mergeStrategy":{"shape":"MergeStrategy"},
+        "importId":{"shape":"String"},
+        "importStatus":{"shape":"ImportStatus"},
+        "tags":{"shape":"TagList"},
+        "createdDate":{"shape":"Timestamp"}
+      }
+    },
     "Statement":{
       "type":"structure",
       "required":["messages"],
@@ -2059,6 +2537,7 @@
       "enum":[
         "BUILDING",
         "READY",
+        "READY_BASIC_TESTING",
         "FAILED",
         "NOT_BUILT"
       ]
@@ -2071,11 +2550,92 @@
       ]
     },
     "String":{"type":"string"},
+    "StringList":{
+      "type":"list",
+      "member":{"shape":"String"}
+    },
     "SynonymList":{
       "type":"list",
       "member":{"shape":"Value"}
     },
+    "Tag":{
+      "type":"structure",
+      "required":[
+        "key",
+        "value"
+      ],
+      "members":{
+        "key":{"shape":"TagKey"},
+        "value":{"shape":"TagValue"}
+      }
+    },
+    "TagKey":{
+      "type":"string",
+      "max":128,
+      "min":1
+    },
+    "TagKeyList":{
+      "type":"list",
+      "member":{"shape":"TagKey"},
+      "max":200,
+      "min":0
+    },
+    "TagList":{
+      "type":"list",
+      "member":{"shape":"Tag"},
+      "max":200,
+      "min":0
+    },
+    "TagResourceRequest":{
+      "type":"structure",
+      "required":[
+        "resourceArn",
+        "tags"
+      ],
+      "members":{
+        "resourceArn":{
+          "shape":"AmazonResourceName",
+          "location":"uri",
+          "locationName":"resourceArn"
+        },
+        "tags":{"shape":"TagList"}
+      }
+    },
+    "TagResourceResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
+    "TagValue":{
+      "type":"string",
+      "max":256,
+      "min":0
+    },
     "Timestamp":{"type":"timestamp"},
+    "UntagResourceRequest":{
+      "type":"structure",
+      "required":[
+        "resourceArn",
+        "tagKeys"
+      ],
+      "members":{
+        "resourceArn":{
+          "shape":"AmazonResourceName",
+          "location":"uri",
+          "locationName":"resourceArn"
+        },
+        "tagKeys":{
+          "shape":"TagKeyList",
+          "location":"querystring",
+          "locationName":"tagKeys"
+        }
+      }
+    },
+    "UntagResourceResponse":{
+      "type":"structure",
+      "members":{
+      }
+    },
     "UserId":{
       "type":"string",
       "max":100,
@@ -2118,6 +2678,12 @@
       "max":64,
       "min":1,
       "pattern":"\\$LATEST|[0-9]+"
+    },
+    "roleArn":{
+      "type":"string",
+      "max":2048,
+      "min":20,
+      "pattern":"arn:aws:iam::[0-9]{12}:role/.*"
     }
   }
 }

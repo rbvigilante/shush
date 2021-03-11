@@ -120,6 +120,16 @@ func ExampleELBV2_CreateListener_shared00() {
 				fmt.Println(elbv2.ErrCodeTooManyRegistrationsForTargetIdException, aerr.Error())
 			case elbv2.ErrCodeTooManyTargetsException:
 				fmt.Println(elbv2.ErrCodeTooManyTargetsException, aerr.Error())
+			case elbv2.ErrCodeTooManyActionsException:
+				fmt.Println(elbv2.ErrCodeTooManyActionsException, aerr.Error())
+			case elbv2.ErrCodeInvalidLoadBalancerActionException:
+				fmt.Println(elbv2.ErrCodeInvalidLoadBalancerActionException, aerr.Error())
+			case elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException:
+				fmt.Println(elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException, aerr.Error())
+			case elbv2.ErrCodeALPNPolicyNotSupportedException:
+				fmt.Println(elbv2.ErrCodeALPNPolicyNotSupportedException, aerr.Error())
+			case elbv2.ErrCodeTooManyTagsException:
+				fmt.Println(elbv2.ErrCodeTooManyTagsException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -192,6 +202,16 @@ func ExampleELBV2_CreateListener_shared01() {
 				fmt.Println(elbv2.ErrCodeTooManyRegistrationsForTargetIdException, aerr.Error())
 			case elbv2.ErrCodeTooManyTargetsException:
 				fmt.Println(elbv2.ErrCodeTooManyTargetsException, aerr.Error())
+			case elbv2.ErrCodeTooManyActionsException:
+				fmt.Println(elbv2.ErrCodeTooManyActionsException, aerr.Error())
+			case elbv2.ErrCodeInvalidLoadBalancerActionException:
+				fmt.Println(elbv2.ErrCodeInvalidLoadBalancerActionException, aerr.Error())
+			case elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException:
+				fmt.Println(elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException, aerr.Error())
+			case elbv2.ErrCodeALPNPolicyNotSupportedException:
+				fmt.Println(elbv2.ErrCodeALPNPolicyNotSupportedException, aerr.Error())
+			case elbv2.ErrCodeTooManyTagsException:
+				fmt.Println(elbv2.ErrCodeTooManyTagsException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -248,6 +268,8 @@ func ExampleELBV2_CreateLoadBalancer_shared00() {
 				fmt.Println(elbv2.ErrCodeAllocationIdNotFoundException, aerr.Error())
 			case elbv2.ErrCodeAvailabilityZoneNotSupportedException:
 				fmt.Println(elbv2.ErrCodeAvailabilityZoneNotSupportedException, aerr.Error())
+			case elbv2.ErrCodeOperationNotPermittedException:
+				fmt.Println(elbv2.ErrCodeOperationNotPermittedException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -305,6 +327,8 @@ func ExampleELBV2_CreateLoadBalancer_shared01() {
 				fmt.Println(elbv2.ErrCodeAllocationIdNotFoundException, aerr.Error())
 			case elbv2.ErrCodeAvailabilityZoneNotSupportedException:
 				fmt.Println(elbv2.ErrCodeAvailabilityZoneNotSupportedException, aerr.Error())
+			case elbv2.ErrCodeOperationNotPermittedException:
+				fmt.Println(elbv2.ErrCodeOperationNotPermittedException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -368,6 +392,16 @@ func ExampleELBV2_CreateRule_shared00() {
 				fmt.Println(elbv2.ErrCodeTooManyRegistrationsForTargetIdException, aerr.Error())
 			case elbv2.ErrCodeTooManyTargetsException:
 				fmt.Println(elbv2.ErrCodeTooManyTargetsException, aerr.Error())
+			case elbv2.ErrCodeUnsupportedProtocolException:
+				fmt.Println(elbv2.ErrCodeUnsupportedProtocolException, aerr.Error())
+			case elbv2.ErrCodeTooManyActionsException:
+				fmt.Println(elbv2.ErrCodeTooManyActionsException, aerr.Error())
+			case elbv2.ErrCodeInvalidLoadBalancerActionException:
+				fmt.Println(elbv2.ErrCodeInvalidLoadBalancerActionException, aerr.Error())
+			case elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException:
+				fmt.Println(elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException, aerr.Error())
+			case elbv2.ErrCodeTooManyTagsException:
+				fmt.Println(elbv2.ErrCodeTooManyTagsException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -405,6 +439,8 @@ func ExampleELBV2_CreateTargetGroup_shared00() {
 				fmt.Println(elbv2.ErrCodeTooManyTargetGroupsException, aerr.Error())
 			case elbv2.ErrCodeInvalidConfigurationRequestException:
 				fmt.Println(elbv2.ErrCodeInvalidConfigurationRequestException, aerr.Error())
+			case elbv2.ErrCodeTooManyTagsException:
+				fmt.Println(elbv2.ErrCodeTooManyTagsException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -465,6 +501,8 @@ func ExampleELBV2_DeleteLoadBalancer_shared00() {
 				fmt.Println(elbv2.ErrCodeLoadBalancerNotFoundException, aerr.Error())
 			case elbv2.ErrCodeOperationNotPermittedException:
 				fmt.Println(elbv2.ErrCodeOperationNotPermittedException, aerr.Error())
+			case elbv2.ErrCodeResourceInUseException:
+				fmt.Println(elbv2.ErrCodeResourceInUseException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -594,6 +632,8 @@ func ExampleELBV2_DescribeListeners_shared00() {
 				fmt.Println(elbv2.ErrCodeListenerNotFoundException, aerr.Error())
 			case elbv2.ErrCodeLoadBalancerNotFoundException:
 				fmt.Println(elbv2.ErrCodeLoadBalancerNotFoundException, aerr.Error())
+			case elbv2.ErrCodeUnsupportedProtocolException:
+				fmt.Println(elbv2.ErrCodeUnsupportedProtocolException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -687,6 +727,8 @@ func ExampleELBV2_DescribeRules_shared00() {
 				fmt.Println(elbv2.ErrCodeListenerNotFoundException, aerr.Error())
 			case elbv2.ErrCodeRuleNotFoundException:
 				fmt.Println(elbv2.ErrCodeRuleNotFoundException, aerr.Error())
+			case elbv2.ErrCodeUnsupportedProtocolException:
+				fmt.Println(elbv2.ErrCodeUnsupportedProtocolException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -950,6 +992,14 @@ func ExampleELBV2_ModifyListener_shared00() {
 				fmt.Println(elbv2.ErrCodeTooManyRegistrationsForTargetIdException, aerr.Error())
 			case elbv2.ErrCodeTooManyTargetsException:
 				fmt.Println(elbv2.ErrCodeTooManyTargetsException, aerr.Error())
+			case elbv2.ErrCodeTooManyActionsException:
+				fmt.Println(elbv2.ErrCodeTooManyActionsException, aerr.Error())
+			case elbv2.ErrCodeInvalidLoadBalancerActionException:
+				fmt.Println(elbv2.ErrCodeInvalidLoadBalancerActionException, aerr.Error())
+			case elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException:
+				fmt.Println(elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException, aerr.Error())
+			case elbv2.ErrCodeALPNPolicyNotSupportedException:
+				fmt.Println(elbv2.ErrCodeALPNPolicyNotSupportedException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -1008,6 +1058,14 @@ func ExampleELBV2_ModifyListener_shared01() {
 				fmt.Println(elbv2.ErrCodeTooManyRegistrationsForTargetIdException, aerr.Error())
 			case elbv2.ErrCodeTooManyTargetsException:
 				fmt.Println(elbv2.ErrCodeTooManyTargetsException, aerr.Error())
+			case elbv2.ErrCodeTooManyActionsException:
+				fmt.Println(elbv2.ErrCodeTooManyActionsException, aerr.Error())
+			case elbv2.ErrCodeInvalidLoadBalancerActionException:
+				fmt.Println(elbv2.ErrCodeInvalidLoadBalancerActionException, aerr.Error())
+			case elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException:
+				fmt.Println(elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException, aerr.Error())
+			case elbv2.ErrCodeALPNPolicyNotSupportedException:
+				fmt.Println(elbv2.ErrCodeALPNPolicyNotSupportedException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}
@@ -1178,6 +1236,14 @@ func ExampleELBV2_ModifyRule_shared00() {
 				fmt.Println(elbv2.ErrCodeTooManyTargetsException, aerr.Error())
 			case elbv2.ErrCodeTargetGroupNotFoundException:
 				fmt.Println(elbv2.ErrCodeTargetGroupNotFoundException, aerr.Error())
+			case elbv2.ErrCodeUnsupportedProtocolException:
+				fmt.Println(elbv2.ErrCodeUnsupportedProtocolException, aerr.Error())
+			case elbv2.ErrCodeTooManyActionsException:
+				fmt.Println(elbv2.ErrCodeTooManyActionsException, aerr.Error())
+			case elbv2.ErrCodeInvalidLoadBalancerActionException:
+				fmt.Println(elbv2.ErrCodeInvalidLoadBalancerActionException, aerr.Error())
+			case elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException:
+				fmt.Println(elbv2.ErrCodeTooManyUniqueTargetGroupsPerLoadBalancerException, aerr.Error())
 			default:
 				fmt.Println(aerr.Error())
 			}

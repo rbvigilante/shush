@@ -9,14 +9,16 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awsutil"
 	"github.com/aws/aws-sdk-go/aws/request"
+	"github.com/aws/aws-sdk-go/private/protocol"
+	"github.com/aws/aws-sdk-go/private/protocol/jsonrpc"
 )
 
 const opCancelCluster = "CancelCluster"
 
 // CancelClusterRequest generates a "aws/request.Request" representing the
 // client's request for the CancelCluster operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -36,7 +38,7 @@ const opCancelCluster = "CancelCluster"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelCluster
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelCluster
 func (c *Snowball) CancelClusterRequest(input *CancelClusterInput) (req *request.Request, output *CancelClusterOutput) {
 	op := &request.Operation{
 		Name:       opCancelCluster,
@@ -50,6 +52,7 @@ func (c *Snowball) CancelClusterRequest(input *CancelClusterInput) (req *request
 
 	output = &CancelClusterOutput{}
 	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -66,20 +69,20 @@ func (c *Snowball) CancelClusterRequest(input *CancelClusterInput) (req *request
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation CancelCluster for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeKMSRequestFailedException "KMSRequestFailedException"
+// Returned Error Types:
+//   * KMSRequestFailedException
 //   The provided AWS Key Management Service key lacks the permissions to perform
 //   the specified CreateJob or UpdateJob action.
 //
-//   * ErrCodeInvalidJobStateException "InvalidJobStateException"
+//   * InvalidJobStateException
 //   The action can't be performed because the job's current state doesn't allow
 //   that action to be performed.
 //
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelCluster
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelCluster
 func (c *Snowball) CancelCluster(input *CancelClusterInput) (*CancelClusterOutput, error) {
 	req, out := c.CancelClusterRequest(input)
 	return out, req.Send()
@@ -105,8 +108,8 @@ const opCancelJob = "CancelJob"
 
 // CancelJobRequest generates a "aws/request.Request" representing the
 // client's request for the CancelJob operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -126,7 +129,7 @@ const opCancelJob = "CancelJob"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelJob
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelJob
 func (c *Snowball) CancelJobRequest(input *CancelJobInput) (req *request.Request, output *CancelJobOutput) {
 	op := &request.Operation{
 		Name:       opCancelJob,
@@ -140,6 +143,7 @@ func (c *Snowball) CancelJobRequest(input *CancelJobInput) (req *request.Request
 
 	output = &CancelJobOutput{}
 	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -147,8 +151,7 @@ func (c *Snowball) CancelJobRequest(input *CancelJobInput) (req *request.Request
 //
 // Cancels the specified job. You can only cancel a job before its JobState
 // value changes to PreparingAppliance. Requesting the ListJobs or DescribeJob
-// action will return a job's JobState as part of the response element data
-// returned.
+// action returns a job's JobState as part of the response element data returned.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -157,20 +160,20 @@ func (c *Snowball) CancelJobRequest(input *CancelJobInput) (req *request.Request
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation CancelJob for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-//   * ErrCodeInvalidJobStateException "InvalidJobStateException"
+//   * InvalidJobStateException
 //   The action can't be performed because the job's current state doesn't allow
 //   that action to be performed.
 //
-//   * ErrCodeKMSRequestFailedException "KMSRequestFailedException"
+//   * KMSRequestFailedException
 //   The provided AWS Key Management Service key lacks the permissions to perform
 //   the specified CreateJob or UpdateJob action.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelJob
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelJob
 func (c *Snowball) CancelJob(input *CancelJobInput) (*CancelJobOutput, error) {
 	req, out := c.CancelJobRequest(input)
 	return out, req.Send()
@@ -196,8 +199,8 @@ const opCreateAddress = "CreateAddress"
 
 // CreateAddressRequest generates a "aws/request.Request" representing the
 // client's request for the CreateAddress operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -217,7 +220,7 @@ const opCreateAddress = "CreateAddress"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateAddress
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateAddress
 func (c *Snowball) CreateAddressRequest(input *CreateAddressInput) (req *request.Request, output *CreateAddressOutput) {
 	op := &request.Operation{
 		Name:       opCreateAddress,
@@ -236,7 +239,7 @@ func (c *Snowball) CreateAddressRequest(input *CreateAddressInput) (req *request
 
 // CreateAddress API operation for Amazon Import/Export Snowball.
 //
-// Creates an address for a Snowball to be shipped to. In most regions, addresses
+// Creates an address for a Snow device to be shipped to. In most regions, addresses
 // are validated at the time of creation. The address you provide must be located
 // within the serviceable area of your region. If the address is invalid or
 // unsupported, then an exception is thrown.
@@ -248,17 +251,17 @@ func (c *Snowball) CreateAddressRequest(input *CreateAddressInput) (req *request
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation CreateAddress for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidAddressException "InvalidAddressException"
+// Returned Error Types:
+//   * InvalidAddressException
 //   The address provided was invalid. Check the address with your region's carrier,
 //   and try again.
 //
-//   * ErrCodeUnsupportedAddressException "UnsupportedAddressException"
+//   * UnsupportedAddressException
 //   The address is either outside the serviceable area for your region, or an
 //   error occurred. Check the address with your region's carrier and try again.
 //   If the issue persists, contact AWS Support.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateAddress
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateAddress
 func (c *Snowball) CreateAddress(input *CreateAddressInput) (*CreateAddressOutput, error) {
 	req, out := c.CreateAddressRequest(input)
 	return out, req.Send()
@@ -284,8 +287,8 @@ const opCreateCluster = "CreateCluster"
 
 // CreateClusterRequest generates a "aws/request.Request" representing the
 // client's request for the CreateCluster operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -305,7 +308,7 @@ const opCreateCluster = "CreateCluster"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateCluster
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateCluster
 func (c *Snowball) CreateClusterRequest(input *CreateClusterInput) (req *request.Request, output *CreateClusterOutput) {
 	op := &request.Operation{
 		Name:       opCreateCluster,
@@ -335,21 +338,25 @@ func (c *Snowball) CreateClusterRequest(input *CreateClusterInput) (req *request
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation CreateCluster for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-//   * ErrCodeKMSRequestFailedException "KMSRequestFailedException"
+//   * KMSRequestFailedException
 //   The provided AWS Key Management Service key lacks the permissions to perform
 //   the specified CreateJob or UpdateJob action.
 //
-//   * ErrCodeInvalidInputCombinationException "InvalidInputCombinationException"
-//   Job or cluster creation failed. One ore more inputs were invalid. Confirm
+//   * InvalidInputCombinationException
+//   Job or cluster creation failed. One or more inputs were invalid. Confirm
 //   that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType,
 //   and try again.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateCluster
+//   * Ec2RequestFailedException
+//   Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+//   action.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateCluster
 func (c *Snowball) CreateCluster(input *CreateClusterInput) (*CreateClusterOutput, error) {
 	req, out := c.CreateClusterRequest(input)
 	return out, req.Send()
@@ -375,8 +382,8 @@ const opCreateJob = "CreateJob"
 
 // CreateJobRequest generates a "aws/request.Request" representing the
 // client's request for the CreateJob operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -396,7 +403,7 @@ const opCreateJob = "CreateJob"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateJob
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateJob
 func (c *Snowball) CreateJobRequest(input *CreateJobInput) (req *request.Request, output *CreateJobOutput) {
 	op := &request.Operation{
 		Name:       opCreateJob,
@@ -417,9 +424,9 @@ func (c *Snowball) CreateJobRequest(input *CreateJobInput) (req *request.Request
 //
 // Creates a job to import or export data between Amazon S3 and your on-premises
 // data center. Your AWS account must have the right trust policies and permissions
-// in place to create a job for Snowball. If you're creating a job for a node
-// in a cluster, you only need to provide the clusterId value; the other job
-// attributes are inherited from the cluster.
+// in place to create a job for a Snow device. If you're creating a job for
+// a node in a cluster, you only need to provide the clusterId value; the other
+// job attributes are inherited from the cluster.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -428,27 +435,31 @@ func (c *Snowball) CreateJobRequest(input *CreateJobInput) (req *request.Request
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation CreateJob for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-//   * ErrCodeKMSRequestFailedException "KMSRequestFailedException"
+//   * KMSRequestFailedException
 //   The provided AWS Key Management Service key lacks the permissions to perform
 //   the specified CreateJob or UpdateJob action.
 //
-//   * ErrCodeInvalidInputCombinationException "InvalidInputCombinationException"
-//   Job or cluster creation failed. One ore more inputs were invalid. Confirm
+//   * InvalidInputCombinationException
+//   Job or cluster creation failed. One or more inputs were invalid. Confirm
 //   that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType,
 //   and try again.
 //
-//   * ErrCodeClusterLimitExceededException "ClusterLimitExceededException"
+//   * ClusterLimitExceededException
 //   Job creation failed. Currently, clusters support five nodes. If you have
 //   less than five nodes for your cluster and you have more nodes to create for
 //   this cluster, try again and create jobs until your cluster has exactly five
 //   notes.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateJob
+//   * Ec2RequestFailedException
+//   Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+//   action.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateJob
 func (c *Snowball) CreateJob(input *CreateJobInput) (*CreateJobOutput, error) {
 	req, out := c.CreateJobRequest(input)
 	return out, req.Send()
@@ -470,12 +481,110 @@ func (c *Snowball) CreateJobWithContext(ctx aws.Context, input *CreateJobInput, 
 	return out, req.Send()
 }
 
+const opCreateReturnShippingLabel = "CreateReturnShippingLabel"
+
+// CreateReturnShippingLabelRequest generates a "aws/request.Request" representing the
+// client's request for the CreateReturnShippingLabel operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateReturnShippingLabel for more information on using the CreateReturnShippingLabel
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateReturnShippingLabelRequest method.
+//    req, resp := client.CreateReturnShippingLabelRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateReturnShippingLabel
+func (c *Snowball) CreateReturnShippingLabelRequest(input *CreateReturnShippingLabelInput) (req *request.Request, output *CreateReturnShippingLabelOutput) {
+	op := &request.Operation{
+		Name:       opCreateReturnShippingLabel,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &CreateReturnShippingLabelInput{}
+	}
+
+	output = &CreateReturnShippingLabelOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateReturnShippingLabel API operation for Amazon Import/Export Snowball.
+//
+// Creates a shipping label that will be used to return the Snow device to AWS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Import/Export Snowball's
+// API operation CreateReturnShippingLabel for usage and error information.
+//
+// Returned Error Types:
+//   * InvalidResourceException
+//   The specified resource can't be found. Check the information you provided
+//   in your last request, and try again.
+//
+//   * InvalidJobStateException
+//   The action can't be performed because the job's current state doesn't allow
+//   that action to be performed.
+//
+//   * InvalidInputCombinationException
+//   Job or cluster creation failed. One or more inputs were invalid. Confirm
+//   that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType,
+//   and try again.
+//
+//   * ConflictException
+//   You get this exception when you call CreateReturnShippingLabel more than
+//   once when other requests are not completed.
+//
+//   * ReturnShippingLabelAlreadyExistsException
+//   You get this exception if you call CreateReturnShippingLabel and a valid
+//   return shipping label already exists. In this case, use DescribeReturnShippingLabel
+//   to get the url.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateReturnShippingLabel
+func (c *Snowball) CreateReturnShippingLabel(input *CreateReturnShippingLabelInput) (*CreateReturnShippingLabelOutput, error) {
+	req, out := c.CreateReturnShippingLabelRequest(input)
+	return out, req.Send()
+}
+
+// CreateReturnShippingLabelWithContext is the same as CreateReturnShippingLabel with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateReturnShippingLabel for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Snowball) CreateReturnShippingLabelWithContext(ctx aws.Context, input *CreateReturnShippingLabelInput, opts ...request.Option) (*CreateReturnShippingLabelOutput, error) {
+	req, out := c.CreateReturnShippingLabelRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDescribeAddress = "DescribeAddress"
 
 // DescribeAddressRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeAddress operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -495,7 +604,7 @@ const opDescribeAddress = "DescribeAddress"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddress
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddress
 func (c *Snowball) DescribeAddressRequest(input *DescribeAddressInput) (req *request.Request, output *DescribeAddressOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAddress,
@@ -524,12 +633,12 @@ func (c *Snowball) DescribeAddressRequest(input *DescribeAddressInput) (req *req
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation DescribeAddress for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddress
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddress
 func (c *Snowball) DescribeAddress(input *DescribeAddressInput) (*DescribeAddressOutput, error) {
 	req, out := c.DescribeAddressRequest(input)
 	return out, req.Send()
@@ -555,8 +664,8 @@ const opDescribeAddresses = "DescribeAddresses"
 
 // DescribeAddressesRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeAddresses operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -576,7 +685,7 @@ const opDescribeAddresses = "DescribeAddresses"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddresses
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddresses
 func (c *Snowball) DescribeAddressesRequest(input *DescribeAddressesInput) (req *request.Request, output *DescribeAddressesOutput) {
 	op := &request.Operation{
 		Name:       opDescribeAddresses,
@@ -612,16 +721,16 @@ func (c *Snowball) DescribeAddressesRequest(input *DescribeAddressesInput) (req 
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation DescribeAddresses for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-//   * ErrCodeInvalidNextTokenException "InvalidNextTokenException"
+//   * InvalidNextTokenException
 //   The NextToken string was altered unexpectedly, and the operation has stopped.
 //   Run the operation without changing the NextToken string, and try again.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddresses
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddresses
 func (c *Snowball) DescribeAddresses(input *DescribeAddressesInput) (*DescribeAddressesOutput, error) {
 	req, out := c.DescribeAddressesRequest(input)
 	return out, req.Send()
@@ -654,7 +763,7 @@ func (c *Snowball) DescribeAddressesWithContext(ctx aws.Context, input *Describe
 //    // Example iterating over at most 3 pages of a DescribeAddresses operation.
 //    pageNum := 0
 //    err := client.DescribeAddressesPages(params,
-//        func(page *DescribeAddressesOutput, lastPage bool) bool {
+//        func(page *snowball.DescribeAddressesOutput, lastPage bool) bool {
 //            pageNum++
 //            fmt.Println(page)
 //            return pageNum <= 3
@@ -686,10 +795,12 @@ func (c *Snowball) DescribeAddressesPagesWithContext(ctx aws.Context, input *Des
 		},
 	}
 
-	cont := true
-	for p.Next() && cont {
-		cont = fn(p.Page().(*DescribeAddressesOutput), !p.HasNextPage())
+	for p.Next() {
+		if !fn(p.Page().(*DescribeAddressesOutput), !p.HasNextPage()) {
+			break
+		}
 	}
+
 	return p.Err()
 }
 
@@ -697,8 +808,8 @@ const opDescribeCluster = "DescribeCluster"
 
 // DescribeClusterRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeCluster operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -718,7 +829,7 @@ const opDescribeCluster = "DescribeCluster"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeCluster
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeCluster
 func (c *Snowball) DescribeClusterRequest(input *DescribeClusterInput) (req *request.Request, output *DescribeClusterOutput) {
 	op := &request.Operation{
 		Name:       opDescribeCluster,
@@ -747,12 +858,12 @@ func (c *Snowball) DescribeClusterRequest(input *DescribeClusterInput) (req *req
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation DescribeCluster for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeCluster
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeCluster
 func (c *Snowball) DescribeCluster(input *DescribeClusterInput) (*DescribeClusterOutput, error) {
 	req, out := c.DescribeClusterRequest(input)
 	return out, req.Send()
@@ -778,8 +889,8 @@ const opDescribeJob = "DescribeJob"
 
 // DescribeJobRequest generates a "aws/request.Request" representing the
 // client's request for the DescribeJob operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -799,7 +910,7 @@ const opDescribeJob = "DescribeJob"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeJob
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeJob
 func (c *Snowball) DescribeJobRequest(input *DescribeJobInput) (req *request.Request, output *DescribeJobOutput) {
 	op := &request.Operation{
 		Name:       opDescribeJob,
@@ -828,12 +939,12 @@ func (c *Snowball) DescribeJobRequest(input *DescribeJobInput) (req *request.Req
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation DescribeJob for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeJob
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeJob
 func (c *Snowball) DescribeJob(input *DescribeJobInput) (*DescribeJobOutput, error) {
 	req, out := c.DescribeJobRequest(input)
 	return out, req.Send()
@@ -855,12 +966,101 @@ func (c *Snowball) DescribeJobWithContext(ctx aws.Context, input *DescribeJobInp
 	return out, req.Send()
 }
 
+const opDescribeReturnShippingLabel = "DescribeReturnShippingLabel"
+
+// DescribeReturnShippingLabelRequest generates a "aws/request.Request" representing the
+// client's request for the DescribeReturnShippingLabel operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeReturnShippingLabel for more information on using the DescribeReturnShippingLabel
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeReturnShippingLabelRequest method.
+//    req, resp := client.DescribeReturnShippingLabelRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeReturnShippingLabel
+func (c *Snowball) DescribeReturnShippingLabelRequest(input *DescribeReturnShippingLabelInput) (req *request.Request, output *DescribeReturnShippingLabelOutput) {
+	op := &request.Operation{
+		Name:       opDescribeReturnShippingLabel,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeReturnShippingLabelInput{}
+	}
+
+	output = &DescribeReturnShippingLabelOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeReturnShippingLabel API operation for Amazon Import/Export Snowball.
+//
+// Information on the shipping label of a Snow device that is being returned
+// to AWS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Import/Export Snowball's
+// API operation DescribeReturnShippingLabel for usage and error information.
+//
+// Returned Error Types:
+//   * InvalidResourceException
+//   The specified resource can't be found. Check the information you provided
+//   in your last request, and try again.
+//
+//   * InvalidJobStateException
+//   The action can't be performed because the job's current state doesn't allow
+//   that action to be performed.
+//
+//   * ConflictException
+//   You get this exception when you call CreateReturnShippingLabel more than
+//   once when other requests are not completed.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeReturnShippingLabel
+func (c *Snowball) DescribeReturnShippingLabel(input *DescribeReturnShippingLabelInput) (*DescribeReturnShippingLabelOutput, error) {
+	req, out := c.DescribeReturnShippingLabelRequest(input)
+	return out, req.Send()
+}
+
+// DescribeReturnShippingLabelWithContext is the same as DescribeReturnShippingLabel with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeReturnShippingLabel for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Snowball) DescribeReturnShippingLabelWithContext(ctx aws.Context, input *DescribeReturnShippingLabelInput, opts ...request.Option) (*DescribeReturnShippingLabelOutput, error) {
+	req, out := c.DescribeReturnShippingLabelRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetJobManifest = "GetJobManifest"
 
 // GetJobManifestRequest generates a "aws/request.Request" representing the
 // client's request for the GetJobManifest operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -880,7 +1080,7 @@ const opGetJobManifest = "GetJobManifest"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobManifest
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobManifest
 func (c *Snowball) GetJobManifestRequest(input *GetJobManifestInput) (req *request.Request, output *GetJobManifestOutput) {
 	op := &request.Operation{
 		Name:       opGetJobManifest,
@@ -907,13 +1107,13 @@ func (c *Snowball) GetJobManifestRequest(input *GetJobManifestInput) (req *reque
 //
 // The manifest is an encrypted file that you can download after your job enters
 // the WithCustomer status. The manifest is decrypted by using the UnlockCode
-// code value, when you pass both values to the Snowball through the Snowball
+// code value, when you pass both values to the Snow device through the Snowball
 // client when the client is started for the first time.
 //
 // As a best practice, we recommend that you don't save a copy of an UnlockCode
 // value in the same location as the manifest file for that job. Saving these
 // separately helps prevent unauthorized parties from gaining access to the
-// Snowball associated with that job.
+// Snow device associated with that job.
 //
 // The credentials of a given job, including its manifest file and unlock code,
 // expire 90 days after the job is created.
@@ -925,16 +1125,16 @@ func (c *Snowball) GetJobManifestRequest(input *GetJobManifestInput) (req *reque
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation GetJobManifest for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-//   * ErrCodeInvalidJobStateException "InvalidJobStateException"
+//   * InvalidJobStateException
 //   The action can't be performed because the job's current state doesn't allow
 //   that action to be performed.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobManifest
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobManifest
 func (c *Snowball) GetJobManifest(input *GetJobManifestInput) (*GetJobManifestOutput, error) {
 	req, out := c.GetJobManifestRequest(input)
 	return out, req.Send()
@@ -960,8 +1160,8 @@ const opGetJobUnlockCode = "GetJobUnlockCode"
 
 // GetJobUnlockCodeRequest generates a "aws/request.Request" representing the
 // client's request for the GetJobUnlockCode operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -981,7 +1181,7 @@ const opGetJobUnlockCode = "GetJobUnlockCode"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobUnlockCode
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobUnlockCode
 func (c *Snowball) GetJobUnlockCodeRequest(input *GetJobUnlockCodeInput) (req *request.Request, output *GetJobUnlockCodeOutput) {
 	op := &request.Operation{
 		Name:       opGetJobUnlockCode,
@@ -1006,13 +1206,13 @@ func (c *Snowball) GetJobUnlockCodeRequest(input *GetJobUnlockCodeInput) (req *r
 //
 // The UnlockCode value is a 29-character code with 25 alphanumeric characters
 // and 4 hyphens. This code is used to decrypt the manifest file when it is
-// passed along with the manifest to the Snowball through the Snowball client
+// passed along with the manifest to the Snow device through the Snowball client
 // when the client is started for the first time.
 //
 // As a best practice, we recommend that you don't save a copy of the UnlockCode
 // in the same location as the manifest file for that job. Saving these separately
-// helps prevent unauthorized parties from gaining access to the Snowball associated
-// with that job.
+// helps prevent unauthorized parties from gaining access to the Snow device
+// associated with that job.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1021,16 +1221,16 @@ func (c *Snowball) GetJobUnlockCodeRequest(input *GetJobUnlockCodeInput) (req *r
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation GetJobUnlockCode for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-//   * ErrCodeInvalidJobStateException "InvalidJobStateException"
+//   * InvalidJobStateException
 //   The action can't be performed because the job's current state doesn't allow
 //   that action to be performed.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobUnlockCode
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobUnlockCode
 func (c *Snowball) GetJobUnlockCode(input *GetJobUnlockCodeInput) (*GetJobUnlockCodeOutput, error) {
 	req, out := c.GetJobUnlockCodeRequest(input)
 	return out, req.Send()
@@ -1056,8 +1256,8 @@ const opGetSnowballUsage = "GetSnowballUsage"
 
 // GetSnowballUsageRequest generates a "aws/request.Request" representing the
 // client's request for the GetSnowballUsage operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1077,7 +1277,7 @@ const opGetSnowballUsage = "GetSnowballUsage"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetSnowballUsage
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetSnowballUsage
 func (c *Snowball) GetSnowballUsageRequest(input *GetSnowballUsageInput) (req *request.Request, output *GetSnowballUsageOutput) {
 	op := &request.Operation{
 		Name:       opGetSnowballUsage,
@@ -1096,11 +1296,12 @@ func (c *Snowball) GetSnowballUsageRequest(input *GetSnowballUsageInput) (req *r
 
 // GetSnowballUsage API operation for Amazon Import/Export Snowball.
 //
-// Returns information about the Snowball service limit for your account, and
-// also the number of Snowballs your account has in use.
+// Returns information about the Snow Family service limit for your account,
+// and also the number of Snow devices your account has in use.
 //
-// The default service limit for the number of Snowballs that you can have at
-// one time is 1. If you want to increase your service limit, contact AWS Support.
+// The default service limit for the number of Snow devices that you can have
+// at one time is 1. If you want to increase your service limit, contact AWS
+// Support.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1108,7 +1309,7 @@ func (c *Snowball) GetSnowballUsageRequest(input *GetSnowballUsageInput) (req *r
 //
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation GetSnowballUsage for usage and error information.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetSnowballUsage
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetSnowballUsage
 func (c *Snowball) GetSnowballUsage(input *GetSnowballUsageInput) (*GetSnowballUsageOutput, error) {
 	req, out := c.GetSnowballUsageRequest(input)
 	return out, req.Send()
@@ -1130,12 +1331,97 @@ func (c *Snowball) GetSnowballUsageWithContext(ctx aws.Context, input *GetSnowba
 	return out, req.Send()
 }
 
+const opGetSoftwareUpdates = "GetSoftwareUpdates"
+
+// GetSoftwareUpdatesRequest generates a "aws/request.Request" representing the
+// client's request for the GetSoftwareUpdates operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetSoftwareUpdates for more information on using the GetSoftwareUpdates
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the GetSoftwareUpdatesRequest method.
+//    req, resp := client.GetSoftwareUpdatesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetSoftwareUpdates
+func (c *Snowball) GetSoftwareUpdatesRequest(input *GetSoftwareUpdatesInput) (req *request.Request, output *GetSoftwareUpdatesOutput) {
+	op := &request.Operation{
+		Name:       opGetSoftwareUpdates,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &GetSoftwareUpdatesInput{}
+	}
+
+	output = &GetSoftwareUpdatesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetSoftwareUpdates API operation for Amazon Import/Export Snowball.
+//
+// Returns an Amazon S3 presigned URL for an update file associated with a specified
+// JobId.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Import/Export Snowball's
+// API operation GetSoftwareUpdates for usage and error information.
+//
+// Returned Error Types:
+//   * InvalidResourceException
+//   The specified resource can't be found. Check the information you provided
+//   in your last request, and try again.
+//
+//   * InvalidJobStateException
+//   The action can't be performed because the job's current state doesn't allow
+//   that action to be performed.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetSoftwareUpdates
+func (c *Snowball) GetSoftwareUpdates(input *GetSoftwareUpdatesInput) (*GetSoftwareUpdatesOutput, error) {
+	req, out := c.GetSoftwareUpdatesRequest(input)
+	return out, req.Send()
+}
+
+// GetSoftwareUpdatesWithContext is the same as GetSoftwareUpdates with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetSoftwareUpdates for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Snowball) GetSoftwareUpdatesWithContext(ctx aws.Context, input *GetSoftwareUpdatesInput, opts ...request.Option) (*GetSoftwareUpdatesOutput, error) {
+	req, out := c.GetSoftwareUpdatesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListClusterJobs = "ListClusterJobs"
 
 // ListClusterJobsRequest generates a "aws/request.Request" representing the
 // client's request for the ListClusterJobs operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1155,7 +1441,7 @@ const opListClusterJobs = "ListClusterJobs"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClusterJobs
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClusterJobs
 func (c *Snowball) ListClusterJobsRequest(input *ListClusterJobsInput) (req *request.Request, output *ListClusterJobsOutput) {
 	op := &request.Operation{
 		Name:       opListClusterJobs,
@@ -1185,16 +1471,16 @@ func (c *Snowball) ListClusterJobsRequest(input *ListClusterJobsInput) (req *req
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation ListClusterJobs for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-//   * ErrCodeInvalidNextTokenException "InvalidNextTokenException"
+//   * InvalidNextTokenException
 //   The NextToken string was altered unexpectedly, and the operation has stopped.
 //   Run the operation without changing the NextToken string, and try again.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClusterJobs
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClusterJobs
 func (c *Snowball) ListClusterJobs(input *ListClusterJobsInput) (*ListClusterJobsOutput, error) {
 	req, out := c.ListClusterJobsRequest(input)
 	return out, req.Send()
@@ -1220,8 +1506,8 @@ const opListClusters = "ListClusters"
 
 // ListClustersRequest generates a "aws/request.Request" representing the
 // client's request for the ListClusters operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1241,7 +1527,7 @@ const opListClusters = "ListClusters"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClusters
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClusters
 func (c *Snowball) ListClustersRequest(input *ListClustersInput) (req *request.Request, output *ListClustersOutput) {
 	op := &request.Operation{
 		Name:       opListClusters,
@@ -1271,12 +1557,12 @@ func (c *Snowball) ListClustersRequest(input *ListClustersInput) (req *request.R
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation ListClusters for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidNextTokenException "InvalidNextTokenException"
+// Returned Error Types:
+//   * InvalidNextTokenException
 //   The NextToken string was altered unexpectedly, and the operation has stopped.
 //   Run the operation without changing the NextToken string, and try again.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClusters
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClusters
 func (c *Snowball) ListClusters(input *ListClustersInput) (*ListClustersOutput, error) {
 	req, out := c.ListClustersRequest(input)
 	return out, req.Send()
@@ -1298,12 +1584,100 @@ func (c *Snowball) ListClustersWithContext(ctx aws.Context, input *ListClustersI
 	return out, req.Send()
 }
 
+const opListCompatibleImages = "ListCompatibleImages"
+
+// ListCompatibleImagesRequest generates a "aws/request.Request" representing the
+// client's request for the ListCompatibleImages operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListCompatibleImages for more information on using the ListCompatibleImages
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ListCompatibleImagesRequest method.
+//    req, resp := client.ListCompatibleImagesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListCompatibleImages
+func (c *Snowball) ListCompatibleImagesRequest(input *ListCompatibleImagesInput) (req *request.Request, output *ListCompatibleImagesOutput) {
+	op := &request.Operation{
+		Name:       opListCompatibleImages,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ListCompatibleImagesInput{}
+	}
+
+	output = &ListCompatibleImagesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListCompatibleImages API operation for Amazon Import/Export Snowball.
+//
+// This action returns a list of the different Amazon EC2 Amazon Machine Images
+// (AMIs) that are owned by your AWS account that would be supported for use
+// on a Snow device. Currently, supported AMIs are based on the CentOS 7 (x86_64)
+// - with Updates HVM, Ubuntu Server 14.04 LTS (HVM), and Ubuntu 16.04 LTS -
+// Xenial (HVM) images, available on the AWS Marketplace.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Import/Export Snowball's
+// API operation ListCompatibleImages for usage and error information.
+//
+// Returned Error Types:
+//   * InvalidNextTokenException
+//   The NextToken string was altered unexpectedly, and the operation has stopped.
+//   Run the operation without changing the NextToken string, and try again.
+//
+//   * Ec2RequestFailedException
+//   Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+//   action.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListCompatibleImages
+func (c *Snowball) ListCompatibleImages(input *ListCompatibleImagesInput) (*ListCompatibleImagesOutput, error) {
+	req, out := c.ListCompatibleImagesRequest(input)
+	return out, req.Send()
+}
+
+// ListCompatibleImagesWithContext is the same as ListCompatibleImages with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListCompatibleImages for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Snowball) ListCompatibleImagesWithContext(ctx aws.Context, input *ListCompatibleImagesInput, opts ...request.Option) (*ListCompatibleImagesOutput, error) {
+	req, out := c.ListCompatibleImagesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opListJobs = "ListJobs"
 
 // ListJobsRequest generates a "aws/request.Request" representing the
 // client's request for the ListJobs operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1323,7 +1697,7 @@ const opListJobs = "ListJobs"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListJobs
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListJobs
 func (c *Snowball) ListJobsRequest(input *ListJobsInput) (req *request.Request, output *ListJobsOutput) {
 	op := &request.Operation{
 		Name:       opListJobs,
@@ -1361,12 +1735,12 @@ func (c *Snowball) ListJobsRequest(input *ListJobsInput) (req *request.Request, 
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation ListJobs for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidNextTokenException "InvalidNextTokenException"
+// Returned Error Types:
+//   * InvalidNextTokenException
 //   The NextToken string was altered unexpectedly, and the operation has stopped.
 //   Run the operation without changing the NextToken string, and try again.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListJobs
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListJobs
 func (c *Snowball) ListJobs(input *ListJobsInput) (*ListJobsOutput, error) {
 	req, out := c.ListJobsRequest(input)
 	return out, req.Send()
@@ -1399,7 +1773,7 @@ func (c *Snowball) ListJobsWithContext(ctx aws.Context, input *ListJobsInput, op
 //    // Example iterating over at most 3 pages of a ListJobs operation.
 //    pageNum := 0
 //    err := client.ListJobsPages(params,
-//        func(page *ListJobsOutput, lastPage bool) bool {
+//        func(page *snowball.ListJobsOutput, lastPage bool) bool {
 //            pageNum++
 //            fmt.Println(page)
 //            return pageNum <= 3
@@ -1431,10 +1805,12 @@ func (c *Snowball) ListJobsPagesWithContext(ctx aws.Context, input *ListJobsInpu
 		},
 	}
 
-	cont := true
-	for p.Next() && cont {
-		cont = fn(p.Page().(*ListJobsOutput), !p.HasNextPage())
+	for p.Next() {
+		if !fn(p.Page().(*ListJobsOutput), !p.HasNextPage()) {
+			break
+		}
 	}
+
 	return p.Err()
 }
 
@@ -1442,8 +1818,8 @@ const opUpdateCluster = "UpdateCluster"
 
 // UpdateClusterRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateCluster operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1463,7 +1839,7 @@ const opUpdateCluster = "UpdateCluster"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateCluster
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateCluster
 func (c *Snowball) UpdateClusterRequest(input *UpdateClusterInput) (req *request.Request, output *UpdateClusterOutput) {
 	op := &request.Operation{
 		Name:       opUpdateCluster,
@@ -1477,6 +1853,7 @@ func (c *Snowball) UpdateClusterRequest(input *UpdateClusterInput) (req *request
 
 	output = &UpdateClusterOutput{}
 	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1494,25 +1871,29 @@ func (c *Snowball) UpdateClusterRequest(input *UpdateClusterInput) (req *request
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation UpdateCluster for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-//   * ErrCodeInvalidJobStateException "InvalidJobStateException"
+//   * InvalidJobStateException
 //   The action can't be performed because the job's current state doesn't allow
 //   that action to be performed.
 //
-//   * ErrCodeKMSRequestFailedException "KMSRequestFailedException"
+//   * KMSRequestFailedException
 //   The provided AWS Key Management Service key lacks the permissions to perform
 //   the specified CreateJob or UpdateJob action.
 //
-//   * ErrCodeInvalidInputCombinationException "InvalidInputCombinationException"
-//   Job or cluster creation failed. One ore more inputs were invalid. Confirm
+//   * InvalidInputCombinationException
+//   Job or cluster creation failed. One or more inputs were invalid. Confirm
 //   that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType,
 //   and try again.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateCluster
+//   * Ec2RequestFailedException
+//   Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+//   action.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateCluster
 func (c *Snowball) UpdateCluster(input *UpdateClusterInput) (*UpdateClusterOutput, error) {
 	req, out := c.UpdateClusterRequest(input)
 	return out, req.Send()
@@ -1538,8 +1919,8 @@ const opUpdateJob = "UpdateJob"
 
 // UpdateJobRequest generates a "aws/request.Request" representing the
 // client's request for the UpdateJob operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1559,7 +1940,7 @@ const opUpdateJob = "UpdateJob"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateJob
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateJob
 func (c *Snowball) UpdateJobRequest(input *UpdateJobInput) (req *request.Request, output *UpdateJobOutput) {
 	op := &request.Operation{
 		Name:       opUpdateJob,
@@ -1573,6 +1954,7 @@ func (c *Snowball) UpdateJobRequest(input *UpdateJobInput) (req *request.Request
 
 	output = &UpdateJobOutput{}
 	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -1589,31 +1971,35 @@ func (c *Snowball) UpdateJobRequest(input *UpdateJobInput) (req *request.Request
 // See the AWS API reference guide for Amazon Import/Export Snowball's
 // API operation UpdateJob for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidResourceException "InvalidResourceException"
+// Returned Error Types:
+//   * InvalidResourceException
 //   The specified resource can't be found. Check the information you provided
 //   in your last request, and try again.
 //
-//   * ErrCodeInvalidJobStateException "InvalidJobStateException"
+//   * InvalidJobStateException
 //   The action can't be performed because the job's current state doesn't allow
 //   that action to be performed.
 //
-//   * ErrCodeKMSRequestFailedException "KMSRequestFailedException"
+//   * KMSRequestFailedException
 //   The provided AWS Key Management Service key lacks the permissions to perform
 //   the specified CreateJob or UpdateJob action.
 //
-//   * ErrCodeInvalidInputCombinationException "InvalidInputCombinationException"
-//   Job or cluster creation failed. One ore more inputs were invalid. Confirm
+//   * InvalidInputCombinationException
+//   Job or cluster creation failed. One or more inputs were invalid. Confirm
 //   that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType,
 //   and try again.
 //
-//   * ErrCodeClusterLimitExceededException "ClusterLimitExceededException"
+//   * ClusterLimitExceededException
 //   Job creation failed. Currently, clusters support five nodes. If you have
 //   less than five nodes for your cluster and you have more nodes to create for
 //   this cluster, try again and create jobs until your cluster has exactly five
 //   notes.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateJob
+//   * Ec2RequestFailedException
+//   Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+//   action.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateJob
 func (c *Snowball) UpdateJob(input *UpdateJobInput) (*UpdateJobOutput, error) {
 	req, out := c.UpdateJobRequest(input)
 	return out, req.Send()
@@ -1635,25 +2021,109 @@ func (c *Snowball) UpdateJobWithContext(ctx aws.Context, input *UpdateJobInput, 
 	return out, req.Send()
 }
 
-// The address that you want the Snowball or Snowballs associated with a specific
-// job to be shipped to. Addresses are validated at the time of creation. The
-// address you provide must be located within the serviceable area of your region.
-// Although no individual elements of the Address are required, if the address
-// is invalid or unsupported, then an exception is thrown.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/Address
+const opUpdateJobShipmentState = "UpdateJobShipmentState"
+
+// UpdateJobShipmentStateRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateJobShipmentState operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateJobShipmentState for more information on using the UpdateJobShipmentState
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UpdateJobShipmentStateRequest method.
+//    req, resp := client.UpdateJobShipmentStateRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateJobShipmentState
+func (c *Snowball) UpdateJobShipmentStateRequest(input *UpdateJobShipmentStateInput) (req *request.Request, output *UpdateJobShipmentStateOutput) {
+	op := &request.Operation{
+		Name:       opUpdateJobShipmentState,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UpdateJobShipmentStateInput{}
+	}
+
+	output = &UpdateJobShipmentStateOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// UpdateJobShipmentState API operation for Amazon Import/Export Snowball.
+//
+// Updates the state when a the shipment states changes to a different state.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for Amazon Import/Export Snowball's
+// API operation UpdateJobShipmentState for usage and error information.
+//
+// Returned Error Types:
+//   * InvalidResourceException
+//   The specified resource can't be found. Check the information you provided
+//   in your last request, and try again.
+//
+//   * InvalidJobStateException
+//   The action can't be performed because the job's current state doesn't allow
+//   that action to be performed.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateJobShipmentState
+func (c *Snowball) UpdateJobShipmentState(input *UpdateJobShipmentStateInput) (*UpdateJobShipmentStateOutput, error) {
+	req, out := c.UpdateJobShipmentStateRequest(input)
+	return out, req.Send()
+}
+
+// UpdateJobShipmentStateWithContext is the same as UpdateJobShipmentState with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateJobShipmentState for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Snowball) UpdateJobShipmentStateWithContext(ctx aws.Context, input *UpdateJobShipmentStateInput, opts ...request.Option) (*UpdateJobShipmentStateOutput, error) {
+	req, out := c.UpdateJobShipmentStateRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// The address that you want the Snow device(s) associated with a specific job
+// to be shipped to. Addresses are validated at the time of creation. The address
+// you provide must be located within the serviceable area of your region. Although
+// no individual elements of the Address are required, if the address is invalid
+// or unsupported, then an exception is thrown.
 type Address struct {
 	_ struct{} `type:"structure"`
 
 	// The unique ID for an address.
 	AddressId *string `min:"40" type:"string"`
 
-	// The city in an address that a Snowball is to be delivered to.
+	// The city in an address that a Snow device is to be delivered to.
 	City *string `min:"1" type:"string"`
 
-	// The name of the company to receive a Snowball at an address.
+	// The name of the company to receive a Snow device at an address.
 	Company *string `min:"1" type:"string"`
 
-	// The country in an address that a Snowball is to be delivered to.
+	// The country in an address that a Snow device is to be delivered to.
 	Country *string `min:"1" type:"string"`
 
 	// If the address you are creating is a primary address, then set this option
@@ -1663,29 +2133,33 @@ type Address struct {
 	// This field is no longer used and the value is ignored.
 	Landmark *string `min:"1" type:"string"`
 
-	// The name of a person to receive a Snowball at an address.
+	// The name of a person to receive a Snow device at an address.
 	Name *string `min:"1" type:"string"`
 
-	// The phone number associated with an address that a Snowball is to be delivered
+	// The phone number associated with an address that a Snow device is to be delivered
 	// to.
 	PhoneNumber *string `min:"1" type:"string"`
 
-	// The postal code in an address that a Snowball is to be delivered to.
+	// The postal code in an address that a Snow device is to be delivered to.
 	PostalCode *string `min:"1" type:"string"`
 
 	// This field is no longer used and the value is ignored.
 	PrefectureOrDistrict *string `min:"1" type:"string"`
 
-	// The state or province in an address that a Snowball is to be delivered to.
+	// The state or province in an address that a Snow device is to be delivered
+	// to.
 	StateOrProvince *string `min:"1" type:"string"`
 
-	// The first line in a street address that a Snowball is to be delivered to.
+	// The first line in a street address that a Snow device is to be delivered
+	// to.
 	Street1 *string `min:"1" type:"string"`
 
-	// The second line in a street address that a Snowball is to be delivered to.
+	// The second line in a street address that a Snow device is to be delivered
+	// to.
 	Street2 *string `min:"1" type:"string"`
 
-	// The third line in a street address that a Snowball is to be delivered to.
+	// The third line in a street address that a Snow device is to be delivered
+	// to.
 	Street3 *string `min:"1" type:"string"`
 }
 
@@ -1832,7 +2306,6 @@ func (s *Address) SetStreet3(v string) *Address {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelClusterRequest
 type CancelClusterInput struct {
 	_ struct{} `type:"structure"`
 
@@ -1875,7 +2348,6 @@ func (s *CancelClusterInput) SetClusterId(v string) *CancelClusterInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelClusterResult
 type CancelClusterOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -1890,7 +2362,6 @@ func (s CancelClusterOutput) GoString() string {
 	return s.String()
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelJobRequest
 type CancelJobInput struct {
 	_ struct{} `type:"structure"`
 
@@ -1933,7 +2404,6 @@ func (s *CancelJobInput) SetJobId(v string) *CancelJobInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CancelJobResult
 type CancelJobOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -1948,8 +2418,66 @@ func (s CancelJobOutput) GoString() string {
 	return s.String()
 }
 
+// Job creation failed. Currently, clusters support five nodes. If you have
+// less than five nodes for your cluster and you have more nodes to create for
+// this cluster, try again and create jobs until your cluster has exactly five
+// notes.
+type ClusterLimitExceededException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ClusterLimitExceededException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClusterLimitExceededException) GoString() string {
+	return s.String()
+}
+
+func newErrorClusterLimitExceededException(v protocol.ResponseMetadata) error {
+	return &ClusterLimitExceededException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ClusterLimitExceededException) Code() string {
+	return "ClusterLimitExceededException"
+}
+
+// Message returns the exception's message.
+func (s *ClusterLimitExceededException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ClusterLimitExceededException) OrigErr() error {
+	return nil
+}
+
+func (s *ClusterLimitExceededException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ClusterLimitExceededException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ClusterLimitExceededException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Contains a cluster's state, a cluster's ID, and other important information.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ClusterListEntry
 type ClusterListEntry struct {
 	_ struct{} `type:"structure"`
 
@@ -1961,7 +2489,7 @@ type ClusterListEntry struct {
 	ClusterState *string `type:"string" enum:"ClusterState"`
 
 	// The creation date for this cluster.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `type:"timestamp"`
 
 	// Defines an optional description of the cluster, for example Environmental
 	// Data Cluster-01.
@@ -2003,7 +2531,6 @@ func (s *ClusterListEntry) SetDescription(v string) *ClusterListEntry {
 }
 
 // Contains metadata about a specific cluster.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ClusterMetadata
 type ClusterMetadata struct {
 	_ struct{} `type:"structure"`
 
@@ -2017,7 +2544,7 @@ type ClusterMetadata struct {
 	ClusterState *string `type:"string" enum:"ClusterState"`
 
 	// The creation date for this cluster.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `type:"timestamp"`
 
 	// The optional description of the cluster.
 	Description *string `min:"1" type:"string"`
@@ -2031,7 +2558,7 @@ type ClusterMetadata struct {
 	JobType *string `type:"string" enum:"JobType"`
 
 	// The KmsKeyARN Amazon Resource Name (ARN) associated with this cluster. This
-	// ARN was created using the CreateKey (http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
+	// ARN was created using the CreateKey (https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
 	// API action in AWS Key Management Service (AWS KMS).
 	KmsKeyARN *string `type:"string"`
 
@@ -2044,31 +2571,36 @@ type ClusterMetadata struct {
 	Resources *JobResource `type:"structure"`
 
 	// The role ARN associated with this cluster. This ARN was created using the
-	// CreateRole (http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
+	// CreateRole (https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
 	// API action in AWS Identity and Access Management (IAM).
 	RoleARN *string `type:"string"`
 
 	// The shipping speed for each node in this cluster. This speed doesn't dictate
-	// how soon you'll get each Snowball Edge appliance, rather it represents how
-	// quickly each appliance moves to its destination while in transit. Regional
-	// shipping speeds are as follows:
+	// how soon you'll get each device, rather it represents how quickly each device
+	// moves to its destination while in transit. Regional shipping speeds are as
+	// follows:
 	//
-	//    * In Australia, you have access to express shipping. Typically, appliances
+	//    * In Australia, you have access to express shipping. Typically, devices
 	//    shipped express are delivered in about a day.
 	//
 	//    * In the European Union (EU), you have access to express shipping. Typically,
-	//    Snowball Edges shipped express are delivered in about a day. In addition,
+	//    Snow devices shipped express are delivered in about a day. In addition,
 	//    most countries in the EU have access to standard shipping, which typically
 	//    takes less than a week, one way.
 	//
-	//    * In India, Snowball Edges are delivered in one to seven days.
+	//    * In India, Snow devices are delivered in one to seven days.
 	//
 	//    * In the US, you have access to one-day shipping and two-day shipping.
 	ShippingOption *string `type:"string" enum:"ShippingOption"`
 
-	// The type of AWS Snowball appliance to use for this cluster. Currently, the
-	// only supported appliance type for cluster jobs is EDGE.
+	// The type of AWS Snow device to use for this cluster.
+	//
+	// For cluster jobs, AWS Snow Family currently supports only the EDGE device
+	// type.
 	SnowballType *string `type:"string" enum:"Type"`
+
+	// The tax documents required in your AWS Region.
+	TaxDocuments *TaxDocuments `type:"structure"`
 }
 
 // String returns the string representation
@@ -2159,11 +2691,111 @@ func (s *ClusterMetadata) SetSnowballType(v string) *ClusterMetadata {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateAddressRequest
+// SetTaxDocuments sets the TaxDocuments field's value.
+func (s *ClusterMetadata) SetTaxDocuments(v *TaxDocuments) *ClusterMetadata {
+	s.TaxDocuments = v
+	return s
+}
+
+// A JSON-formatted object that describes a compatible Amazon Machine Image
+// (AMI), including the ID and name for a Snow device AMI. This AMI is compatible
+// with the device's physical hardware requirements, and it should be able to
+// be run in an SBE1 instance on the device.
+type CompatibleImage struct {
+	_ struct{} `type:"structure"`
+
+	// The unique identifier for an individual Snow device AMI.
+	AmiId *string `min:"1" type:"string"`
+
+	// The optional name of a compatible image.
+	Name *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s CompatibleImage) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CompatibleImage) GoString() string {
+	return s.String()
+}
+
+// SetAmiId sets the AmiId field's value.
+func (s *CompatibleImage) SetAmiId(v string) *CompatibleImage {
+	s.AmiId = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *CompatibleImage) SetName(v string) *CompatibleImage {
+	s.Name = &v
+	return s
+}
+
+// You get this exception when you call CreateReturnShippingLabel more than
+// once when other requests are not completed.
+type ConflictException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	ConflictResource *string `min:"1" type:"string"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ConflictException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConflictException) GoString() string {
+	return s.String()
+}
+
+func newErrorConflictException(v protocol.ResponseMetadata) error {
+	return &ConflictException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ConflictException) Code() string {
+	return "ConflictException"
+}
+
+// Message returns the exception's message.
+func (s *ConflictException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ConflictException) OrigErr() error {
+	return nil
+}
+
+func (s *ConflictException) Error() string {
+	return fmt.Sprintf("%s: %s\n%s", s.Code(), s.Message(), s.String())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ConflictException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ConflictException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 type CreateAddressInput struct {
 	_ struct{} `type:"structure"`
 
-	// The address that you want the Snowball shipped to.
+	// The address that you want the Snow device shipped to.
 	//
 	// Address is a required field
 	Address *Address `type:"structure" required:"true"`
@@ -2203,12 +2835,11 @@ func (s *CreateAddressInput) SetAddress(v *Address) *CreateAddressInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateAddressResult
 type CreateAddressOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The automatically generated ID for a specific address. You'll use this ID
-	// when you create a job to specify which address you want the Snowball for
+	// when you create a job to specify which address you want the Snow device for
 	// that job shipped to.
 	AddressId *string `min:"1" type:"string"`
 }
@@ -2229,11 +2860,10 @@ func (s *CreateAddressOutput) SetAddressId(v string) *CreateAddressOutput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateClusterRequest
 type CreateClusterInput struct {
 	_ struct{} `type:"structure"`
 
-	// The ID for the address that you want the cluster shipped to.>
+	// The ID for the address that you want the cluster shipped to.
 	//
 	// AddressId is a required field
 	AddressId *string `min:"40" type:"string" required:"true"`
@@ -2253,7 +2883,7 @@ type CreateClusterInput struct {
 	JobType *string `type:"string" required:"true" enum:"JobType"`
 
 	// The KmsKeyARN value that you want to associate with this cluster. KmsKeyARN
-	// values are created by using the CreateKey (http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
+	// values are created by using the CreateKey (https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
 	// API action in AWS Key Management Service (AWS KMS).
 	KmsKeyARN *string `type:"string"`
 
@@ -2268,35 +2898,53 @@ type CreateClusterInput struct {
 	Resources *JobResource `type:"structure" required:"true"`
 
 	// The RoleARN that you want to associate with this cluster. RoleArn values
-	// are created by using the CreateRole (http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
+	// are created by using the CreateRole (https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
 	// API action in AWS Identity and Access Management (IAM).
 	//
 	// RoleARN is a required field
 	RoleARN *string `type:"string" required:"true"`
 
 	// The shipping speed for each node in this cluster. This speed doesn't dictate
-	// how soon you'll get each Snowball Edge appliance, rather it represents how
-	// quickly each appliance moves to its destination while in transit. Regional
-	// shipping speeds are as follows:
+	// how soon you'll get each Snowball Edge device, rather it represents how quickly
+	// each device moves to its destination while in transit. Regional shipping
+	// speeds are as follows:
 	//
-	//    * In Australia, you have access to express shipping. Typically, appliances
+	//    * In Australia, you have access to express shipping. Typically, Snow devices
 	//    shipped express are delivered in about a day.
 	//
 	//    * In the European Union (EU), you have access to express shipping. Typically,
-	//    Snowball Edges shipped express are delivered in about a day. In addition,
+	//    Snow devices shipped express are delivered in about a day. In addition,
 	//    most countries in the EU have access to standard shipping, which typically
 	//    takes less than a week, one way.
 	//
-	//    * In India, Snowball Edges are delivered in one to seven days.
+	//    * In India, Snow device are delivered in one to seven days.
+	//
+	//    * In the United States of America (US), you have access to one-day shipping
+	//    and two-day shipping.
+	//
+	//    * In Australia, you have access to express shipping. Typically, devices
+	//    shipped express are delivered in about a day.
+	//
+	//    * In the European Union (EU), you have access to express shipping. Typically,
+	//    Snow devices shipped express are delivered in about a day. In addition,
+	//    most countries in the EU have access to standard shipping, which typically
+	//    takes less than a week, one way.
+	//
+	//    * In India, Snow device are delivered in one to seven days.
 	//
 	//    * In the US, you have access to one-day shipping and two-day shipping.
 	//
 	// ShippingOption is a required field
 	ShippingOption *string `type:"string" required:"true" enum:"ShippingOption"`
 
-	// The type of AWS Snowball appliance to use for this cluster. Currently, the
-	// only supported appliance type for cluster jobs is EDGE.
+	// The type of AWS Snow Family device to use for this cluster.
+	//
+	// For cluster jobs, AWS Snow Family currently supports only the EDGE device
+	// type.
 	SnowballType *string `type:"string" enum:"Type"`
+
+	// The tax documents required in your AWS Region.
+	TaxDocuments *TaxDocuments `type:"structure"`
 }
 
 // String returns the string representation
@@ -2408,7 +3056,12 @@ func (s *CreateClusterInput) SetSnowballType(v string) *CreateClusterInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateClusterResult
+// SetTaxDocuments sets the TaxDocuments field's value.
+func (s *CreateClusterInput) SetTaxDocuments(v *TaxDocuments) *CreateClusterInput {
+	s.TaxDocuments = v
+	return s
+}
+
 type CreateClusterOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2432,11 +3085,10 @@ func (s *CreateClusterOutput) SetClusterId(v string) *CreateClusterOutput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateJobRequest
 type CreateJobInput struct {
 	_ struct{} `type:"structure"`
 
-	// The ID for the address that you want the Snowball shipped to.
+	// The ID for the address that you want the Snow device shipped to.
 	AddressId *string `min:"40" type:"string"`
 
 	// The ID of a cluster. If you're creating a job for a node in a cluster, you
@@ -2448,6 +3100,9 @@ type CreateJobInput struct {
 	// Photos 2016-08-11.
 	Description *string `min:"1" type:"string"`
 
+	// Defines the device configuration for an AWS Snowcone job.
+	DeviceConfiguration *DeviceConfiguration `type:"structure"`
+
 	// The forwarding address ID for a job. This field is not supported in most
 	// regions.
 	ForwardingAddressId *string `min:"40" type:"string"`
@@ -2456,7 +3111,7 @@ type CreateJobInput struct {
 	JobType *string `type:"string" enum:"JobType"`
 
 	// The KmsKeyARN that you want to associate with this job. KmsKeyARNs are created
-	// using the CreateKey (http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
+	// using the CreateKey (https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
 	// AWS Key Management Service (KMS) API action.
 	KmsKeyARN *string `type:"string"`
 
@@ -2477,35 +3132,46 @@ type CreateJobInput struct {
 	Resources *JobResource `type:"structure"`
 
 	// The RoleARN that you want to associate with this job. RoleArns are created
-	// using the CreateRole (http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
+	// using the CreateRole (https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
 	// AWS Identity and Access Management (IAM) API action.
 	RoleARN *string `type:"string"`
 
 	// The shipping speed for this job. This speed doesn't dictate how soon you'll
-	// get the Snowball, rather it represents how quickly the Snowball moves to
-	// its destination while in transit. Regional shipping speeds are as follows:
+	// get the Snow device, rather it represents how quickly the Snow device moves
+	// to its destination while in transit. Regional shipping speeds are as follows:
 	//
-	//    * In Australia, you have access to express shipping. Typically, Snowballs
+	//    * In Australia, you have access to express shipping. Typically, Snow devices
 	//    shipped express are delivered in about a day.
 	//
 	//    * In the European Union (EU), you have access to express shipping. Typically,
-	//    Snowballs shipped express are delivered in about a day. In addition, most
-	//    countries in the EU have access to standard shipping, which typically
+	//    Snow devices shipped express are delivered in about a day. In addition,
+	//    most countries in the EU have access to standard shipping, which typically
 	//    takes less than a week, one way.
 	//
-	//    * In India, Snowballs are delivered in one to seven days.
+	//    * In India, Snow devices are delivered in one to seven days.
 	//
 	//    * In the US, you have access to one-day shipping and two-day shipping.
 	ShippingOption *string `type:"string" enum:"ShippingOption"`
 
 	// If your job is being created in one of the US regions, you have the option
-	// of specifying what size Snowball you'd like for this job. In all other regions,
-	// Snowballs come with 80 TB in storage capacity.
+	// of specifying what size Snow device you'd like for this job. In all other
+	// regions, Snowballs come with 80 TB in storage capacity.
 	SnowballCapacityPreference *string `type:"string" enum:"Capacity"`
 
-	// The type of AWS Snowball appliance to use for this job. Currently, the only
-	// supported appliance type for cluster jobs is EDGE.
+	// The type of AWS Snow Family device to use for this job.
+	//
+	// For cluster jobs, AWS Snow Family currently supports only the EDGE device
+	// type.
+	//
+	// The type of AWS Snow device to use for this job. Currently, the only supported
+	// device type for cluster jobs is EDGE.
+	//
+	// For more information, see Snowball Edge Device Options (https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html)
+	// in the Snowball Edge Developer Guide.
 	SnowballType *string `type:"string" enum:"Type"`
+
+	// The tax documents required in your AWS Region.
+	TaxDocuments *TaxDocuments `type:"structure"`
 }
 
 // String returns the string representation
@@ -2563,6 +3229,12 @@ func (s *CreateJobInput) SetDescription(v string) *CreateJobInput {
 	return s
 }
 
+// SetDeviceConfiguration sets the DeviceConfiguration field's value.
+func (s *CreateJobInput) SetDeviceConfiguration(v *DeviceConfiguration) *CreateJobInput {
+	s.DeviceConfiguration = v
+	return s
+}
+
 // SetForwardingAddressId sets the ForwardingAddressId field's value.
 func (s *CreateJobInput) SetForwardingAddressId(v string) *CreateJobInput {
 	s.ForwardingAddressId = &v
@@ -2617,7 +3289,12 @@ func (s *CreateJobInput) SetSnowballType(v string) *CreateJobInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/CreateJobResult
+// SetTaxDocuments sets the TaxDocuments field's value.
+func (s *CreateJobInput) SetTaxDocuments(v *TaxDocuments) *CreateJobInput {
+	s.TaxDocuments = v
+	return s
+}
+
 type CreateJobOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2641,25 +3318,101 @@ func (s *CreateJobOutput) SetJobId(v string) *CreateJobOutput {
 	return s
 }
 
-// Defines the real-time status of a Snowball's data transfer while the appliance
+type CreateReturnShippingLabelInput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID for a job that you want to create the return shipping label for. For
+	// example JID123e4567-e89b-12d3-a456-426655440000.
+	//
+	// JobId is a required field
+	JobId *string `min:"39" type:"string" required:"true"`
+
+	// The shipping speed for a particular job. This speed doesn't dictate how soon
+	// the device is returned to AWS. This speed represents how quickly it moves
+	// to its destination while in transit. Regional shipping speeds are as follows:
+	ShippingOption *string `type:"string" enum:"ShippingOption"`
+}
+
+// String returns the string representation
+func (s CreateReturnShippingLabelInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateReturnShippingLabelInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *CreateReturnShippingLabelInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "CreateReturnShippingLabelInput"}
+	if s.JobId == nil {
+		invalidParams.Add(request.NewErrParamRequired("JobId"))
+	}
+	if s.JobId != nil && len(*s.JobId) < 39 {
+		invalidParams.Add(request.NewErrParamMinLen("JobId", 39))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetJobId sets the JobId field's value.
+func (s *CreateReturnShippingLabelInput) SetJobId(v string) *CreateReturnShippingLabelInput {
+	s.JobId = &v
+	return s
+}
+
+// SetShippingOption sets the ShippingOption field's value.
+func (s *CreateReturnShippingLabelInput) SetShippingOption(v string) *CreateReturnShippingLabelInput {
+	s.ShippingOption = &v
+	return s
+}
+
+type CreateReturnShippingLabelOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The status information of the task on a Snow device that is being returned
+	// to AWS.
+	Status *string `type:"string" enum:"ShippingLabelStatus"`
+}
+
+// String returns the string representation
+func (s CreateReturnShippingLabelOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateReturnShippingLabelOutput) GoString() string {
+	return s.String()
+}
+
+// SetStatus sets the Status field's value.
+func (s *CreateReturnShippingLabelOutput) SetStatus(v string) *CreateReturnShippingLabelOutput {
+	s.Status = &v
+	return s
+}
+
+// Defines the real-time status of a Snow device's data transfer while the device
 // is at AWS. This data is only available while a job has a JobState value of
 // InProgress, for both import and export jobs.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DataTransfer
 type DataTransfer struct {
 	_ struct{} `type:"structure"`
 
-	// The number of bytes transferred between a Snowball and Amazon S3.
+	// The number of bytes transferred between a Snow device and Amazon S3.
 	BytesTransferred *int64 `type:"long"`
 
-	// The number of objects transferred between a Snowball and Amazon S3.
+	// The number of objects transferred between a Snow device and Amazon S3.
 	ObjectsTransferred *int64 `type:"long"`
 
-	// The total bytes of data for a transfer between a Snowball and Amazon S3.
+	// The total bytes of data for a transfer between a Snow device and Amazon S3.
 	// This value is set to 0 (zero) until all the keys that will be transferred
 	// have been listed.
 	TotalBytes *int64 `type:"long"`
 
-	// The total number of objects for a transfer between a Snowball and Amazon
+	// The total number of objects for a transfer between a Snow device and Amazon
 	// S3. This value is set to 0 (zero) until all the keys that will be transferred
 	// have been listed.
 	TotalObjects *int64 `type:"long"`
@@ -2699,7 +3452,6 @@ func (s *DataTransfer) SetTotalObjects(v int64) *DataTransfer {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddressRequest
 type DescribeAddressInput struct {
 	_ struct{} `type:"structure"`
 
@@ -2741,12 +3493,11 @@ func (s *DescribeAddressInput) SetAddressId(v string) *DescribeAddressInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddressResult
 type DescribeAddressOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The address that you want the Snowball or Snowballs associated with a specific
-	// job to be shipped to.
+	// The address that you want the Snow device(s) associated with a specific job
+	// to be shipped to.
 	Address *Address `type:"structure"`
 }
 
@@ -2766,7 +3517,6 @@ func (s *DescribeAddressOutput) SetAddress(v *Address) *DescribeAddressOutput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddressesRequest
 type DescribeAddressesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -2814,11 +3564,10 @@ func (s *DescribeAddressesInput) SetNextToken(v string) *DescribeAddressesInput 
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeAddressesResult
 type DescribeAddressesOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The Snowball shipping addresses that were created for this account.
+	// The Snow device shipping addresses that were created for this account.
 	Addresses []*Address `type:"list"`
 
 	// HTTP requests are stateless. If you use the automatically generated NextToken
@@ -2849,7 +3598,6 @@ func (s *DescribeAddressesOutput) SetNextToken(v string) *DescribeAddressesOutpu
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeClusterRequest
 type DescribeClusterInput struct {
 	_ struct{} `type:"structure"`
 
@@ -2891,7 +3639,6 @@ func (s *DescribeClusterInput) SetClusterId(v string) *DescribeClusterInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeClusterResult
 type DescribeClusterOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2916,7 +3663,6 @@ func (s *DescribeClusterOutput) SetClusterMetadata(v *ClusterMetadata) *Describe
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeJobRequest
 type DescribeJobInput struct {
 	_ struct{} `type:"structure"`
 
@@ -2958,7 +3704,6 @@ func (s *DescribeJobInput) SetJobId(v string) *DescribeJobInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/DescribeJobResult
 type DescribeJobOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2993,8 +3738,214 @@ func (s *DescribeJobOutput) SetSubJobMetadata(v []*JobMetadata) *DescribeJobOutp
 	return s
 }
 
+type DescribeReturnShippingLabelInput struct {
+	_ struct{} `type:"structure"`
+
+	// The automatically generated ID for a job, for example JID123e4567-e89b-12d3-a456-426655440000.
+	JobId *string `min:"39" type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeReturnShippingLabelInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeReturnShippingLabelInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DescribeReturnShippingLabelInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DescribeReturnShippingLabelInput"}
+	if s.JobId != nil && len(*s.JobId) < 39 {
+		invalidParams.Add(request.NewErrParamMinLen("JobId", 39))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetJobId sets the JobId field's value.
+func (s *DescribeReturnShippingLabelInput) SetJobId(v string) *DescribeReturnShippingLabelInput {
+	s.JobId = &v
+	return s
+}
+
+type DescribeReturnShippingLabelOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The expiration date of the current return shipping label.
+	ExpirationDate *time.Time `type:"timestamp"`
+
+	// The status information of the task on a Snow device that is being returned
+	// to AWS.
+	Status *string `type:"string" enum:"ShippingLabelStatus"`
+}
+
+// String returns the string representation
+func (s DescribeReturnShippingLabelOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeReturnShippingLabelOutput) GoString() string {
+	return s.String()
+}
+
+// SetExpirationDate sets the ExpirationDate field's value.
+func (s *DescribeReturnShippingLabelOutput) SetExpirationDate(v time.Time) *DescribeReturnShippingLabelOutput {
+	s.ExpirationDate = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *DescribeReturnShippingLabelOutput) SetStatus(v string) *DescribeReturnShippingLabelOutput {
+	s.Status = &v
+	return s
+}
+
+// The container for SnowconeDeviceConfiguration.
+type DeviceConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// Returns information about the device configuration for an AWS Snowcone job.
+	SnowconeDeviceConfiguration *SnowconeDeviceConfiguration `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeviceConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeviceConfiguration) GoString() string {
+	return s.String()
+}
+
+// SetSnowconeDeviceConfiguration sets the SnowconeDeviceConfiguration field's value.
+func (s *DeviceConfiguration) SetSnowconeDeviceConfiguration(v *SnowconeDeviceConfiguration) *DeviceConfiguration {
+	s.SnowconeDeviceConfiguration = v
+	return s
+}
+
+// A JSON-formatted object that contains the IDs for an Amazon Machine Image
+// (AMI), including the Amazon EC2 AMI ID and the Snow device AMI ID. Each AMI
+// has these two IDs to simplify identifying the AMI in both the AWS Cloud and
+// on the device.
+type Ec2AmiResource struct {
+	_ struct{} `type:"structure"`
+
+	// The ID of the AMI in Amazon EC2.
+	//
+	// AmiId is a required field
+	AmiId *string `min:"12" type:"string" required:"true"`
+
+	// The ID of the AMI on the Snow device.
+	SnowballAmiId *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s Ec2AmiResource) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Ec2AmiResource) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *Ec2AmiResource) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "Ec2AmiResource"}
+	if s.AmiId == nil {
+		invalidParams.Add(request.NewErrParamRequired("AmiId"))
+	}
+	if s.AmiId != nil && len(*s.AmiId) < 12 {
+		invalidParams.Add(request.NewErrParamMinLen("AmiId", 12))
+	}
+	if s.SnowballAmiId != nil && len(*s.SnowballAmiId) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SnowballAmiId", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAmiId sets the AmiId field's value.
+func (s *Ec2AmiResource) SetAmiId(v string) *Ec2AmiResource {
+	s.AmiId = &v
+	return s
+}
+
+// SetSnowballAmiId sets the SnowballAmiId field's value.
+func (s *Ec2AmiResource) SetSnowballAmiId(v string) *Ec2AmiResource {
+	s.SnowballAmiId = &v
+	return s
+}
+
+// Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+// action.
+type Ec2RequestFailedException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s Ec2RequestFailedException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Ec2RequestFailedException) GoString() string {
+	return s.String()
+}
+
+func newErrorEc2RequestFailedException(v protocol.ResponseMetadata) error {
+	return &Ec2RequestFailedException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *Ec2RequestFailedException) Code() string {
+	return "Ec2RequestFailedException"
+}
+
+// Message returns the exception's message.
+func (s *Ec2RequestFailedException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *Ec2RequestFailedException) OrigErr() error {
+	return nil
+}
+
+func (s *Ec2RequestFailedException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *Ec2RequestFailedException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *Ec2RequestFailedException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // The container for the EventTriggerDefinition$EventResourceARN.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/EventTriggerDefinition
 type EventTriggerDefinition struct {
 	_ struct{} `type:"structure"`
 
@@ -3019,7 +3970,6 @@ func (s *EventTriggerDefinition) SetEventResourceARN(v string) *EventTriggerDefi
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobManifestRequest
 type GetJobManifestInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3062,7 +4012,6 @@ func (s *GetJobManifestInput) SetJobId(v string) *GetJobManifestInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobManifestResult
 type GetJobManifestOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3087,7 +4036,6 @@ func (s *GetJobManifestOutput) SetManifestURI(v string) *GetJobManifestOutput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobUnlockCodeRequest
 type GetJobUnlockCodeInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3130,7 +4078,6 @@ func (s *GetJobUnlockCodeInput) SetJobId(v string) *GetJobUnlockCodeInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetJobUnlockCodeResult
 type GetJobUnlockCodeOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3155,7 +4102,6 @@ func (s *GetJobUnlockCodeOutput) SetUnlockCode(v string) *GetJobUnlockCodeOutput
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetSnowballUsageRequest
 type GetSnowballUsageInput struct {
 	_ struct{} `type:"structure"`
 }
@@ -3170,15 +4116,14 @@ func (s GetSnowballUsageInput) GoString() string {
 	return s.String()
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/GetSnowballUsageResult
 type GetSnowballUsageOutput struct {
 	_ struct{} `type:"structure"`
 
-	// The service limit for number of Snowballs this account can have at once.
+	// The service limit for number of Snow devices this account can have at once.
 	// The default service limit is 1 (one).
 	SnowballLimit *int64 `type:"integer"`
 
-	// The number of Snowballs that this account is currently using.
+	// The number of Snow devices that this account is currently using.
 	SnowballsInUse *int64 `type:"integer"`
 }
 
@@ -3204,25 +4149,405 @@ func (s *GetSnowballUsageOutput) SetSnowballsInUse(v int64) *GetSnowballUsageOut
 	return s
 }
 
+type GetSoftwareUpdatesInput struct {
+	_ struct{} `type:"structure"`
+
+	// The ID for a job that you want to get the software update file for, for example
+	// JID123e4567-e89b-12d3-a456-426655440000.
+	//
+	// JobId is a required field
+	JobId *string `min:"39" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s GetSoftwareUpdatesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetSoftwareUpdatesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetSoftwareUpdatesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetSoftwareUpdatesInput"}
+	if s.JobId == nil {
+		invalidParams.Add(request.NewErrParamRequired("JobId"))
+	}
+	if s.JobId != nil && len(*s.JobId) < 39 {
+		invalidParams.Add(request.NewErrParamMinLen("JobId", 39))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetJobId sets the JobId field's value.
+func (s *GetSoftwareUpdatesInput) SetJobId(v string) *GetSoftwareUpdatesInput {
+	s.JobId = &v
+	return s
+}
+
+type GetSoftwareUpdatesOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The Amazon S3 presigned URL for the update file associated with the specified
+	// JobId value. The software update will be available for 2 days after this
+	// request is made. To access an update after the 2 days have passed, you'll
+	// have to make another call to GetSoftwareUpdates.
+	UpdatesURI *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s GetSoftwareUpdatesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetSoftwareUpdatesOutput) GoString() string {
+	return s.String()
+}
+
+// SetUpdatesURI sets the UpdatesURI field's value.
+func (s *GetSoftwareUpdatesOutput) SetUpdatesURI(v string) *GetSoftwareUpdatesOutput {
+	s.UpdatesURI = &v
+	return s
+}
+
+// The tax documents required in AWS Regions in India.
+type INDTaxDocuments struct {
+	_ struct{} `type:"structure"`
+
+	// The Goods and Services Tax (GST) documents required in AWS Regions in India.
+	GSTIN *string `type:"string"`
+}
+
+// String returns the string representation
+func (s INDTaxDocuments) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s INDTaxDocuments) GoString() string {
+	return s.String()
+}
+
+// SetGSTIN sets the GSTIN field's value.
+func (s *INDTaxDocuments) SetGSTIN(v string) *INDTaxDocuments {
+	s.GSTIN = &v
+	return s
+}
+
+// The address provided was invalid. Check the address with your region's carrier,
+// and try again.
+type InvalidAddressException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidAddressException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidAddressException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidAddressException(v protocol.ResponseMetadata) error {
+	return &InvalidAddressException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidAddressException) Code() string {
+	return "InvalidAddressException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidAddressException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidAddressException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidAddressException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidAddressException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidAddressException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// Job or cluster creation failed. One or more inputs were invalid. Confirm
+// that the CreateClusterRequest$SnowballType value supports your CreateJobRequest$JobType,
+// and try again.
+type InvalidInputCombinationException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidInputCombinationException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidInputCombinationException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidInputCombinationException(v protocol.ResponseMetadata) error {
+	return &InvalidInputCombinationException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidInputCombinationException) Code() string {
+	return "InvalidInputCombinationException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidInputCombinationException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidInputCombinationException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidInputCombinationException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidInputCombinationException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidInputCombinationException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The action can't be performed because the job's current state doesn't allow
+// that action to be performed.
+type InvalidJobStateException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidJobStateException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidJobStateException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidJobStateException(v protocol.ResponseMetadata) error {
+	return &InvalidJobStateException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidJobStateException) Code() string {
+	return "InvalidJobStateException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidJobStateException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidJobStateException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidJobStateException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidJobStateException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidJobStateException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The NextToken string was altered unexpectedly, and the operation has stopped.
+// Run the operation without changing the NextToken string, and try again.
+type InvalidNextTokenException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidNextTokenException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidNextTokenException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidNextTokenException(v protocol.ResponseMetadata) error {
+	return &InvalidNextTokenException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidNextTokenException) Code() string {
+	return "InvalidNextTokenException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidNextTokenException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidNextTokenException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidNextTokenException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidNextTokenException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidNextTokenException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The specified resource can't be found. Check the information you provided
+// in your last request, and try again.
+type InvalidResourceException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+
+	// The provided resource value is invalid.
+	ResourceType *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidResourceException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidResourceException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidResourceException(v protocol.ResponseMetadata) error {
+	return &InvalidResourceException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidResourceException) Code() string {
+	return "InvalidResourceException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidResourceException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidResourceException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidResourceException) Error() string {
+	return fmt.Sprintf("%s: %s\n%s", s.Code(), s.Message(), s.String())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidResourceException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidResourceException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Each JobListEntry object contains a job's state, a job's ID, and a value
 // that indicates whether the job is a job part, in the case of an export job.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/JobListEntry
 type JobListEntry struct {
 	_ struct{} `type:"structure"`
 
 	// The creation date for this job.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `type:"timestamp"`
 
 	// The optional description of this specific job, for example Important Photos
 	// 2016-08-11.
 	Description *string `min:"1" type:"string"`
 
-	// A value that indicates that this job is a master job. A master job represents
-	// a successful request to create an export job. Master jobs aren't associated
-	// with any Snowballs. Instead, each master job will have at least one job part,
+	// A value that indicates that this job is a main job. A main job represents
+	// a successful request to create an export job. Main jobs aren't associated
+	// with any Snowballs. Instead, each main job will have at least one job part,
 	// and each job part is associated with a Snowball. It might take some time
-	// before the job parts associated with a particular master job are listed,
-	// because they are created after the master job is created.
+	// before the job parts associated with a particular main job are listed, because
+	// they are created after the main job is created.
 	IsMaster *bool `type:"boolean"`
 
 	// The automatically generated ID for a job, for example JID123e4567-e89b-12d3-a456-426655440000.
@@ -3234,7 +4559,7 @@ type JobListEntry struct {
 	// The type of job.
 	JobType *string `type:"string" enum:"JobType"`
 
-	// The type of appliance used with this job.
+	// The type of device used with this job.
 	SnowballType *string `type:"string" enum:"Type"`
 }
 
@@ -3290,17 +4615,17 @@ func (s *JobListEntry) SetSnowballType(v string) *JobListEntry {
 	return s
 }
 
-// Contains job logs. Whenever Snowball is used to import data into or export
-// data out of Amazon S3, you'll have the option of downloading a PDF job report.
-// Job logs are returned as a part of the response syntax of the DescribeJob
-// action in the JobMetadata data type. The job logs can be accessed for up
-// to 60 minutes after this request has been made. To access any of the job
-// logs after 60 minutes have passed, you'll have to make another call to the
-// DescribeJob action.
+// Contains job logs. Whenever a Snow device is used to import data into or
+// export data out of Amazon S3, you'll have the option of downloading a PDF
+// job report. Job logs are returned as a part of the response syntax of the
+// DescribeJob action in the JobMetadata data type. The job logs can be accessed
+// for up to 60 minutes after this request has been made. To access any of the
+// job logs after 60 minutes have passed, you'll have to make another call to
+// the DescribeJob action.
 //
 // For import jobs, the PDF job report becomes available at the end of the import
 // process. For export jobs, your job report typically becomes available while
-// the Snowball for your job part is being delivered to you.
+// the Snow device for your job part is being delivered to you.
 //
 // The job report provides you insight into the state of your Amazon S3 data
 // transfer. The report includes details about your job or job part for your
@@ -3310,7 +4635,6 @@ func (s *JobListEntry) SetSnowballType(v string) *JobListEntry {
 // look at the two associated logs: a success log and a failure log. The logs
 // are saved in comma-separated value (CSV) format, and the name of each log
 // includes the ID of the job or job part that the log describes.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/JobLogs
 type JobLogs struct {
 	_ struct{} `type:"structure"`
 
@@ -3355,26 +4679,28 @@ func (s *JobLogs) SetJobSuccessLogURI(v string) *JobLogs {
 // Contains information about a specific job including shipping information,
 // job status, and other important metadata. This information is returned as
 // a part of the response syntax of the DescribeJob action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/JobMetadata
 type JobMetadata struct {
 	_ struct{} `type:"structure"`
 
-	// The ID for the address that you want the Snowball shipped to.
+	// The ID for the address that you want the Snow device shipped to.
 	AddressId *string `min:"40" type:"string"`
 
 	// The 39-character ID for the cluster, for example CID123e4567-e89b-12d3-a456-426655440000.
 	ClusterId *string `min:"1" type:"string"`
 
 	// The creation date for this job.
-	CreationDate *time.Time `type:"timestamp" timestampFormat:"unix"`
+	CreationDate *time.Time `type:"timestamp"`
 
-	// A value that defines the real-time status of a Snowball's data transfer while
-	// the appliance is at AWS. This data is only available while a job has a JobState
-	// value of InProgress, for both import and export jobs.
+	// A value that defines the real-time status of a Snow device's data transfer
+	// while the device is at AWS. This data is only available while a job has a
+	// JobState value of InProgress, for both import and export jobs.
 	DataTransferProgress *DataTransfer `type:"structure"`
 
 	// The description of the job, provided at job creation.
 	Description *string `min:"1" type:"string"`
+
+	// The container for SnowconeDeviceConfiguration.
+	DeviceConfiguration *DeviceConfiguration `type:"structure"`
 
 	// The ID of the address that you want a job shipped to, after it will be shipped
 	// to its primary address. This field is not supported in most regions.
@@ -3385,8 +4711,8 @@ type JobMetadata struct {
 
 	// Links to Amazon S3 presigned URLs for the job report and logs. For import
 	// jobs, the PDF job report becomes available at the end of the import process.
-	// For export jobs, your job report typically becomes available while the Snowball
-	// for your job part is being delivered to you.
+	// For export jobs, your job report typically becomes available while the Snow
+	// device for your job part is being delivered to you.
 	JobLogInfo *JobLogs `type:"structure"`
 
 	// The current status of the jobs.
@@ -3396,7 +4722,7 @@ type JobMetadata struct {
 	JobType *string `type:"string" enum:"JobType"`
 
 	// The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS)
-	// key associated with this job. This ARN was created using the CreateKey (http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
+	// key associated with this job. This ARN was created using the CreateKey (https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html)
 	// API action in AWS KMS.
 	KmsKeyARN *string `type:"string"`
 
@@ -3411,7 +4737,7 @@ type JobMetadata struct {
 	Resources *JobResource `type:"structure"`
 
 	// The role ARN associated with this job. This ARN was created using the CreateRole
-	// (http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
+	// (https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
 	// API action in AWS Identity and Access Management (IAM).
 	RoleARN *string `type:"string"`
 
@@ -3419,13 +4745,16 @@ type JobMetadata struct {
 	// and shipping speed options.
 	ShippingDetails *ShippingDetails `type:"structure"`
 
-	// The Snowball capacity preference for this job, specified at job creation.
+	// The Snow device capacity preference for this job, specified at job creation.
 	// In US regions, you can choose between 50 TB and 80 TB Snowballs. All other
 	// regions use 80 TB capacity Snowballs.
 	SnowballCapacityPreference *string `type:"string" enum:"Capacity"`
 
-	// The type of appliance used with this job.
+	// The type of device used with this job.
 	SnowballType *string `type:"string" enum:"Type"`
+
+	// The metadata associated with the tax documents required in your AWS Region.
+	TaxDocuments *TaxDocuments `type:"structure"`
 }
 
 // String returns the string representation
@@ -3465,6 +4794,12 @@ func (s *JobMetadata) SetDataTransferProgress(v *DataTransfer) *JobMetadata {
 // SetDescription sets the Description field's value.
 func (s *JobMetadata) SetDescription(v string) *JobMetadata {
 	s.Description = &v
+	return s
+}
+
+// SetDeviceConfiguration sets the DeviceConfiguration field's value.
+func (s *JobMetadata) SetDeviceConfiguration(v *DeviceConfiguration) *JobMetadata {
+	s.DeviceConfiguration = v
 	return s
 }
 
@@ -3540,12 +4875,20 @@ func (s *JobMetadata) SetSnowballType(v string) *JobMetadata {
 	return s
 }
 
-// Contains an array of S3Resource objects. Each S3Resource object represents
-// an Amazon S3 bucket that your transferred data will be exported from or imported
-// into.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/JobResource
+// SetTaxDocuments sets the TaxDocuments field's value.
+func (s *JobMetadata) SetTaxDocuments(v *TaxDocuments) *JobMetadata {
+	s.TaxDocuments = v
+	return s
+}
+
+// Contains an array of AWS resource objects. Each object represents an Amazon
+// S3 bucket, an AWS Lambda function, or an Amazon Machine Image (AMI) based
+// on Amazon EC2 that is associated with a particular job.
 type JobResource struct {
 	_ struct{} `type:"structure"`
+
+	// The Amazon Machine Images (AMIs) associated with this job.
+	Ec2AmiResources []*Ec2AmiResource `type:"list"`
 
 	// The Python-language Lambda functions for this job.
 	LambdaResources []*LambdaResource `type:"list"`
@@ -3567,6 +4910,16 @@ func (s JobResource) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *JobResource) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "JobResource"}
+	if s.Ec2AmiResources != nil {
+		for i, v := range s.Ec2AmiResources {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Ec2AmiResources", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 	if s.S3Resources != nil {
 		for i, v := range s.S3Resources {
 			if v == nil {
@@ -3584,6 +4937,12 @@ func (s *JobResource) Validate() error {
 	return nil
 }
 
+// SetEc2AmiResources sets the Ec2AmiResources field's value.
+func (s *JobResource) SetEc2AmiResources(v []*Ec2AmiResource) *JobResource {
+	s.Ec2AmiResources = v
+	return s
+}
+
 // SetLambdaResources sets the LambdaResources field's value.
 func (s *JobResource) SetLambdaResources(v []*LambdaResource) *JobResource {
 	s.LambdaResources = v
@@ -3596,11 +4955,67 @@ func (s *JobResource) SetS3Resources(v []*S3Resource) *JobResource {
 	return s
 }
 
+// The provided AWS Key Management Service key lacks the permissions to perform
+// the specified CreateJob or UpdateJob action.
+type KMSRequestFailedException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s KMSRequestFailedException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s KMSRequestFailedException) GoString() string {
+	return s.String()
+}
+
+func newErrorKMSRequestFailedException(v protocol.ResponseMetadata) error {
+	return &KMSRequestFailedException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *KMSRequestFailedException) Code() string {
+	return "KMSRequestFailedException"
+}
+
+// Message returns the exception's message.
+func (s *KMSRequestFailedException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *KMSRequestFailedException) OrigErr() error {
+	return nil
+}
+
+func (s *KMSRequestFailedException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *KMSRequestFailedException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *KMSRequestFailedException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Contains a key range. For export jobs, a S3Resource object can have an optional
 // KeyRange value. The length of the range is defined at job creation, and has
 // either an inclusive BeginMarker, an inclusive EndMarker, or both. Ranges
 // are UTF-8 binary sorted.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/KeyRange
 type KeyRange struct {
 	_ struct{} `type:"structure"`
 
@@ -3652,7 +5067,6 @@ func (s *KeyRange) SetEndMarker(v string) *KeyRange {
 }
 
 // Identifies
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/LambdaResource
 type LambdaResource struct {
 	_ struct{} `type:"structure"`
 
@@ -3687,7 +5101,6 @@ func (s *LambdaResource) SetLambdaArn(v string) *LambdaResource {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClusterJobsRequest
 type ListClusterJobsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3752,7 +5165,6 @@ func (s *ListClusterJobsInput) SetNextToken(v string) *ListClusterJobsInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClusterJobsResult
 type ListClusterJobsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3788,7 +5200,6 @@ func (s *ListClusterJobsOutput) SetNextToken(v string) *ListClusterJobsOutput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClustersRequest
 type ListClustersInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3836,7 +5247,6 @@ func (s *ListClustersInput) SetNextToken(v string) *ListClustersInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListClustersResult
 type ListClustersOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3872,7 +5282,88 @@ func (s *ListClustersOutput) SetNextToken(v string) *ListClustersOutput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListJobsRequest
+type ListCompatibleImagesInput struct {
+	_ struct{} `type:"structure"`
+
+	// The maximum number of results for the list of compatible images. Currently,
+	// a Snowball Edge device can store 10 AMIs.
+	MaxResults *int64 `type:"integer"`
+
+	// HTTP requests are stateless. To identify what object comes "next" in the
+	// list of compatible images, you can specify a value for NextToken as the starting
+	// point for your list of returned images.
+	NextToken *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ListCompatibleImagesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListCompatibleImagesInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListCompatibleImagesInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListCompatibleImagesInput"}
+	if s.NextToken != nil && len(*s.NextToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NextToken", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListCompatibleImagesInput) SetMaxResults(v int64) *ListCompatibleImagesInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListCompatibleImagesInput) SetNextToken(v string) *ListCompatibleImagesInput {
+	s.NextToken = &v
+	return s
+}
+
+type ListCompatibleImagesOutput struct {
+	_ struct{} `type:"structure"`
+
+	// A JSON-formatted object that describes a compatible AMI, including the ID
+	// and name for a Snow device AMI.
+	CompatibleImages []*CompatibleImage `type:"list"`
+
+	// Because HTTP requests are stateless, this is the starting point for your
+	// next list of returned images.
+	NextToken *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ListCompatibleImagesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListCompatibleImagesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCompatibleImages sets the CompatibleImages field's value.
+func (s *ListCompatibleImagesOutput) SetCompatibleImages(v []*CompatibleImage) *ListCompatibleImagesOutput {
+	s.CompatibleImages = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListCompatibleImagesOutput) SetNextToken(v string) *ListCompatibleImagesOutput {
+	s.NextToken = &v
+	return s
+}
+
 type ListJobsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -3920,7 +5411,6 @@ func (s *ListJobsInput) SetNextToken(v string) *ListJobsInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListJobsResult
 type ListJobsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3965,7 +5455,6 @@ func (s *ListJobsOutput) SetNextToken(v string) *ListJobsOutput {
 // to notify based on a specific set of job states using the JobStatesToNotify
 // array of strings, or you can specify that you want to have Amazon SNS notifications
 // sent out for all job states with NotifyAll set to true.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/Notification
 type Notification struct {
 	_ struct{} `type:"structure"`
 
@@ -3976,11 +5465,11 @@ type Notification struct {
 	NotifyAll *bool `type:"boolean"`
 
 	// The new SNS TopicArn that you want to associate with this job. You can create
-	// Amazon Resource Names (ARNs) for topics by using the CreateTopic (http://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html)
+	// Amazon Resource Names (ARNs) for topics by using the CreateTopic (https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html)
 	// Amazon SNS API action.
 	//
 	// You can subscribe email addresses to an Amazon SNS topic through the AWS
-	// Management Console, or by using the Subscribe (http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)
+	// Management Console, or by using the Subscribe (https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)
 	// AWS Simple Notification Service (SNS) API action.
 	SnsTopicARN *string `type:"string"`
 }
@@ -4013,12 +5502,69 @@ func (s *Notification) SetSnsTopicARN(v string) *Notification {
 	return s
 }
 
+// You get this exception if you call CreateReturnShippingLabel and a valid
+// return shipping label already exists. In this case, use DescribeReturnShippingLabel
+// to get the url.
+type ReturnShippingLabelAlreadyExistsException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ReturnShippingLabelAlreadyExistsException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ReturnShippingLabelAlreadyExistsException) GoString() string {
+	return s.String()
+}
+
+func newErrorReturnShippingLabelAlreadyExistsException(v protocol.ResponseMetadata) error {
+	return &ReturnShippingLabelAlreadyExistsException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ReturnShippingLabelAlreadyExistsException) Code() string {
+	return "ReturnShippingLabelAlreadyExistsException"
+}
+
+// Message returns the exception's message.
+func (s *ReturnShippingLabelAlreadyExistsException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ReturnShippingLabelAlreadyExistsException) OrigErr() error {
+	return nil
+}
+
+func (s *ReturnShippingLabelAlreadyExistsException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ReturnShippingLabelAlreadyExistsException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ReturnShippingLabelAlreadyExistsException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Each S3Resource object represents an Amazon S3 bucket that your transferred
 // data will be exported from or imported into. For export jobs, this object
 // can have an optional KeyRange value. The length of the range is defined at
 // job creation, and has either an inclusive BeginMarker, an inclusive EndMarker,
 // or both. Ranges are UTF-8 binary sorted.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/S3Resource
 type S3Resource struct {
 	_ struct{} `type:"structure"`
 
@@ -4070,7 +5616,6 @@ func (s *S3Resource) SetKeyRange(v *KeyRange) *S3Resource {
 }
 
 // The Status and TrackingNumber information for an inbound or outbound shipment.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/Shipment
 type Shipment struct {
 	_ struct{} `type:"structure"`
 
@@ -4078,7 +5623,8 @@ type Shipment struct {
 	Status *string `min:"1" type:"string"`
 
 	// The tracking number for this job. Using this tracking number with your region's
-	// carrier's website, you can track a Snowball as the carrier transports it.
+	// carrier's website, you can track a Snow device as the carrier transports
+	// it.
 	//
 	// For India, the carrier is Amazon Logistics. For all other regions, UPS is
 	// the carrier.
@@ -4109,32 +5655,31 @@ func (s *Shipment) SetTrackingNumber(v string) *Shipment {
 
 // A job's shipping information, including inbound and outbound tracking numbers
 // and shipping speed options.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ShippingDetails
 type ShippingDetails struct {
 	_ struct{} `type:"structure"`
 
-	// The Status and TrackingNumber values for a Snowball being delivered to the
-	// address that you specified for a particular job.
+	// The Status and TrackingNumber values for a Snow device being returned to
+	// AWS for a particular job.
 	InboundShipment *Shipment `type:"structure"`
 
-	// The Status and TrackingNumber values for a Snowball being returned to AWS
-	// for a particular job.
+	// The Status and TrackingNumber values for a Snow device being delivered to
+	// the address that you specified for a particular job.
 	OutboundShipment *Shipment `type:"structure"`
 
 	// The shipping speed for a particular job. This speed doesn't dictate how soon
-	// you'll get the Snowball from the job's creation date. This speed represents
+	// you'll get the Snow device from the job's creation date. This speed represents
 	// how quickly it moves to its destination while in transit. Regional shipping
 	// speeds are as follows:
 	//
-	//    * In Australia, you have access to express shipping. Typically, Snowballs
+	//    * In Australia, you have access to express shipping. Typically, Snow devices
 	//    shipped express are delivered in about a day.
 	//
 	//    * In the European Union (EU), you have access to express shipping. Typically,
-	//    Snowballs shipped express are delivered in about a day. In addition, most
-	//    countries in the EU have access to standard shipping, which typically
+	//    Snow devices shipped express are delivered in about a day. In addition,
+	//    most countries in the EU have access to standard shipping, which typically
 	//    takes less than a week, one way.
 	//
-	//    * In India, Snowballs are delivered in one to seven days.
+	//    * In India, Snow device are delivered in one to seven days.
 	//
 	//    * In the United States of America (US), you have access to one-day shipping
 	//    and two-day shipping.
@@ -4169,7 +5714,112 @@ func (s *ShippingDetails) SetShippingOption(v string) *ShippingDetails {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateClusterRequest
+// Specifies the device configuration for an AWS Snowcone job.
+type SnowconeDeviceConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// Configures the wireless connection for the AWS Snowcone device.
+	WirelessConnection *WirelessConnection `type:"structure"`
+}
+
+// String returns the string representation
+func (s SnowconeDeviceConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SnowconeDeviceConfiguration) GoString() string {
+	return s.String()
+}
+
+// SetWirelessConnection sets the WirelessConnection field's value.
+func (s *SnowconeDeviceConfiguration) SetWirelessConnection(v *WirelessConnection) *SnowconeDeviceConfiguration {
+	s.WirelessConnection = v
+	return s
+}
+
+// The tax documents required in your AWS Region.
+type TaxDocuments struct {
+	_ struct{} `type:"structure"`
+
+	// The tax documents required in AWS Regions in India.
+	IND *INDTaxDocuments `type:"structure"`
+}
+
+// String returns the string representation
+func (s TaxDocuments) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TaxDocuments) GoString() string {
+	return s.String()
+}
+
+// SetIND sets the IND field's value.
+func (s *TaxDocuments) SetIND(v *INDTaxDocuments) *TaxDocuments {
+	s.IND = v
+	return s
+}
+
+// The address is either outside the serviceable area for your region, or an
+// error occurred. Check the address with your region's carrier and try again.
+// If the issue persists, contact AWS Support.
+type UnsupportedAddressException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"Message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s UnsupportedAddressException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnsupportedAddressException) GoString() string {
+	return s.String()
+}
+
+func newErrorUnsupportedAddressException(v protocol.ResponseMetadata) error {
+	return &UnsupportedAddressException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *UnsupportedAddressException) Code() string {
+	return "UnsupportedAddressException"
+}
+
+// Message returns the exception's message.
+func (s *UnsupportedAddressException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *UnsupportedAddressException) OrigErr() error {
+	return nil
+}
+
+func (s *UnsupportedAddressException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *UnsupportedAddressException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *UnsupportedAddressException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 type UpdateClusterInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4196,7 +5846,7 @@ type UpdateClusterInput struct {
 	Resources *JobResource `type:"structure"`
 
 	// The new role Amazon Resource Name (ARN) that you want to associate with this
-	// cluster. To create a role ARN, use the CreateRole (http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
+	// cluster. To create a role ARN, use the CreateRole (https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)
 	// API action in AWS Identity and Access Management (IAM).
 	RoleARN *string `type:"string"`
 
@@ -4292,7 +5942,6 @@ func (s *UpdateClusterInput) SetShippingOption(v string) *UpdateClusterInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateClusterResult
 type UpdateClusterOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -4307,7 +5956,6 @@ func (s UpdateClusterOutput) GoString() string {
 	return s.String()
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateJobRequest
 type UpdateJobInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4329,12 +5977,11 @@ type UpdateJobInput struct {
 	// The new or updated Notification object.
 	Notification *Notification `type:"structure"`
 
-	// The updated S3Resource object (for a single Amazon S3 bucket or key range),
-	// or the updated JobResource object (for multiple buckets or key ranges).
+	// The updated JobResource object, or the updated JobResource object.
 	Resources *JobResource `type:"structure"`
 
 	// The new role Amazon Resource Name (ARN) that you want to associate with this
-	// job. To create a role ARN, use the CreateRole (http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)AWS
+	// job. To create a role ARN, use the CreateRole (https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html)AWS
 	// Identity and Access Management (IAM) API action.
 	RoleARN *string `type:"string"`
 
@@ -4440,7 +6087,6 @@ func (s *UpdateJobInput) SetSnowballCapacityPreference(v string) *UpdateJobInput
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/UpdateJobResult
 type UpdateJobOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -4455,6 +6101,104 @@ func (s UpdateJobOutput) GoString() string {
 	return s.String()
 }
 
+type UpdateJobShipmentStateInput struct {
+	_ struct{} `type:"structure"`
+
+	// The job ID of the job whose shipment date you want to update, for example
+	// JID123e4567-e89b-12d3-a456-426655440000.
+	//
+	// JobId is a required field
+	JobId *string `min:"39" type:"string" required:"true"`
+
+	// The state of a device when it is being shipped.
+	//
+	// Set to RECEIVED when the device arrives at your location.
+	//
+	// Set to RETURNED when you have returned the device to AWS.
+	//
+	// ShipmentState is a required field
+	ShipmentState *string `type:"string" required:"true" enum:"ShipmentState"`
+}
+
+// String returns the string representation
+func (s UpdateJobShipmentStateInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UpdateJobShipmentStateInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateJobShipmentStateInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateJobShipmentStateInput"}
+	if s.JobId == nil {
+		invalidParams.Add(request.NewErrParamRequired("JobId"))
+	}
+	if s.JobId != nil && len(*s.JobId) < 39 {
+		invalidParams.Add(request.NewErrParamMinLen("JobId", 39))
+	}
+	if s.ShipmentState == nil {
+		invalidParams.Add(request.NewErrParamRequired("ShipmentState"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetJobId sets the JobId field's value.
+func (s *UpdateJobShipmentStateInput) SetJobId(v string) *UpdateJobShipmentStateInput {
+	s.JobId = &v
+	return s
+}
+
+// SetShipmentState sets the ShipmentState field's value.
+func (s *UpdateJobShipmentStateInput) SetShipmentState(v string) *UpdateJobShipmentStateInput {
+	s.ShipmentState = &v
+	return s
+}
+
+type UpdateJobShipmentStateOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s UpdateJobShipmentStateOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UpdateJobShipmentStateOutput) GoString() string {
+	return s.String()
+}
+
+// Configures the wireless connection on an AWS Snowcone device.
+type WirelessConnection struct {
+	_ struct{} `type:"structure"`
+
+	// Enables the Wi-Fi adapter on an AWS Snowcone device.
+	IsWifiEnabled *bool `type:"boolean"`
+}
+
+// String returns the string representation
+func (s WirelessConnection) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s WirelessConnection) GoString() string {
+	return s.String()
+}
+
+// SetIsWifiEnabled sets the IsWifiEnabled field's value.
+func (s *WirelessConnection) SetIsWifiEnabled(v bool) *WirelessConnection {
+	s.IsWifiEnabled = &v
+	return s
+}
+
 const (
 	// CapacityT50 is a Capacity enum value
 	CapacityT50 = "T50"
@@ -4465,9 +6209,31 @@ const (
 	// CapacityT100 is a Capacity enum value
 	CapacityT100 = "T100"
 
+	// CapacityT42 is a Capacity enum value
+	CapacityT42 = "T42"
+
+	// CapacityT98 is a Capacity enum value
+	CapacityT98 = "T98"
+
+	// CapacityT8 is a Capacity enum value
+	CapacityT8 = "T8"
+
 	// CapacityNoPreference is a Capacity enum value
 	CapacityNoPreference = "NoPreference"
 )
+
+// Capacity_Values returns all elements of the Capacity enum
+func Capacity_Values() []string {
+	return []string{
+		CapacityT50,
+		CapacityT80,
+		CapacityT100,
+		CapacityT42,
+		CapacityT98,
+		CapacityT8,
+		CapacityNoPreference,
+	}
+}
 
 const (
 	// ClusterStateAwaitingQuorum is a ClusterState enum value
@@ -4485,6 +6251,17 @@ const (
 	// ClusterStateCancelled is a ClusterState enum value
 	ClusterStateCancelled = "Cancelled"
 )
+
+// ClusterState_Values returns all elements of the ClusterState enum
+func ClusterState_Values() []string {
+	return []string{
+		ClusterStateAwaitingQuorum,
+		ClusterStatePending,
+		ClusterStateInUse,
+		ClusterStateComplete,
+		ClusterStateCancelled,
+	}
+}
 
 const (
 	// JobStateNew is a JobState enum value
@@ -4505,6 +6282,9 @@ const (
 	// JobStateInTransitToAws is a JobState enum value
 	JobStateInTransitToAws = "InTransitToAWS"
 
+	// JobStateWithAwssortingFacility is a JobState enum value
+	JobStateWithAwssortingFacility = "WithAWSSortingFacility"
+
 	// JobStateWithAws is a JobState enum value
 	JobStateWithAws = "WithAWS"
 
@@ -4524,6 +6304,25 @@ const (
 	JobStatePending = "Pending"
 )
 
+// JobState_Values returns all elements of the JobState enum
+func JobState_Values() []string {
+	return []string{
+		JobStateNew,
+		JobStatePreparingAppliance,
+		JobStatePreparingShipment,
+		JobStateInTransitToCustomer,
+		JobStateWithCustomer,
+		JobStateInTransitToAws,
+		JobStateWithAwssortingFacility,
+		JobStateWithAws,
+		JobStateInProgress,
+		JobStateComplete,
+		JobStateCancelled,
+		JobStateListing,
+		JobStatePending,
+	}
+}
+
 const (
 	// JobTypeImport is a JobType enum value
 	JobTypeImport = "IMPORT"
@@ -4534,6 +6333,55 @@ const (
 	// JobTypeLocalUse is a JobType enum value
 	JobTypeLocalUse = "LOCAL_USE"
 )
+
+// JobType_Values returns all elements of the JobType enum
+func JobType_Values() []string {
+	return []string{
+		JobTypeImport,
+		JobTypeExport,
+		JobTypeLocalUse,
+	}
+}
+
+const (
+	// ShipmentStateReceived is a ShipmentState enum value
+	ShipmentStateReceived = "RECEIVED"
+
+	// ShipmentStateReturned is a ShipmentState enum value
+	ShipmentStateReturned = "RETURNED"
+)
+
+// ShipmentState_Values returns all elements of the ShipmentState enum
+func ShipmentState_Values() []string {
+	return []string{
+		ShipmentStateReceived,
+		ShipmentStateReturned,
+	}
+}
+
+const (
+	// ShippingLabelStatusInProgress is a ShippingLabelStatus enum value
+	ShippingLabelStatusInProgress = "InProgress"
+
+	// ShippingLabelStatusTimedOut is a ShippingLabelStatus enum value
+	ShippingLabelStatusTimedOut = "TimedOut"
+
+	// ShippingLabelStatusSucceeded is a ShippingLabelStatus enum value
+	ShippingLabelStatusSucceeded = "Succeeded"
+
+	// ShippingLabelStatusFailed is a ShippingLabelStatus enum value
+	ShippingLabelStatusFailed = "Failed"
+)
+
+// ShippingLabelStatus_Values returns all elements of the ShippingLabelStatus enum
+func ShippingLabelStatus_Values() []string {
+	return []string{
+		ShippingLabelStatusInProgress,
+		ShippingLabelStatusTimedOut,
+		ShippingLabelStatusSucceeded,
+		ShippingLabelStatusFailed,
+	}
+}
 
 const (
 	// ShippingOptionSecondDay is a ShippingOption enum value
@@ -4549,10 +6397,44 @@ const (
 	ShippingOptionStandard = "STANDARD"
 )
 
+// ShippingOption_Values returns all elements of the ShippingOption enum
+func ShippingOption_Values() []string {
+	return []string{
+		ShippingOptionSecondDay,
+		ShippingOptionNextDay,
+		ShippingOptionExpress,
+		ShippingOptionStandard,
+	}
+}
+
 const (
 	// TypeStandard is a Type enum value
 	TypeStandard = "STANDARD"
 
 	// TypeEdge is a Type enum value
 	TypeEdge = "EDGE"
+
+	// TypeEdgeC is a Type enum value
+	TypeEdgeC = "EDGE_C"
+
+	// TypeEdgeCg is a Type enum value
+	TypeEdgeCg = "EDGE_CG"
+
+	// TypeEdgeS is a Type enum value
+	TypeEdgeS = "EDGE_S"
+
+	// TypeSnc1Hdd is a Type enum value
+	TypeSnc1Hdd = "SNC1_HDD"
 )
+
+// Type_Values returns all elements of the Type enum
+func Type_Values() []string {
+	return []string{
+		TypeStandard,
+		TypeEdge,
+		TypeEdgeC,
+		TypeEdgeCg,
+		TypeEdgeS,
+		TypeSnc1Hdd,
+	}
+}

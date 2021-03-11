@@ -17,8 +17,8 @@ const opAcknowledgeJob = "AcknowledgeJob"
 
 // AcknowledgeJobRequest generates a "aws/request.Request" representing the
 // client's request for the AcknowledgeJob operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -38,7 +38,7 @@ const opAcknowledgeJob = "AcknowledgeJob"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeJob
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeJob
 func (c *CodePipeline) AcknowledgeJobRequest(input *AcknowledgeJobInput) (req *request.Request, output *AcknowledgeJobOutput) {
 	op := &request.Operation{
 		Name:       opAcknowledgeJob,
@@ -58,7 +58,7 @@ func (c *CodePipeline) AcknowledgeJobRequest(input *AcknowledgeJobInput) (req *r
 // AcknowledgeJob API operation for AWS CodePipeline.
 //
 // Returns information about a specified job and whether that job has been received
-// by the job worker. Only used for custom actions.
+// by the job worker. Used for custom actions only.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -67,17 +67,17 @@ func (c *CodePipeline) AcknowledgeJobRequest(input *AcknowledgeJobInput) (req *r
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation AcknowledgeJob for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeInvalidNonceException "InvalidNonceException"
-//   The specified nonce was specified in an invalid format.
+//   * InvalidNonceException
+//   The nonce was specified in an invalid format.
 //
-//   * ErrCodeJobNotFoundException "JobNotFoundException"
-//   The specified job was specified in an invalid format or cannot be found.
+//   * JobNotFoundException
+//   The job was specified in an invalid format or cannot be found.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeJob
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeJob
 func (c *CodePipeline) AcknowledgeJob(input *AcknowledgeJobInput) (*AcknowledgeJobOutput, error) {
 	req, out := c.AcknowledgeJobRequest(input)
 	return out, req.Send()
@@ -103,8 +103,8 @@ const opAcknowledgeThirdPartyJob = "AcknowledgeThirdPartyJob"
 
 // AcknowledgeThirdPartyJobRequest generates a "aws/request.Request" representing the
 // client's request for the AcknowledgeThirdPartyJob operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -124,7 +124,7 @@ const opAcknowledgeThirdPartyJob = "AcknowledgeThirdPartyJob"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeThirdPartyJob
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeThirdPartyJob
 func (c *CodePipeline) AcknowledgeThirdPartyJobRequest(input *AcknowledgeThirdPartyJobInput) (req *request.Request, output *AcknowledgeThirdPartyJobOutput) {
 	op := &request.Operation{
 		Name:       opAcknowledgeThirdPartyJob,
@@ -143,8 +143,8 @@ func (c *CodePipeline) AcknowledgeThirdPartyJobRequest(input *AcknowledgeThirdPa
 
 // AcknowledgeThirdPartyJob API operation for AWS CodePipeline.
 //
-// Confirms a job worker has received the specified job. Only used for partner
-// actions.
+// Confirms a job worker has received the specified job. Used for partner actions
+// only.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -153,20 +153,20 @@ func (c *CodePipeline) AcknowledgeThirdPartyJobRequest(input *AcknowledgeThirdPa
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation AcknowledgeThirdPartyJob for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeInvalidNonceException "InvalidNonceException"
-//   The specified nonce was specified in an invalid format.
+//   * InvalidNonceException
+//   The nonce was specified in an invalid format.
 //
-//   * ErrCodeJobNotFoundException "JobNotFoundException"
-//   The specified job was specified in an invalid format or cannot be found.
+//   * JobNotFoundException
+//   The job was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeInvalidClientTokenException "InvalidClientTokenException"
+//   * InvalidClientTokenException
 //   The client token was specified in an invalid format
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeThirdPartyJob
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeThirdPartyJob
 func (c *CodePipeline) AcknowledgeThirdPartyJob(input *AcknowledgeThirdPartyJobInput) (*AcknowledgeThirdPartyJobOutput, error) {
 	req, out := c.AcknowledgeThirdPartyJobRequest(input)
 	return out, req.Send()
@@ -192,8 +192,8 @@ const opCreateCustomActionType = "CreateCustomActionType"
 
 // CreateCustomActionTypeRequest generates a "aws/request.Request" representing the
 // client's request for the CreateCustomActionType operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -213,7 +213,7 @@ const opCreateCustomActionType = "CreateCustomActionType"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreateCustomActionType
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreateCustomActionType
 func (c *CodePipeline) CreateCustomActionTypeRequest(input *CreateCustomActionTypeInput) (req *request.Request, output *CreateCustomActionTypeOutput) {
 	op := &request.Operation{
 		Name:       opCreateCustomActionType,
@@ -242,15 +242,24 @@ func (c *CodePipeline) CreateCustomActionTypeRequest(input *CreateCustomActionTy
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation CreateCustomActionType for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeLimitExceededException "LimitExceededException"
+//   * LimitExceededException
 //   The number of pipelines associated with the AWS account has exceeded the
 //   limit allowed for the account.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreateCustomActionType
+//   * TooManyTagsException
+//   The tags limit for a resource has been exceeded.
+//
+//   * InvalidTagsException
+//   The specified resource tags are invalid.
+//
+//   * ConcurrentModificationException
+//   Unable to modify the tag due to a simultaneous update request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreateCustomActionType
 func (c *CodePipeline) CreateCustomActionType(input *CreateCustomActionTypeInput) (*CreateCustomActionTypeOutput, error) {
 	req, out := c.CreateCustomActionTypeRequest(input)
 	return out, req.Send()
@@ -276,8 +285,8 @@ const opCreatePipeline = "CreatePipeline"
 
 // CreatePipelineRequest generates a "aws/request.Request" representing the
 // client's request for the CreatePipeline operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -297,7 +306,7 @@ const opCreatePipeline = "CreatePipeline"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreatePipeline
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreatePipeline
 func (c *CodePipeline) CreatePipelineRequest(input *CreatePipelineInput) (req *request.Request, output *CreatePipelineOutput) {
 	op := &request.Operation{
 		Name:       opCreatePipeline,
@@ -318,6 +327,10 @@ func (c *CodePipeline) CreatePipelineRequest(input *CreatePipelineInput) (req *r
 //
 // Creates a pipeline.
 //
+// In the pipeline structure, you must include either artifactStore or artifactStores
+// in your pipeline, but you cannot use both. If you create a cross-region action
+// in your pipeline, you must use artifactStores.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -325,30 +338,39 @@ func (c *CodePipeline) CreatePipelineRequest(input *CreatePipelineInput) (req *r
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation CreatePipeline for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodePipelineNameInUseException "PipelineNameInUseException"
+//   * PipelineNameInUseException
 //   The specified pipeline name is already in use.
 //
-//   * ErrCodeInvalidStageDeclarationException "InvalidStageDeclarationException"
-//   The specified stage declaration was specified in an invalid format.
+//   * InvalidStageDeclarationException
+//   The stage declaration was specified in an invalid format.
 //
-//   * ErrCodeInvalidActionDeclarationException "InvalidActionDeclarationException"
-//   The specified action declaration was specified in an invalid format.
+//   * InvalidActionDeclarationException
+//   The action declaration was specified in an invalid format.
 //
-//   * ErrCodeInvalidBlockerDeclarationException "InvalidBlockerDeclarationException"
+//   * InvalidBlockerDeclarationException
 //   Reserved for future use.
 //
-//   * ErrCodeInvalidStructureException "InvalidStructureException"
-//   The specified structure was specified in an invalid format.
+//   * InvalidStructureException
+//   The structure was specified in an invalid format.
 //
-//   * ErrCodeLimitExceededException "LimitExceededException"
+//   * LimitExceededException
 //   The number of pipelines associated with the AWS account has exceeded the
 //   limit allowed for the account.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreatePipeline
+//   * TooManyTagsException
+//   The tags limit for a resource has been exceeded.
+//
+//   * InvalidTagsException
+//   The specified resource tags are invalid.
+//
+//   * ConcurrentModificationException
+//   Unable to modify the tag due to a simultaneous update request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreatePipeline
 func (c *CodePipeline) CreatePipeline(input *CreatePipelineInput) (*CreatePipelineOutput, error) {
 	req, out := c.CreatePipelineRequest(input)
 	return out, req.Send()
@@ -374,8 +396,8 @@ const opDeleteCustomActionType = "DeleteCustomActionType"
 
 // DeleteCustomActionTypeRequest generates a "aws/request.Request" representing the
 // client's request for the DeleteCustomActionType operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -395,7 +417,7 @@ const opDeleteCustomActionType = "DeleteCustomActionType"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeleteCustomActionType
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeleteCustomActionType
 func (c *CodePipeline) DeleteCustomActionTypeRequest(input *DeleteCustomActionTypeInput) (req *request.Request, output *DeleteCustomActionTypeOutput) {
 	op := &request.Operation{
 		Name:       opDeleteCustomActionType,
@@ -409,18 +431,20 @@ func (c *CodePipeline) DeleteCustomActionTypeRequest(input *DeleteCustomActionTy
 
 	output = &DeleteCustomActionTypeOutput{}
 	req = c.newRequest(op, input, output)
-	req.Handlers.Unmarshal.Remove(jsonrpc.UnmarshalHandler)
-	req.Handlers.Unmarshal.PushBackNamed(protocol.UnmarshalDiscardBodyHandler)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
 // DeleteCustomActionType API operation for AWS CodePipeline.
 //
-// Marks a custom action as deleted. PollForJobs for the custom action will
-// fail after the action is marked for deletion. Only used for custom actions.
+// Marks a custom action as deleted. PollForJobs for the custom action fails
+// after the action is marked for deletion. Used for custom actions only.
 //
-// You cannot recreate a custom action after it has been deleted unless you
-// increase the version number of the action.
+// To re-create a custom action after it has been deleted you must use a string
+// in the version field that has never been used before. This string can be
+// an incremented version number, for example. To restore a deleted custom action,
+// use a JSON file that is identical to the deleted action, including the original
+// string in the version field.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -429,11 +453,14 @@ func (c *CodePipeline) DeleteCustomActionTypeRequest(input *DeleteCustomActionTy
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation DeleteCustomActionType for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeleteCustomActionType
+//   * ConcurrentModificationException
+//   Unable to modify the tag due to a simultaneous update request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeleteCustomActionType
 func (c *CodePipeline) DeleteCustomActionType(input *DeleteCustomActionTypeInput) (*DeleteCustomActionTypeOutput, error) {
 	req, out := c.DeleteCustomActionTypeRequest(input)
 	return out, req.Send()
@@ -459,8 +486,8 @@ const opDeletePipeline = "DeletePipeline"
 
 // DeletePipelineRequest generates a "aws/request.Request" representing the
 // client's request for the DeletePipeline operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -480,7 +507,7 @@ const opDeletePipeline = "DeletePipeline"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeletePipeline
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeletePipeline
 func (c *CodePipeline) DeletePipelineRequest(input *DeletePipelineInput) (req *request.Request, output *DeletePipelineOutput) {
 	op := &request.Operation{
 		Name:       opDeletePipeline,
@@ -494,8 +521,7 @@ func (c *CodePipeline) DeletePipelineRequest(input *DeletePipelineInput) (req *r
 
 	output = &DeletePipelineOutput{}
 	req = c.newRequest(op, input, output)
-	req.Handlers.Unmarshal.Remove(jsonrpc.UnmarshalHandler)
-	req.Handlers.Unmarshal.PushBackNamed(protocol.UnmarshalDiscardBodyHandler)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -510,11 +536,14 @@ func (c *CodePipeline) DeletePipelineRequest(input *DeletePipelineInput) (req *r
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation DeletePipeline for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeletePipeline
+//   * ConcurrentModificationException
+//   Unable to modify the tag due to a simultaneous update request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeletePipeline
 func (c *CodePipeline) DeletePipeline(input *DeletePipelineInput) (*DeletePipelineOutput, error) {
 	req, out := c.DeletePipelineRequest(input)
 	return out, req.Send()
@@ -536,12 +565,184 @@ func (c *CodePipeline) DeletePipelineWithContext(ctx aws.Context, input *DeleteP
 	return out, req.Send()
 }
 
+const opDeleteWebhook = "DeleteWebhook"
+
+// DeleteWebhookRequest generates a "aws/request.Request" representing the
+// client's request for the DeleteWebhook operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteWebhook for more information on using the DeleteWebhook
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteWebhookRequest method.
+//    req, resp := client.DeleteWebhookRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeleteWebhook
+func (c *CodePipeline) DeleteWebhookRequest(input *DeleteWebhookInput) (req *request.Request, output *DeleteWebhookOutput) {
+	op := &request.Operation{
+		Name:       opDeleteWebhook,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeleteWebhookInput{}
+	}
+
+	output = &DeleteWebhookOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeleteWebhook API operation for AWS CodePipeline.
+//
+// Deletes a previously created webhook by name. Deleting the webhook stops
+// AWS CodePipeline from starting a pipeline every time an external event occurs.
+// The API returns successfully when trying to delete a webhook that is already
+// deleted. If a deleted webhook is re-created by calling PutWebhook with the
+// same name, it will have a different URL.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation DeleteWebhook for usage and error information.
+//
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * ConcurrentModificationException
+//   Unable to modify the tag due to a simultaneous update request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeleteWebhook
+func (c *CodePipeline) DeleteWebhook(input *DeleteWebhookInput) (*DeleteWebhookOutput, error) {
+	req, out := c.DeleteWebhookRequest(input)
+	return out, req.Send()
+}
+
+// DeleteWebhookWithContext is the same as DeleteWebhook with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteWebhook for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) DeleteWebhookWithContext(ctx aws.Context, input *DeleteWebhookInput, opts ...request.Option) (*DeleteWebhookOutput, error) {
+	req, out := c.DeleteWebhookRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeregisterWebhookWithThirdParty = "DeregisterWebhookWithThirdParty"
+
+// DeregisterWebhookWithThirdPartyRequest generates a "aws/request.Request" representing the
+// client's request for the DeregisterWebhookWithThirdParty operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeregisterWebhookWithThirdParty for more information on using the DeregisterWebhookWithThirdParty
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeregisterWebhookWithThirdPartyRequest method.
+//    req, resp := client.DeregisterWebhookWithThirdPartyRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeregisterWebhookWithThirdParty
+func (c *CodePipeline) DeregisterWebhookWithThirdPartyRequest(input *DeregisterWebhookWithThirdPartyInput) (req *request.Request, output *DeregisterWebhookWithThirdPartyOutput) {
+	op := &request.Operation{
+		Name:       opDeregisterWebhookWithThirdParty,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DeregisterWebhookWithThirdPartyInput{}
+	}
+
+	output = &DeregisterWebhookWithThirdPartyOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// DeregisterWebhookWithThirdParty API operation for AWS CodePipeline.
+//
+// Removes the connection between the webhook that was created by CodePipeline
+// and the external tool with events to be detected. Currently supported only
+// for webhooks that target an action type of GitHub.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation DeregisterWebhookWithThirdParty for usage and error information.
+//
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * WebhookNotFoundException
+//   The specified webhook was entered in an invalid format or cannot be found.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeregisterWebhookWithThirdParty
+func (c *CodePipeline) DeregisterWebhookWithThirdParty(input *DeregisterWebhookWithThirdPartyInput) (*DeregisterWebhookWithThirdPartyOutput, error) {
+	req, out := c.DeregisterWebhookWithThirdPartyRequest(input)
+	return out, req.Send()
+}
+
+// DeregisterWebhookWithThirdPartyWithContext is the same as DeregisterWebhookWithThirdParty with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeregisterWebhookWithThirdParty for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) DeregisterWebhookWithThirdPartyWithContext(ctx aws.Context, input *DeregisterWebhookWithThirdPartyInput, opts ...request.Option) (*DeregisterWebhookWithThirdPartyOutput, error) {
+	req, out := c.DeregisterWebhookWithThirdPartyRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDisableStageTransition = "DisableStageTransition"
 
 // DisableStageTransitionRequest generates a "aws/request.Request" representing the
 // client's request for the DisableStageTransition operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -561,7 +762,7 @@ const opDisableStageTransition = "DisableStageTransition"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DisableStageTransition
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DisableStageTransition
 func (c *CodePipeline) DisableStageTransitionRequest(input *DisableStageTransitionInput) (req *request.Request, output *DisableStageTransitionOutput) {
 	op := &request.Operation{
 		Name:       opDisableStageTransition,
@@ -575,8 +776,7 @@ func (c *CodePipeline) DisableStageTransitionRequest(input *DisableStageTransiti
 
 	output = &DisableStageTransitionOutput{}
 	req = c.newRequest(op, input, output)
-	req.Handlers.Unmarshal.Remove(jsonrpc.UnmarshalHandler)
-	req.Handlers.Unmarshal.PushBackNamed(protocol.UnmarshalDiscardBodyHandler)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -592,17 +792,17 @@ func (c *CodePipeline) DisableStageTransitionRequest(input *DisableStageTransiti
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation DisableStageTransition for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodePipelineNotFoundException "PipelineNotFoundException"
-//   The specified pipeline was specified in an invalid format or cannot be found.
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeStageNotFoundException "StageNotFoundException"
-//   The specified stage was specified in an invalid format or cannot be found.
+//   * StageNotFoundException
+//   The stage was specified in an invalid format or cannot be found.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DisableStageTransition
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DisableStageTransition
 func (c *CodePipeline) DisableStageTransition(input *DisableStageTransitionInput) (*DisableStageTransitionOutput, error) {
 	req, out := c.DisableStageTransitionRequest(input)
 	return out, req.Send()
@@ -628,8 +828,8 @@ const opEnableStageTransition = "EnableStageTransition"
 
 // EnableStageTransitionRequest generates a "aws/request.Request" representing the
 // client's request for the EnableStageTransition operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -649,7 +849,7 @@ const opEnableStageTransition = "EnableStageTransition"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/EnableStageTransition
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/EnableStageTransition
 func (c *CodePipeline) EnableStageTransitionRequest(input *EnableStageTransitionInput) (req *request.Request, output *EnableStageTransitionOutput) {
 	op := &request.Operation{
 		Name:       opEnableStageTransition,
@@ -663,8 +863,7 @@ func (c *CodePipeline) EnableStageTransitionRequest(input *EnableStageTransition
 
 	output = &EnableStageTransitionOutput{}
 	req = c.newRequest(op, input, output)
-	req.Handlers.Unmarshal.Remove(jsonrpc.UnmarshalHandler)
-	req.Handlers.Unmarshal.PushBackNamed(protocol.UnmarshalDiscardBodyHandler)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
@@ -679,17 +878,17 @@ func (c *CodePipeline) EnableStageTransitionRequest(input *EnableStageTransition
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation EnableStageTransition for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodePipelineNotFoundException "PipelineNotFoundException"
-//   The specified pipeline was specified in an invalid format or cannot be found.
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeStageNotFoundException "StageNotFoundException"
-//   The specified stage was specified in an invalid format or cannot be found.
+//   * StageNotFoundException
+//   The stage was specified in an invalid format or cannot be found.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/EnableStageTransition
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/EnableStageTransition
 func (c *CodePipeline) EnableStageTransition(input *EnableStageTransitionInput) (*EnableStageTransitionOutput, error) {
 	req, out := c.EnableStageTransitionRequest(input)
 	return out, req.Send()
@@ -711,12 +910,96 @@ func (c *CodePipeline) EnableStageTransitionWithContext(ctx aws.Context, input *
 	return out, req.Send()
 }
 
+const opGetActionType = "GetActionType"
+
+// GetActionTypeRequest generates a "aws/request.Request" representing the
+// client's request for the GetActionType operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See GetActionType for more information on using the GetActionType
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the GetActionTypeRequest method.
+//    req, resp := client.GetActionTypeRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetActionType
+func (c *CodePipeline) GetActionTypeRequest(input *GetActionTypeInput) (req *request.Request, output *GetActionTypeOutput) {
+	op := &request.Operation{
+		Name:       opGetActionType,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &GetActionTypeInput{}
+	}
+
+	output = &GetActionTypeOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// GetActionType API operation for AWS CodePipeline.
+//
+// Returns information about an action type created for an external provider,
+// where the action is to be used by customers of the external provider. The
+// action can be created with any supported integration model.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation GetActionType for usage and error information.
+//
+// Returned Error Types:
+//   * ActionTypeNotFoundException
+//   The specified action type cannot be found.
+//
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetActionType
+func (c *CodePipeline) GetActionType(input *GetActionTypeInput) (*GetActionTypeOutput, error) {
+	req, out := c.GetActionTypeRequest(input)
+	return out, req.Send()
+}
+
+// GetActionTypeWithContext is the same as GetActionType with the addition of
+// the ability to pass a context and additional request options.
+//
+// See GetActionType for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) GetActionTypeWithContext(ctx aws.Context, input *GetActionTypeInput, opts ...request.Option) (*GetActionTypeOutput, error) {
+	req, out := c.GetActionTypeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opGetJobDetails = "GetJobDetails"
 
 // GetJobDetailsRequest generates a "aws/request.Request" representing the
 // client's request for the GetJobDetails operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -736,7 +1019,7 @@ const opGetJobDetails = "GetJobDetails"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetJobDetails
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetJobDetails
 func (c *CodePipeline) GetJobDetailsRequest(input *GetJobDetailsInput) (req *request.Request, output *GetJobDetailsOutput) {
 	op := &request.Operation{
 		Name:       opGetJobDetails,
@@ -755,12 +1038,12 @@ func (c *CodePipeline) GetJobDetailsRequest(input *GetJobDetailsInput) (req *req
 
 // GetJobDetails API operation for AWS CodePipeline.
 //
-// Returns information about a job. Only used for custom actions.
+// Returns information about a job. Used for custom actions only.
 //
 // When this API is called, AWS CodePipeline returns temporary credentials for
-// the Amazon S3 bucket used to store artifacts for the pipeline, if the action
-// requires access to that Amazon S3 bucket for input or output artifacts. Additionally,
-// this API returns any secret values defined for the action.
+// the S3 bucket used to store artifacts for the pipeline, if the action requires
+// access to that S3 bucket for input or output artifacts. This API also returns
+// any secret values defined for the action.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -769,14 +1052,14 @@ func (c *CodePipeline) GetJobDetailsRequest(input *GetJobDetailsInput) (req *req
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation GetJobDetails for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeJobNotFoundException "JobNotFoundException"
-//   The specified job was specified in an invalid format or cannot be found.
+//   * JobNotFoundException
+//   The job was specified in an invalid format or cannot be found.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetJobDetails
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetJobDetails
 func (c *CodePipeline) GetJobDetails(input *GetJobDetailsInput) (*GetJobDetailsOutput, error) {
 	req, out := c.GetJobDetailsRequest(input)
 	return out, req.Send()
@@ -802,8 +1085,8 @@ const opGetPipeline = "GetPipeline"
 
 // GetPipelineRequest generates a "aws/request.Request" representing the
 // client's request for the GetPipeline operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -823,7 +1106,7 @@ const opGetPipeline = "GetPipeline"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipeline
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipeline
 func (c *CodePipeline) GetPipelineRequest(input *GetPipelineInput) (req *request.Request, output *GetPipelineOutput) {
 	op := &request.Operation{
 		Name:       opGetPipeline,
@@ -853,18 +1136,17 @@ func (c *CodePipeline) GetPipelineRequest(input *GetPipelineInput) (req *request
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation GetPipeline for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodePipelineNotFoundException "PipelineNotFoundException"
-//   The specified pipeline was specified in an invalid format or cannot be found.
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
 //
-//   * ErrCodePipelineVersionNotFoundException "PipelineVersionNotFoundException"
-//   The specified pipeline version was specified in an invalid format or cannot
-//   be found.
+//   * PipelineVersionNotFoundException
+//   The pipeline version was specified in an invalid format or cannot be found.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipeline
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipeline
 func (c *CodePipeline) GetPipeline(input *GetPipelineInput) (*GetPipelineOutput, error) {
 	req, out := c.GetPipelineRequest(input)
 	return out, req.Send()
@@ -890,8 +1172,8 @@ const opGetPipelineExecution = "GetPipelineExecution"
 
 // GetPipelineExecutionRequest generates a "aws/request.Request" representing the
 // client's request for the GetPipelineExecution operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -911,7 +1193,7 @@ const opGetPipelineExecution = "GetPipelineExecution"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineExecution
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineExecution
 func (c *CodePipeline) GetPipelineExecutionRequest(input *GetPipelineExecutionInput) (req *request.Request, output *GetPipelineExecutionOutput) {
 	op := &request.Operation{
 		Name:       opGetPipelineExecution,
@@ -941,18 +1223,18 @@ func (c *CodePipeline) GetPipelineExecutionRequest(input *GetPipelineExecutionIn
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation GetPipelineExecution for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodePipelineNotFoundException "PipelineNotFoundException"
-//   The specified pipeline was specified in an invalid format or cannot be found.
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
 //
-//   * ErrCodePipelineExecutionNotFoundException "PipelineExecutionNotFoundException"
+//   * PipelineExecutionNotFoundException
 //   The pipeline execution was specified in an invalid format or cannot be found,
 //   or an execution ID does not belong to the specified pipeline.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineExecution
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineExecution
 func (c *CodePipeline) GetPipelineExecution(input *GetPipelineExecutionInput) (*GetPipelineExecutionOutput, error) {
 	req, out := c.GetPipelineExecutionRequest(input)
 	return out, req.Send()
@@ -978,8 +1260,8 @@ const opGetPipelineState = "GetPipelineState"
 
 // GetPipelineStateRequest generates a "aws/request.Request" representing the
 // client's request for the GetPipelineState operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -999,7 +1281,7 @@ const opGetPipelineState = "GetPipelineState"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineState
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineState
 func (c *CodePipeline) GetPipelineStateRequest(input *GetPipelineStateInput) (req *request.Request, output *GetPipelineStateOutput) {
 	op := &request.Operation{
 		Name:       opGetPipelineState,
@@ -1021,6 +1303,9 @@ func (c *CodePipeline) GetPipelineStateRequest(input *GetPipelineStateInput) (re
 // Returns information about the state of a pipeline, including the stages and
 // actions.
 //
+// Values returned in the revisionId and revisionUrl fields indicate the source
+// revision information, such as the commit ID, for the current state.
+//
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
 // the error.
@@ -1028,14 +1313,14 @@ func (c *CodePipeline) GetPipelineStateRequest(input *GetPipelineStateInput) (re
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation GetPipelineState for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodePipelineNotFoundException "PipelineNotFoundException"
-//   The specified pipeline was specified in an invalid format or cannot be found.
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineState
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineState
 func (c *CodePipeline) GetPipelineState(input *GetPipelineStateInput) (*GetPipelineStateOutput, error) {
 	req, out := c.GetPipelineStateRequest(input)
 	return out, req.Send()
@@ -1061,8 +1346,8 @@ const opGetThirdPartyJobDetails = "GetThirdPartyJobDetails"
 
 // GetThirdPartyJobDetailsRequest generates a "aws/request.Request" representing the
 // client's request for the GetThirdPartyJobDetails operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1082,7 +1367,7 @@ const opGetThirdPartyJobDetails = "GetThirdPartyJobDetails"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetThirdPartyJobDetails
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetThirdPartyJobDetails
 func (c *CodePipeline) GetThirdPartyJobDetailsRequest(input *GetThirdPartyJobDetailsInput) (req *request.Request, output *GetThirdPartyJobDetailsOutput) {
 	op := &request.Operation{
 		Name:       opGetThirdPartyJobDetails,
@@ -1101,13 +1386,13 @@ func (c *CodePipeline) GetThirdPartyJobDetailsRequest(input *GetThirdPartyJobDet
 
 // GetThirdPartyJobDetails API operation for AWS CodePipeline.
 //
-// Requests the details of a job for a third party action. Only used for partner
-// actions.
+// Requests the details of a job for a third party action. Used for partner
+// actions only.
 //
 // When this API is called, AWS CodePipeline returns temporary credentials for
-// the Amazon S3 bucket used to store artifacts for the pipeline, if the action
-// requires access to that Amazon S3 bucket for input or output artifacts. Additionally,
-// this API returns any secret values defined for the action.
+// the S3 bucket used to store artifacts for the pipeline, if the action requires
+// access to that S3 bucket for input or output artifacts. This API also returns
+// any secret values defined for the action.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1116,20 +1401,20 @@ func (c *CodePipeline) GetThirdPartyJobDetailsRequest(input *GetThirdPartyJobDet
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation GetThirdPartyJobDetails for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeJobNotFoundException "JobNotFoundException"
-//   The specified job was specified in an invalid format or cannot be found.
+// Returned Error Types:
+//   * JobNotFoundException
+//   The job was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeValidationException "ValidationException"
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeInvalidClientTokenException "InvalidClientTokenException"
+//   * InvalidClientTokenException
 //   The client token was specified in an invalid format
 //
-//   * ErrCodeInvalidJobException "InvalidJobException"
-//   The specified job was specified in an invalid format or cannot be found.
+//   * InvalidJobException
+//   The job was specified in an invalid format or cannot be found.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetThirdPartyJobDetails
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetThirdPartyJobDetails
 func (c *CodePipeline) GetThirdPartyJobDetails(input *GetThirdPartyJobDetailsInput) (*GetThirdPartyJobDetailsOutput, error) {
 	req, out := c.GetThirdPartyJobDetailsRequest(input)
 	return out, req.Send()
@@ -1151,12 +1436,160 @@ func (c *CodePipeline) GetThirdPartyJobDetailsWithContext(ctx aws.Context, input
 	return out, req.Send()
 }
 
+const opListActionExecutions = "ListActionExecutions"
+
+// ListActionExecutionsRequest generates a "aws/request.Request" representing the
+// client's request for the ListActionExecutions operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListActionExecutions for more information on using the ListActionExecutions
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ListActionExecutionsRequest method.
+//    req, resp := client.ListActionExecutionsRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListActionExecutions
+func (c *CodePipeline) ListActionExecutionsRequest(input *ListActionExecutionsInput) (req *request.Request, output *ListActionExecutionsOutput) {
+	op := &request.Operation{
+		Name:       opListActionExecutions,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListActionExecutionsInput{}
+	}
+
+	output = &ListActionExecutionsOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListActionExecutions API operation for AWS CodePipeline.
+//
+// Lists the action executions that have occurred in a pipeline.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation ListActionExecutions for usage and error information.
+//
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
+//
+//   * InvalidNextTokenException
+//   The next token was specified in an invalid format. Make sure that the next
+//   token you provide is the token returned by a previous call.
+//
+//   * PipelineExecutionNotFoundException
+//   The pipeline execution was specified in an invalid format or cannot be found,
+//   or an execution ID does not belong to the specified pipeline.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListActionExecutions
+func (c *CodePipeline) ListActionExecutions(input *ListActionExecutionsInput) (*ListActionExecutionsOutput, error) {
+	req, out := c.ListActionExecutionsRequest(input)
+	return out, req.Send()
+}
+
+// ListActionExecutionsWithContext is the same as ListActionExecutions with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListActionExecutions for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) ListActionExecutionsWithContext(ctx aws.Context, input *ListActionExecutionsInput, opts ...request.Option) (*ListActionExecutionsOutput, error) {
+	req, out := c.ListActionExecutionsRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListActionExecutionsPages iterates over the pages of a ListActionExecutions operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListActionExecutions method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//    // Example iterating over at most 3 pages of a ListActionExecutions operation.
+//    pageNum := 0
+//    err := client.ListActionExecutionsPages(params,
+//        func(page *codepipeline.ListActionExecutionsOutput, lastPage bool) bool {
+//            pageNum++
+//            fmt.Println(page)
+//            return pageNum <= 3
+//        })
+//
+func (c *CodePipeline) ListActionExecutionsPages(input *ListActionExecutionsInput, fn func(*ListActionExecutionsOutput, bool) bool) error {
+	return c.ListActionExecutionsPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListActionExecutionsPagesWithContext same as ListActionExecutionsPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) ListActionExecutionsPagesWithContext(ctx aws.Context, input *ListActionExecutionsInput, fn func(*ListActionExecutionsOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListActionExecutionsInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListActionExecutionsRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListActionExecutionsOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opListActionTypes = "ListActionTypes"
 
 // ListActionTypesRequest generates a "aws/request.Request" representing the
 // client's request for the ListActionTypes operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1176,12 +1609,18 @@ const opListActionTypes = "ListActionTypes"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListActionTypes
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListActionTypes
 func (c *CodePipeline) ListActionTypesRequest(input *ListActionTypesInput) (req *request.Request, output *ListActionTypesOutput) {
 	op := &request.Operation{
 		Name:       opListActionTypes,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "",
+			TruncationToken: "",
+		},
 	}
 
 	if input == nil {
@@ -1205,15 +1644,15 @@ func (c *CodePipeline) ListActionTypesRequest(input *ListActionTypesInput) (req 
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation ListActionTypes for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeInvalidNextTokenException "InvalidNextTokenException"
+//   * InvalidNextTokenException
 //   The next token was specified in an invalid format. Make sure that the next
-//   token you provided is the token returned by a previous call.
+//   token you provide is the token returned by a previous call.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListActionTypes
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListActionTypes
 func (c *CodePipeline) ListActionTypes(input *ListActionTypesInput) (*ListActionTypesOutput, error) {
 	req, out := c.ListActionTypesRequest(input)
 	return out, req.Send()
@@ -1235,12 +1674,64 @@ func (c *CodePipeline) ListActionTypesWithContext(ctx aws.Context, input *ListAc
 	return out, req.Send()
 }
 
+// ListActionTypesPages iterates over the pages of a ListActionTypes operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListActionTypes method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//    // Example iterating over at most 3 pages of a ListActionTypes operation.
+//    pageNum := 0
+//    err := client.ListActionTypesPages(params,
+//        func(page *codepipeline.ListActionTypesOutput, lastPage bool) bool {
+//            pageNum++
+//            fmt.Println(page)
+//            return pageNum <= 3
+//        })
+//
+func (c *CodePipeline) ListActionTypesPages(input *ListActionTypesInput, fn func(*ListActionTypesOutput, bool) bool) error {
+	return c.ListActionTypesPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListActionTypesPagesWithContext same as ListActionTypesPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) ListActionTypesPagesWithContext(ctx aws.Context, input *ListActionTypesInput, fn func(*ListActionTypesOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListActionTypesInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListActionTypesRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListActionTypesOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opListPipelineExecutions = "ListPipelineExecutions"
 
 // ListPipelineExecutionsRequest generates a "aws/request.Request" representing the
 // client's request for the ListPipelineExecutions operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1260,12 +1751,18 @@ const opListPipelineExecutions = "ListPipelineExecutions"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelineExecutions
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelineExecutions
 func (c *CodePipeline) ListPipelineExecutionsRequest(input *ListPipelineExecutionsInput) (req *request.Request, output *ListPipelineExecutionsOutput) {
 	op := &request.Operation{
 		Name:       opListPipelineExecutions,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
 	}
 
 	if input == nil {
@@ -1288,18 +1785,18 @@ func (c *CodePipeline) ListPipelineExecutionsRequest(input *ListPipelineExecutio
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation ListPipelineExecutions for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodePipelineNotFoundException "PipelineNotFoundException"
-//   The specified pipeline was specified in an invalid format or cannot be found.
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeInvalidNextTokenException "InvalidNextTokenException"
+//   * InvalidNextTokenException
 //   The next token was specified in an invalid format. Make sure that the next
-//   token you provided is the token returned by a previous call.
+//   token you provide is the token returned by a previous call.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelineExecutions
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelineExecutions
 func (c *CodePipeline) ListPipelineExecutions(input *ListPipelineExecutionsInput) (*ListPipelineExecutionsOutput, error) {
 	req, out := c.ListPipelineExecutionsRequest(input)
 	return out, req.Send()
@@ -1321,12 +1818,64 @@ func (c *CodePipeline) ListPipelineExecutionsWithContext(ctx aws.Context, input 
 	return out, req.Send()
 }
 
+// ListPipelineExecutionsPages iterates over the pages of a ListPipelineExecutions operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListPipelineExecutions method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//    // Example iterating over at most 3 pages of a ListPipelineExecutions operation.
+//    pageNum := 0
+//    err := client.ListPipelineExecutionsPages(params,
+//        func(page *codepipeline.ListPipelineExecutionsOutput, lastPage bool) bool {
+//            pageNum++
+//            fmt.Println(page)
+//            return pageNum <= 3
+//        })
+//
+func (c *CodePipeline) ListPipelineExecutionsPages(input *ListPipelineExecutionsInput, fn func(*ListPipelineExecutionsOutput, bool) bool) error {
+	return c.ListPipelineExecutionsPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListPipelineExecutionsPagesWithContext same as ListPipelineExecutionsPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) ListPipelineExecutionsPagesWithContext(ctx aws.Context, input *ListPipelineExecutionsInput, fn func(*ListPipelineExecutionsOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListPipelineExecutionsInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListPipelineExecutionsRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListPipelineExecutionsOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opListPipelines = "ListPipelines"
 
 // ListPipelinesRequest generates a "aws/request.Request" representing the
 // client's request for the ListPipelines operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1346,12 +1895,18 @@ const opListPipelines = "ListPipelines"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelines
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelines
 func (c *CodePipeline) ListPipelinesRequest(input *ListPipelinesInput) (req *request.Request, output *ListPipelinesOutput) {
 	op := &request.Operation{
 		Name:       opListPipelines,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
 	}
 
 	if input == nil {
@@ -1374,12 +1929,15 @@ func (c *CodePipeline) ListPipelinesRequest(input *ListPipelinesInput) (req *req
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation ListPipelines for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidNextTokenException "InvalidNextTokenException"
-//   The next token was specified in an invalid format. Make sure that the next
-//   token you provided is the token returned by a previous call.
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelines
+//   * InvalidNextTokenException
+//   The next token was specified in an invalid format. Make sure that the next
+//   token you provide is the token returned by a previous call.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelines
 func (c *CodePipeline) ListPipelines(input *ListPipelinesInput) (*ListPipelinesOutput, error) {
 	req, out := c.ListPipelinesRequest(input)
 	return out, req.Send()
@@ -1401,12 +1959,354 @@ func (c *CodePipeline) ListPipelinesWithContext(ctx aws.Context, input *ListPipe
 	return out, req.Send()
 }
 
+// ListPipelinesPages iterates over the pages of a ListPipelines operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListPipelines method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//    // Example iterating over at most 3 pages of a ListPipelines operation.
+//    pageNum := 0
+//    err := client.ListPipelinesPages(params,
+//        func(page *codepipeline.ListPipelinesOutput, lastPage bool) bool {
+//            pageNum++
+//            fmt.Println(page)
+//            return pageNum <= 3
+//        })
+//
+func (c *CodePipeline) ListPipelinesPages(input *ListPipelinesInput, fn func(*ListPipelinesOutput, bool) bool) error {
+	return c.ListPipelinesPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListPipelinesPagesWithContext same as ListPipelinesPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) ListPipelinesPagesWithContext(ctx aws.Context, input *ListPipelinesInput, fn func(*ListPipelinesOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListPipelinesInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListPipelinesRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListPipelinesOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
+const opListTagsForResource = "ListTagsForResource"
+
+// ListTagsForResourceRequest generates a "aws/request.Request" representing the
+// client's request for the ListTagsForResource operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListTagsForResource for more information on using the ListTagsForResource
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ListTagsForResourceRequest method.
+//    req, resp := client.ListTagsForResourceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListTagsForResource
+func (c *CodePipeline) ListTagsForResourceRequest(input *ListTagsForResourceInput) (req *request.Request, output *ListTagsForResourceOutput) {
+	op := &request.Operation{
+		Name:       opListTagsForResource,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"nextToken"},
+			OutputTokens:    []string{"nextToken"},
+			LimitToken:      "maxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListTagsForResourceInput{}
+	}
+
+	output = &ListTagsForResourceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListTagsForResource API operation for AWS CodePipeline.
+//
+// Gets the set of key-value pairs (metadata) that are used to manage the resource.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation ListTagsForResource for usage and error information.
+//
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * ResourceNotFoundException
+//   The resource was specified in an invalid format.
+//
+//   * InvalidNextTokenException
+//   The next token was specified in an invalid format. Make sure that the next
+//   token you provide is the token returned by a previous call.
+//
+//   * InvalidArnException
+//   The specified resource ARN is invalid.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListTagsForResource
+func (c *CodePipeline) ListTagsForResource(input *ListTagsForResourceInput) (*ListTagsForResourceOutput, error) {
+	req, out := c.ListTagsForResourceRequest(input)
+	return out, req.Send()
+}
+
+// ListTagsForResourceWithContext is the same as ListTagsForResource with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListTagsForResource for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) ListTagsForResourceWithContext(ctx aws.Context, input *ListTagsForResourceInput, opts ...request.Option) (*ListTagsForResourceOutput, error) {
+	req, out := c.ListTagsForResourceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListTagsForResourcePages iterates over the pages of a ListTagsForResource operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListTagsForResource method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//    // Example iterating over at most 3 pages of a ListTagsForResource operation.
+//    pageNum := 0
+//    err := client.ListTagsForResourcePages(params,
+//        func(page *codepipeline.ListTagsForResourceOutput, lastPage bool) bool {
+//            pageNum++
+//            fmt.Println(page)
+//            return pageNum <= 3
+//        })
+//
+func (c *CodePipeline) ListTagsForResourcePages(input *ListTagsForResourceInput, fn func(*ListTagsForResourceOutput, bool) bool) error {
+	return c.ListTagsForResourcePagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListTagsForResourcePagesWithContext same as ListTagsForResourcePages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) ListTagsForResourcePagesWithContext(ctx aws.Context, input *ListTagsForResourceInput, fn func(*ListTagsForResourceOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListTagsForResourceInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListTagsForResourceRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListTagsForResourceOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
+const opListWebhooks = "ListWebhooks"
+
+// ListWebhooksRequest generates a "aws/request.Request" representing the
+// client's request for the ListWebhooks operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ListWebhooks for more information on using the ListWebhooks
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ListWebhooksRequest method.
+//    req, resp := client.ListWebhooksRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListWebhooks
+func (c *CodePipeline) ListWebhooksRequest(input *ListWebhooksInput) (req *request.Request, output *ListWebhooksOutput) {
+	op := &request.Operation{
+		Name:       opListWebhooks,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"NextToken"},
+			OutputTokens:    []string{"NextToken"},
+			LimitToken:      "MaxResults",
+			TruncationToken: "",
+		},
+	}
+
+	if input == nil {
+		input = &ListWebhooksInput{}
+	}
+
+	output = &ListWebhooksOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ListWebhooks API operation for AWS CodePipeline.
+//
+// Gets a listing of all the webhooks in this AWS Region for this account. The
+// output lists all webhooks and includes the webhook URL and ARN and the configuration
+// for each webhook.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation ListWebhooks for usage and error information.
+//
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * InvalidNextTokenException
+//   The next token was specified in an invalid format. Make sure that the next
+//   token you provide is the token returned by a previous call.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListWebhooks
+func (c *CodePipeline) ListWebhooks(input *ListWebhooksInput) (*ListWebhooksOutput, error) {
+	req, out := c.ListWebhooksRequest(input)
+	return out, req.Send()
+}
+
+// ListWebhooksWithContext is the same as ListWebhooks with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ListWebhooks for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) ListWebhooksWithContext(ctx aws.Context, input *ListWebhooksInput, opts ...request.Option) (*ListWebhooksOutput, error) {
+	req, out := c.ListWebhooksRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+// ListWebhooksPages iterates over the pages of a ListWebhooks operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See ListWebhooks method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//    // Example iterating over at most 3 pages of a ListWebhooks operation.
+//    pageNum := 0
+//    err := client.ListWebhooksPages(params,
+//        func(page *codepipeline.ListWebhooksOutput, lastPage bool) bool {
+//            pageNum++
+//            fmt.Println(page)
+//            return pageNum <= 3
+//        })
+//
+func (c *CodePipeline) ListWebhooksPages(input *ListWebhooksInput, fn func(*ListWebhooksOutput, bool) bool) error {
+	return c.ListWebhooksPagesWithContext(aws.BackgroundContext(), input, fn)
+}
+
+// ListWebhooksPagesWithContext same as ListWebhooksPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) ListWebhooksPagesWithContext(ctx aws.Context, input *ListWebhooksInput, fn func(*ListWebhooksOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *ListWebhooksInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.ListWebhooksRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	for p.Next() {
+		if !fn(p.Page().(*ListWebhooksOutput), !p.HasNextPage()) {
+			break
+		}
+	}
+
+	return p.Err()
+}
+
 const opPollForJobs = "PollForJobs"
 
 // PollForJobsRequest generates a "aws/request.Request" representing the
 // client's request for the PollForJobs operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1426,7 +2326,7 @@ const opPollForJobs = "PollForJobs"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForJobs
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForJobs
 func (c *CodePipeline) PollForJobsRequest(input *PollForJobsInput) (req *request.Request, output *PollForJobsOutput) {
 	op := &request.Operation{
 		Name:       opPollForJobs,
@@ -1445,12 +2345,15 @@ func (c *CodePipeline) PollForJobsRequest(input *PollForJobsInput) (req *request
 
 // PollForJobs API operation for AWS CodePipeline.
 //
-// Returns information about any jobs for AWS CodePipeline to act upon.
+// Returns information about any jobs for AWS CodePipeline to act on. PollForJobs
+// is valid only for action types with "Custom" in the owner field. If the action
+// type contains "AWS" or "ThirdParty" in the owner field, the PollForJobs action
+// returns an error.
 //
 // When this API is called, AWS CodePipeline returns temporary credentials for
-// the Amazon S3 bucket used to store artifacts for the pipeline, if the action
-// requires access to that Amazon S3 bucket for input or output artifacts. Additionally,
-// this API returns any secret values defined for the action.
+// the S3 bucket used to store artifacts for the pipeline, if the action requires
+// access to that S3 bucket for input or output artifacts. This API also returns
+// any secret values defined for the action.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1459,14 +2362,14 @@ func (c *CodePipeline) PollForJobsRequest(input *PollForJobsInput) (req *request
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation PollForJobs for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeActionTypeNotFoundException "ActionTypeNotFoundException"
+//   * ActionTypeNotFoundException
 //   The specified action type cannot be found.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForJobs
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForJobs
 func (c *CodePipeline) PollForJobs(input *PollForJobsInput) (*PollForJobsOutput, error) {
 	req, out := c.PollForJobsRequest(input)
 	return out, req.Send()
@@ -1492,8 +2395,8 @@ const opPollForThirdPartyJobs = "PollForThirdPartyJobs"
 
 // PollForThirdPartyJobsRequest generates a "aws/request.Request" representing the
 // client's request for the PollForThirdPartyJobs operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1513,7 +2416,7 @@ const opPollForThirdPartyJobs = "PollForThirdPartyJobs"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForThirdPartyJobs
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForThirdPartyJobs
 func (c *CodePipeline) PollForThirdPartyJobsRequest(input *PollForThirdPartyJobsInput) (req *request.Request, output *PollForThirdPartyJobsOutput) {
 	op := &request.Operation{
 		Name:       opPollForThirdPartyJobs,
@@ -1533,11 +2436,11 @@ func (c *CodePipeline) PollForThirdPartyJobsRequest(input *PollForThirdPartyJobs
 // PollForThirdPartyJobs API operation for AWS CodePipeline.
 //
 // Determines whether there are any third party jobs for a job worker to act
-// on. Only used for partner actions.
+// on. Used for partner actions only.
 //
 // When this API is called, AWS CodePipeline returns temporary credentials for
-// the Amazon S3 bucket used to store artifacts for the pipeline, if the action
-// requires access to that Amazon S3 bucket for input or output artifacts.
+// the S3 bucket used to store artifacts for the pipeline, if the action requires
+// access to that S3 bucket for input or output artifacts.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1546,14 +2449,14 @@ func (c *CodePipeline) PollForThirdPartyJobsRequest(input *PollForThirdPartyJobs
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation PollForThirdPartyJobs for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeActionTypeNotFoundException "ActionTypeNotFoundException"
+// Returned Error Types:
+//   * ActionTypeNotFoundException
 //   The specified action type cannot be found.
 //
-//   * ErrCodeValidationException "ValidationException"
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForThirdPartyJobs
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForThirdPartyJobs
 func (c *CodePipeline) PollForThirdPartyJobs(input *PollForThirdPartyJobsInput) (*PollForThirdPartyJobsOutput, error) {
 	req, out := c.PollForThirdPartyJobsRequest(input)
 	return out, req.Send()
@@ -1579,8 +2482,8 @@ const opPutActionRevision = "PutActionRevision"
 
 // PutActionRevisionRequest generates a "aws/request.Request" representing the
 // client's request for the PutActionRevision operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1600,7 +2503,7 @@ const opPutActionRevision = "PutActionRevision"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutActionRevision
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutActionRevision
 func (c *CodePipeline) PutActionRevisionRequest(input *PutActionRevisionInput) (req *request.Request, output *PutActionRevisionOutput) {
 	op := &request.Operation{
 		Name:       opPutActionRevision,
@@ -1628,20 +2531,20 @@ func (c *CodePipeline) PutActionRevisionRequest(input *PutActionRevisionInput) (
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation PutActionRevision for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodePipelineNotFoundException "PipelineNotFoundException"
-//   The specified pipeline was specified in an invalid format or cannot be found.
+// Returned Error Types:
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeStageNotFoundException "StageNotFoundException"
-//   The specified stage was specified in an invalid format or cannot be found.
+//   * StageNotFoundException
+//   The stage was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeActionNotFoundException "ActionNotFoundException"
+//   * ActionNotFoundException
 //   The specified action cannot be found.
 //
-//   * ErrCodeValidationException "ValidationException"
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutActionRevision
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutActionRevision
 func (c *CodePipeline) PutActionRevision(input *PutActionRevisionInput) (*PutActionRevisionOutput, error) {
 	req, out := c.PutActionRevisionRequest(input)
 	return out, req.Send()
@@ -1667,8 +2570,8 @@ const opPutApprovalResult = "PutApprovalResult"
 
 // PutApprovalResultRequest generates a "aws/request.Request" representing the
 // client's request for the PutApprovalResult operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1688,7 +2591,7 @@ const opPutApprovalResult = "PutApprovalResult"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutApprovalResult
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutApprovalResult
 func (c *CodePipeline) PutApprovalResultRequest(input *PutApprovalResultInput) (req *request.Request, output *PutApprovalResultOutput) {
 	op := &request.Operation{
 		Name:       opPutApprovalResult,
@@ -1717,26 +2620,26 @@ func (c *CodePipeline) PutApprovalResultRequest(input *PutApprovalResultInput) (
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation PutApprovalResult for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeInvalidApprovalTokenException "InvalidApprovalTokenException"
+// Returned Error Types:
+//   * InvalidApprovalTokenException
 //   The approval request already received a response or has expired.
 //
-//   * ErrCodeApprovalAlreadyCompletedException "ApprovalAlreadyCompletedException"
+//   * ApprovalAlreadyCompletedException
 //   The approval action has already been approved or rejected.
 //
-//   * ErrCodePipelineNotFoundException "PipelineNotFoundException"
-//   The specified pipeline was specified in an invalid format or cannot be found.
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeStageNotFoundException "StageNotFoundException"
-//   The specified stage was specified in an invalid format or cannot be found.
+//   * StageNotFoundException
+//   The stage was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeActionNotFoundException "ActionNotFoundException"
+//   * ActionNotFoundException
 //   The specified action cannot be found.
 //
-//   * ErrCodeValidationException "ValidationException"
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutApprovalResult
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutApprovalResult
 func (c *CodePipeline) PutApprovalResult(input *PutApprovalResultInput) (*PutApprovalResultOutput, error) {
 	req, out := c.PutApprovalResultRequest(input)
 	return out, req.Send()
@@ -1762,8 +2665,8 @@ const opPutJobFailureResult = "PutJobFailureResult"
 
 // PutJobFailureResultRequest generates a "aws/request.Request" representing the
 // client's request for the PutJobFailureResult operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1783,7 +2686,7 @@ const opPutJobFailureResult = "PutJobFailureResult"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobFailureResult
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobFailureResult
 func (c *CodePipeline) PutJobFailureResultRequest(input *PutJobFailureResultInput) (req *request.Request, output *PutJobFailureResultOutput) {
 	op := &request.Operation{
 		Name:       opPutJobFailureResult,
@@ -1797,15 +2700,14 @@ func (c *CodePipeline) PutJobFailureResultRequest(input *PutJobFailureResultInpu
 
 	output = &PutJobFailureResultOutput{}
 	req = c.newRequest(op, input, output)
-	req.Handlers.Unmarshal.Remove(jsonrpc.UnmarshalHandler)
-	req.Handlers.Unmarshal.PushBackNamed(protocol.UnmarshalDiscardBodyHandler)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
 // PutJobFailureResult API operation for AWS CodePipeline.
 //
 // Represents the failure of a job as returned to the pipeline by a job worker.
-// Only used for custom actions.
+// Used for custom actions only.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1814,17 +2716,17 @@ func (c *CodePipeline) PutJobFailureResultRequest(input *PutJobFailureResultInpu
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation PutJobFailureResult for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeJobNotFoundException "JobNotFoundException"
-//   The specified job was specified in an invalid format or cannot be found.
+//   * JobNotFoundException
+//   The job was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeInvalidJobStateException "InvalidJobStateException"
-//   The specified job state was specified in an invalid format.
+//   * InvalidJobStateException
+//   The job state was specified in an invalid format.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobFailureResult
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobFailureResult
 func (c *CodePipeline) PutJobFailureResult(input *PutJobFailureResultInput) (*PutJobFailureResultOutput, error) {
 	req, out := c.PutJobFailureResultRequest(input)
 	return out, req.Send()
@@ -1850,8 +2752,8 @@ const opPutJobSuccessResult = "PutJobSuccessResult"
 
 // PutJobSuccessResultRequest generates a "aws/request.Request" representing the
 // client's request for the PutJobSuccessResult operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1871,7 +2773,7 @@ const opPutJobSuccessResult = "PutJobSuccessResult"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobSuccessResult
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobSuccessResult
 func (c *CodePipeline) PutJobSuccessResultRequest(input *PutJobSuccessResultInput) (req *request.Request, output *PutJobSuccessResultOutput) {
 	op := &request.Operation{
 		Name:       opPutJobSuccessResult,
@@ -1885,15 +2787,14 @@ func (c *CodePipeline) PutJobSuccessResultRequest(input *PutJobSuccessResultInpu
 
 	output = &PutJobSuccessResultOutput{}
 	req = c.newRequest(op, input, output)
-	req.Handlers.Unmarshal.Remove(jsonrpc.UnmarshalHandler)
-	req.Handlers.Unmarshal.PushBackNamed(protocol.UnmarshalDiscardBodyHandler)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
 // PutJobSuccessResult API operation for AWS CodePipeline.
 //
 // Represents the success of a job as returned to the pipeline by a job worker.
-// Only used for custom actions.
+// Used for custom actions only.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1902,17 +2803,20 @@ func (c *CodePipeline) PutJobSuccessResultRequest(input *PutJobSuccessResultInpu
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation PutJobSuccessResult for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeJobNotFoundException "JobNotFoundException"
-//   The specified job was specified in an invalid format or cannot be found.
+//   * JobNotFoundException
+//   The job was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeInvalidJobStateException "InvalidJobStateException"
-//   The specified job state was specified in an invalid format.
+//   * InvalidJobStateException
+//   The job state was specified in an invalid format.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobSuccessResult
+//   * OutputVariablesSizeExceededException
+//   Exceeded the total size limit for all variables in the pipeline.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobSuccessResult
 func (c *CodePipeline) PutJobSuccessResult(input *PutJobSuccessResultInput) (*PutJobSuccessResultOutput, error) {
 	req, out := c.PutJobSuccessResultRequest(input)
 	return out, req.Send()
@@ -1938,8 +2842,8 @@ const opPutThirdPartyJobFailureResult = "PutThirdPartyJobFailureResult"
 
 // PutThirdPartyJobFailureResultRequest generates a "aws/request.Request" representing the
 // client's request for the PutThirdPartyJobFailureResult operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -1959,7 +2863,7 @@ const opPutThirdPartyJobFailureResult = "PutThirdPartyJobFailureResult"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobFailureResult
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobFailureResult
 func (c *CodePipeline) PutThirdPartyJobFailureResultRequest(input *PutThirdPartyJobFailureResultInput) (req *request.Request, output *PutThirdPartyJobFailureResultOutput) {
 	op := &request.Operation{
 		Name:       opPutThirdPartyJobFailureResult,
@@ -1973,15 +2877,14 @@ func (c *CodePipeline) PutThirdPartyJobFailureResultRequest(input *PutThirdParty
 
 	output = &PutThirdPartyJobFailureResultOutput{}
 	req = c.newRequest(op, input, output)
-	req.Handlers.Unmarshal.Remove(jsonrpc.UnmarshalHandler)
-	req.Handlers.Unmarshal.PushBackNamed(protocol.UnmarshalDiscardBodyHandler)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
 // PutThirdPartyJobFailureResult API operation for AWS CodePipeline.
 //
 // Represents the failure of a third party job as returned to the pipeline by
-// a job worker. Only used for partner actions.
+// a job worker. Used for partner actions only.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -1990,20 +2893,20 @@ func (c *CodePipeline) PutThirdPartyJobFailureResultRequest(input *PutThirdParty
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation PutThirdPartyJobFailureResult for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeJobNotFoundException "JobNotFoundException"
-//   The specified job was specified in an invalid format or cannot be found.
+//   * JobNotFoundException
+//   The job was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeInvalidJobStateException "InvalidJobStateException"
-//   The specified job state was specified in an invalid format.
+//   * InvalidJobStateException
+//   The job state was specified in an invalid format.
 //
-//   * ErrCodeInvalidClientTokenException "InvalidClientTokenException"
+//   * InvalidClientTokenException
 //   The client token was specified in an invalid format
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobFailureResult
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobFailureResult
 func (c *CodePipeline) PutThirdPartyJobFailureResult(input *PutThirdPartyJobFailureResultInput) (*PutThirdPartyJobFailureResultOutput, error) {
 	req, out := c.PutThirdPartyJobFailureResultRequest(input)
 	return out, req.Send()
@@ -2029,8 +2932,8 @@ const opPutThirdPartyJobSuccessResult = "PutThirdPartyJobSuccessResult"
 
 // PutThirdPartyJobSuccessResultRequest generates a "aws/request.Request" representing the
 // client's request for the PutThirdPartyJobSuccessResult operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -2050,7 +2953,7 @@ const opPutThirdPartyJobSuccessResult = "PutThirdPartyJobSuccessResult"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobSuccessResult
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobSuccessResult
 func (c *CodePipeline) PutThirdPartyJobSuccessResultRequest(input *PutThirdPartyJobSuccessResultInput) (req *request.Request, output *PutThirdPartyJobSuccessResultOutput) {
 	op := &request.Operation{
 		Name:       opPutThirdPartyJobSuccessResult,
@@ -2064,15 +2967,14 @@ func (c *CodePipeline) PutThirdPartyJobSuccessResultRequest(input *PutThirdParty
 
 	output = &PutThirdPartyJobSuccessResultOutput{}
 	req = c.newRequest(op, input, output)
-	req.Handlers.Unmarshal.Remove(jsonrpc.UnmarshalHandler)
-	req.Handlers.Unmarshal.PushBackNamed(protocol.UnmarshalDiscardBodyHandler)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
 	return
 }
 
 // PutThirdPartyJobSuccessResult API operation for AWS CodePipeline.
 //
 // Represents the success of a third party job as returned to the pipeline by
-// a job worker. Only used for partner actions.
+// a job worker. Used for partner actions only.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2081,20 +2983,20 @@ func (c *CodePipeline) PutThirdPartyJobSuccessResultRequest(input *PutThirdParty
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation PutThirdPartyJobSuccessResult for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeJobNotFoundException "JobNotFoundException"
-//   The specified job was specified in an invalid format or cannot be found.
+//   * JobNotFoundException
+//   The job was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeInvalidJobStateException "InvalidJobStateException"
-//   The specified job state was specified in an invalid format.
+//   * InvalidJobStateException
+//   The job state was specified in an invalid format.
 //
-//   * ErrCodeInvalidClientTokenException "InvalidClientTokenException"
+//   * InvalidClientTokenException
 //   The client token was specified in an invalid format
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobSuccessResult
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobSuccessResult
 func (c *CodePipeline) PutThirdPartyJobSuccessResult(input *PutThirdPartyJobSuccessResultInput) (*PutThirdPartyJobSuccessResultOutput, error) {
 	req, out := c.PutThirdPartyJobSuccessResultRequest(input)
 	return out, req.Send()
@@ -2116,12 +3018,204 @@ func (c *CodePipeline) PutThirdPartyJobSuccessResultWithContext(ctx aws.Context,
 	return out, req.Send()
 }
 
+const opPutWebhook = "PutWebhook"
+
+// PutWebhookRequest generates a "aws/request.Request" representing the
+// client's request for the PutWebhook operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See PutWebhook for more information on using the PutWebhook
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the PutWebhookRequest method.
+//    req, resp := client.PutWebhookRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutWebhook
+func (c *CodePipeline) PutWebhookRequest(input *PutWebhookInput) (req *request.Request, output *PutWebhookOutput) {
+	op := &request.Operation{
+		Name:       opPutWebhook,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &PutWebhookInput{}
+	}
+
+	output = &PutWebhookOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// PutWebhook API operation for AWS CodePipeline.
+//
+// Defines a webhook and returns a unique webhook URL generated by CodePipeline.
+// This URL can be supplied to third party source hosting providers to call
+// every time there's a code change. When CodePipeline receives a POST request
+// on this URL, the pipeline defined in the webhook is started as long as the
+// POST request satisfied the authentication and filtering requirements supplied
+// when defining the webhook. RegisterWebhookWithThirdParty and DeregisterWebhookWithThirdParty
+// APIs can be used to automatically configure supported third parties to call
+// the generated webhook URL.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation PutWebhook for usage and error information.
+//
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * LimitExceededException
+//   The number of pipelines associated with the AWS account has exceeded the
+//   limit allowed for the account.
+//
+//   * InvalidWebhookFilterPatternException
+//   The specified event filter rule is in an invalid format.
+//
+//   * InvalidWebhookAuthenticationParametersException
+//   The specified authentication type is in an invalid format.
+//
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
+//
+//   * TooManyTagsException
+//   The tags limit for a resource has been exceeded.
+//
+//   * InvalidTagsException
+//   The specified resource tags are invalid.
+//
+//   * ConcurrentModificationException
+//   Unable to modify the tag due to a simultaneous update request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutWebhook
+func (c *CodePipeline) PutWebhook(input *PutWebhookInput) (*PutWebhookOutput, error) {
+	req, out := c.PutWebhookRequest(input)
+	return out, req.Send()
+}
+
+// PutWebhookWithContext is the same as PutWebhook with the addition of
+// the ability to pass a context and additional request options.
+//
+// See PutWebhook for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) PutWebhookWithContext(ctx aws.Context, input *PutWebhookInput, opts ...request.Option) (*PutWebhookOutput, error) {
+	req, out := c.PutWebhookRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRegisterWebhookWithThirdParty = "RegisterWebhookWithThirdParty"
+
+// RegisterWebhookWithThirdPartyRequest generates a "aws/request.Request" representing the
+// client's request for the RegisterWebhookWithThirdParty operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RegisterWebhookWithThirdParty for more information on using the RegisterWebhookWithThirdParty
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the RegisterWebhookWithThirdPartyRequest method.
+//    req, resp := client.RegisterWebhookWithThirdPartyRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/RegisterWebhookWithThirdParty
+func (c *CodePipeline) RegisterWebhookWithThirdPartyRequest(input *RegisterWebhookWithThirdPartyInput) (req *request.Request, output *RegisterWebhookWithThirdPartyOutput) {
+	op := &request.Operation{
+		Name:       opRegisterWebhookWithThirdParty,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &RegisterWebhookWithThirdPartyInput{}
+	}
+
+	output = &RegisterWebhookWithThirdPartyOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// RegisterWebhookWithThirdParty API operation for AWS CodePipeline.
+//
+// Configures a connection between the webhook that was created and the external
+// tool with events to be detected.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation RegisterWebhookWithThirdParty for usage and error information.
+//
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * WebhookNotFoundException
+//   The specified webhook was entered in an invalid format or cannot be found.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/RegisterWebhookWithThirdParty
+func (c *CodePipeline) RegisterWebhookWithThirdParty(input *RegisterWebhookWithThirdPartyInput) (*RegisterWebhookWithThirdPartyOutput, error) {
+	req, out := c.RegisterWebhookWithThirdPartyRequest(input)
+	return out, req.Send()
+}
+
+// RegisterWebhookWithThirdPartyWithContext is the same as RegisterWebhookWithThirdParty with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RegisterWebhookWithThirdParty for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) RegisterWebhookWithThirdPartyWithContext(ctx aws.Context, input *RegisterWebhookWithThirdPartyInput, opts ...request.Option) (*RegisterWebhookWithThirdPartyOutput, error) {
+	req, out := c.RegisterWebhookWithThirdPartyRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opRetryStageExecution = "RetryStageExecution"
 
 // RetryStageExecutionRequest generates a "aws/request.Request" representing the
 // client's request for the RetryStageExecution operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -2141,7 +3235,7 @@ const opRetryStageExecution = "RetryStageExecution"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/RetryStageExecution
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/RetryStageExecution
 func (c *CodePipeline) RetryStageExecutionRequest(input *RetryStageExecutionInput) (req *request.Request, output *RetryStageExecutionOutput) {
 	op := &request.Operation{
 		Name:       opRetryStageExecution,
@@ -2161,6 +3255,9 @@ func (c *CodePipeline) RetryStageExecutionRequest(input *RetryStageExecutionInpu
 // RetryStageExecution API operation for AWS CodePipeline.
 //
 // Resumes the pipeline execution by retrying the last failed actions in a stage.
+// You can retry a stage immediately if any of the actions in the stage fail.
+// When you retry, all actions that are still in progress continue working,
+// and failed actions are triggered again.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2169,27 +3266,29 @@ func (c *CodePipeline) RetryStageExecutionRequest(input *RetryStageExecutionInpu
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation RetryStageExecution for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodePipelineNotFoundException "PipelineNotFoundException"
-//   The specified pipeline was specified in an invalid format or cannot be found.
+//   * ConflictException
+//   Your request cannot be handled because the pipeline is busy handling ongoing
+//   activities. Try again later.
 //
-//   * ErrCodeStageNotFoundException "StageNotFoundException"
-//   The specified stage was specified in an invalid format or cannot be found.
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeStageNotRetryableException "StageNotRetryableException"
-//   The specified stage can't be retried because the pipeline structure or stage
-//   state changed after the stage was not completed; the stage contains no failed
-//   actions; one or more actions are still in progress; or another retry attempt
-//   is already in progress.
+//   * StageNotFoundException
+//   The stage was specified in an invalid format or cannot be found.
 //
-//   * ErrCodeNotLatestPipelineExecutionException "NotLatestPipelineExecutionException"
+//   * StageNotRetryableException
+//   Unable to retry. The pipeline structure or stage state might have changed
+//   while actions awaited retry, or the stage contains no failed actions.
+//
+//   * NotLatestPipelineExecutionException
 //   The stage has failed in a later run of the pipeline and the pipelineExecutionId
 //   associated with the request is out of date.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/RetryStageExecution
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/RetryStageExecution
 func (c *CodePipeline) RetryStageExecution(input *RetryStageExecutionInput) (*RetryStageExecutionOutput, error) {
 	req, out := c.RetryStageExecutionRequest(input)
 	return out, req.Send()
@@ -2215,8 +3314,8 @@ const opStartPipelineExecution = "StartPipelineExecution"
 
 // StartPipelineExecutionRequest generates a "aws/request.Request" representing the
 // client's request for the StartPipelineExecution operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -2236,7 +3335,7 @@ const opStartPipelineExecution = "StartPipelineExecution"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StartPipelineExecution
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StartPipelineExecution
 func (c *CodePipeline) StartPipelineExecutionRequest(input *StartPipelineExecutionInput) (req *request.Request, output *StartPipelineExecutionOutput) {
 	op := &request.Operation{
 		Name:       opStartPipelineExecution,
@@ -2265,14 +3364,18 @@ func (c *CodePipeline) StartPipelineExecutionRequest(input *StartPipelineExecuti
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation StartPipelineExecution for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodePipelineNotFoundException "PipelineNotFoundException"
-//   The specified pipeline was specified in an invalid format or cannot be found.
+//   * ConflictException
+//   Your request cannot be handled because the pipeline is busy handling ongoing
+//   activities. Try again later.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StartPipelineExecution
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StartPipelineExecution
 func (c *CodePipeline) StartPipelineExecution(input *StartPipelineExecutionInput) (*StartPipelineExecutionOutput, error) {
 	req, out := c.StartPipelineExecutionRequest(input)
 	return out, req.Send()
@@ -2294,12 +3397,391 @@ func (c *CodePipeline) StartPipelineExecutionWithContext(ctx aws.Context, input 
 	return out, req.Send()
 }
 
+const opStopPipelineExecution = "StopPipelineExecution"
+
+// StopPipelineExecutionRequest generates a "aws/request.Request" representing the
+// client's request for the StopPipelineExecution operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StopPipelineExecution for more information on using the StopPipelineExecution
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the StopPipelineExecutionRequest method.
+//    req, resp := client.StopPipelineExecutionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StopPipelineExecution
+func (c *CodePipeline) StopPipelineExecutionRequest(input *StopPipelineExecutionInput) (req *request.Request, output *StopPipelineExecutionOutput) {
+	op := &request.Operation{
+		Name:       opStopPipelineExecution,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &StopPipelineExecutionInput{}
+	}
+
+	output = &StopPipelineExecutionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StopPipelineExecution API operation for AWS CodePipeline.
+//
+// Stops the specified pipeline execution. You choose to either stop the pipeline
+// execution by completing in-progress actions without starting subsequent actions,
+// or by abandoning in-progress actions. While completing or abandoning in-progress
+// actions, the pipeline execution is in a Stopping state. After all in-progress
+// actions are completed or abandoned, the pipeline execution is in a Stopped
+// state.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation StopPipelineExecution for usage and error information.
+//
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * ConflictException
+//   Your request cannot be handled because the pipeline is busy handling ongoing
+//   activities. Try again later.
+//
+//   * PipelineNotFoundException
+//   The pipeline was specified in an invalid format or cannot be found.
+//
+//   * PipelineExecutionNotStoppableException
+//   Unable to stop the pipeline execution. The execution might already be in
+//   a Stopped state, or it might no longer be in progress.
+//
+//   * DuplicatedStopRequestException
+//   The pipeline execution is already in a Stopping state. If you already chose
+//   to stop and wait, you cannot make that request again. You can choose to stop
+//   and abandon now, but be aware that this option can lead to failed tasks or
+//   out of sequence tasks. If you already chose to stop and abandon, you cannot
+//   make that request again.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StopPipelineExecution
+func (c *CodePipeline) StopPipelineExecution(input *StopPipelineExecutionInput) (*StopPipelineExecutionOutput, error) {
+	req, out := c.StopPipelineExecutionRequest(input)
+	return out, req.Send()
+}
+
+// StopPipelineExecutionWithContext is the same as StopPipelineExecution with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StopPipelineExecution for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) StopPipelineExecutionWithContext(ctx aws.Context, input *StopPipelineExecutionInput, opts ...request.Option) (*StopPipelineExecutionOutput, error) {
+	req, out := c.StopPipelineExecutionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opTagResource = "TagResource"
+
+// TagResourceRequest generates a "aws/request.Request" representing the
+// client's request for the TagResource operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See TagResource for more information on using the TagResource
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the TagResourceRequest method.
+//    req, resp := client.TagResourceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/TagResource
+func (c *CodePipeline) TagResourceRequest(input *TagResourceInput) (req *request.Request, output *TagResourceOutput) {
+	op := &request.Operation{
+		Name:       opTagResource,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &TagResourceInput{}
+	}
+
+	output = &TagResourceOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// TagResource API operation for AWS CodePipeline.
+//
+// Adds to or modifies the tags of the given resource. Tags are metadata that
+// can be used to manage a resource.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation TagResource for usage and error information.
+//
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * ResourceNotFoundException
+//   The resource was specified in an invalid format.
+//
+//   * InvalidArnException
+//   The specified resource ARN is invalid.
+//
+//   * TooManyTagsException
+//   The tags limit for a resource has been exceeded.
+//
+//   * InvalidTagsException
+//   The specified resource tags are invalid.
+//
+//   * ConcurrentModificationException
+//   Unable to modify the tag due to a simultaneous update request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/TagResource
+func (c *CodePipeline) TagResource(input *TagResourceInput) (*TagResourceOutput, error) {
+	req, out := c.TagResourceRequest(input)
+	return out, req.Send()
+}
+
+// TagResourceWithContext is the same as TagResource with the addition of
+// the ability to pass a context and additional request options.
+//
+// See TagResource for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) TagResourceWithContext(ctx aws.Context, input *TagResourceInput, opts ...request.Option) (*TagResourceOutput, error) {
+	req, out := c.TagResourceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUntagResource = "UntagResource"
+
+// UntagResourceRequest generates a "aws/request.Request" representing the
+// client's request for the UntagResource operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UntagResource for more information on using the UntagResource
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UntagResourceRequest method.
+//    req, resp := client.UntagResourceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UntagResource
+func (c *CodePipeline) UntagResourceRequest(input *UntagResourceInput) (req *request.Request, output *UntagResourceOutput) {
+	op := &request.Operation{
+		Name:       opUntagResource,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UntagResourceInput{}
+	}
+
+	output = &UntagResourceOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// UntagResource API operation for AWS CodePipeline.
+//
+// Removes tags from an AWS resource.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation UntagResource for usage and error information.
+//
+// Returned Error Types:
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * ResourceNotFoundException
+//   The resource was specified in an invalid format.
+//
+//   * InvalidArnException
+//   The specified resource ARN is invalid.
+//
+//   * InvalidTagsException
+//   The specified resource tags are invalid.
+//
+//   * ConcurrentModificationException
+//   Unable to modify the tag due to a simultaneous update request.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UntagResource
+func (c *CodePipeline) UntagResource(input *UntagResourceInput) (*UntagResourceOutput, error) {
+	req, out := c.UntagResourceRequest(input)
+	return out, req.Send()
+}
+
+// UntagResourceWithContext is the same as UntagResource with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UntagResource for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) UntagResourceWithContext(ctx aws.Context, input *UntagResourceInput, opts ...request.Option) (*UntagResourceOutput, error) {
+	req, out := c.UntagResourceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUpdateActionType = "UpdateActionType"
+
+// UpdateActionTypeRequest generates a "aws/request.Request" representing the
+// client's request for the UpdateActionType operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfully.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UpdateActionType for more information on using the UpdateActionType
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UpdateActionTypeRequest method.
+//    req, resp := client.UpdateActionTypeRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UpdateActionType
+func (c *CodePipeline) UpdateActionTypeRequest(input *UpdateActionTypeInput) (req *request.Request, output *UpdateActionTypeOutput) {
+	op := &request.Operation{
+		Name:       opUpdateActionType,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &UpdateActionTypeInput{}
+	}
+
+	output = &UpdateActionTypeOutput{}
+	req = c.newRequest(op, input, output)
+	req.Handlers.Unmarshal.Swap(jsonrpc.UnmarshalHandler.Name, protocol.UnmarshalDiscardBodyHandler)
+	return
+}
+
+// UpdateActionType API operation for AWS CodePipeline.
+//
+// Updates an action type that was created with any supported integration model,
+// where the action type is to be used by customers of the action type provider.
+// Use a JSON file with the action definition and UpdateActionType to provide
+// the full structure.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for AWS CodePipeline's
+// API operation UpdateActionType for usage and error information.
+//
+// Returned Error Types:
+//   * RequestFailedException
+//   The request failed because of an unknown error, exception, or failure.
+//
+//   * ValidationException
+//   The validation was specified in an invalid format.
+//
+//   * ActionTypeNotFoundException
+//   The specified action type cannot be found.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UpdateActionType
+func (c *CodePipeline) UpdateActionType(input *UpdateActionTypeInput) (*UpdateActionTypeOutput, error) {
+	req, out := c.UpdateActionTypeRequest(input)
+	return out, req.Send()
+}
+
+// UpdateActionTypeWithContext is the same as UpdateActionType with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UpdateActionType for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *CodePipeline) UpdateActionTypeWithContext(ctx aws.Context, input *UpdateActionTypeInput, opts ...request.Option) (*UpdateActionTypeOutput, error) {
+	req, out := c.UpdateActionTypeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opUpdatePipeline = "UpdatePipeline"
 
 // UpdatePipelineRequest generates a "aws/request.Request" representing the
 // client's request for the UpdatePipeline operation. The "output" return
-// value will be populated with the request's response once the request complets
-// successfuly.
+// value will be populated with the request's response once the request completes
+// successfully.
 //
 // Use "Send" method on the returned Request to send the API call to the service.
 // the "output" return value is not valid until after Send returns without error.
@@ -2319,7 +3801,7 @@ const opUpdatePipeline = "UpdatePipeline"
 //        fmt.Println(resp)
 //    }
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UpdatePipeline
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UpdatePipeline
 func (c *CodePipeline) UpdatePipelineRequest(input *UpdatePipelineInput) (req *request.Request, output *UpdatePipelineOutput) {
 	op := &request.Operation{
 		Name:       opUpdatePipeline,
@@ -2339,9 +3821,9 @@ func (c *CodePipeline) UpdatePipelineRequest(input *UpdatePipelineInput) (req *r
 // UpdatePipeline API operation for AWS CodePipeline.
 //
 // Updates a specified pipeline with edits or changes to its structure. Use
-// a JSON file with the pipeline structure in conjunction with UpdatePipeline
-// to provide the full structure of the pipeline. Updating the pipeline increases
-// the version number of the pipeline by 1.
+// a JSON file with the pipeline structure and UpdatePipeline to provide the
+// full structure of the pipeline. Updating the pipeline increases the version
+// number of the pipeline by 1.
 //
 // Returns awserr.Error for service API and SDK errors. Use runtime type assertions
 // with awserr.Error's Code and Message methods to get detailed information about
@@ -2350,23 +3832,27 @@ func (c *CodePipeline) UpdatePipelineRequest(input *UpdatePipelineInput) (req *r
 // See the AWS API reference guide for AWS CodePipeline's
 // API operation UpdatePipeline for usage and error information.
 //
-// Returned Error Codes:
-//   * ErrCodeValidationException "ValidationException"
+// Returned Error Types:
+//   * ValidationException
 //   The validation was specified in an invalid format.
 //
-//   * ErrCodeInvalidStageDeclarationException "InvalidStageDeclarationException"
-//   The specified stage declaration was specified in an invalid format.
+//   * InvalidStageDeclarationException
+//   The stage declaration was specified in an invalid format.
 //
-//   * ErrCodeInvalidActionDeclarationException "InvalidActionDeclarationException"
-//   The specified action declaration was specified in an invalid format.
+//   * InvalidActionDeclarationException
+//   The action declaration was specified in an invalid format.
 //
-//   * ErrCodeInvalidBlockerDeclarationException "InvalidBlockerDeclarationException"
+//   * InvalidBlockerDeclarationException
 //   Reserved for future use.
 //
-//   * ErrCodeInvalidStructureException "InvalidStructureException"
-//   The specified structure was specified in an invalid format.
+//   * InvalidStructureException
+//   The structure was specified in an invalid format.
 //
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UpdatePipeline
+//   * LimitExceededException
+//   The number of pipelines associated with the AWS account has exceeded the
+//   limit allowed for the account.
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UpdatePipeline
 func (c *CodePipeline) UpdatePipeline(input *UpdatePipelineInput) (*UpdatePipelineOutput, error) {
 	req, out := c.UpdatePipelineRequest(input)
 	return out, req.Send()
@@ -2390,26 +3876,25 @@ func (c *CodePipeline) UpdatePipelineWithContext(ctx aws.Context, input *UpdateP
 
 // Represents an AWS session credentials object. These credentials are temporary
 // credentials that are issued by AWS Secure Token Service (STS). They can be
-// used to access input and output artifacts in the Amazon S3 bucket used to
-// store artifact for the pipeline in AWS CodePipeline.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AWSSessionCredentials
+// used to access input and output artifacts in the S3 bucket used to store
+// artifact for the pipeline in AWS CodePipeline.
 type AWSSessionCredentials struct {
-	_ struct{} `type:"structure"`
+	_ struct{} `type:"structure" sensitive:"true"`
 
 	// The access key for the session.
 	//
 	// AccessKeyId is a required field
-	AccessKeyId *string `locationName:"accessKeyId" type:"string" required:"true"`
+	AccessKeyId *string `locationName:"accessKeyId" type:"string" required:"true" sensitive:"true"`
 
 	// The secret access key for the session.
 	//
 	// SecretAccessKey is a required field
-	SecretAccessKey *string `locationName:"secretAccessKey" type:"string" required:"true"`
+	SecretAccessKey *string `locationName:"secretAccessKey" type:"string" required:"true" sensitive:"true"`
 
 	// The token for the session.
 	//
 	// SessionToken is a required field
-	SessionToken *string `locationName:"sessionToken" type:"string" required:"true"`
+	SessionToken *string `locationName:"sessionToken" type:"string" required:"true" sensitive:"true"`
 }
 
 // String returns the string representation
@@ -2441,7 +3926,6 @@ func (s *AWSSessionCredentials) SetSessionToken(v string) *AWSSessionCredentials
 }
 
 // Represents the input of an AcknowledgeJob action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeJobInput
 type AcknowledgeJobInput struct {
 	_ struct{} `type:"structure"`
 
@@ -2455,7 +3939,7 @@ type AcknowledgeJobInput struct {
 	// response of the PollForJobs request that returned this job.
 	//
 	// Nonce is a required field
-	Nonce *string `locationName:"nonce" type:"string" required:"true"`
+	Nonce *string `locationName:"nonce" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2477,6 +3961,9 @@ func (s *AcknowledgeJobInput) Validate() error {
 	if s.Nonce == nil {
 		invalidParams.Add(request.NewErrParamRequired("Nonce"))
 	}
+	if s.Nonce != nil && len(*s.Nonce) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Nonce", 1))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -2497,7 +3984,6 @@ func (s *AcknowledgeJobInput) SetNonce(v string) *AcknowledgeJobInput {
 }
 
 // Represents the output of an AcknowledgeJob action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeJobOutput
 type AcknowledgeJobOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2522,7 +4008,6 @@ func (s *AcknowledgeJobOutput) SetStatus(v string) *AcknowledgeJobOutput {
 }
 
 // Represents the input of an AcknowledgeThirdPartyJob action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeThirdPartyJobInput
 type AcknowledgeThirdPartyJobInput struct {
 	_ struct{} `type:"structure"`
 
@@ -2542,7 +4027,7 @@ type AcknowledgeThirdPartyJobInput struct {
 	// response to a GetThirdPartyJobDetails request.
 	//
 	// Nonce is a required field
-	Nonce *string `locationName:"nonce" type:"string" required:"true"`
+	Nonce *string `locationName:"nonce" min:"1" type:"string" required:"true"`
 }
 
 // String returns the string representation
@@ -2573,6 +4058,9 @@ func (s *AcknowledgeThirdPartyJobInput) Validate() error {
 	if s.Nonce == nil {
 		invalidParams.Add(request.NewErrParamRequired("Nonce"))
 	}
+	if s.Nonce != nil && len(*s.Nonce) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Nonce", 1))
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -2599,7 +4087,6 @@ func (s *AcknowledgeThirdPartyJobInput) SetNonce(v string) *AcknowledgeThirdPart
 }
 
 // Represents the output of an AcknowledgeThirdPartyJob action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/AcknowledgeThirdPartyJobOutput
 type AcknowledgeThirdPartyJobOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -2624,7 +4111,6 @@ func (s *AcknowledgeThirdPartyJobOutput) SetStatus(v string) *AcknowledgeThirdPa
 }
 
 // Represents information about an action configuration.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ActionConfiguration
 type ActionConfiguration struct {
 	_ struct{} `type:"structure"`
 
@@ -2649,12 +4135,11 @@ func (s *ActionConfiguration) SetConfiguration(v map[string]*string) *ActionConf
 }
 
 // Represents information about an action configuration property.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ActionConfigurationProperty
 type ActionConfigurationProperty struct {
 	_ struct{} `type:"structure"`
 
-	// The description of the action configuration property that will be displayed
-	// to users.
+	// The description of the action configuration property that is displayed to
+	// users.
 	Description *string `locationName:"description" min:"1" type:"string"`
 
 	// Whether the configuration property is a key.
@@ -2667,14 +4152,14 @@ type ActionConfigurationProperty struct {
 	// Name is a required field
 	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
 
-	// Indicates that the property will be used in conjunction with PollForJobs.
-	// When creating a custom action, an action can have up to one queryable property.
-	// If it has one, that property must be both required and not secret.
+	// Indicates that the property is used with PollForJobs. When creating a custom
+	// action, an action can have up to one queryable property. If it has one, that
+	// property must be both required and not secret.
 	//
 	// If you create a pipeline with a custom action type, and that custom action
 	// contains a queryable property, the value for that configuration property
-	// is subject to additional restrictions. The value must be less than or equal
-	// to twenty (20) characters. The value can contain only alphanumeric characters,
+	// is subject to other restrictions. The value must be less than or equal to
+	// twenty (20) characters. The value can contain only alphanumeric characters,
 	// underscores, and hyphens.
 	Queryable *bool `locationName:"queryable" type:"boolean"`
 
@@ -2688,7 +4173,7 @@ type ActionConfigurationProperty struct {
 	// PollForThirdPartyJobs.
 	//
 	// When updating a pipeline, passing * * * * * without changing any other values
-	// of the action will preserve the prior value of the secret.
+	// of the action preserves the previous value of the secret.
 	//
 	// Secret is a required field
 	Secret *bool `locationName:"secret" type:"boolean" required:"true"`
@@ -2777,13 +4262,14 @@ func (s *ActionConfigurationProperty) SetType(v string) *ActionConfigurationProp
 	return s
 }
 
-// Represents the context of an action within the stage of a pipeline to a job
-// worker.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ActionContext
+// Represents the context of an action in the stage of a pipeline to a job worker.
 type ActionContext struct {
 	_ struct{} `type:"structure"`
 
-	// The name of the action within the context of a job.
+	// The system-generated unique ID that corresponds to an action's execution.
+	ActionExecutionId *string `locationName:"actionExecutionId" type:"string"`
+
+	// The name of the action in the context of a job.
 	Name *string `locationName:"name" min:"1" type:"string"`
 }
 
@@ -2797,6 +4283,12 @@ func (s ActionContext) GoString() string {
 	return s.String()
 }
 
+// SetActionExecutionId sets the ActionExecutionId field's value.
+func (s *ActionContext) SetActionExecutionId(v string) *ActionContext {
+	s.ActionExecutionId = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *ActionContext) SetName(v string) *ActionContext {
 	s.Name = &v
@@ -2804,16 +4296,29 @@ func (s *ActionContext) SetName(v string) *ActionContext {
 }
 
 // Represents information about an action declaration.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ActionDeclaration
 type ActionDeclaration struct {
 	_ struct{} `type:"structure"`
 
-	// The configuration information for the action type.
+	// Specifies the action type and the provider of the action.
 	//
 	// ActionTypeId is a required field
 	ActionTypeId *ActionTypeId `locationName:"actionTypeId" type:"structure" required:"true"`
 
-	// The action declaration's configuration.
+	// The action's configuration. These are key-value pairs that specify input
+	// values for an action. For more information, see Action Structure Requirements
+	// in CodePipeline (https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+	// For the list of configuration properties for the AWS CloudFormation action
+	// type in CodePipeline, see Configuration Properties Reference (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html)
+	// in the AWS CloudFormation User Guide. For template snippets with examples,
+	// see Using Parameter Override Functions with CodePipeline Pipelines (https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html)
+	// in the AWS CloudFormation User Guide.
+	//
+	// The values can be represented in either JSON or YAML format. For example,
+	// the JSON configuration item format is as follows:
+	//
+	// JSON:
+	//
+	// "Configuration" : { Key : Value },
 	Configuration map[string]*string `locationName:"configuration" type:"map"`
 
 	// The name or ID of the artifact consumed by the action, such as a test or
@@ -2825,12 +4330,19 @@ type ActionDeclaration struct {
 	// Name is a required field
 	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
 
+	// The variable namespace associated with the action. All variables produced
+	// as output by this action fall under this namespace.
+	Namespace *string `locationName:"namespace" min:"1" type:"string"`
+
 	// The name or ID of the result of the action declaration, such as a test or
 	// build artifact.
 	OutputArtifacts []*OutputArtifact `locationName:"outputArtifacts" type:"list"`
 
-	// The ARN of the IAM service role that will perform the declared action. This
-	// is assumed through the roleArn for the pipeline.
+	// The action declaration's AWS Region, such as us-east-1.
+	Region *string `locationName:"region" min:"4" type:"string"`
+
+	// The ARN of the IAM service role that performs the declared action. This is
+	// assumed through the roleArn for the pipeline.
 	RoleArn *string `locationName:"roleArn" type:"string"`
 
 	// The order in which actions are run.
@@ -2858,6 +4370,12 @@ func (s *ActionDeclaration) Validate() error {
 	}
 	if s.Name != nil && len(*s.Name) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+	if s.Namespace != nil && len(*s.Namespace) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Namespace", 1))
+	}
+	if s.Region != nil && len(*s.Region) < 4 {
+		invalidParams.Add(request.NewErrParamMinLen("Region", 4))
 	}
 	if s.RunOrder != nil && *s.RunOrder < 1 {
 		invalidParams.Add(request.NewErrParamMinValue("RunOrder", 1))
@@ -2918,9 +4436,21 @@ func (s *ActionDeclaration) SetName(v string) *ActionDeclaration {
 	return s
 }
 
+// SetNamespace sets the Namespace field's value.
+func (s *ActionDeclaration) SetNamespace(v string) *ActionDeclaration {
+	s.Namespace = &v
+	return s
+}
+
 // SetOutputArtifacts sets the OutputArtifacts field's value.
 func (s *ActionDeclaration) SetOutputArtifacts(v []*OutputArtifact) *ActionDeclaration {
 	s.OutputArtifacts = v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ActionDeclaration) SetRegion(v string) *ActionDeclaration {
+	s.Region = &v
 	return s
 }
 
@@ -2937,9 +4467,15 @@ func (s *ActionDeclaration) SetRunOrder(v int64) *ActionDeclaration {
 }
 
 // Represents information about the run of an action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ActionExecution
 type ActionExecution struct {
 	_ struct{} `type:"structure"`
+
+	// ID of the workflow action execution in the current stage. Use the GetPipelineState
+	// action to retrieve the current action execution details of the current stage.
+	//
+	// For older executions, this field might be empty. The action execution ID
+	// is available for executions run on or after March 2020.
+	ActionExecutionId *string `locationName:"actionExecutionId" type:"string"`
 
 	// The details of an error returned by a URL external to AWS.
 	ErrorDetails *ErrorDetails `locationName:"errorDetails" type:"structure"`
@@ -2947,12 +4483,12 @@ type ActionExecution struct {
 	// The external ID of the run of the action.
 	ExternalExecutionId *string `locationName:"externalExecutionId" min:"1" type:"string"`
 
-	// The URL of a resource external to AWS that will be used when running the
-	// action, for example an external repository URL.
+	// The URL of a resource external to AWS that is used when running the action
+	// (for example, an external repository URL).
 	ExternalExecutionUrl *string `locationName:"externalExecutionUrl" min:"1" type:"string"`
 
 	// The last status change of the action.
-	LastStatusChange *time.Time `locationName:"lastStatusChange" type:"timestamp" timestampFormat:"unix"`
+	LastStatusChange *time.Time `locationName:"lastStatusChange" type:"timestamp"`
 
 	// The ARN of the user who last changed the pipeline.
 	LastUpdatedBy *string `locationName:"lastUpdatedBy" type:"string"`
@@ -2965,11 +4501,11 @@ type ActionExecution struct {
 	Status *string `locationName:"status" type:"string" enum:"ActionExecutionStatus"`
 
 	// A summary of the run of the action.
-	Summary *string `locationName:"summary" type:"string"`
+	Summary *string `locationName:"summary" min:"1" type:"string"`
 
 	// The system-generated token used to identify a unique approval request. The
 	// token for each open approval request can be obtained using the GetPipelineState
-	// command and is used to validate that the approval request corresponding to
+	// command. It is used to validate that the approval request corresponding to
 	// this token is still valid.
 	Token *string `locationName:"token" type:"string"`
 }
@@ -2982,6 +4518,12 @@ func (s ActionExecution) String() string {
 // GoString returns the string representation
 func (s ActionExecution) GoString() string {
 	return s.String()
+}
+
+// SetActionExecutionId sets the ActionExecutionId field's value.
+func (s *ActionExecution) SetActionExecutionId(v string) *ActionExecution {
+	s.ActionExecutionId = &v
+	return s
 }
 
 // SetErrorDetails sets the ErrorDetails field's value.
@@ -3038,8 +4580,363 @@ func (s *ActionExecution) SetToken(v string) *ActionExecution {
 	return s
 }
 
+// Returns information about an execution of an action, including the action
+// execution ID, and the name, version, and timing of the action.
+type ActionExecutionDetail struct {
+	_ struct{} `type:"structure"`
+
+	// The action execution ID.
+	ActionExecutionId *string `locationName:"actionExecutionId" type:"string"`
+
+	// The name of the action.
+	ActionName *string `locationName:"actionName" min:"1" type:"string"`
+
+	// Input details for the action execution, such as role ARN, Region, and input
+	// artifacts.
+	Input *ActionExecutionInput `locationName:"input" type:"structure"`
+
+	// The last update time of the action execution.
+	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp"`
+
+	// Output details for the action execution, such as the action execution result.
+	Output *ActionExecutionOutput `locationName:"output" type:"structure"`
+
+	// The pipeline execution ID for the action execution.
+	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+
+	// The version of the pipeline where the action was run.
+	PipelineVersion *int64 `locationName:"pipelineVersion" min:"1" type:"integer"`
+
+	// The name of the stage that contains the action.
+	StageName *string `locationName:"stageName" min:"1" type:"string"`
+
+	// The start time of the action execution.
+	StartTime *time.Time `locationName:"startTime" type:"timestamp"`
+
+	// The status of the action execution. Status categories are InProgress, Succeeded,
+	// and Failed.
+	Status *string `locationName:"status" type:"string" enum:"ActionExecutionStatus"`
+}
+
+// String returns the string representation
+func (s ActionExecutionDetail) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionExecutionDetail) GoString() string {
+	return s.String()
+}
+
+// SetActionExecutionId sets the ActionExecutionId field's value.
+func (s *ActionExecutionDetail) SetActionExecutionId(v string) *ActionExecutionDetail {
+	s.ActionExecutionId = &v
+	return s
+}
+
+// SetActionName sets the ActionName field's value.
+func (s *ActionExecutionDetail) SetActionName(v string) *ActionExecutionDetail {
+	s.ActionName = &v
+	return s
+}
+
+// SetInput sets the Input field's value.
+func (s *ActionExecutionDetail) SetInput(v *ActionExecutionInput) *ActionExecutionDetail {
+	s.Input = v
+	return s
+}
+
+// SetLastUpdateTime sets the LastUpdateTime field's value.
+func (s *ActionExecutionDetail) SetLastUpdateTime(v time.Time) *ActionExecutionDetail {
+	s.LastUpdateTime = &v
+	return s
+}
+
+// SetOutput sets the Output field's value.
+func (s *ActionExecutionDetail) SetOutput(v *ActionExecutionOutput) *ActionExecutionDetail {
+	s.Output = v
+	return s
+}
+
+// SetPipelineExecutionId sets the PipelineExecutionId field's value.
+func (s *ActionExecutionDetail) SetPipelineExecutionId(v string) *ActionExecutionDetail {
+	s.PipelineExecutionId = &v
+	return s
+}
+
+// SetPipelineVersion sets the PipelineVersion field's value.
+func (s *ActionExecutionDetail) SetPipelineVersion(v int64) *ActionExecutionDetail {
+	s.PipelineVersion = &v
+	return s
+}
+
+// SetStageName sets the StageName field's value.
+func (s *ActionExecutionDetail) SetStageName(v string) *ActionExecutionDetail {
+	s.StageName = &v
+	return s
+}
+
+// SetStartTime sets the StartTime field's value.
+func (s *ActionExecutionDetail) SetStartTime(v time.Time) *ActionExecutionDetail {
+	s.StartTime = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *ActionExecutionDetail) SetStatus(v string) *ActionExecutionDetail {
+	s.Status = &v
+	return s
+}
+
+// Filter values for the action execution.
+type ActionExecutionFilter struct {
+	_ struct{} `type:"structure"`
+
+	// The pipeline execution ID used to filter action execution history.
+	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+}
+
+// String returns the string representation
+func (s ActionExecutionFilter) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionExecutionFilter) GoString() string {
+	return s.String()
+}
+
+// SetPipelineExecutionId sets the PipelineExecutionId field's value.
+func (s *ActionExecutionFilter) SetPipelineExecutionId(v string) *ActionExecutionFilter {
+	s.PipelineExecutionId = &v
+	return s
+}
+
+// Input information used for an action execution.
+type ActionExecutionInput struct {
+	_ struct{} `type:"structure"`
+
+	// Represents information about an action type.
+	ActionTypeId *ActionTypeId `locationName:"actionTypeId" type:"structure"`
+
+	// Configuration data for an action execution.
+	Configuration map[string]*string `locationName:"configuration" type:"map"`
+
+	// Details of input artifacts of the action that correspond to the action execution.
+	InputArtifacts []*ArtifactDetail `locationName:"inputArtifacts" type:"list"`
+
+	// The variable namespace associated with the action. All variables produced
+	// as output by this action fall under this namespace.
+	Namespace *string `locationName:"namespace" min:"1" type:"string"`
+
+	// The AWS Region for the action, such as us-east-1.
+	Region *string `locationName:"region" min:"4" type:"string"`
+
+	// Configuration data for an action execution with all variable references replaced
+	// with their real values for the execution.
+	ResolvedConfiguration map[string]*string `locationName:"resolvedConfiguration" type:"map"`
+
+	// The ARN of the IAM service role that performs the declared action. This is
+	// assumed through the roleArn for the pipeline.
+	RoleArn *string `locationName:"roleArn" type:"string"`
+}
+
+// String returns the string representation
+func (s ActionExecutionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionExecutionInput) GoString() string {
+	return s.String()
+}
+
+// SetActionTypeId sets the ActionTypeId field's value.
+func (s *ActionExecutionInput) SetActionTypeId(v *ActionTypeId) *ActionExecutionInput {
+	s.ActionTypeId = v
+	return s
+}
+
+// SetConfiguration sets the Configuration field's value.
+func (s *ActionExecutionInput) SetConfiguration(v map[string]*string) *ActionExecutionInput {
+	s.Configuration = v
+	return s
+}
+
+// SetInputArtifacts sets the InputArtifacts field's value.
+func (s *ActionExecutionInput) SetInputArtifacts(v []*ArtifactDetail) *ActionExecutionInput {
+	s.InputArtifacts = v
+	return s
+}
+
+// SetNamespace sets the Namespace field's value.
+func (s *ActionExecutionInput) SetNamespace(v string) *ActionExecutionInput {
+	s.Namespace = &v
+	return s
+}
+
+// SetRegion sets the Region field's value.
+func (s *ActionExecutionInput) SetRegion(v string) *ActionExecutionInput {
+	s.Region = &v
+	return s
+}
+
+// SetResolvedConfiguration sets the ResolvedConfiguration field's value.
+func (s *ActionExecutionInput) SetResolvedConfiguration(v map[string]*string) *ActionExecutionInput {
+	s.ResolvedConfiguration = v
+	return s
+}
+
+// SetRoleArn sets the RoleArn field's value.
+func (s *ActionExecutionInput) SetRoleArn(v string) *ActionExecutionInput {
+	s.RoleArn = &v
+	return s
+}
+
+// Output details listed for an action execution, such as the action execution
+// result.
+type ActionExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// Execution result information listed in the output details for an action execution.
+	ExecutionResult *ActionExecutionResult `locationName:"executionResult" type:"structure"`
+
+	// Details of output artifacts of the action that correspond to the action execution.
+	OutputArtifacts []*ArtifactDetail `locationName:"outputArtifacts" type:"list"`
+
+	// The outputVariables field shows the key-value pairs that were output as part
+	// of that execution.
+	OutputVariables map[string]*string `locationName:"outputVariables" type:"map"`
+}
+
+// String returns the string representation
+func (s ActionExecutionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetExecutionResult sets the ExecutionResult field's value.
+func (s *ActionExecutionOutput) SetExecutionResult(v *ActionExecutionResult) *ActionExecutionOutput {
+	s.ExecutionResult = v
+	return s
+}
+
+// SetOutputArtifacts sets the OutputArtifacts field's value.
+func (s *ActionExecutionOutput) SetOutputArtifacts(v []*ArtifactDetail) *ActionExecutionOutput {
+	s.OutputArtifacts = v
+	return s
+}
+
+// SetOutputVariables sets the OutputVariables field's value.
+func (s *ActionExecutionOutput) SetOutputVariables(v map[string]*string) *ActionExecutionOutput {
+	s.OutputVariables = v
+	return s
+}
+
+// Execution result information, such as the external execution ID.
+type ActionExecutionResult struct {
+	_ struct{} `type:"structure"`
+
+	// The action provider's external ID for the action execution.
+	ExternalExecutionId *string `locationName:"externalExecutionId" type:"string"`
+
+	// The action provider's summary for the action execution.
+	ExternalExecutionSummary *string `locationName:"externalExecutionSummary" type:"string"`
+
+	// The deepest external link to the external resource (for example, a repository
+	// URL or deployment endpoint) that is used when running the action.
+	ExternalExecutionUrl *string `locationName:"externalExecutionUrl" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ActionExecutionResult) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionExecutionResult) GoString() string {
+	return s.String()
+}
+
+// SetExternalExecutionId sets the ExternalExecutionId field's value.
+func (s *ActionExecutionResult) SetExternalExecutionId(v string) *ActionExecutionResult {
+	s.ExternalExecutionId = &v
+	return s
+}
+
+// SetExternalExecutionSummary sets the ExternalExecutionSummary field's value.
+func (s *ActionExecutionResult) SetExternalExecutionSummary(v string) *ActionExecutionResult {
+	s.ExternalExecutionSummary = &v
+	return s
+}
+
+// SetExternalExecutionUrl sets the ExternalExecutionUrl field's value.
+func (s *ActionExecutionResult) SetExternalExecutionUrl(v string) *ActionExecutionResult {
+	s.ExternalExecutionUrl = &v
+	return s
+}
+
+// The specified action cannot be found.
+type ActionNotFoundException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s ActionNotFoundException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionNotFoundException) GoString() string {
+	return s.String()
+}
+
+func newErrorActionNotFoundException(v protocol.ResponseMetadata) error {
+	return &ActionNotFoundException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ActionNotFoundException) Code() string {
+	return "ActionNotFoundException"
+}
+
+// Message returns the exception's message.
+func (s *ActionNotFoundException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ActionNotFoundException) OrigErr() error {
+	return nil
+}
+
+func (s *ActionNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ActionNotFoundException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ActionNotFoundException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents information about the version (or revision) of an action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ActionRevision
 type ActionRevision struct {
 	_ struct{} `type:"structure"`
 
@@ -3047,10 +4944,10 @@ type ActionRevision struct {
 	// in timestamp format.
 	//
 	// Created is a required field
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix" required:"true"`
+	Created *time.Time `locationName:"created" type:"timestamp" required:"true"`
 
-	// The unique identifier of the change that set the state to this revision,
-	// for example a deployment ID or timestamp.
+	// The unique identifier of the change that set the state to this revision (for
+	// example, a deployment ID or timestamp).
 	//
 	// RevisionChangeId is a required field
 	RevisionChangeId *string `locationName:"revisionChangeId" min:"1" type:"string" required:"true"`
@@ -3116,7 +5013,6 @@ func (s *ActionRevision) SetRevisionId(v string) *ActionRevision {
 }
 
 // Represents information about the state of an action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ActionState
 type ActionState struct {
 	_ struct{} `type:"structure"`
 
@@ -3179,7 +5075,6 @@ func (s *ActionState) SetRevisionUrl(v string) *ActionState {
 }
 
 // Returns information about the details of an action type.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ActionType
 type ActionType struct {
 	_ struct{} `type:"structure"`
 
@@ -3245,19 +5140,352 @@ func (s *ActionType) SetSettings(v *ActionTypeSettings) *ActionType {
 	return s
 }
 
+// Information about parameters for artifacts associated with the action type,
+// such as the minimum and maximum artifacts allowed.
+type ActionTypeArtifactDetails struct {
+	_ struct{} `type:"structure"`
+
+	// The maximum number of artifacts that can be used with the actiontype. For
+	// example, you should specify a minimum and maximum of zero input artifacts
+	// for an action type with a category of source.
+	//
+	// MaximumCount is a required field
+	MaximumCount *int64 `locationName:"maximumCount" type:"integer" required:"true"`
+
+	// The minimum number of artifacts that can be used with the action type. For
+	// example, you should specify a minimum and maximum of zero input artifacts
+	// for an action type with a category of source.
+	//
+	// MinimumCount is a required field
+	MinimumCount *int64 `locationName:"minimumCount" type:"integer" required:"true"`
+}
+
+// String returns the string representation
+func (s ActionTypeArtifactDetails) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionTypeArtifactDetails) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ActionTypeArtifactDetails) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ActionTypeArtifactDetails"}
+	if s.MaximumCount == nil {
+		invalidParams.Add(request.NewErrParamRequired("MaximumCount"))
+	}
+	if s.MinimumCount == nil {
+		invalidParams.Add(request.NewErrParamRequired("MinimumCount"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaximumCount sets the MaximumCount field's value.
+func (s *ActionTypeArtifactDetails) SetMaximumCount(v int64) *ActionTypeArtifactDetails {
+	s.MaximumCount = &v
+	return s
+}
+
+// SetMinimumCount sets the MinimumCount field's value.
+func (s *ActionTypeArtifactDetails) SetMinimumCount(v int64) *ActionTypeArtifactDetails {
+	s.MinimumCount = &v
+	return s
+}
+
+// The parameters for the action type definition that are provided when the
+// action type is created or updated.
+type ActionTypeDeclaration struct {
+	_ struct{} `type:"structure"`
+
+	// The description for the action type to be updated.
+	Description *string `locationName:"description" min:"1" type:"string"`
+
+	// Information about the executor for an action type that was created with any
+	// supported integration model.
+	//
+	// Executor is a required field
+	Executor *ActionTypeExecutor `locationName:"executor" type:"structure" required:"true"`
+
+	// The action category, owner, provider, and version of the action type to be
+	// updated.
+	//
+	// Id is a required field
+	Id *ActionTypeIdentifier `locationName:"id" type:"structure" required:"true"`
+
+	// Details for the artifacts, such as application files, to be worked on by
+	// the action. For example, the minimum and maximum number of input artifacts
+	// allowed.
+	//
+	// InputArtifactDetails is a required field
+	InputArtifactDetails *ActionTypeArtifactDetails `locationName:"inputArtifactDetails" type:"structure" required:"true"`
+
+	// Details for the output artifacts, such as a built application, that are the
+	// result of the action. For example, the minimum and maximum number of output
+	// artifacts allowed.
+	//
+	// OutputArtifactDetails is a required field
+	OutputArtifactDetails *ActionTypeArtifactDetails `locationName:"outputArtifactDetails" type:"structure" required:"true"`
+
+	// Details identifying the accounts with permissions to use the action type.
+	Permissions *ActionTypePermissions `locationName:"permissions" type:"structure"`
+
+	// The properties of the action type to be updated.
+	Properties []*ActionTypeProperty `locationName:"properties" type:"list"`
+
+	// The links associated with the action type to be updated.
+	Urls *ActionTypeUrls `locationName:"urls" type:"structure"`
+}
+
+// String returns the string representation
+func (s ActionTypeDeclaration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionTypeDeclaration) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ActionTypeDeclaration) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ActionTypeDeclaration"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Executor == nil {
+		invalidParams.Add(request.NewErrParamRequired("Executor"))
+	}
+	if s.Id == nil {
+		invalidParams.Add(request.NewErrParamRequired("Id"))
+	}
+	if s.InputArtifactDetails == nil {
+		invalidParams.Add(request.NewErrParamRequired("InputArtifactDetails"))
+	}
+	if s.OutputArtifactDetails == nil {
+		invalidParams.Add(request.NewErrParamRequired("OutputArtifactDetails"))
+	}
+	if s.Executor != nil {
+		if err := s.Executor.Validate(); err != nil {
+			invalidParams.AddNested("Executor", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Id != nil {
+		if err := s.Id.Validate(); err != nil {
+			invalidParams.AddNested("Id", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.InputArtifactDetails != nil {
+		if err := s.InputArtifactDetails.Validate(); err != nil {
+			invalidParams.AddNested("InputArtifactDetails", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.OutputArtifactDetails != nil {
+		if err := s.OutputArtifactDetails.Validate(); err != nil {
+			invalidParams.AddNested("OutputArtifactDetails", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Permissions != nil {
+		if err := s.Permissions.Validate(); err != nil {
+			invalidParams.AddNested("Permissions", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Properties != nil {
+		for i, v := range s.Properties {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Properties", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Urls != nil {
+		if err := s.Urls.Validate(); err != nil {
+			invalidParams.AddNested("Urls", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ActionTypeDeclaration) SetDescription(v string) *ActionTypeDeclaration {
+	s.Description = &v
+	return s
+}
+
+// SetExecutor sets the Executor field's value.
+func (s *ActionTypeDeclaration) SetExecutor(v *ActionTypeExecutor) *ActionTypeDeclaration {
+	s.Executor = v
+	return s
+}
+
+// SetId sets the Id field's value.
+func (s *ActionTypeDeclaration) SetId(v *ActionTypeIdentifier) *ActionTypeDeclaration {
+	s.Id = v
+	return s
+}
+
+// SetInputArtifactDetails sets the InputArtifactDetails field's value.
+func (s *ActionTypeDeclaration) SetInputArtifactDetails(v *ActionTypeArtifactDetails) *ActionTypeDeclaration {
+	s.InputArtifactDetails = v
+	return s
+}
+
+// SetOutputArtifactDetails sets the OutputArtifactDetails field's value.
+func (s *ActionTypeDeclaration) SetOutputArtifactDetails(v *ActionTypeArtifactDetails) *ActionTypeDeclaration {
+	s.OutputArtifactDetails = v
+	return s
+}
+
+// SetPermissions sets the Permissions field's value.
+func (s *ActionTypeDeclaration) SetPermissions(v *ActionTypePermissions) *ActionTypeDeclaration {
+	s.Permissions = v
+	return s
+}
+
+// SetProperties sets the Properties field's value.
+func (s *ActionTypeDeclaration) SetProperties(v []*ActionTypeProperty) *ActionTypeDeclaration {
+	s.Properties = v
+	return s
+}
+
+// SetUrls sets the Urls field's value.
+func (s *ActionTypeDeclaration) SetUrls(v *ActionTypeUrls) *ActionTypeDeclaration {
+	s.Urls = v
+	return s
+}
+
+// The action engine, or executor, for an action type created for a provider,
+// where the action is to be used by customers of the provider. The action engine
+// is associated with the model used to create and update the action, such as
+// the Lambda integration model.
+type ActionTypeExecutor struct {
+	_ struct{} `type:"structure"`
+
+	// The action configuration properties for the action type. These properties
+	// are specified in the action definition when the action type is created.
+	//
+	// Configuration is a required field
+	Configuration *ExecutorConfiguration `locationName:"configuration" type:"structure" required:"true"`
+
+	// The timeout in seconds for the job. An action execution can have multiple
+	// jobs. This is the timeout for a single job, not the entire action execution.
+	JobTimeout *int64 `locationName:"jobTimeout" min:"60" type:"integer"`
+
+	// The policy statement that specifies the permissions in the CodePipeline customer’s
+	// account that are needed to successfully run an action.
+	//
+	// To grant permission to another account, specify the account ID as the Principal,
+	// a domain-style identifier defined by the service, for example codepipeline.amazonaws.com.
+	//
+	// The size of the passed JSON policy document cannot exceed 2048 characters.
+	PolicyStatementsTemplate *string `locationName:"policyStatementsTemplate" min:"1" type:"string"`
+
+	// The integration model used to create and update the action type, Lambda or
+	// JobWorker.
+	//
+	// Type is a required field
+	Type *string `locationName:"type" type:"string" required:"true" enum:"ExecutorType"`
+}
+
+// String returns the string representation
+func (s ActionTypeExecutor) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionTypeExecutor) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ActionTypeExecutor) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ActionTypeExecutor"}
+	if s.Configuration == nil {
+		invalidParams.Add(request.NewErrParamRequired("Configuration"))
+	}
+	if s.JobTimeout != nil && *s.JobTimeout < 60 {
+		invalidParams.Add(request.NewErrParamMinValue("JobTimeout", 60))
+	}
+	if s.PolicyStatementsTemplate != nil && len(*s.PolicyStatementsTemplate) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PolicyStatementsTemplate", 1))
+	}
+	if s.Type == nil {
+		invalidParams.Add(request.NewErrParamRequired("Type"))
+	}
+	if s.Configuration != nil {
+		if err := s.Configuration.Validate(); err != nil {
+			invalidParams.AddNested("Configuration", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetConfiguration sets the Configuration field's value.
+func (s *ActionTypeExecutor) SetConfiguration(v *ExecutorConfiguration) *ActionTypeExecutor {
+	s.Configuration = v
+	return s
+}
+
+// SetJobTimeout sets the JobTimeout field's value.
+func (s *ActionTypeExecutor) SetJobTimeout(v int64) *ActionTypeExecutor {
+	s.JobTimeout = &v
+	return s
+}
+
+// SetPolicyStatementsTemplate sets the PolicyStatementsTemplate field's value.
+func (s *ActionTypeExecutor) SetPolicyStatementsTemplate(v string) *ActionTypeExecutor {
+	s.PolicyStatementsTemplate = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *ActionTypeExecutor) SetType(v string) *ActionTypeExecutor {
+	s.Type = &v
+	return s
+}
+
 // Represents information about an action type.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ActionTypeId
 type ActionTypeId struct {
 	_ struct{} `type:"structure"`
 
 	// A category defines what kind of action can be taken in the stage, and constrains
 	// the provider type for the action. Valid categories are limited to one of
-	// the values below.
+	// the following values.
+	//
+	//    * Source
+	//
+	//    * Build
+	//
+	//    * Test
+	//
+	//    * Deploy
+	//
+	//    * Invoke
+	//
+	//    * Approval
 	//
 	// Category is a required field
 	Category *string `locationName:"category" type:"string" required:"true" enum:"ActionCategory"`
 
-	// The creator of the action being called.
+	// The creator of the action being called. There are three valid values for
+	// the Owner field in the action category section within your pipeline structure:
+	// AWS, ThirdParty, and Custom. For more information, see Valid Action Types
+	// and Providers in CodePipeline (https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers).
 	//
 	// Owner is a required field
 	Owner *string `locationName:"owner" type:"string" required:"true" enum:"ActionOwner"`
@@ -3265,12 +5493,13 @@ type ActionTypeId struct {
 	// The provider of the service being called by the action. Valid providers are
 	// determined by the action category. For example, an action in the Deploy category
 	// type might have a provider of AWS CodeDeploy, which would be specified as
-	// CodeDeploy.
+	// CodeDeploy. For more information, see Valid Action Types and Providers in
+	// CodePipeline (https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers).
 	//
 	// Provider is a required field
 	Provider *string `locationName:"provider" min:"1" type:"string" required:"true"`
 
-	// A string that identifies the action type.
+	// A string that describes the action version.
 	//
 	// Version is a required field
 	Version *string `locationName:"version" min:"1" type:"string" required:"true"`
@@ -3338,19 +5567,326 @@ func (s *ActionTypeId) SetVersion(v string) *ActionTypeId {
 	return s
 }
 
+// Specifies the category, owner, provider, and version of the action type.
+type ActionTypeIdentifier struct {
+	_ struct{} `type:"structure"`
+
+	// Defines what kind of action can be taken in the stage, one of the following:
+	//
+	//    * Source
+	//
+	//    * Build
+	//
+	//    * Test
+	//
+	//    * Deploy
+	//
+	//    * Approval
+	//
+	//    * Invoke
+	//
+	// Category is a required field
+	Category *string `locationName:"category" type:"string" required:"true" enum:"ActionCategory"`
+
+	// The creator of the action type being called: AWS or ThirdParty.
+	//
+	// Owner is a required field
+	Owner *string `locationName:"owner" type:"string" required:"true"`
+
+	// The provider of the action type being called. The provider name is supplied
+	// when the action type is created.
+	//
+	// Provider is a required field
+	Provider *string `locationName:"provider" min:"1" type:"string" required:"true"`
+
+	// A string that describes the action type version.
+	//
+	// Version is a required field
+	Version *string `locationName:"version" min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ActionTypeIdentifier) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionTypeIdentifier) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ActionTypeIdentifier) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ActionTypeIdentifier"}
+	if s.Category == nil {
+		invalidParams.Add(request.NewErrParamRequired("Category"))
+	}
+	if s.Owner == nil {
+		invalidParams.Add(request.NewErrParamRequired("Owner"))
+	}
+	if s.Provider == nil {
+		invalidParams.Add(request.NewErrParamRequired("Provider"))
+	}
+	if s.Provider != nil && len(*s.Provider) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Provider", 1))
+	}
+	if s.Version == nil {
+		invalidParams.Add(request.NewErrParamRequired("Version"))
+	}
+	if s.Version != nil && len(*s.Version) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Version", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCategory sets the Category field's value.
+func (s *ActionTypeIdentifier) SetCategory(v string) *ActionTypeIdentifier {
+	s.Category = &v
+	return s
+}
+
+// SetOwner sets the Owner field's value.
+func (s *ActionTypeIdentifier) SetOwner(v string) *ActionTypeIdentifier {
+	s.Owner = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *ActionTypeIdentifier) SetProvider(v string) *ActionTypeIdentifier {
+	s.Provider = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *ActionTypeIdentifier) SetVersion(v string) *ActionTypeIdentifier {
+	s.Version = &v
+	return s
+}
+
+// The specified action type cannot be found.
+type ActionTypeNotFoundException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s ActionTypeNotFoundException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionTypeNotFoundException) GoString() string {
+	return s.String()
+}
+
+func newErrorActionTypeNotFoundException(v protocol.ResponseMetadata) error {
+	return &ActionTypeNotFoundException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ActionTypeNotFoundException) Code() string {
+	return "ActionTypeNotFoundException"
+}
+
+// Message returns the exception's message.
+func (s *ActionTypeNotFoundException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ActionTypeNotFoundException) OrigErr() error {
+	return nil
+}
+
+func (s *ActionTypeNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ActionTypeNotFoundException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ActionTypeNotFoundException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// Details identifying the users with permissions to use the action type.
+type ActionTypePermissions struct {
+	_ struct{} `type:"structure"`
+
+	// A list of AWS account IDs with access to use the action type in their pipelines.
+	//
+	// AllowedAccounts is a required field
+	AllowedAccounts []*string `locationName:"allowedAccounts" min:"1" type:"list" required:"true"`
+}
+
+// String returns the string representation
+func (s ActionTypePermissions) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionTypePermissions) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ActionTypePermissions) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ActionTypePermissions"}
+	if s.AllowedAccounts == nil {
+		invalidParams.Add(request.NewErrParamRequired("AllowedAccounts"))
+	}
+	if s.AllowedAccounts != nil && len(s.AllowedAccounts) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("AllowedAccounts", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllowedAccounts sets the AllowedAccounts field's value.
+func (s *ActionTypePermissions) SetAllowedAccounts(v []*string) *ActionTypePermissions {
+	s.AllowedAccounts = v
+	return s
+}
+
+// Represents information about each property specified in the action configuration,
+// such as the description and key name that display for the customer using
+// the action type.
+type ActionTypeProperty struct {
+	_ struct{} `type:"structure"`
+
+	// The description of the property that is displayed to users.
+	Description *string `locationName:"description" min:"1" type:"string"`
+
+	// Whether the configuration property is a key.
+	//
+	// Key is a required field
+	Key *bool `locationName:"key" type:"boolean" required:"true"`
+
+	// The property name that is displayed to users.
+	//
+	// Name is a required field
+	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+
+	// Whether to omit the field value entered by the customer in the log. If true,
+	// the value is not saved in CloudTrail logs for the action execution.
+	//
+	// NoEcho is a required field
+	NoEcho *bool `locationName:"noEcho" type:"boolean" required:"true"`
+
+	// Whether the configuration property is an optional value.
+	//
+	// Optional is a required field
+	Optional *bool `locationName:"optional" type:"boolean" required:"true"`
+
+	// Indicates that the property is used with polling. An action type can have
+	// up to one queryable property. If it has one, that property must be both required
+	// and not secret.
+	Queryable *bool `locationName:"queryable" type:"boolean"`
+}
+
+// String returns the string representation
+func (s ActionTypeProperty) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionTypeProperty) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ActionTypeProperty) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ActionTypeProperty"}
+	if s.Description != nil && len(*s.Description) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Description", 1))
+	}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Name != nil && len(*s.Name) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+	if s.NoEcho == nil {
+		invalidParams.Add(request.NewErrParamRequired("NoEcho"))
+	}
+	if s.Optional == nil {
+		invalidParams.Add(request.NewErrParamRequired("Optional"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetDescription sets the Description field's value.
+func (s *ActionTypeProperty) SetDescription(v string) *ActionTypeProperty {
+	s.Description = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *ActionTypeProperty) SetKey(v bool) *ActionTypeProperty {
+	s.Key = &v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *ActionTypeProperty) SetName(v string) *ActionTypeProperty {
+	s.Name = &v
+	return s
+}
+
+// SetNoEcho sets the NoEcho field's value.
+func (s *ActionTypeProperty) SetNoEcho(v bool) *ActionTypeProperty {
+	s.NoEcho = &v
+	return s
+}
+
+// SetOptional sets the Optional field's value.
+func (s *ActionTypeProperty) SetOptional(v bool) *ActionTypeProperty {
+	s.Optional = &v
+	return s
+}
+
+// SetQueryable sets the Queryable field's value.
+func (s *ActionTypeProperty) SetQueryable(v bool) *ActionTypeProperty {
+	s.Queryable = &v
+	return s
+}
+
 // Returns information about the settings for an action type.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ActionTypeSettings
 type ActionTypeSettings struct {
 	_ struct{} `type:"structure"`
 
 	// The URL returned to the AWS CodePipeline console that provides a deep link
 	// to the resources of the external system, such as the configuration page for
 	// an AWS CodeDeploy deployment group. This link is provided as part of the
-	// action display within the pipeline.
+	// action display in the pipeline.
 	EntityUrlTemplate *string `locationName:"entityUrlTemplate" min:"1" type:"string"`
 
 	// The URL returned to the AWS CodePipeline console that contains a link to
-	// the top-level landing page for the external system, such as console page
+	// the top-level landing page for the external system, such as the console page
 	// for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS
 	// CodePipeline console and provides a link to the execution entity of the external
 	// action.
@@ -3422,8 +5958,145 @@ func (s *ActionTypeSettings) SetThirdPartyConfigurationUrl(v string) *ActionType
 	return s
 }
 
+// Returns information about URLs for web pages that display to customers as
+// links on the pipeline view, such as an external configuration page for the
+// action type.
+type ActionTypeUrls struct {
+	_ struct{} `type:"structure"`
+
+	// The URL returned to the CodePipeline console that contains a link to the
+	// page where customers can configure the external action.
+	ConfigurationUrl *string `locationName:"configurationUrl" min:"1" type:"string"`
+
+	// The URL returned to the CodePipeline console that provides a deep link to
+	// the resources of the external system, such as a status page. This link is
+	// provided as part of the action display in the pipeline.
+	EntityUrlTemplate *string `locationName:"entityUrlTemplate" min:"1" type:"string"`
+
+	// The link to an execution page for the action type in progress. For example,
+	// for a CodeDeploy action, this link is shown on the pipeline view page in
+	// the CodePipeline console, and it links to a CodeDeploy status page.
+	ExecutionUrlTemplate *string `locationName:"executionUrlTemplate" min:"1" type:"string"`
+
+	// The URL returned to the CodePipeline console that contains a link to the
+	// page where customers can update or change the configuration of the external
+	// action.
+	RevisionUrlTemplate *string `locationName:"revisionUrlTemplate" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ActionTypeUrls) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActionTypeUrls) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ActionTypeUrls) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ActionTypeUrls"}
+	if s.ConfigurationUrl != nil && len(*s.ConfigurationUrl) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ConfigurationUrl", 1))
+	}
+	if s.EntityUrlTemplate != nil && len(*s.EntityUrlTemplate) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("EntityUrlTemplate", 1))
+	}
+	if s.ExecutionUrlTemplate != nil && len(*s.ExecutionUrlTemplate) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ExecutionUrlTemplate", 1))
+	}
+	if s.RevisionUrlTemplate != nil && len(*s.RevisionUrlTemplate) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("RevisionUrlTemplate", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetConfigurationUrl sets the ConfigurationUrl field's value.
+func (s *ActionTypeUrls) SetConfigurationUrl(v string) *ActionTypeUrls {
+	s.ConfigurationUrl = &v
+	return s
+}
+
+// SetEntityUrlTemplate sets the EntityUrlTemplate field's value.
+func (s *ActionTypeUrls) SetEntityUrlTemplate(v string) *ActionTypeUrls {
+	s.EntityUrlTemplate = &v
+	return s
+}
+
+// SetExecutionUrlTemplate sets the ExecutionUrlTemplate field's value.
+func (s *ActionTypeUrls) SetExecutionUrlTemplate(v string) *ActionTypeUrls {
+	s.ExecutionUrlTemplate = &v
+	return s
+}
+
+// SetRevisionUrlTemplate sets the RevisionUrlTemplate field's value.
+func (s *ActionTypeUrls) SetRevisionUrlTemplate(v string) *ActionTypeUrls {
+	s.RevisionUrlTemplate = &v
+	return s
+}
+
+// The approval action has already been approved or rejected.
+type ApprovalAlreadyCompletedException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s ApprovalAlreadyCompletedException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ApprovalAlreadyCompletedException) GoString() string {
+	return s.String()
+}
+
+func newErrorApprovalAlreadyCompletedException(v protocol.ResponseMetadata) error {
+	return &ApprovalAlreadyCompletedException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ApprovalAlreadyCompletedException) Code() string {
+	return "ApprovalAlreadyCompletedException"
+}
+
+// Message returns the exception's message.
+func (s *ApprovalAlreadyCompletedException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ApprovalAlreadyCompletedException) OrigErr() error {
+	return nil
+}
+
+func (s *ApprovalAlreadyCompletedException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ApprovalAlreadyCompletedException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ApprovalAlreadyCompletedException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents information about the result of an approval request.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ApprovalResult
 type ApprovalResult struct {
 	_ struct{} `type:"structure"`
 
@@ -3476,9 +6149,8 @@ func (s *ApprovalResult) SetSummary(v string) *ApprovalResult {
 	return s
 }
 
-// Represents information about an artifact that will be worked upon by actions
-// in the pipeline.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/Artifact
+// Represents information about an artifact that is worked on by actions in
+// the pipeline.
 type Artifact struct {
 	_ struct{} `type:"structure"`
 
@@ -3521,8 +6193,40 @@ func (s *Artifact) SetRevision(v string) *Artifact {
 	return s
 }
 
+// Artifact details for the action execution, such as the artifact location.
+type ArtifactDetail struct {
+	_ struct{} `type:"structure"`
+
+	// The artifact object name for the action execution.
+	Name *string `locationName:"name" min:"1" type:"string"`
+
+	// The Amazon S3 artifact location for the action execution.
+	S3location *S3Location `locationName:"s3location" type:"structure"`
+}
+
+// String returns the string representation
+func (s ArtifactDetail) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ArtifactDetail) GoString() string {
+	return s.String()
+}
+
+// SetName sets the Name field's value.
+func (s *ArtifactDetail) SetName(v string) *ArtifactDetail {
+	s.Name = &v
+	return s
+}
+
+// SetS3location sets the S3location field's value.
+func (s *ArtifactDetail) SetS3location(v *S3Location) *ArtifactDetail {
+	s.S3location = v
+	return s
+}
+
 // Returns information about the details of an artifact.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ArtifactDetails
 type ArtifactDetails struct {
 	_ struct{} `type:"structure"`
 
@@ -3576,11 +6280,10 @@ func (s *ArtifactDetails) SetMinimumCount(v int64) *ArtifactDetails {
 }
 
 // Represents information about the location of an artifact.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ArtifactLocation
 type ArtifactLocation struct {
 	_ struct{} `type:"structure"`
 
-	// The Amazon S3 bucket that contains the artifact.
+	// The S3 bucket that contains the artifact.
 	S3Location *S3ArtifactLocation `locationName:"s3Location" type:"structure"`
 
 	// The type of artifact in the location.
@@ -3610,16 +6313,15 @@ func (s *ArtifactLocation) SetType(v string) *ArtifactLocation {
 }
 
 // Represents revision details of an artifact.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ArtifactRevision
 type ArtifactRevision struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time when the most recent revision of the artifact was created,
 	// in timestamp format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `locationName:"created" type:"timestamp"`
 
 	// The name of an artifact. This name might be system-generated, such as "MyApp",
-	// or might be defined by the user when an action is created.
+	// or defined by the user when an action is created.
 	Name *string `locationName:"name" min:"1" type:"string"`
 
 	// An additional identifier for a revision, such as a commit date or, for artifacts
@@ -3687,8 +6389,11 @@ func (s *ArtifactRevision) SetRevisionUrl(v string) *ArtifactRevision {
 	return s
 }
 
-// The Amazon S3 bucket where artifacts are stored for the pipeline.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ArtifactStore
+// The S3 bucket where artifacts for the pipeline are stored.
+//
+// You must include either artifactStore or artifactStores in your pipeline,
+// but you cannot use both. If you create a cross-region action in your pipeline,
+// you must use artifactStores.
 type ArtifactStore struct {
 	_ struct{} `type:"structure"`
 
@@ -3697,11 +6402,11 @@ type ArtifactStore struct {
 	// key for Amazon S3 is used.
 	EncryptionKey *EncryptionKey `locationName:"encryptionKey" type:"structure"`
 
-	// The Amazon S3 bucket used for storing the artifacts for a pipeline. You can
-	// specify the name of an S3 bucket but not a folder within the bucket. A folder
-	// to contain the pipeline artifacts is created for you based on the name of
-	// the pipeline. You can use any Amazon S3 bucket in the same AWS Region as
-	// the pipeline to store your pipeline artifacts.
+	// The S3 bucket used for storing the artifacts for a pipeline. You can specify
+	// the name of an S3 bucket but not a folder in the bucket. A folder to contain
+	// the pipeline artifacts is created for you based on the name of the pipeline.
+	// You can use any S3 bucket in the same AWS Region as the pipeline to store
+	// your pipeline artifacts.
 	//
 	// Location is a required field
 	Location *string `locationName:"location" min:"3" type:"string" required:"true"`
@@ -3765,7 +6470,6 @@ func (s *ArtifactStore) SetType(v string) *ArtifactStore {
 }
 
 // Reserved for future use.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/BlockerDeclaration
 type BlockerDeclaration struct {
 	_ struct{} `type:"structure"`
 
@@ -3821,15 +6525,124 @@ func (s *BlockerDeclaration) SetType(v string) *BlockerDeclaration {
 	return s
 }
 
+// Unable to modify the tag due to a simultaneous update request.
+type ConcurrentModificationException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ConcurrentModificationException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConcurrentModificationException) GoString() string {
+	return s.String()
+}
+
+func newErrorConcurrentModificationException(v protocol.ResponseMetadata) error {
+	return &ConcurrentModificationException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ConcurrentModificationException) Code() string {
+	return "ConcurrentModificationException"
+}
+
+// Message returns the exception's message.
+func (s *ConcurrentModificationException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ConcurrentModificationException) OrigErr() error {
+	return nil
+}
+
+func (s *ConcurrentModificationException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ConcurrentModificationException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ConcurrentModificationException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// Your request cannot be handled because the pipeline is busy handling ongoing
+// activities. Try again later.
+type ConflictException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ConflictException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ConflictException) GoString() string {
+	return s.String()
+}
+
+func newErrorConflictException(v protocol.ResponseMetadata) error {
+	return &ConflictException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ConflictException) Code() string {
+	return "ConflictException"
+}
+
+// Message returns the exception's message.
+func (s *ConflictException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ConflictException) OrigErr() error {
+	return nil
+}
+
+func (s *ConflictException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ConflictException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ConflictException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents the input of a CreateCustomActionType operation.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreateCustomActionTypeInput
 type CreateCustomActionTypeInput struct {
 	_ struct{} `type:"structure"`
 
 	// The category of the custom action, such as a build action or a test action.
-	//
-	// Although Source and Approval are listed as valid values, they are not currently
-	// functional. These values are reserved for future use.
 	//
 	// Category is a required field
 	Category *string `locationName:"category" type:"string" required:"true" enum:"ActionCategory"`
@@ -3839,7 +6652,7 @@ type CreateCustomActionTypeInput struct {
 	// You can refer to a name in the configuration properties of the custom action
 	// within the URL templates by following the format of {Config:name}, as long
 	// as the configuration property is both required and not secret. For more information,
-	// see Create a Custom Action for a Pipeline (http://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html).
+	// see Create a Custom Action for a Pipeline (https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html).
 	ConfigurationProperties []*ActionConfigurationProperty `locationName:"configurationProperties" type:"list"`
 
 	// The details of the input artifact for the action, such as its commit ID.
@@ -3857,8 +6670,11 @@ type CreateCustomActionTypeInput struct {
 	// Provider is a required field
 	Provider *string `locationName:"provider" min:"1" type:"string" required:"true"`
 
-	// Returns information about the settings for an action type.
+	// URLs that provide users information about this custom action.
 	Settings *ActionTypeSettings `locationName:"settings" type:"structure"`
+
+	// The tags for the custom action.
+	Tags []*Tag `locationName:"tags" type:"list"`
 
 	// The version identifier of the custom action.
 	//
@@ -3925,6 +6741,16 @@ func (s *CreateCustomActionTypeInput) Validate() error {
 			invalidParams.AddNested("Settings", err.(request.ErrInvalidParams))
 		}
 	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -3968,6 +6794,12 @@ func (s *CreateCustomActionTypeInput) SetSettings(v *ActionTypeSettings) *Create
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateCustomActionTypeInput) SetTags(v []*Tag) *CreateCustomActionTypeInput {
+	s.Tags = v
+	return s
+}
+
 // SetVersion sets the Version field's value.
 func (s *CreateCustomActionTypeInput) SetVersion(v string) *CreateCustomActionTypeInput {
 	s.Version = &v
@@ -3975,7 +6807,6 @@ func (s *CreateCustomActionTypeInput) SetVersion(v string) *CreateCustomActionTy
 }
 
 // Represents the output of a CreateCustomActionType operation.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreateCustomActionTypeOutput
 type CreateCustomActionTypeOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -3983,6 +6814,9 @@ type CreateCustomActionTypeOutput struct {
 	//
 	// ActionType is a required field
 	ActionType *ActionType `locationName:"actionType" type:"structure" required:"true"`
+
+	// Specifies the tags applied to the custom action.
+	Tags []*Tag `locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -4001,8 +6835,13 @@ func (s *CreateCustomActionTypeOutput) SetActionType(v *ActionType) *CreateCusto
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreateCustomActionTypeOutput) SetTags(v []*Tag) *CreateCustomActionTypeOutput {
+	s.Tags = v
+	return s
+}
+
 // Represents the input of a CreatePipeline action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreatePipelineInput
 type CreatePipelineInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4010,6 +6849,9 @@ type CreatePipelineInput struct {
 	//
 	// Pipeline is a required field
 	Pipeline *PipelineDeclaration `locationName:"pipeline" type:"structure" required:"true"`
+
+	// The tags for the pipeline.
+	Tags []*Tag `locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -4033,6 +6875,16 @@ func (s *CreatePipelineInput) Validate() error {
 			invalidParams.AddNested("Pipeline", err.(request.ErrInvalidParams))
 		}
 	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
 
 	if invalidParams.Len() > 0 {
 		return invalidParams
@@ -4046,13 +6898,21 @@ func (s *CreatePipelineInput) SetPipeline(v *PipelineDeclaration) *CreatePipelin
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreatePipelineInput) SetTags(v []*Tag) *CreatePipelineInput {
+	s.Tags = v
+	return s
+}
+
 // Represents the output of a CreatePipeline action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CreatePipelineOutput
 type CreatePipelineOutput struct {
 	_ struct{} `type:"structure"`
 
 	// Represents the structure of actions and stages to be performed in the pipeline.
 	Pipeline *PipelineDeclaration `locationName:"pipeline" type:"structure"`
+
+	// Specifies the tags applied to the pipeline.
+	Tags []*Tag `locationName:"tags" type:"list"`
 }
 
 // String returns the string representation
@@ -4071,8 +6931,13 @@ func (s *CreatePipelineOutput) SetPipeline(v *PipelineDeclaration) *CreatePipeli
 	return s
 }
 
+// SetTags sets the Tags field's value.
+func (s *CreatePipelineOutput) SetTags(v []*Tag) *CreatePipelineOutput {
+	s.Tags = v
+	return s
+}
+
 // Represents information about a current revision.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/CurrentRevision
 type CurrentRevision struct {
 	_ struct{} `type:"structure"`
 
@@ -4083,7 +6948,7 @@ type CurrentRevision struct {
 
 	// The date and time when the most recent revision of the artifact was created,
 	// in timestamp format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `locationName:"created" type:"timestamp"`
 
 	// The revision ID of the current version of an artifact.
 	//
@@ -4155,7 +7020,6 @@ func (s *CurrentRevision) SetRevisionSummary(v string) *CurrentRevision {
 
 // Represents the input of a DeleteCustomActionType operation. The custom action
 // will be marked as deleted.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeleteCustomActionTypeInput
 type DeleteCustomActionTypeInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4229,7 +7093,6 @@ func (s *DeleteCustomActionTypeInput) SetVersion(v string) *DeleteCustomActionTy
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeleteCustomActionTypeOutput
 type DeleteCustomActionTypeOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -4245,7 +7108,6 @@ func (s DeleteCustomActionTypeOutput) GoString() string {
 }
 
 // Represents the input of a DeletePipeline action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeletePipelineInput
 type DeletePipelineInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4287,7 +7149,6 @@ func (s *DeletePipelineInput) SetName(v string) *DeletePipelineInput {
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeletePipelineOutput
 type DeletePipelineOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -4302,8 +7163,112 @@ func (s DeletePipelineOutput) GoString() string {
 	return s.String()
 }
 
+type DeleteWebhookInput struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the webhook you want to delete.
+	//
+	// Name is a required field
+	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s DeleteWebhookInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteWebhookInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeleteWebhookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeleteWebhookInput"}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Name != nil && len(*s.Name) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetName sets the Name field's value.
+func (s *DeleteWebhookInput) SetName(v string) *DeleteWebhookInput {
+	s.Name = &v
+	return s
+}
+
+type DeleteWebhookOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeleteWebhookOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteWebhookOutput) GoString() string {
+	return s.String()
+}
+
+type DeregisterWebhookWithThirdPartyInput struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the webhook you want to deregister.
+	WebhookName *string `locationName:"webhookName" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s DeregisterWebhookWithThirdPartyInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeregisterWebhookWithThirdPartyInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *DeregisterWebhookWithThirdPartyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "DeregisterWebhookWithThirdPartyInput"}
+	if s.WebhookName != nil && len(*s.WebhookName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WebhookName", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetWebhookName sets the WebhookName field's value.
+func (s *DeregisterWebhookWithThirdPartyInput) SetWebhookName(v string) *DeregisterWebhookWithThirdPartyInput {
+	s.WebhookName = &v
+	return s
+}
+
+type DeregisterWebhookWithThirdPartyOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s DeregisterWebhookWithThirdPartyOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeregisterWebhookWithThirdPartyOutput) GoString() string {
+	return s.String()
+}
+
 // Represents the input of a DisableStageTransition action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DisableStageTransitionInput
 type DisableStageTransitionInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4313,7 +7278,7 @@ type DisableStageTransitionInput struct {
 	// PipelineName is a required field
 	PipelineName *string `locationName:"pipelineName" min:"1" type:"string" required:"true"`
 
-	// The reason given to the user why a stage is disabled, such as waiting for
+	// The reason given to the user that a stage is disabled, such as waiting for
 	// manual approval or manual tests. This message is displayed in the pipeline
 	// console UI.
 	//
@@ -4326,8 +7291,8 @@ type DisableStageTransitionInput struct {
 	// StageName is a required field
 	StageName *string `locationName:"stageName" min:"1" type:"string" required:"true"`
 
-	// Specifies whether artifacts will be prevented from transitioning into the
-	// stage and being processed by the actions in that stage (inbound), or prevented
+	// Specifies whether artifacts are prevented from transitioning into the stage
+	// and being processed by the actions in that stage (inbound), or prevented
 	// from transitioning from the stage after they have been processed by the actions
 	// in that stage (outbound).
 	//
@@ -4400,7 +7365,6 @@ func (s *DisableStageTransitionInput) SetTransitionType(v string) *DisableStageT
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DisableStageTransitionOutput
 type DisableStageTransitionOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -4415,8 +7379,67 @@ func (s DisableStageTransitionOutput) GoString() string {
 	return s.String()
 }
 
+// The pipeline execution is already in a Stopping state. If you already chose
+// to stop and wait, you cannot make that request again. You can choose to stop
+// and abandon now, but be aware that this option can lead to failed tasks or
+// out of sequence tasks. If you already chose to stop and abandon, you cannot
+// make that request again.
+type DuplicatedStopRequestException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s DuplicatedStopRequestException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DuplicatedStopRequestException) GoString() string {
+	return s.String()
+}
+
+func newErrorDuplicatedStopRequestException(v protocol.ResponseMetadata) error {
+	return &DuplicatedStopRequestException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *DuplicatedStopRequestException) Code() string {
+	return "DuplicatedStopRequestException"
+}
+
+// Message returns the exception's message.
+func (s *DuplicatedStopRequestException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *DuplicatedStopRequestException) OrigErr() error {
+	return nil
+}
+
+func (s *DuplicatedStopRequestException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *DuplicatedStopRequestException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *DuplicatedStopRequestException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents the input of an EnableStageTransition action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/EnableStageTransitionInput
 type EnableStageTransitionInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4432,9 +7455,9 @@ type EnableStageTransitionInput struct {
 	// StageName is a required field
 	StageName *string `locationName:"stageName" min:"1" type:"string" required:"true"`
 
-	// Specifies whether artifacts will be allowed to enter the stage and be processed
-	// by the actions in that stage (inbound) or whether already-processed artifacts
-	// will be allowed to transition to the next stage (outbound).
+	// Specifies whether artifacts are allowed to enter the stage and be processed
+	// by the actions in that stage (inbound) or whether already processed artifacts
+	// are allowed to transition to the next stage (outbound).
 	//
 	// TransitionType is a required field
 	TransitionType *string `locationName:"transitionType" type:"string" required:"true" enum:"StageTransitionType"`
@@ -4493,7 +7516,6 @@ func (s *EnableStageTransitionInput) SetTransitionType(v string) *EnableStageTra
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/EnableStageTransitionOutput
 type EnableStageTransitionOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -4510,12 +7532,15 @@ func (s EnableStageTransitionOutput) GoString() string {
 
 // Represents information about the key used to encrypt data in the artifact
 // store, such as an AWS Key Management Service (AWS KMS) key.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/EncryptionKey
 type EncryptionKey struct {
 	_ struct{} `type:"structure"`
 
-	// The ID used to identify the key. For an AWS KMS key, this is the key ID or
-	// key ARN.
+	// The ID used to identify the key. For an AWS KMS key, you can use the key
+	// ID, the key ARN, or the alias ARN.
+	//
+	// Aliases are recognized only in the account that created the customer master
+	// key (CMK). For cross-account actions, you can only use the key ID or key
+	// ARN to identify the key.
 	//
 	// Id is a required field
 	Id *string `locationName:"id" min:"1" type:"string" required:"true"`
@@ -4569,15 +7594,14 @@ func (s *EncryptionKey) SetType(v string) *EncryptionKey {
 }
 
 // Represents information about an error in AWS CodePipeline.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ErrorDetails
 type ErrorDetails struct {
 	_ struct{} `type:"structure"`
 
-	// The system ID or error number code of the error.
+	// The system ID or number code of the error.
 	Code *string `locationName:"code" type:"string"`
 
 	// The text of the error message.
-	Message *string `locationName:"message" type:"string"`
+	Message *string `locationName:"message" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -4604,7 +7628,6 @@ func (s *ErrorDetails) SetMessage(v string) *ErrorDetails {
 
 // The details of the actions taken and results produced on an artifact as it
 // passes through stages in the pipeline.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ExecutionDetails
 type ExecutionDetails struct {
 	_ struct{} `type:"structure"`
 
@@ -4613,11 +7636,11 @@ type ExecutionDetails struct {
 	ExternalExecutionId *string `locationName:"externalExecutionId" min:"1" type:"string"`
 
 	// The percentage of work completed on the action, represented on a scale of
-	// zero to one hundred percent.
+	// 0 to 100 percent.
 	PercentComplete *int64 `locationName:"percentComplete" type:"integer"`
 
 	// The summary of the current status of the actions.
-	Summary *string `locationName:"summary" type:"string"`
+	Summary *string `locationName:"summary" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -4635,6 +7658,9 @@ func (s *ExecutionDetails) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ExecutionDetails"}
 	if s.ExternalExecutionId != nil && len(*s.ExternalExecutionId) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("ExternalExecutionId", 1))
+	}
+	if s.Summary != nil && len(*s.Summary) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Summary", 1))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -4661,8 +7687,98 @@ func (s *ExecutionDetails) SetSummary(v string) *ExecutionDetails {
 	return s
 }
 
+// The interaction or event that started a pipeline execution.
+type ExecutionTrigger struct {
+	_ struct{} `type:"structure"`
+
+	// Detail related to the event that started a pipeline execution, such as the
+	// webhook ARN of the webhook that triggered the pipeline execution or the user
+	// ARN for a user-initiated start-pipeline-execution CLI command.
+	TriggerDetail *string `locationName:"triggerDetail" type:"string"`
+
+	// The type of change-detection method, command, or user interaction that started
+	// a pipeline execution.
+	TriggerType *string `locationName:"triggerType" type:"string" enum:"TriggerType"`
+}
+
+// String returns the string representation
+func (s ExecutionTrigger) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExecutionTrigger) GoString() string {
+	return s.String()
+}
+
+// SetTriggerDetail sets the TriggerDetail field's value.
+func (s *ExecutionTrigger) SetTriggerDetail(v string) *ExecutionTrigger {
+	s.TriggerDetail = &v
+	return s
+}
+
+// SetTriggerType sets the TriggerType field's value.
+func (s *ExecutionTrigger) SetTriggerType(v string) *ExecutionTrigger {
+	s.TriggerType = &v
+	return s
+}
+
+// The action engine, or executor, related to the supported integration model
+// used to create and update the action type. The available executor types are
+// Lambda and JobWorker.
+type ExecutorConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// Details about the JobWorker executor of the action type.
+	JobWorkerExecutorConfiguration *JobWorkerExecutorConfiguration `locationName:"jobWorkerExecutorConfiguration" type:"structure"`
+
+	// Details about the Lambda executor of the action type.
+	LambdaExecutorConfiguration *LambdaExecutorConfiguration `locationName:"lambdaExecutorConfiguration" type:"structure"`
+}
+
+// String returns the string representation
+func (s ExecutorConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExecutorConfiguration) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ExecutorConfiguration) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ExecutorConfiguration"}
+	if s.JobWorkerExecutorConfiguration != nil {
+		if err := s.JobWorkerExecutorConfiguration.Validate(); err != nil {
+			invalidParams.AddNested("JobWorkerExecutorConfiguration", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.LambdaExecutorConfiguration != nil {
+		if err := s.LambdaExecutorConfiguration.Validate(); err != nil {
+			invalidParams.AddNested("LambdaExecutorConfiguration", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetJobWorkerExecutorConfiguration sets the JobWorkerExecutorConfiguration field's value.
+func (s *ExecutorConfiguration) SetJobWorkerExecutorConfiguration(v *JobWorkerExecutorConfiguration) *ExecutorConfiguration {
+	s.JobWorkerExecutorConfiguration = v
+	return s
+}
+
+// SetLambdaExecutorConfiguration sets the LambdaExecutorConfiguration field's value.
+func (s *ExecutorConfiguration) SetLambdaExecutorConfiguration(v *LambdaExecutorConfiguration) *ExecutorConfiguration {
+	s.LambdaExecutorConfiguration = v
+	return s
+}
+
 // Represents information about failure details.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/FailureDetails
 type FailureDetails struct {
 	_ struct{} `type:"structure"`
 
@@ -4672,7 +7788,7 @@ type FailureDetails struct {
 	// The message about the failure.
 	//
 	// Message is a required field
-	Message *string `locationName:"message" type:"string" required:"true"`
+	Message *string `locationName:"message" min:"1" type:"string" required:"true"`
 
 	// The type of the failure.
 	//
@@ -4698,6 +7814,9 @@ func (s *FailureDetails) Validate() error {
 	}
 	if s.Message == nil {
 		invalidParams.Add(request.NewErrParamRequired("Message"))
+	}
+	if s.Message != nil && len(*s.Message) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Message", 1))
 	}
 	if s.Type == nil {
 		invalidParams.Add(request.NewErrParamRequired("Type"))
@@ -4727,8 +7846,132 @@ func (s *FailureDetails) SetType(v string) *FailureDetails {
 	return s
 }
 
+type GetActionTypeInput struct {
+	_ struct{} `type:"structure"`
+
+	// Defines what kind of action can be taken in the stage. The following are
+	// the valid values:
+	//
+	//    * Source
+	//
+	//    * Build
+	//
+	//    * Test
+	//
+	//    * Deploy
+	//
+	//    * Approval
+	//
+	//    * Invoke
+	//
+	// Category is a required field
+	Category *string `locationName:"category" type:"string" required:"true" enum:"ActionCategory"`
+
+	// The creator of an action type that was created with any supported integration
+	// model. There are two valid values: AWS and ThirdParty.
+	//
+	// Owner is a required field
+	Owner *string `locationName:"owner" type:"string" required:"true"`
+
+	// The provider of the action type being called. The provider name is specified
+	// when the action type is created.
+	//
+	// Provider is a required field
+	Provider *string `locationName:"provider" min:"1" type:"string" required:"true"`
+
+	// A string that describes the action type version.
+	//
+	// Version is a required field
+	Version *string `locationName:"version" min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s GetActionTypeInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetActionTypeInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *GetActionTypeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "GetActionTypeInput"}
+	if s.Category == nil {
+		invalidParams.Add(request.NewErrParamRequired("Category"))
+	}
+	if s.Owner == nil {
+		invalidParams.Add(request.NewErrParamRequired("Owner"))
+	}
+	if s.Provider == nil {
+		invalidParams.Add(request.NewErrParamRequired("Provider"))
+	}
+	if s.Provider != nil && len(*s.Provider) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Provider", 1))
+	}
+	if s.Version == nil {
+		invalidParams.Add(request.NewErrParamRequired("Version"))
+	}
+	if s.Version != nil && len(*s.Version) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Version", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetCategory sets the Category field's value.
+func (s *GetActionTypeInput) SetCategory(v string) *GetActionTypeInput {
+	s.Category = &v
+	return s
+}
+
+// SetOwner sets the Owner field's value.
+func (s *GetActionTypeInput) SetOwner(v string) *GetActionTypeInput {
+	s.Owner = &v
+	return s
+}
+
+// SetProvider sets the Provider field's value.
+func (s *GetActionTypeInput) SetProvider(v string) *GetActionTypeInput {
+	s.Provider = &v
+	return s
+}
+
+// SetVersion sets the Version field's value.
+func (s *GetActionTypeInput) SetVersion(v string) *GetActionTypeInput {
+	s.Version = &v
+	return s
+}
+
+type GetActionTypeOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The action type information for the requested action type, such as the action
+	// type ID.
+	ActionType *ActionTypeDeclaration `locationName:"actionType" type:"structure"`
+}
+
+// String returns the string representation
+func (s GetActionTypeOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s GetActionTypeOutput) GoString() string {
+	return s.String()
+}
+
+// SetActionType sets the ActionType field's value.
+func (s *GetActionTypeOutput) SetActionType(v *ActionTypeDeclaration) *GetActionTypeOutput {
+	s.ActionType = v
+	return s
+}
+
 // Represents the input of a GetJobDetails action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetJobDetailsInput
 type GetJobDetailsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4768,7 +8011,6 @@ func (s *GetJobDetailsInput) SetJobId(v string) *GetJobDetailsInput {
 }
 
 // Represents the output of a GetJobDetails action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetJobDetailsOutput
 type GetJobDetailsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -4796,7 +8038,6 @@ func (s *GetJobDetailsOutput) SetJobDetails(v *JobDetails) *GetJobDetailsOutput 
 }
 
 // Represents the input of a GetPipelineExecution action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineExecutionInput
 type GetPipelineExecutionInput struct {
 	_ struct{} `type:"structure"`
 
@@ -4853,7 +8094,6 @@ func (s *GetPipelineExecutionInput) SetPipelineName(v string) *GetPipelineExecut
 }
 
 // Represents the output of a GetPipelineExecution action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineExecutionOutput
 type GetPipelineExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -4878,18 +8118,17 @@ func (s *GetPipelineExecutionOutput) SetPipelineExecution(v *PipelineExecution) 
 }
 
 // Represents the input of a GetPipeline action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineInput
 type GetPipelineInput struct {
 	_ struct{} `type:"structure"`
 
 	// The name of the pipeline for which you want to get information. Pipeline
-	// names must be unique under an Amazon Web Services (AWS) user account.
+	// names must be unique under an AWS user account.
 	//
 	// Name is a required field
 	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
 
 	// The version number of the pipeline. If you do not specify a version, defaults
-	// to the most current version.
+	// to the current version.
 	Version *int64 `locationName:"version" min:"1" type:"integer"`
 }
 
@@ -4935,7 +8174,6 @@ func (s *GetPipelineInput) SetVersion(v int64) *GetPipelineInput {
 }
 
 // Represents the output of a GetPipeline action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineOutput
 type GetPipelineOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -4970,7 +8208,6 @@ func (s *GetPipelineOutput) SetPipeline(v *PipelineDeclaration) *GetPipelineOutp
 }
 
 // Represents the input of a GetPipelineState action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineStateInput
 type GetPipelineStateInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5013,19 +8250,18 @@ func (s *GetPipelineStateInput) SetName(v string) *GetPipelineStateInput {
 }
 
 // Represents the output of a GetPipelineState action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineStateOutput
 type GetPipelineStateOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the pipeline was created, in timestamp format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `locationName:"created" type:"timestamp"`
 
 	// The name of the pipeline for which you want to get the state.
 	PipelineName *string `locationName:"pipelineName" min:"1" type:"string"`
 
 	// The version number of the pipeline.
 	//
-	// A newly-created pipeline is always assigned a version number of 1.
+	// A newly created pipeline is always assigned a version number of 1.
 	PipelineVersion *int64 `locationName:"pipelineVersion" min:"1" type:"integer"`
 
 	// A list of the pipeline stage output information, including stage name, state,
@@ -5033,7 +8269,7 @@ type GetPipelineStateOutput struct {
 	StageStates []*StageState `locationName:"stageStates" type:"list"`
 
 	// The date and time the pipeline was last updated, in timestamp format.
-	Updated *time.Time `locationName:"updated" type:"timestamp" timestampFormat:"unix"`
+	Updated *time.Time `locationName:"updated" type:"timestamp"`
 }
 
 // String returns the string representation
@@ -5077,7 +8313,6 @@ func (s *GetPipelineStateOutput) SetUpdated(v time.Time) *GetPipelineStateOutput
 }
 
 // Represents the input of a GetThirdPartyJobDetails action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetThirdPartyJobDetailsInput
 type GetThirdPartyJobDetailsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5138,7 +8373,6 @@ func (s *GetThirdPartyJobDetailsInput) SetJobId(v string) *GetThirdPartyJobDetai
 }
 
 // Represents the output of a GetThirdPartyJobDetails action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetThirdPartyJobDetailsOutput
 type GetThirdPartyJobDetailsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -5164,11 +8398,10 @@ func (s *GetThirdPartyJobDetailsOutput) SetJobDetails(v *ThirdPartyJobDetails) *
 
 // Represents information about an artifact to be worked on, such as a test
 // or build artifact.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/InputArtifact
 type InputArtifact struct {
 	_ struct{} `type:"structure"`
 
-	// The name of the artifact to be worked on, for example, "My App".
+	// The name of the artifact to be worked on (for example, "My App").
 	//
 	// The input artifact of an action must exactly match the output artifact declared
 	// in a preceding action, but the input artifact does not have to be the next
@@ -5212,15 +8445,799 @@ func (s *InputArtifact) SetName(v string) *InputArtifact {
 	return s
 }
 
+// The action declaration was specified in an invalid format.
+type InvalidActionDeclarationException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidActionDeclarationException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidActionDeclarationException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidActionDeclarationException(v protocol.ResponseMetadata) error {
+	return &InvalidActionDeclarationException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidActionDeclarationException) Code() string {
+	return "InvalidActionDeclarationException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidActionDeclarationException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidActionDeclarationException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidActionDeclarationException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidActionDeclarationException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidActionDeclarationException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The approval request already received a response or has expired.
+type InvalidApprovalTokenException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidApprovalTokenException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidApprovalTokenException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidApprovalTokenException(v protocol.ResponseMetadata) error {
+	return &InvalidApprovalTokenException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidApprovalTokenException) Code() string {
+	return "InvalidApprovalTokenException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidApprovalTokenException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidApprovalTokenException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidApprovalTokenException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidApprovalTokenException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidApprovalTokenException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The specified resource ARN is invalid.
+type InvalidArnException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidArnException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidArnException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidArnException(v protocol.ResponseMetadata) error {
+	return &InvalidArnException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidArnException) Code() string {
+	return "InvalidArnException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidArnException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidArnException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidArnException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidArnException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidArnException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// Reserved for future use.
+type InvalidBlockerDeclarationException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidBlockerDeclarationException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidBlockerDeclarationException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidBlockerDeclarationException(v protocol.ResponseMetadata) error {
+	return &InvalidBlockerDeclarationException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidBlockerDeclarationException) Code() string {
+	return "InvalidBlockerDeclarationException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidBlockerDeclarationException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidBlockerDeclarationException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidBlockerDeclarationException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidBlockerDeclarationException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidBlockerDeclarationException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The client token was specified in an invalid format
+type InvalidClientTokenException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidClientTokenException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidClientTokenException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidClientTokenException(v protocol.ResponseMetadata) error {
+	return &InvalidClientTokenException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidClientTokenException) Code() string {
+	return "InvalidClientTokenException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidClientTokenException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidClientTokenException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidClientTokenException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidClientTokenException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidClientTokenException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The job was specified in an invalid format or cannot be found.
+type InvalidJobException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidJobException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidJobException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidJobException(v protocol.ResponseMetadata) error {
+	return &InvalidJobException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidJobException) Code() string {
+	return "InvalidJobException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidJobException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidJobException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidJobException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidJobException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidJobException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The job state was specified in an invalid format.
+type InvalidJobStateException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidJobStateException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidJobStateException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidJobStateException(v protocol.ResponseMetadata) error {
+	return &InvalidJobStateException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidJobStateException) Code() string {
+	return "InvalidJobStateException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidJobStateException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidJobStateException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidJobStateException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidJobStateException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidJobStateException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The next token was specified in an invalid format. Make sure that the next
+// token you provide is the token returned by a previous call.
+type InvalidNextTokenException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidNextTokenException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidNextTokenException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidNextTokenException(v protocol.ResponseMetadata) error {
+	return &InvalidNextTokenException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidNextTokenException) Code() string {
+	return "InvalidNextTokenException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidNextTokenException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidNextTokenException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidNextTokenException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidNextTokenException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidNextTokenException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The nonce was specified in an invalid format.
+type InvalidNonceException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidNonceException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidNonceException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidNonceException(v protocol.ResponseMetadata) error {
+	return &InvalidNonceException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidNonceException) Code() string {
+	return "InvalidNonceException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidNonceException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidNonceException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidNonceException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidNonceException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidNonceException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The stage declaration was specified in an invalid format.
+type InvalidStageDeclarationException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidStageDeclarationException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidStageDeclarationException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidStageDeclarationException(v protocol.ResponseMetadata) error {
+	return &InvalidStageDeclarationException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidStageDeclarationException) Code() string {
+	return "InvalidStageDeclarationException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidStageDeclarationException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidStageDeclarationException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidStageDeclarationException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidStageDeclarationException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidStageDeclarationException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The structure was specified in an invalid format.
+type InvalidStructureException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidStructureException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidStructureException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidStructureException(v protocol.ResponseMetadata) error {
+	return &InvalidStructureException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidStructureException) Code() string {
+	return "InvalidStructureException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidStructureException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidStructureException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidStructureException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidStructureException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidStructureException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The specified resource tags are invalid.
+type InvalidTagsException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidTagsException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidTagsException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidTagsException(v protocol.ResponseMetadata) error {
+	return &InvalidTagsException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidTagsException) Code() string {
+	return "InvalidTagsException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidTagsException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidTagsException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidTagsException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidTagsException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidTagsException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The specified authentication type is in an invalid format.
+type InvalidWebhookAuthenticationParametersException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidWebhookAuthenticationParametersException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidWebhookAuthenticationParametersException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidWebhookAuthenticationParametersException(v protocol.ResponseMetadata) error {
+	return &InvalidWebhookAuthenticationParametersException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidWebhookAuthenticationParametersException) Code() string {
+	return "InvalidWebhookAuthenticationParametersException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidWebhookAuthenticationParametersException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidWebhookAuthenticationParametersException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidWebhookAuthenticationParametersException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidWebhookAuthenticationParametersException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidWebhookAuthenticationParametersException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The specified event filter rule is in an invalid format.
+type InvalidWebhookFilterPatternException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s InvalidWebhookFilterPatternException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InvalidWebhookFilterPatternException) GoString() string {
+	return s.String()
+}
+
+func newErrorInvalidWebhookFilterPatternException(v protocol.ResponseMetadata) error {
+	return &InvalidWebhookFilterPatternException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *InvalidWebhookFilterPatternException) Code() string {
+	return "InvalidWebhookFilterPatternException"
+}
+
+// Message returns the exception's message.
+func (s *InvalidWebhookFilterPatternException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *InvalidWebhookFilterPatternException) OrigErr() error {
+	return nil
+}
+
+func (s *InvalidWebhookFilterPatternException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *InvalidWebhookFilterPatternException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *InvalidWebhookFilterPatternException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents information about a job.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/Job
 type Job struct {
 	_ struct{} `type:"structure"`
 
 	// The ID of the AWS account to use when performing the job.
 	AccountId *string `locationName:"accountId" type:"string"`
 
-	// Additional data about a job.
+	// Other data about a job.
 	Data *JobData `locationName:"data" type:"structure"`
 
 	// The unique system-generated ID of the job.
@@ -5229,7 +9246,7 @@ type Job struct {
 	// A system-generated random number that AWS CodePipeline uses to ensure that
 	// the job is being worked on by only one job worker. Use this number in an
 	// AcknowledgeJob request.
-	Nonce *string `locationName:"nonce" type:"string"`
+	Nonce *string `locationName:"nonce" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -5266,9 +9283,8 @@ func (s *Job) SetNonce(v string) *Job {
 	return s
 }
 
-// Represents additional information about a job required for a job worker to
-// complete the job.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/JobData
+// Represents other information about a job required for a job worker to complete
+// the job.
 type JobData struct {
 	_ struct{} `type:"structure"`
 
@@ -5280,13 +9296,13 @@ type JobData struct {
 
 	// Represents an AWS session credentials object. These credentials are temporary
 	// credentials that are issued by AWS Secure Token Service (STS). They can be
-	// used to access input and output artifacts in the Amazon S3 bucket used to
-	// store artifact for the pipeline in AWS CodePipeline.
-	ArtifactCredentials *AWSSessionCredentials `locationName:"artifactCredentials" type:"structure"`
+	// used to access input and output artifacts in the S3 bucket used to store
+	// artifacts for the pipeline in AWS CodePipeline.
+	ArtifactCredentials *AWSSessionCredentials `locationName:"artifactCredentials" type:"structure" sensitive:"true"`
 
-	// A system-generated token, such as a AWS CodeDeploy deployment ID, that a
-	// job requires in order to continue the job asynchronously.
-	ContinuationToken *string `locationName:"continuationToken" type:"string"`
+	// A system-generated token, such as a AWS CodeDeploy deployment ID, required
+	// by a job to continue the job asynchronously.
+	ContinuationToken *string `locationName:"continuationToken" min:"1" type:"string"`
 
 	// Represents information about the key used to encrypt data in the artifact
 	// store, such as an AWS Key Management Service (AWS KMS) key.
@@ -5299,6 +9315,8 @@ type JobData struct {
 	OutputArtifacts []*Artifact `locationName:"outputArtifacts" type:"list"`
 
 	// Represents information about a pipeline to a job worker.
+	//
+	// Includes pipelineArn and pipelineExecutionId for custom jobs.
 	PipelineContext *PipelineContext `locationName:"pipelineContext" type:"structure"`
 }
 
@@ -5361,15 +9379,14 @@ func (s *JobData) SetPipelineContext(v *PipelineContext) *JobData {
 }
 
 // Represents information about the details of a job.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/JobDetails
 type JobDetails struct {
 	_ struct{} `type:"structure"`
 
 	// The AWS account ID associated with the job.
 	AccountId *string `locationName:"accountId" type:"string"`
 
-	// Represents additional information about a job required for a job worker to
-	// complete the job.
+	// Represents other information about a job required for a job worker to complete
+	// the job.
 	Data *JobData `locationName:"data" type:"structure"`
 
 	// The unique system-generated ID of the job.
@@ -5404,8 +9421,329 @@ func (s *JobDetails) SetId(v string) *JobDetails {
 	return s
 }
 
+// The job was specified in an invalid format or cannot be found.
+type JobNotFoundException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s JobNotFoundException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s JobNotFoundException) GoString() string {
+	return s.String()
+}
+
+func newErrorJobNotFoundException(v protocol.ResponseMetadata) error {
+	return &JobNotFoundException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *JobNotFoundException) Code() string {
+	return "JobNotFoundException"
+}
+
+// Message returns the exception's message.
+func (s *JobNotFoundException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *JobNotFoundException) OrigErr() error {
+	return nil
+}
+
+func (s *JobNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *JobNotFoundException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *JobNotFoundException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// Details about the polling configuration for the JobWorker action engine,
+// or executor.
+type JobWorkerExecutorConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// The accounts in which the job worker is configured and might poll for jobs
+	// as part of the action execution.
+	PollingAccounts []*string `locationName:"pollingAccounts" min:"1" type:"list"`
+
+	// The service Principals in which the job worker is configured and might poll
+	// for jobs as part of the action execution.
+	PollingServicePrincipals []*string `locationName:"pollingServicePrincipals" min:"1" type:"list"`
+}
+
+// String returns the string representation
+func (s JobWorkerExecutorConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s JobWorkerExecutorConfiguration) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *JobWorkerExecutorConfiguration) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "JobWorkerExecutorConfiguration"}
+	if s.PollingAccounts != nil && len(s.PollingAccounts) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PollingAccounts", 1))
+	}
+	if s.PollingServicePrincipals != nil && len(s.PollingServicePrincipals) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PollingServicePrincipals", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetPollingAccounts sets the PollingAccounts field's value.
+func (s *JobWorkerExecutorConfiguration) SetPollingAccounts(v []*string) *JobWorkerExecutorConfiguration {
+	s.PollingAccounts = v
+	return s
+}
+
+// SetPollingServicePrincipals sets the PollingServicePrincipals field's value.
+func (s *JobWorkerExecutorConfiguration) SetPollingServicePrincipals(v []*string) *JobWorkerExecutorConfiguration {
+	s.PollingServicePrincipals = v
+	return s
+}
+
+// Details about the configuration for the Lambda action engine, or executor.
+type LambdaExecutorConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// The ARN of the Lambda function used by the action engine.
+	//
+	// LambdaFunctionArn is a required field
+	LambdaFunctionArn *string `locationName:"lambdaFunctionArn" min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s LambdaExecutorConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LambdaExecutorConfiguration) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *LambdaExecutorConfiguration) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "LambdaExecutorConfiguration"}
+	if s.LambdaFunctionArn == nil {
+		invalidParams.Add(request.NewErrParamRequired("LambdaFunctionArn"))
+	}
+	if s.LambdaFunctionArn != nil && len(*s.LambdaFunctionArn) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("LambdaFunctionArn", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetLambdaFunctionArn sets the LambdaFunctionArn field's value.
+func (s *LambdaExecutorConfiguration) SetLambdaFunctionArn(v string) *LambdaExecutorConfiguration {
+	s.LambdaFunctionArn = &v
+	return s
+}
+
+// The number of pipelines associated with the AWS account has exceeded the
+// limit allowed for the account.
+type LimitExceededException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s LimitExceededException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s LimitExceededException) GoString() string {
+	return s.String()
+}
+
+func newErrorLimitExceededException(v protocol.ResponseMetadata) error {
+	return &LimitExceededException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *LimitExceededException) Code() string {
+	return "LimitExceededException"
+}
+
+// Message returns the exception's message.
+func (s *LimitExceededException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *LimitExceededException) OrigErr() error {
+	return nil
+}
+
+func (s *LimitExceededException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *LimitExceededException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *LimitExceededException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+type ListActionExecutionsInput struct {
+	_ struct{} `type:"structure"`
+
+	// Input information used to filter action execution history.
+	Filter *ActionExecutionFilter `locationName:"filter" type:"structure"`
+
+	// The maximum number of results to return in a single call. To retrieve the
+	// remaining results, make another call with the returned nextToken value. Action
+	// execution history is retained for up to 12 months, based on action execution
+	// start times. Default value is 100.
+	//
+	// Detailed execution history is available for executions run on or after February
+	// 21, 2019.
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// The token that was returned from the previous ListActionExecutions call,
+	// which can be used to return the next set of action executions in the list.
+	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+
+	// The name of the pipeline for which you want to list action execution history.
+	//
+	// PipelineName is a required field
+	PipelineName *string `locationName:"pipelineName" min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ListActionExecutionsInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListActionExecutionsInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListActionExecutionsInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListActionExecutionsInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.NextToken != nil && len(*s.NextToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NextToken", 1))
+	}
+	if s.PipelineName == nil {
+		invalidParams.Add(request.NewErrParamRequired("PipelineName"))
+	}
+	if s.PipelineName != nil && len(*s.PipelineName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PipelineName", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetFilter sets the Filter field's value.
+func (s *ListActionExecutionsInput) SetFilter(v *ActionExecutionFilter) *ListActionExecutionsInput {
+	s.Filter = v
+	return s
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListActionExecutionsInput) SetMaxResults(v int64) *ListActionExecutionsInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListActionExecutionsInput) SetNextToken(v string) *ListActionExecutionsInput {
+	s.NextToken = &v
+	return s
+}
+
+// SetPipelineName sets the PipelineName field's value.
+func (s *ListActionExecutionsInput) SetPipelineName(v string) *ListActionExecutionsInput {
+	s.PipelineName = &v
+	return s
+}
+
+type ListActionExecutionsOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The details for a list of recent executions, such as action execution ID.
+	ActionExecutionDetails []*ActionExecutionDetail `locationName:"actionExecutionDetails" type:"list"`
+
+	// If the amount of returned information is significantly large, an identifier
+	// is also returned and can be used in a subsequent ListActionExecutions call
+	// to return the next set of action executions in the list.
+	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ListActionExecutionsOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListActionExecutionsOutput) GoString() string {
+	return s.String()
+}
+
+// SetActionExecutionDetails sets the ActionExecutionDetails field's value.
+func (s *ListActionExecutionsOutput) SetActionExecutionDetails(v []*ActionExecutionDetail) *ListActionExecutionsOutput {
+	s.ActionExecutionDetails = v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListActionExecutionsOutput) SetNextToken(v string) *ListActionExecutionsOutput {
+	s.NextToken = &v
+	return s
+}
+
 // Represents the input of a ListActionTypes action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListActionTypesInput
 type ListActionTypesInput struct {
 	_ struct{} `type:"structure"`
 
@@ -5415,6 +9753,9 @@ type ListActionTypesInput struct {
 	// An identifier that was returned from the previous list action types call,
 	// which can be used to return the next set of action types in the list.
 	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+
+	// The Region to filter on for the list of action types.
+	RegionFilter *string `locationName:"regionFilter" min:"4" type:"string"`
 }
 
 // String returns the string representation
@@ -5432,6 +9773,9 @@ func (s *ListActionTypesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListActionTypesInput"}
 	if s.NextToken != nil && len(*s.NextToken) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("NextToken", 1))
+	}
+	if s.RegionFilter != nil && len(*s.RegionFilter) < 4 {
+		invalidParams.Add(request.NewErrParamMinLen("RegionFilter", 4))
 	}
 
 	if invalidParams.Len() > 0 {
@@ -5452,8 +9796,13 @@ func (s *ListActionTypesInput) SetNextToken(v string) *ListActionTypesInput {
 	return s
 }
 
+// SetRegionFilter sets the RegionFilter field's value.
+func (s *ListActionTypesInput) SetRegionFilter(v string) *ListActionTypesInput {
+	s.RegionFilter = &v
+	return s
+}
+
 // Represents the output of a ListActionTypes action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListActionTypesOutput
 type ListActionTypesOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -5463,8 +9812,8 @@ type ListActionTypesOutput struct {
 	ActionTypes []*ActionType `locationName:"actionTypes" type:"list" required:"true"`
 
 	// If the amount of returned information is significantly large, an identifier
-	// is also returned which can be used in a subsequent list action types call
-	// to return the next set of action types in the list.
+	// is also returned. It can be used in a subsequent list action types call to
+	// return the next set of action types in the list.
 	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
 }
 
@@ -5491,14 +9840,13 @@ func (s *ListActionTypesOutput) SetNextToken(v string) *ListActionTypesOutput {
 }
 
 // Represents the input of a ListPipelineExecutions action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelineExecutionsInput
 type ListPipelineExecutionsInput struct {
 	_ struct{} `type:"structure"`
 
 	// The maximum number of results to return in a single call. To retrieve the
-	// remaining results, make another call with the returned nextToken value. The
-	// available pipeline execution history is limited to the most recent 12 months,
-	// based on pipeline execution start times. Default value is 100.
+	// remaining results, make another call with the returned nextToken value. Pipeline
+	// history is limited to the most recent 12 months, based on pipeline execution
+	// start times. Default value is 100.
 	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
 
 	// The token that was returned from the previous ListPipelineExecutions call,
@@ -5562,7 +9910,6 @@ func (s *ListPipelineExecutionsInput) SetPipelineName(v string) *ListPipelineExe
 }
 
 // Represents the output of a ListPipelineExecutions action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelineExecutionsOutput
 type ListPipelineExecutionsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -5598,11 +9945,15 @@ func (s *ListPipelineExecutionsOutput) SetPipelineExecutionSummaries(v []*Pipeli
 }
 
 // Represents the input of a ListPipelines action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelinesInput
 type ListPipelinesInput struct {
 	_ struct{} `type:"structure"`
 
-	// An identifier that was returned from the previous list pipelines call, which
+	// The maximum number of pipelines to return in a single call. To retrieve the
+	// remaining pipelines, make another call with the returned nextToken value.
+	// The minimum value you can specify is 1. The maximum accepted value is 1000.
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// An identifier that was returned from the previous list pipelines call. It
 	// can be used to return the next set of pipelines in the list.
 	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
 }
@@ -5620,6 +9971,9 @@ func (s ListPipelinesInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *ListPipelinesInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "ListPipelinesInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
 	if s.NextToken != nil && len(*s.NextToken) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("NextToken", 1))
 	}
@@ -5630,6 +9984,12 @@ func (s *ListPipelinesInput) Validate() error {
 	return nil
 }
 
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListPipelinesInput) SetMaxResults(v int64) *ListPipelinesInput {
+	s.MaxResults = &v
+	return s
+}
+
 // SetNextToken sets the NextToken field's value.
 func (s *ListPipelinesInput) SetNextToken(v string) *ListPipelinesInput {
 	s.NextToken = &v
@@ -5637,13 +9997,12 @@ func (s *ListPipelinesInput) SetNextToken(v string) *ListPipelinesInput {
 }
 
 // Represents the output of a ListPipelines action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ListPipelinesOutput
 type ListPipelinesOutput struct {
 	_ struct{} `type:"structure"`
 
 	// If the amount of returned information is significantly large, an identifier
-	// is also returned which can be used in a subsequent list pipelines call to
-	// return the next set of pipelines in the list.
+	// is also returned. It can be used in a subsequent list pipelines call to return
+	// the next set of pipelines in the list.
 	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
 
 	// The list of pipelines.
@@ -5672,8 +10031,336 @@ func (s *ListPipelinesOutput) SetPipelines(v []*PipelineSummary) *ListPipelinesO
 	return s
 }
 
+type ListTagsForResourceInput struct {
+	_ struct{} `type:"structure"`
+
+	// The maximum number of results to return in a single call.
+	MaxResults *int64 `locationName:"maxResults" min:"1" type:"integer"`
+
+	// The token that was returned from the previous API call, which would be used
+	// to return the next page of the list. The ListTagsforResource call lists all
+	// available tags in one call and does not use pagination.
+	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+
+	// The Amazon Resource Name (ARN) of the resource to get tags for.
+	//
+	// ResourceArn is a required field
+	ResourceArn *string `locationName:"resourceArn" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ListTagsForResourceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListTagsForResourceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListTagsForResourceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListTagsForResourceInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.NextToken != nil && len(*s.NextToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NextToken", 1))
+	}
+	if s.ResourceArn == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceArn"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListTagsForResourceInput) SetMaxResults(v int64) *ListTagsForResourceInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListTagsForResourceInput) SetNextToken(v string) *ListTagsForResourceInput {
+	s.NextToken = &v
+	return s
+}
+
+// SetResourceArn sets the ResourceArn field's value.
+func (s *ListTagsForResourceInput) SetResourceArn(v string) *ListTagsForResourceInput {
+	s.ResourceArn = &v
+	return s
+}
+
+type ListTagsForResourceOutput struct {
+	_ struct{} `type:"structure"`
+
+	// If the amount of returned information is significantly large, an identifier
+	// is also returned and can be used in a subsequent API call to return the next
+	// page of the list. The ListTagsforResource call lists all available tags in
+	// one call and does not use pagination.
+	NextToken *string `locationName:"nextToken" min:"1" type:"string"`
+
+	// The tags for the resource.
+	Tags []*Tag `locationName:"tags" type:"list"`
+}
+
+// String returns the string representation
+func (s ListTagsForResourceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListTagsForResourceOutput) GoString() string {
+	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListTagsForResourceOutput) SetNextToken(v string) *ListTagsForResourceOutput {
+	s.NextToken = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ListTagsForResourceOutput) SetTags(v []*Tag) *ListTagsForResourceOutput {
+	s.Tags = v
+	return s
+}
+
+// The detail returned for each webhook after listing webhooks, such as the
+// webhook URL, the webhook name, and the webhook ARN.
+type ListWebhookItem struct {
+	_ struct{} `type:"structure"`
+
+	// The Amazon Resource Name (ARN) of the webhook.
+	Arn *string `locationName:"arn" type:"string"`
+
+	// The detail returned for each webhook, such as the webhook authentication
+	// type and filter rules.
+	//
+	// Definition is a required field
+	Definition *WebhookDefinition `locationName:"definition" type:"structure" required:"true"`
+
+	// The number code of the error.
+	ErrorCode *string `locationName:"errorCode" type:"string"`
+
+	// The text of the error message about the webhook.
+	ErrorMessage *string `locationName:"errorMessage" type:"string"`
+
+	// The date and time a webhook was last successfully triggered, in timestamp
+	// format.
+	LastTriggered *time.Time `locationName:"lastTriggered" type:"timestamp"`
+
+	// Specifies the tags applied to the webhook.
+	Tags []*Tag `locationName:"tags" type:"list"`
+
+	// A unique URL generated by CodePipeline. When a POST request is made to this
+	// URL, the defined pipeline is started as long as the body of the post request
+	// satisfies the defined authentication and filtering conditions. Deleting and
+	// re-creating a webhook makes the old URL invalid and generates a new one.
+	//
+	// Url is a required field
+	Url *string `locationName:"url" min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s ListWebhookItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListWebhookItem) GoString() string {
+	return s.String()
+}
+
+// SetArn sets the Arn field's value.
+func (s *ListWebhookItem) SetArn(v string) *ListWebhookItem {
+	s.Arn = &v
+	return s
+}
+
+// SetDefinition sets the Definition field's value.
+func (s *ListWebhookItem) SetDefinition(v *WebhookDefinition) *ListWebhookItem {
+	s.Definition = v
+	return s
+}
+
+// SetErrorCode sets the ErrorCode field's value.
+func (s *ListWebhookItem) SetErrorCode(v string) *ListWebhookItem {
+	s.ErrorCode = &v
+	return s
+}
+
+// SetErrorMessage sets the ErrorMessage field's value.
+func (s *ListWebhookItem) SetErrorMessage(v string) *ListWebhookItem {
+	s.ErrorMessage = &v
+	return s
+}
+
+// SetLastTriggered sets the LastTriggered field's value.
+func (s *ListWebhookItem) SetLastTriggered(v time.Time) *ListWebhookItem {
+	s.LastTriggered = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *ListWebhookItem) SetTags(v []*Tag) *ListWebhookItem {
+	s.Tags = v
+	return s
+}
+
+// SetUrl sets the Url field's value.
+func (s *ListWebhookItem) SetUrl(v string) *ListWebhookItem {
+	s.Url = &v
+	return s
+}
+
+type ListWebhooksInput struct {
+	_ struct{} `type:"structure"`
+
+	// The maximum number of results to return in a single call. To retrieve the
+	// remaining results, make another call with the returned nextToken value.
+	MaxResults *int64 `min:"1" type:"integer"`
+
+	// The token that was returned from the previous ListWebhooks call, which can
+	// be used to return the next set of webhooks in the list.
+	NextToken *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s ListWebhooksInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListWebhooksInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *ListWebhooksInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "ListWebhooksInput"}
+	if s.MaxResults != nil && *s.MaxResults < 1 {
+		invalidParams.Add(request.NewErrParamMinValue("MaxResults", 1))
+	}
+	if s.NextToken != nil && len(*s.NextToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("NextToken", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetMaxResults sets the MaxResults field's value.
+func (s *ListWebhooksInput) SetMaxResults(v int64) *ListWebhooksInput {
+	s.MaxResults = &v
+	return s
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListWebhooksInput) SetNextToken(v string) *ListWebhooksInput {
+	s.NextToken = &v
+	return s
+}
+
+type ListWebhooksOutput struct {
+	_ struct{} `type:"structure"`
+
+	// If the amount of returned information is significantly large, an identifier
+	// is also returned and can be used in a subsequent ListWebhooks call to return
+	// the next set of webhooks in the list.
+	NextToken *string `min:"1" type:"string"`
+
+	// The JSON detail returned for each webhook in the list output for the ListWebhooks
+	// call.
+	Webhooks []*ListWebhookItem `locationName:"webhooks" type:"list"`
+}
+
+// String returns the string representation
+func (s ListWebhooksOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ListWebhooksOutput) GoString() string {
+	return s.String()
+}
+
+// SetNextToken sets the NextToken field's value.
+func (s *ListWebhooksOutput) SetNextToken(v string) *ListWebhooksOutput {
+	s.NextToken = &v
+	return s
+}
+
+// SetWebhooks sets the Webhooks field's value.
+func (s *ListWebhooksOutput) SetWebhooks(v []*ListWebhookItem) *ListWebhooksOutput {
+	s.Webhooks = v
+	return s
+}
+
+// The stage has failed in a later run of the pipeline and the pipelineExecutionId
+// associated with the request is out of date.
+type NotLatestPipelineExecutionException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s NotLatestPipelineExecutionException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NotLatestPipelineExecutionException) GoString() string {
+	return s.String()
+}
+
+func newErrorNotLatestPipelineExecutionException(v protocol.ResponseMetadata) error {
+	return &NotLatestPipelineExecutionException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *NotLatestPipelineExecutionException) Code() string {
+	return "NotLatestPipelineExecutionException"
+}
+
+// Message returns the exception's message.
+func (s *NotLatestPipelineExecutionException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *NotLatestPipelineExecutionException) OrigErr() error {
+	return nil
+}
+
+func (s *NotLatestPipelineExecutionException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *NotLatestPipelineExecutionException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *NotLatestPipelineExecutionException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents information about the output of an action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/OutputArtifact
 type OutputArtifact struct {
 	_ struct{} `type:"structure"`
 
@@ -5723,13 +10410,78 @@ func (s *OutputArtifact) SetName(v string) *OutputArtifact {
 	return s
 }
 
+// Exceeded the total size limit for all variables in the pipeline.
+type OutputVariablesSizeExceededException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s OutputVariablesSizeExceededException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s OutputVariablesSizeExceededException) GoString() string {
+	return s.String()
+}
+
+func newErrorOutputVariablesSizeExceededException(v protocol.ResponseMetadata) error {
+	return &OutputVariablesSizeExceededException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *OutputVariablesSizeExceededException) Code() string {
+	return "OutputVariablesSizeExceededException"
+}
+
+// Message returns the exception's message.
+func (s *OutputVariablesSizeExceededException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *OutputVariablesSizeExceededException) OrigErr() error {
+	return nil
+}
+
+func (s *OutputVariablesSizeExceededException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *OutputVariablesSizeExceededException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *OutputVariablesSizeExceededException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents information about a pipeline to a job worker.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PipelineContext
+//
+// PipelineContext contains pipelineArn and pipelineExecutionId for custom action
+// jobs. The pipelineArn and pipelineExecutionId fields are not populated for
+// ThirdParty action jobs.
 type PipelineContext struct {
 	_ struct{} `type:"structure"`
 
-	// The context of an action to a job worker within the stage of a pipeline.
+	// The context of an action to a job worker in the stage of a pipeline.
 	Action *ActionContext `locationName:"action" type:"structure"`
+
+	// The Amazon Resource Name (ARN) of the pipeline.
+	PipelineArn *string `locationName:"pipelineArn" type:"string"`
+
+	// The execution ID of the pipeline.
+	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
 
 	// The name of the pipeline. This is a user-specified value. Pipeline names
 	// must be unique across all pipeline names under an Amazon Web Services account.
@@ -5755,6 +10507,18 @@ func (s *PipelineContext) SetAction(v *ActionContext) *PipelineContext {
 	return s
 }
 
+// SetPipelineArn sets the PipelineArn field's value.
+func (s *PipelineContext) SetPipelineArn(v string) *PipelineContext {
+	s.PipelineArn = &v
+	return s
+}
+
+// SetPipelineExecutionId sets the PipelineExecutionId field's value.
+func (s *PipelineContext) SetPipelineExecutionId(v string) *PipelineContext {
+	s.PipelineExecutionId = &v
+	return s
+}
+
 // SetPipelineName sets the PipelineName field's value.
 func (s *PipelineContext) SetPipelineName(v string) *PipelineContext {
 	s.PipelineName = &v
@@ -5768,17 +10532,27 @@ func (s *PipelineContext) SetStage(v *StageContext) *PipelineContext {
 }
 
 // Represents the structure of actions and stages to be performed in the pipeline.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PipelineDeclaration
 type PipelineDeclaration struct {
 	_ struct{} `type:"structure"`
 
-	// Represents information about the Amazon S3 bucket where artifacts are stored
-	// for the pipeline.
+	// Represents information about the S3 bucket where artifacts are stored for
+	// the pipeline.
 	//
-	// ArtifactStore is a required field
-	ArtifactStore *ArtifactStore `locationName:"artifactStore" type:"structure" required:"true"`
+	// You must include either artifactStore or artifactStores in your pipeline,
+	// but you cannot use both. If you create a cross-region action in your pipeline,
+	// you must use artifactStores.
+	ArtifactStore *ArtifactStore `locationName:"artifactStore" type:"structure"`
 
-	// The name of the action to be performed.
+	// A mapping of artifactStore objects and their corresponding AWS Regions. There
+	// must be an artifact store for the pipeline Region and for each cross-region
+	// action in the pipeline.
+	//
+	// You must include either artifactStore or artifactStores in your pipeline,
+	// but you cannot use both. If you create a cross-region action in your pipeline,
+	// you must use artifactStores.
+	ArtifactStores map[string]*ArtifactStore `locationName:"artifactStores" type:"map"`
+
+	// The name of the pipeline.
 	//
 	// Name is a required field
 	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
@@ -5796,7 +10570,7 @@ type PipelineDeclaration struct {
 	Stages []*StageDeclaration `locationName:"stages" type:"list" required:"true"`
 
 	// The version number of the pipeline. A new pipeline always has a version number
-	// of 1. This number is automatically incremented when a pipeline is updated.
+	// of 1. This number is incremented when a pipeline is updated.
 	Version *int64 `locationName:"version" min:"1" type:"integer"`
 }
 
@@ -5813,9 +10587,6 @@ func (s PipelineDeclaration) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *PipelineDeclaration) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "PipelineDeclaration"}
-	if s.ArtifactStore == nil {
-		invalidParams.Add(request.NewErrParamRequired("ArtifactStore"))
-	}
 	if s.Name == nil {
 		invalidParams.Add(request.NewErrParamRequired("Name"))
 	}
@@ -5834,6 +10605,16 @@ func (s *PipelineDeclaration) Validate() error {
 	if s.ArtifactStore != nil {
 		if err := s.ArtifactStore.Validate(); err != nil {
 			invalidParams.AddNested("ArtifactStore", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.ArtifactStores != nil {
+		for i, v := range s.ArtifactStores {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "ArtifactStores", i), err.(request.ErrInvalidParams))
+			}
 		}
 	}
 	if s.Stages != nil {
@@ -5856,6 +10637,12 @@ func (s *PipelineDeclaration) Validate() error {
 // SetArtifactStore sets the ArtifactStore field's value.
 func (s *PipelineDeclaration) SetArtifactStore(v *ArtifactStore) *PipelineDeclaration {
 	s.ArtifactStore = v
+	return s
+}
+
+// SetArtifactStores sets the ArtifactStores field's value.
+func (s *PipelineDeclaration) SetArtifactStores(v map[string]*ArtifactStore) *PipelineDeclaration {
+	s.ArtifactStores = v
 	return s
 }
 
@@ -5884,7 +10671,6 @@ func (s *PipelineDeclaration) SetVersion(v int64) *PipelineDeclaration {
 }
 
 // Represents information about an execution of a pipeline.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PipelineExecution
 type PipelineExecution struct {
 	_ struct{} `type:"structure"`
 
@@ -5894,24 +10680,39 @@ type PipelineExecution struct {
 	// The ID of the pipeline execution.
 	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
 
-	// The name of the pipeline that was executed.
+	// The name of the pipeline with the specified pipeline execution.
 	PipelineName *string `locationName:"pipelineName" min:"1" type:"string"`
 
-	// The version number of the pipeline that was executed.
+	// The version number of the pipeline with the specified pipeline execution.
 	PipelineVersion *int64 `locationName:"pipelineVersion" min:"1" type:"integer"`
 
 	// The status of the pipeline execution.
 	//
+	//    * Cancelled: The pipeline’s definition was updated before the pipeline
+	//    execution could be completed.
+	//
 	//    * InProgress: The pipeline execution is currently running.
+	//
+	//    * Stopped: The pipeline execution was manually stopped. For more information,
+	//    see Stopped Executions (https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped).
+	//
+	//    * Stopping: The pipeline execution received a request to be manually stopped.
+	//    Depending on the selected stop mode, the execution is either completing
+	//    or abandoning in-progress actions. For more information, see Stopped Executions
+	//    (https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped).
 	//
 	//    * Succeeded: The pipeline execution was completed successfully.
 	//
 	//    * Superseded: While this pipeline execution was waiting for the next stage
 	//    to be completed, a newer pipeline execution advanced and continued through
-	//    the pipeline instead.
+	//    the pipeline instead. For more information, see Superseded Executions
+	//    (https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded).
 	//
 	//    * Failed: The pipeline execution was not completed successfully.
 	Status *string `locationName:"status" type:"string" enum:"PipelineExecutionStatus"`
+
+	// A summary that contains a description of the pipeline execution status.
+	StatusSummary *string `locationName:"statusSummary" type:"string"`
 }
 
 // String returns the string representation
@@ -5954,33 +10755,171 @@ func (s *PipelineExecution) SetStatus(v string) *PipelineExecution {
 	return s
 }
 
+// SetStatusSummary sets the StatusSummary field's value.
+func (s *PipelineExecution) SetStatusSummary(v string) *PipelineExecution {
+	s.StatusSummary = &v
+	return s
+}
+
+// The pipeline execution was specified in an invalid format or cannot be found,
+// or an execution ID does not belong to the specified pipeline.
+type PipelineExecutionNotFoundException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s PipelineExecutionNotFoundException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PipelineExecutionNotFoundException) GoString() string {
+	return s.String()
+}
+
+func newErrorPipelineExecutionNotFoundException(v protocol.ResponseMetadata) error {
+	return &PipelineExecutionNotFoundException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *PipelineExecutionNotFoundException) Code() string {
+	return "PipelineExecutionNotFoundException"
+}
+
+// Message returns the exception's message.
+func (s *PipelineExecutionNotFoundException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *PipelineExecutionNotFoundException) OrigErr() error {
+	return nil
+}
+
+func (s *PipelineExecutionNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *PipelineExecutionNotFoundException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *PipelineExecutionNotFoundException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// Unable to stop the pipeline execution. The execution might already be in
+// a Stopped state, or it might no longer be in progress.
+type PipelineExecutionNotStoppableException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s PipelineExecutionNotStoppableException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PipelineExecutionNotStoppableException) GoString() string {
+	return s.String()
+}
+
+func newErrorPipelineExecutionNotStoppableException(v protocol.ResponseMetadata) error {
+	return &PipelineExecutionNotStoppableException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *PipelineExecutionNotStoppableException) Code() string {
+	return "PipelineExecutionNotStoppableException"
+}
+
+// Message returns the exception's message.
+func (s *PipelineExecutionNotStoppableException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *PipelineExecutionNotStoppableException) OrigErr() error {
+	return nil
+}
+
+func (s *PipelineExecutionNotStoppableException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *PipelineExecutionNotStoppableException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *PipelineExecutionNotStoppableException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Summary information about a pipeline execution.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PipelineExecutionSummary
 type PipelineExecutionSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time of the last change to the pipeline execution, in timestamp
 	// format.
-	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp" timestampFormat:"unix"`
+	LastUpdateTime *time.Time `locationName:"lastUpdateTime" type:"timestamp"`
 
 	// The ID of the pipeline execution.
 	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
 
+	// A list of the source artifact revisions that initiated a pipeline execution.
+	SourceRevisions []*SourceRevision `locationName:"sourceRevisions" type:"list"`
+
 	// The date and time when the pipeline execution began, in timestamp format.
-	StartTime *time.Time `locationName:"startTime" type:"timestamp" timestampFormat:"unix"`
+	StartTime *time.Time `locationName:"startTime" type:"timestamp"`
 
 	// The status of the pipeline execution.
 	//
 	//    * InProgress: The pipeline execution is currently running.
 	//
+	//    * Stopped: The pipeline execution was manually stopped. For more information,
+	//    see Stopped Executions (https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped).
+	//
+	//    * Stopping: The pipeline execution received a request to be manually stopped.
+	//    Depending on the selected stop mode, the execution is either completing
+	//    or abandoning in-progress actions. For more information, see Stopped Executions
+	//    (https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped).
+	//
 	//    * Succeeded: The pipeline execution was completed successfully.
 	//
 	//    * Superseded: While this pipeline execution was waiting for the next stage
 	//    to be completed, a newer pipeline execution advanced and continued through
-	//    the pipeline instead.
+	//    the pipeline instead. For more information, see Superseded Executions
+	//    (https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded).
 	//
 	//    * Failed: The pipeline execution was not completed successfully.
 	Status *string `locationName:"status" type:"string" enum:"PipelineExecutionStatus"`
+
+	// The interaction that stopped a pipeline execution.
+	StopTrigger *StopExecutionTrigger `locationName:"stopTrigger" type:"structure"`
+
+	// The interaction or event that started a pipeline execution, such as automated
+	// change detection or a StartPipelineExecution API call.
+	Trigger *ExecutionTrigger `locationName:"trigger" type:"structure"`
 }
 
 // String returns the string representation
@@ -6005,6 +10944,12 @@ func (s *PipelineExecutionSummary) SetPipelineExecutionId(v string) *PipelineExe
 	return s
 }
 
+// SetSourceRevisions sets the SourceRevisions field's value.
+func (s *PipelineExecutionSummary) SetSourceRevisions(v []*SourceRevision) *PipelineExecutionSummary {
+	s.SourceRevisions = v
+	return s
+}
+
 // SetStartTime sets the StartTime field's value.
 func (s *PipelineExecutionSummary) SetStartTime(v time.Time) *PipelineExecutionSummary {
 	s.StartTime = &v
@@ -6017,19 +10962,30 @@ func (s *PipelineExecutionSummary) SetStatus(v string) *PipelineExecutionSummary
 	return s
 }
 
+// SetStopTrigger sets the StopTrigger field's value.
+func (s *PipelineExecutionSummary) SetStopTrigger(v *StopExecutionTrigger) *PipelineExecutionSummary {
+	s.StopTrigger = v
+	return s
+}
+
+// SetTrigger sets the Trigger field's value.
+func (s *PipelineExecutionSummary) SetTrigger(v *ExecutionTrigger) *PipelineExecutionSummary {
+	s.Trigger = v
+	return s
+}
+
 // Information about a pipeline.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PipelineMetadata
 type PipelineMetadata struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the pipeline was created, in timestamp format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `locationName:"created" type:"timestamp"`
 
 	// The Amazon Resource Name (ARN) of the pipeline.
 	PipelineArn *string `locationName:"pipelineArn" type:"string"`
 
 	// The date and time the pipeline was last updated, in timestamp format.
-	Updated *time.Time `locationName:"updated" type:"timestamp" timestampFormat:"unix"`
+	Updated *time.Time `locationName:"updated" type:"timestamp"`
 }
 
 // String returns the string representation
@@ -6060,19 +11016,130 @@ func (s *PipelineMetadata) SetUpdated(v time.Time) *PipelineMetadata {
 	return s
 }
 
+// The specified pipeline name is already in use.
+type PipelineNameInUseException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s PipelineNameInUseException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PipelineNameInUseException) GoString() string {
+	return s.String()
+}
+
+func newErrorPipelineNameInUseException(v protocol.ResponseMetadata) error {
+	return &PipelineNameInUseException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *PipelineNameInUseException) Code() string {
+	return "PipelineNameInUseException"
+}
+
+// Message returns the exception's message.
+func (s *PipelineNameInUseException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *PipelineNameInUseException) OrigErr() error {
+	return nil
+}
+
+func (s *PipelineNameInUseException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *PipelineNameInUseException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *PipelineNameInUseException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The pipeline was specified in an invalid format or cannot be found.
+type PipelineNotFoundException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s PipelineNotFoundException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PipelineNotFoundException) GoString() string {
+	return s.String()
+}
+
+func newErrorPipelineNotFoundException(v protocol.ResponseMetadata) error {
+	return &PipelineNotFoundException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *PipelineNotFoundException) Code() string {
+	return "PipelineNotFoundException"
+}
+
+// Message returns the exception's message.
+func (s *PipelineNotFoundException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *PipelineNotFoundException) OrigErr() error {
+	return nil
+}
+
+func (s *PipelineNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *PipelineNotFoundException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *PipelineNotFoundException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Returns a summary of a pipeline.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PipelineSummary
 type PipelineSummary struct {
 	_ struct{} `type:"structure"`
 
 	// The date and time the pipeline was created, in timestamp format.
-	Created *time.Time `locationName:"created" type:"timestamp" timestampFormat:"unix"`
+	Created *time.Time `locationName:"created" type:"timestamp"`
 
 	// The name of the pipeline.
 	Name *string `locationName:"name" min:"1" type:"string"`
 
 	// The date and time of the last update to the pipeline, in timestamp format.
-	Updated *time.Time `locationName:"updated" type:"timestamp" timestampFormat:"unix"`
+	Updated *time.Time `locationName:"updated" type:"timestamp"`
 
 	// The version number of the pipeline.
 	Version *int64 `locationName:"version" min:"1" type:"integer"`
@@ -6112,8 +11179,63 @@ func (s *PipelineSummary) SetVersion(v int64) *PipelineSummary {
 	return s
 }
 
+// The pipeline version was specified in an invalid format or cannot be found.
+type PipelineVersionNotFoundException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s PipelineVersionNotFoundException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PipelineVersionNotFoundException) GoString() string {
+	return s.String()
+}
+
+func newErrorPipelineVersionNotFoundException(v protocol.ResponseMetadata) error {
+	return &PipelineVersionNotFoundException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *PipelineVersionNotFoundException) Code() string {
+	return "PipelineVersionNotFoundException"
+}
+
+// Message returns the exception's message.
+func (s *PipelineVersionNotFoundException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *PipelineVersionNotFoundException) OrigErr() error {
+	return nil
+}
+
+func (s *PipelineVersionNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *PipelineVersionNotFoundException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *PipelineVersionNotFoundException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents the input of a PollForJobs action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForJobsInput
 type PollForJobsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6128,7 +11250,7 @@ type PollForJobsInput struct {
 	// A map of property names and values. For an action type with no queryable
 	// properties, this value must be null or an empty map. For an action type with
 	// a queryable property, you must supply that property as a key in the map.
-	// Only jobs whose action configuration matches the mapped value will be returned.
+	// Only jobs whose action configuration matches the mapped value are returned.
 	QueryParam map[string]*string `locationName:"queryParam" type:"map"`
 }
 
@@ -6182,7 +11304,6 @@ func (s *PollForJobsInput) SetQueryParam(v map[string]*string) *PollForJobsInput
 }
 
 // Represents the output of a PollForJobs action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForJobsOutput
 type PollForJobsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -6207,7 +11328,6 @@ func (s *PollForJobsOutput) SetJobs(v []*Job) *PollForJobsOutput {
 }
 
 // Represents the input of a PollForThirdPartyJobs action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForThirdPartyJobsInput
 type PollForThirdPartyJobsInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6264,7 +11384,6 @@ func (s *PollForThirdPartyJobsInput) SetMaxBatchSize(v int64) *PollForThirdParty
 }
 
 // Represents the output of a PollForThirdPartyJobs action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForThirdPartyJobsOutput
 type PollForThirdPartyJobsOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -6289,11 +11408,10 @@ func (s *PollForThirdPartyJobsOutput) SetJobs(v []*ThirdPartyJob) *PollForThirdP
 }
 
 // Represents the input of a PutActionRevision action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutActionRevisionInput
 type PutActionRevisionInput struct {
 	_ struct{} `type:"structure"`
 
-	// The name of the action that will process the revision.
+	// The name of the action that processes the revision.
 	//
 	// ActionName is a required field
 	ActionName *string `locationName:"actionName" min:"1" type:"string" required:"true"`
@@ -6303,12 +11421,12 @@ type PutActionRevisionInput struct {
 	// ActionRevision is a required field
 	ActionRevision *ActionRevision `locationName:"actionRevision" type:"structure" required:"true"`
 
-	// The name of the pipeline that will start processing the revision to the source.
+	// The name of the pipeline that starts processing the revision to the source.
 	//
 	// PipelineName is a required field
 	PipelineName *string `locationName:"pipelineName" min:"1" type:"string" required:"true"`
 
-	// The name of the stage that contains the action that will act upon the revision.
+	// The name of the stage that contains the action that acts on the revision.
 	//
 	// StageName is a required field
 	StageName *string `locationName:"stageName" min:"1" type:"string" required:"true"`
@@ -6385,7 +11503,6 @@ func (s *PutActionRevisionInput) SetStageName(v string) *PutActionRevisionInput 
 }
 
 // Represents the output of a PutActionRevision action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutActionRevisionOutput
 type PutActionRevisionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -6420,7 +11537,6 @@ func (s *PutActionRevisionOutput) SetPipelineExecutionId(v string) *PutActionRev
 }
 
 // Represents the input of a PutApprovalResult action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutApprovalResultInput
 type PutApprovalResultInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6446,7 +11562,7 @@ type PutApprovalResultInput struct {
 
 	// The system-generated token used to identify a unique approval request. The
 	// token for each open approval request can be obtained using the GetPipelineState
-	// action and is used to validate that the approval request corresponding to
+	// action. It is used to validate that the approval request corresponding to
 	// this token is still valid.
 	//
 	// Token is a required field
@@ -6533,12 +11649,11 @@ func (s *PutApprovalResultInput) SetToken(v string) *PutApprovalResultInput {
 }
 
 // Represents the output of a PutApprovalResult action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutApprovalResultOutput
 type PutApprovalResultOutput struct {
 	_ struct{} `type:"structure"`
 
 	// The timestamp showing when the approval or rejection was submitted.
-	ApprovedAt *time.Time `locationName:"approvedAt" type:"timestamp" timestampFormat:"unix"`
+	ApprovedAt *time.Time `locationName:"approvedAt" type:"timestamp"`
 }
 
 // String returns the string representation
@@ -6558,7 +11673,6 @@ func (s *PutApprovalResultOutput) SetApprovedAt(v time.Time) *PutApprovalResultO
 }
 
 // Represents the input of a PutJobFailureResult action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobFailureResultInput
 type PutJobFailureResultInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6617,7 +11731,6 @@ func (s *PutJobFailureResultInput) SetJobId(v string) *PutJobFailureResultInput 
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobFailureResultOutput
 type PutJobFailureResultOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -6633,19 +11746,17 @@ func (s PutJobFailureResultOutput) GoString() string {
 }
 
 // Represents the input of a PutJobSuccessResult action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobSuccessResultInput
 type PutJobSuccessResultInput struct {
 	_ struct{} `type:"structure"`
 
 	// A token generated by a job worker, such as an AWS CodeDeploy deployment ID,
 	// that a successful job provides to identify a custom action in progress. Future
-	// jobs will use this token in order to identify the running instance of the
-	// action. It can be reused to return additional information about the progress
-	// of the custom action. When the action is complete, no continuation token
-	// should be supplied.
-	ContinuationToken *string `locationName:"continuationToken" type:"string"`
+	// jobs use this token to identify the running instance of the action. It can
+	// be reused to return more information about the progress of the custom action.
+	// When the action is complete, no continuation token should be supplied.
+	ContinuationToken *string `locationName:"continuationToken" min:"1" type:"string"`
 
-	// The ID of the current revision of the artifact successfully worked upon by
+	// The ID of the current revision of the artifact successfully worked on by
 	// the job.
 	CurrentRevision *CurrentRevision `locationName:"currentRevision" type:"structure"`
 
@@ -6658,6 +11769,11 @@ type PutJobSuccessResultInput struct {
 	//
 	// JobId is a required field
 	JobId *string `locationName:"jobId" type:"string" required:"true"`
+
+	// Key-value pairs produced as output by a job worker that can be made available
+	// to a downstream action configuration. outputVariables can be included only
+	// when there is no continuation token on the request.
+	OutputVariables map[string]*string `locationName:"outputVariables" type:"map"`
 }
 
 // String returns the string representation
@@ -6673,6 +11789,9 @@ func (s PutJobSuccessResultInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *PutJobSuccessResultInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "PutJobSuccessResultInput"}
+	if s.ContinuationToken != nil && len(*s.ContinuationToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ContinuationToken", 1))
+	}
 	if s.JobId == nil {
 		invalidParams.Add(request.NewErrParamRequired("JobId"))
 	}
@@ -6717,7 +11836,12 @@ func (s *PutJobSuccessResultInput) SetJobId(v string) *PutJobSuccessResultInput 
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutJobSuccessResultOutput
+// SetOutputVariables sets the OutputVariables field's value.
+func (s *PutJobSuccessResultInput) SetOutputVariables(v map[string]*string) *PutJobSuccessResultInput {
+	s.OutputVariables = v
+	return s
+}
+
 type PutJobSuccessResultOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -6733,7 +11857,6 @@ func (s PutJobSuccessResultOutput) GoString() string {
 }
 
 // Represents the input of a PutThirdPartyJobFailureResult action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobFailureResultInput
 type PutThirdPartyJobFailureResultInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6812,7 +11935,6 @@ func (s *PutThirdPartyJobFailureResultInput) SetJobId(v string) *PutThirdPartyJo
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobFailureResultOutput
 type PutThirdPartyJobFailureResultOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -6828,7 +11950,6 @@ func (s PutThirdPartyJobFailureResultOutput) GoString() string {
 }
 
 // Represents the input of a PutThirdPartyJobSuccessResult action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobSuccessResultInput
 type PutThirdPartyJobSuccessResultInput struct {
 	_ struct{} `type:"structure"`
 
@@ -6840,11 +11961,10 @@ type PutThirdPartyJobSuccessResultInput struct {
 
 	// A token generated by a job worker, such as an AWS CodeDeploy deployment ID,
 	// that a successful job provides to identify a partner action in progress.
-	// Future jobs will use this token in order to identify the running instance
-	// of the action. It can be reused to return additional information about the
-	// progress of the partner action. When the action is complete, no continuation
-	// token should be supplied.
-	ContinuationToken *string `locationName:"continuationToken" type:"string"`
+	// Future jobs use this token to identify the running instance of the action.
+	// It can be reused to return more information about the progress of the partner
+	// action. When the action is complete, no continuation token should be supplied.
+	ContinuationToken *string `locationName:"continuationToken" min:"1" type:"string"`
 
 	// Represents information about a current revision.
 	CurrentRevision *CurrentRevision `locationName:"currentRevision" type:"structure"`
@@ -6878,6 +11998,9 @@ func (s *PutThirdPartyJobSuccessResultInput) Validate() error {
 	}
 	if s.ClientToken != nil && len(*s.ClientToken) < 1 {
 		invalidParams.Add(request.NewErrParamMinLen("ClientToken", 1))
+	}
+	if s.ContinuationToken != nil && len(*s.ContinuationToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ContinuationToken", 1))
 	}
 	if s.JobId == nil {
 		invalidParams.Add(request.NewErrParamRequired("JobId"))
@@ -6932,7 +12055,6 @@ func (s *PutThirdPartyJobSuccessResultInput) SetJobId(v string) *PutThirdPartyJo
 	return s
 }
 
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutThirdPartyJobSuccessResultOutput
 type PutThirdPartyJobSuccessResultOutput struct {
 	_ struct{} `type:"structure"`
 }
@@ -6947,8 +12069,260 @@ func (s PutThirdPartyJobSuccessResultOutput) GoString() string {
 	return s.String()
 }
 
+type PutWebhookInput struct {
+	_ struct{} `type:"structure"`
+
+	// The tags for the webhook.
+	Tags []*Tag `locationName:"tags" type:"list"`
+
+	// The detail provided in an input file to create the webhook, such as the webhook
+	// name, the pipeline name, and the action name. Give the webhook a unique name
+	// that helps you identify it. You might name the webhook after the pipeline
+	// and action it targets so that you can easily recognize what it's used for
+	// later.
+	//
+	// Webhook is a required field
+	Webhook *WebhookDefinition `locationName:"webhook" type:"structure" required:"true"`
+}
+
+// String returns the string representation
+func (s PutWebhookInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PutWebhookInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *PutWebhookInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "PutWebhookInput"}
+	if s.Webhook == nil {
+		invalidParams.Add(request.NewErrParamRequired("Webhook"))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+	if s.Webhook != nil {
+		if err := s.Webhook.Validate(); err != nil {
+			invalidParams.AddNested("Webhook", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetTags sets the Tags field's value.
+func (s *PutWebhookInput) SetTags(v []*Tag) *PutWebhookInput {
+	s.Tags = v
+	return s
+}
+
+// SetWebhook sets the Webhook field's value.
+func (s *PutWebhookInput) SetWebhook(v *WebhookDefinition) *PutWebhookInput {
+	s.Webhook = v
+	return s
+}
+
+type PutWebhookOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The detail returned from creating the webhook, such as the webhook name,
+	// webhook URL, and webhook ARN.
+	Webhook *ListWebhookItem `locationName:"webhook" type:"structure"`
+}
+
+// String returns the string representation
+func (s PutWebhookOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s PutWebhookOutput) GoString() string {
+	return s.String()
+}
+
+// SetWebhook sets the Webhook field's value.
+func (s *PutWebhookOutput) SetWebhook(v *ListWebhookItem) *PutWebhookOutput {
+	s.Webhook = v
+	return s
+}
+
+type RegisterWebhookWithThirdPartyInput struct {
+	_ struct{} `type:"structure"`
+
+	// The name of an existing webhook created with PutWebhook to register with
+	// a supported third party.
+	WebhookName *string `locationName:"webhookName" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s RegisterWebhookWithThirdPartyInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RegisterWebhookWithThirdPartyInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *RegisterWebhookWithThirdPartyInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "RegisterWebhookWithThirdPartyInput"}
+	if s.WebhookName != nil && len(*s.WebhookName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("WebhookName", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetWebhookName sets the WebhookName field's value.
+func (s *RegisterWebhookWithThirdPartyInput) SetWebhookName(v string) *RegisterWebhookWithThirdPartyInput {
+	s.WebhookName = &v
+	return s
+}
+
+type RegisterWebhookWithThirdPartyOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s RegisterWebhookWithThirdPartyOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RegisterWebhookWithThirdPartyOutput) GoString() string {
+	return s.String()
+}
+
+// The request failed because of an unknown error, exception, or failure.
+type RequestFailedException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s RequestFailedException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RequestFailedException) GoString() string {
+	return s.String()
+}
+
+func newErrorRequestFailedException(v protocol.ResponseMetadata) error {
+	return &RequestFailedException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *RequestFailedException) Code() string {
+	return "RequestFailedException"
+}
+
+// Message returns the exception's message.
+func (s *RequestFailedException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *RequestFailedException) OrigErr() error {
+	return nil
+}
+
+func (s *RequestFailedException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *RequestFailedException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *RequestFailedException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The resource was specified in an invalid format.
+type ResourceNotFoundException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s ResourceNotFoundException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResourceNotFoundException) GoString() string {
+	return s.String()
+}
+
+func newErrorResourceNotFoundException(v protocol.ResponseMetadata) error {
+	return &ResourceNotFoundException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ResourceNotFoundException) Code() string {
+	return "ResourceNotFoundException"
+}
+
+// Message returns the exception's message.
+func (s *ResourceNotFoundException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ResourceNotFoundException) OrigErr() error {
+	return nil
+}
+
+func (s *ResourceNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ResourceNotFoundException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ResourceNotFoundException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents the input of a RetryStageExecution action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/RetryStageExecutionInput
 type RetryStageExecutionInput struct {
 	_ struct{} `type:"structure"`
 
@@ -7038,7 +12412,6 @@ func (s *RetryStageExecutionInput) SetStageName(v string) *RetryStageExecutionIn
 }
 
 // Represents the output of a RetryStageExecution action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/RetryStageExecutionOutput
 type RetryStageExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -7062,18 +12435,17 @@ func (s *RetryStageExecutionOutput) SetPipelineExecutionId(v string) *RetryStage
 	return s
 }
 
-// The location of the Amazon S3 bucket that contains a revision.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/S3ArtifactLocation
+// The location of the S3 bucket that contains a revision.
 type S3ArtifactLocation struct {
 	_ struct{} `type:"structure"`
 
-	// The name of the Amazon S3 bucket.
+	// The name of the S3 bucket.
 	//
 	// BucketName is a required field
 	BucketName *string `locationName:"bucketName" type:"string" required:"true"`
 
-	// The key of the object in the Amazon S3 bucket, which uniquely identifies
-	// the object in the bucket.
+	// The key of the object in the S3 bucket, which uniquely identifies the object
+	// in the bucket.
 	//
 	// ObjectKey is a required field
 	ObjectKey *string `locationName:"objectKey" type:"string" required:"true"`
@@ -7101,8 +12473,100 @@ func (s *S3ArtifactLocation) SetObjectKey(v string) *S3ArtifactLocation {
 	return s
 }
 
+// The Amazon S3 artifact location for an action's artifacts.
+type S3Location struct {
+	_ struct{} `type:"structure"`
+
+	// The Amazon S3 artifact bucket for an action's artifacts.
+	Bucket *string `locationName:"bucket" min:"3" type:"string"`
+
+	// The artifact name.
+	Key *string `locationName:"key" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s S3Location) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s S3Location) GoString() string {
+	return s.String()
+}
+
+// SetBucket sets the Bucket field's value.
+func (s *S3Location) SetBucket(v string) *S3Location {
+	s.Bucket = &v
+	return s
+}
+
+// SetKey sets the Key field's value.
+func (s *S3Location) SetKey(v string) *S3Location {
+	s.Key = &v
+	return s
+}
+
+// Information about the version (or revision) of a source artifact that initiated
+// a pipeline execution.
+type SourceRevision struct {
+	_ struct{} `type:"structure"`
+
+	// The name of the action that processed the revision to the source artifact.
+	//
+	// ActionName is a required field
+	ActionName *string `locationName:"actionName" min:"1" type:"string" required:"true"`
+
+	// The system-generated unique ID that identifies the revision number of the
+	// artifact.
+	RevisionId *string `locationName:"revisionId" min:"1" type:"string"`
+
+	// Summary information about the most recent revision of the artifact. For GitHub
+	// and AWS CodeCommit repositories, the commit message. For Amazon S3 buckets
+	// or actions, the user-provided content of a codepipeline-artifact-revision-summary
+	// key specified in the object metadata.
+	RevisionSummary *string `locationName:"revisionSummary" min:"1" type:"string"`
+
+	// The commit ID for the artifact revision. For artifacts stored in GitHub or
+	// AWS CodeCommit repositories, the commit ID is linked to a commit details
+	// page.
+	RevisionUrl *string `locationName:"revisionUrl" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s SourceRevision) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SourceRevision) GoString() string {
+	return s.String()
+}
+
+// SetActionName sets the ActionName field's value.
+func (s *SourceRevision) SetActionName(v string) *SourceRevision {
+	s.ActionName = &v
+	return s
+}
+
+// SetRevisionId sets the RevisionId field's value.
+func (s *SourceRevision) SetRevisionId(v string) *SourceRevision {
+	s.RevisionId = &v
+	return s
+}
+
+// SetRevisionSummary sets the RevisionSummary field's value.
+func (s *SourceRevision) SetRevisionSummary(v string) *SourceRevision {
+	s.RevisionSummary = &v
+	return s
+}
+
+// SetRevisionUrl sets the RevisionUrl field's value.
+func (s *SourceRevision) SetRevisionUrl(v string) *SourceRevision {
+	s.RevisionUrl = &v
+	return s
+}
+
 // Represents information about a stage to a job worker.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StageContext
 type StageContext struct {
 	_ struct{} `type:"structure"`
 
@@ -7127,7 +12591,6 @@ func (s *StageContext) SetName(v string) *StageContext {
 }
 
 // Represents information about a stage and its definition.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StageDeclaration
 type StageDeclaration struct {
 	_ struct{} `type:"structure"`
 
@@ -7213,7 +12676,6 @@ func (s *StageDeclaration) SetName(v string) *StageDeclaration {
 }
 
 // Represents information about the run of a stage.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StageExecution
 type StageExecution struct {
 	_ struct{} `type:"structure"`
 
@@ -7224,6 +12686,9 @@ type StageExecution struct {
 
 	// The status of the stage, or for a completed stage, the last status of the
 	// stage.
+	//
+	// A status of cancelled means that the pipeline’s definition was updated
+	// before the stage execution could be completed.
 	//
 	// Status is a required field
 	Status *string `locationName:"status" type:"string" required:"true" enum:"StageExecutionStatus"`
@@ -7251,13 +12716,128 @@ func (s *StageExecution) SetStatus(v string) *StageExecution {
 	return s
 }
 
+// The stage was specified in an invalid format or cannot be found.
+type StageNotFoundException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s StageNotFoundException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StageNotFoundException) GoString() string {
+	return s.String()
+}
+
+func newErrorStageNotFoundException(v protocol.ResponseMetadata) error {
+	return &StageNotFoundException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *StageNotFoundException) Code() string {
+	return "StageNotFoundException"
+}
+
+// Message returns the exception's message.
+func (s *StageNotFoundException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *StageNotFoundException) OrigErr() error {
+	return nil
+}
+
+func (s *StageNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *StageNotFoundException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *StageNotFoundException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// Unable to retry. The pipeline structure or stage state might have changed
+// while actions awaited retry, or the stage contains no failed actions.
+type StageNotRetryableException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s StageNotRetryableException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StageNotRetryableException) GoString() string {
+	return s.String()
+}
+
+func newErrorStageNotRetryableException(v protocol.ResponseMetadata) error {
+	return &StageNotRetryableException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *StageNotRetryableException) Code() string {
+	return "StageNotRetryableException"
+}
+
+// Message returns the exception's message.
+func (s *StageNotRetryableException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *StageNotRetryableException) OrigErr() error {
+	return nil
+}
+
+func (s *StageNotRetryableException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *StageNotRetryableException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *StageNotRetryableException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents information about the state of the stage.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StageState
 type StageState struct {
 	_ struct{} `type:"structure"`
 
 	// The state of the stage.
 	ActionStates []*ActionState `locationName:"actionStates" type:"list"`
+
+	// Represents information about the run of a stage.
+	InboundExecution *StageExecution `locationName:"inboundExecution" type:"structure"`
 
 	// The state of the inbound transition, which is either enabled or disabled.
 	InboundTransitionState *TransitionState `locationName:"inboundTransitionState" type:"structure"`
@@ -7286,6 +12866,12 @@ func (s *StageState) SetActionStates(v []*ActionState) *StageState {
 	return s
 }
 
+// SetInboundExecution sets the InboundExecution field's value.
+func (s *StageState) SetInboundExecution(v *StageExecution) *StageState {
+	s.InboundExecution = v
+	return s
+}
+
 // SetInboundTransitionState sets the InboundTransitionState field's value.
 func (s *StageState) SetInboundTransitionState(v *TransitionState) *StageState {
 	s.InboundTransitionState = v
@@ -7305,9 +12891,11 @@ func (s *StageState) SetStageName(v string) *StageState {
 }
 
 // Represents the input of a StartPipelineExecution action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StartPipelineExecutionInput
 type StartPipelineExecutionInput struct {
 	_ struct{} `type:"structure"`
+
+	// The system-generated unique ID used to identify a unique execution request.
+	ClientRequestToken *string `locationName:"clientRequestToken" min:"1" type:"string" idempotencyToken:"true"`
 
 	// The name of the pipeline to start.
 	//
@@ -7328,6 +12916,9 @@ func (s StartPipelineExecutionInput) GoString() string {
 // Validate inspects the fields of the type to determine if they are valid.
 func (s *StartPipelineExecutionInput) Validate() error {
 	invalidParams := request.ErrInvalidParams{Context: "StartPipelineExecutionInput"}
+	if s.ClientRequestToken != nil && len(*s.ClientRequestToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("ClientRequestToken", 1))
+	}
 	if s.Name == nil {
 		invalidParams.Add(request.NewErrParamRequired("Name"))
 	}
@@ -7341,6 +12932,12 @@ func (s *StartPipelineExecutionInput) Validate() error {
 	return nil
 }
 
+// SetClientRequestToken sets the ClientRequestToken field's value.
+func (s *StartPipelineExecutionInput) SetClientRequestToken(v string) *StartPipelineExecutionInput {
+	s.ClientRequestToken = &v
+	return s
+}
+
 // SetName sets the Name field's value.
 func (s *StartPipelineExecutionInput) SetName(v string) *StartPipelineExecutionInput {
 	s.Name = &v
@@ -7348,7 +12945,6 @@ func (s *StartPipelineExecutionInput) SetName(v string) *StartPipelineExecutionI
 }
 
 // Represents the output of a StartPipelineExecution action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StartPipelineExecutionOutput
 type StartPipelineExecutionOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -7372,9 +12968,264 @@ func (s *StartPipelineExecutionOutput) SetPipelineExecutionId(v string) *StartPi
 	return s
 }
 
+// The interaction that stopped a pipeline execution.
+type StopExecutionTrigger struct {
+	_ struct{} `type:"structure"`
+
+	// The user-specified reason the pipeline was stopped.
+	Reason *string `locationName:"reason" type:"string"`
+}
+
+// String returns the string representation
+func (s StopExecutionTrigger) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StopExecutionTrigger) GoString() string {
+	return s.String()
+}
+
+// SetReason sets the Reason field's value.
+func (s *StopExecutionTrigger) SetReason(v string) *StopExecutionTrigger {
+	s.Reason = &v
+	return s
+}
+
+type StopPipelineExecutionInput struct {
+	_ struct{} `type:"structure"`
+
+	// Use this option to stop the pipeline execution by abandoning, rather than
+	// finishing, in-progress actions.
+	//
+	// This option can lead to failed or out-of-sequence tasks.
+	Abandon *bool `locationName:"abandon" type:"boolean"`
+
+	// The ID of the pipeline execution to be stopped in the current stage. Use
+	// the GetPipelineState action to retrieve the current pipelineExecutionId.
+	//
+	// PipelineExecutionId is a required field
+	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string" required:"true"`
+
+	// The name of the pipeline to stop.
+	//
+	// PipelineName is a required field
+	PipelineName *string `locationName:"pipelineName" min:"1" type:"string" required:"true"`
+
+	// Use this option to enter comments, such as the reason the pipeline was stopped.
+	Reason *string `locationName:"reason" type:"string"`
+}
+
+// String returns the string representation
+func (s StopPipelineExecutionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StopPipelineExecutionInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *StopPipelineExecutionInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "StopPipelineExecutionInput"}
+	if s.PipelineExecutionId == nil {
+		invalidParams.Add(request.NewErrParamRequired("PipelineExecutionId"))
+	}
+	if s.PipelineName == nil {
+		invalidParams.Add(request.NewErrParamRequired("PipelineName"))
+	}
+	if s.PipelineName != nil && len(*s.PipelineName) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("PipelineName", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAbandon sets the Abandon field's value.
+func (s *StopPipelineExecutionInput) SetAbandon(v bool) *StopPipelineExecutionInput {
+	s.Abandon = &v
+	return s
+}
+
+// SetPipelineExecutionId sets the PipelineExecutionId field's value.
+func (s *StopPipelineExecutionInput) SetPipelineExecutionId(v string) *StopPipelineExecutionInput {
+	s.PipelineExecutionId = &v
+	return s
+}
+
+// SetPipelineName sets the PipelineName field's value.
+func (s *StopPipelineExecutionInput) SetPipelineName(v string) *StopPipelineExecutionInput {
+	s.PipelineName = &v
+	return s
+}
+
+// SetReason sets the Reason field's value.
+func (s *StopPipelineExecutionInput) SetReason(v string) *StopPipelineExecutionInput {
+	s.Reason = &v
+	return s
+}
+
+type StopPipelineExecutionOutput struct {
+	_ struct{} `type:"structure"`
+
+	// The unique system-generated ID of the pipeline execution that was stopped.
+	PipelineExecutionId *string `locationName:"pipelineExecutionId" type:"string"`
+}
+
+// String returns the string representation
+func (s StopPipelineExecutionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StopPipelineExecutionOutput) GoString() string {
+	return s.String()
+}
+
+// SetPipelineExecutionId sets the PipelineExecutionId field's value.
+func (s *StopPipelineExecutionOutput) SetPipelineExecutionId(v string) *StopPipelineExecutionOutput {
+	s.PipelineExecutionId = &v
+	return s
+}
+
+// A tag is a key-value pair that is used to manage the resource.
+type Tag struct {
+	_ struct{} `type:"structure"`
+
+	// The tag's key.
+	//
+	// Key is a required field
+	Key *string `locationName:"key" min:"1" type:"string" required:"true"`
+
+	// The tag's value.
+	//
+	// Value is a required field
+	Value *string `locationName:"value" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s Tag) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Tag) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *Tag) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "Tag"}
+	if s.Key == nil {
+		invalidParams.Add(request.NewErrParamRequired("Key"))
+	}
+	if s.Key != nil && len(*s.Key) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Key", 1))
+	}
+	if s.Value == nil {
+		invalidParams.Add(request.NewErrParamRequired("Value"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetKey sets the Key field's value.
+func (s *Tag) SetKey(v string) *Tag {
+	s.Key = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *Tag) SetValue(v string) *Tag {
+	s.Value = &v
+	return s
+}
+
+type TagResourceInput struct {
+	_ struct{} `type:"structure"`
+
+	// The Amazon Resource Name (ARN) of the resource you want to add tags to.
+	//
+	// ResourceArn is a required field
+	ResourceArn *string `locationName:"resourceArn" type:"string" required:"true"`
+
+	// The tags you want to modify or add to the resource.
+	//
+	// Tags is a required field
+	Tags []*Tag `locationName:"tags" type:"list" required:"true"`
+}
+
+// String returns the string representation
+func (s TagResourceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagResourceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *TagResourceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "TagResourceInput"}
+	if s.ResourceArn == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceArn"))
+	}
+	if s.Tags == nil {
+		invalidParams.Add(request.NewErrParamRequired("Tags"))
+	}
+	if s.Tags != nil {
+		for i, v := range s.Tags {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Tags", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetResourceArn sets the ResourceArn field's value.
+func (s *TagResourceInput) SetResourceArn(v string) *TagResourceInput {
+	s.ResourceArn = &v
+	return s
+}
+
+// SetTags sets the Tags field's value.
+func (s *TagResourceInput) SetTags(v []*Tag) *TagResourceInput {
+	s.Tags = v
+	return s
+}
+
+type TagResourceOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s TagResourceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TagResourceOutput) GoString() string {
+	return s.String()
+}
+
 // A response to a PollForThirdPartyJobs request returned by AWS CodePipeline
-// when there is a job to be worked upon by a partner action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ThirdPartyJob
+// when there is a job to be worked on by a partner action.
 type ThirdPartyJob struct {
 	_ struct{} `type:"structure"`
 
@@ -7409,7 +13260,6 @@ func (s *ThirdPartyJob) SetJobId(v string) *ThirdPartyJob {
 }
 
 // Represents information about the job data for a partner action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ThirdPartyJobData
 type ThirdPartyJobData struct {
 	_ struct{} `type:"structure"`
 
@@ -7421,32 +13271,34 @@ type ThirdPartyJobData struct {
 
 	// Represents an AWS session credentials object. These credentials are temporary
 	// credentials that are issued by AWS Secure Token Service (STS). They can be
-	// used to access input and output artifacts in the Amazon S3 bucket used to
-	// store artifact for the pipeline in AWS CodePipeline.
-	ArtifactCredentials *AWSSessionCredentials `locationName:"artifactCredentials" type:"structure"`
+	// used to access input and output artifacts in the S3 bucket used to store
+	// artifact for the pipeline in AWS CodePipeline.
+	ArtifactCredentials *AWSSessionCredentials `locationName:"artifactCredentials" type:"structure" sensitive:"true"`
 
 	// A system-generated token, such as a AWS CodeDeploy deployment ID, that a
-	// job requires in order to continue the job asynchronously.
-	ContinuationToken *string `locationName:"continuationToken" type:"string"`
+	// job requires to continue the job asynchronously.
+	ContinuationToken *string `locationName:"continuationToken" min:"1" type:"string"`
 
 	// The encryption key used to encrypt and decrypt data in the artifact store
 	// for the pipeline, such as an AWS Key Management Service (AWS KMS) key. This
 	// is optional and might not be present.
 	EncryptionKey *EncryptionKey `locationName:"encryptionKey" type:"structure"`
 
-	// The name of the artifact that will be worked upon by the action, if any.
-	// This name might be system-generated, such as "MyApp", or might be defined
-	// by the user when the action is created. The input artifact name must match
-	// the name of an output artifact generated by an action in an earlier action
-	// or stage of the pipeline.
+	// The name of the artifact that is worked on by the action, if any. This name
+	// might be system-generated, such as "MyApp", or it might be defined by the
+	// user when the action is created. The input artifact name must match the name
+	// of an output artifact generated by an action in an earlier action or stage
+	// of the pipeline.
 	InputArtifacts []*Artifact `locationName:"inputArtifacts" type:"list"`
 
-	// The name of the artifact that will be the result of the action, if any. This
-	// name might be system-generated, such as "MyBuiltApp", or might be defined
-	// by the user when the action is created.
+	// The name of the artifact that is the result of the action, if any. This name
+	// might be system-generated, such as "MyBuiltApp", or it might be defined by
+	// the user when the action is created.
 	OutputArtifacts []*Artifact `locationName:"outputArtifacts" type:"list"`
 
 	// Represents information about a pipeline to a job worker.
+	//
+	// Does not include pipelineArn and pipelineExecutionId for ThirdParty jobs.
 	PipelineContext *PipelineContext `locationName:"pipelineContext" type:"structure"`
 }
 
@@ -7509,7 +13361,6 @@ func (s *ThirdPartyJobData) SetPipelineContext(v *PipelineContext) *ThirdPartyJo
 }
 
 // The details of a job sent in response to a GetThirdPartyJobDetails request.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/ThirdPartyJobDetails
 type ThirdPartyJobDetails struct {
 	_ struct{} `type:"structure"`
 
@@ -7522,7 +13373,7 @@ type ThirdPartyJobDetails struct {
 	// A system-generated random number that AWS CodePipeline uses to ensure that
 	// the job is being worked on by only one job worker. Use this number in an
 	// AcknowledgeThirdPartyJob request.
-	Nonce *string `locationName:"nonce" type:"string"`
+	Nonce *string `locationName:"nonce" min:"1" type:"string"`
 }
 
 // String returns the string representation
@@ -7553,9 +13404,64 @@ func (s *ThirdPartyJobDetails) SetNonce(v string) *ThirdPartyJobDetails {
 	return s
 }
 
+// The tags limit for a resource has been exceeded.
+type TooManyTagsException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s TooManyTagsException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s TooManyTagsException) GoString() string {
+	return s.String()
+}
+
+func newErrorTooManyTagsException(v protocol.ResponseMetadata) error {
+	return &TooManyTagsException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *TooManyTagsException) Code() string {
+	return "TooManyTagsException"
+}
+
+// Message returns the exception's message.
+func (s *TooManyTagsException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *TooManyTagsException) OrigErr() error {
+	return nil
+}
+
+func (s *TooManyTagsException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *TooManyTagsException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *TooManyTagsException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 // Represents information about the state of transitions between one stage and
 // another stage.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/TransitionState
 type TransitionState struct {
 	_ struct{} `type:"structure"`
 
@@ -7567,7 +13473,7 @@ type TransitionState struct {
 	Enabled *bool `locationName:"enabled" type:"boolean"`
 
 	// The timestamp when the transition state was last changed.
-	LastChangedAt *time.Time `locationName:"lastChangedAt" type:"timestamp" timestampFormat:"unix"`
+	LastChangedAt *time.Time `locationName:"lastChangedAt" type:"timestamp"`
 
 	// The ID of the user who last changed the transition state.
 	LastChangedBy *string `locationName:"lastChangedBy" type:"string"`
@@ -7607,8 +13513,130 @@ func (s *TransitionState) SetLastChangedBy(v string) *TransitionState {
 	return s
 }
 
+type UntagResourceInput struct {
+	_ struct{} `type:"structure"`
+
+	// The Amazon Resource Name (ARN) of the resource to remove tags from.
+	//
+	// ResourceArn is a required field
+	ResourceArn *string `locationName:"resourceArn" type:"string" required:"true"`
+
+	// The list of keys for the tags to be removed from the resource.
+	//
+	// TagKeys is a required field
+	TagKeys []*string `locationName:"tagKeys" type:"list" required:"true"`
+}
+
+// String returns the string representation
+func (s UntagResourceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UntagResourceInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UntagResourceInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UntagResourceInput"}
+	if s.ResourceArn == nil {
+		invalidParams.Add(request.NewErrParamRequired("ResourceArn"))
+	}
+	if s.TagKeys == nil {
+		invalidParams.Add(request.NewErrParamRequired("TagKeys"))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetResourceArn sets the ResourceArn field's value.
+func (s *UntagResourceInput) SetResourceArn(v string) *UntagResourceInput {
+	s.ResourceArn = &v
+	return s
+}
+
+// SetTagKeys sets the TagKeys field's value.
+func (s *UntagResourceInput) SetTagKeys(v []*string) *UntagResourceInput {
+	s.TagKeys = v
+	return s
+}
+
+type UntagResourceOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s UntagResourceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UntagResourceOutput) GoString() string {
+	return s.String()
+}
+
+type UpdateActionTypeInput struct {
+	_ struct{} `type:"structure"`
+
+	// The action type definition for the action type to be updated.
+	//
+	// ActionType is a required field
+	ActionType *ActionTypeDeclaration `locationName:"actionType" type:"structure" required:"true"`
+}
+
+// String returns the string representation
+func (s UpdateActionTypeInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UpdateActionTypeInput) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *UpdateActionTypeInput) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "UpdateActionTypeInput"}
+	if s.ActionType == nil {
+		invalidParams.Add(request.NewErrParamRequired("ActionType"))
+	}
+	if s.ActionType != nil {
+		if err := s.ActionType.Validate(); err != nil {
+			invalidParams.AddNested("ActionType", err.(request.ErrInvalidParams))
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetActionType sets the ActionType field's value.
+func (s *UpdateActionTypeInput) SetActionType(v *ActionTypeDeclaration) *UpdateActionTypeInput {
+	s.ActionType = v
+	return s
+}
+
+type UpdateActionTypeOutput struct {
+	_ struct{} `type:"structure"`
+}
+
+// String returns the string representation
+func (s UpdateActionTypeOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UpdateActionTypeOutput) GoString() string {
+	return s.String()
+}
+
 // Represents the input of an UpdatePipeline action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UpdatePipelineInput
 type UpdatePipelineInput struct {
 	_ struct{} `type:"structure"`
 
@@ -7653,7 +13681,6 @@ func (s *UpdatePipelineInput) SetPipeline(v *PipelineDeclaration) *UpdatePipelin
 }
 
 // Represents the output of an UpdatePipeline action.
-// Please also see https://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/UpdatePipelineOutput
 type UpdatePipelineOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -7677,6 +13704,386 @@ func (s *UpdatePipelineOutput) SetPipeline(v *PipelineDeclaration) *UpdatePipeli
 	return s
 }
 
+// The validation was specified in an invalid format.
+type ValidationException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s ValidationException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ValidationException) GoString() string {
+	return s.String()
+}
+
+func newErrorValidationException(v protocol.ResponseMetadata) error {
+	return &ValidationException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *ValidationException) Code() string {
+	return "ValidationException"
+}
+
+// Message returns the exception's message.
+func (s *ValidationException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *ValidationException) OrigErr() error {
+	return nil
+}
+
+func (s *ValidationException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *ValidationException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *ValidationException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
+// The authentication applied to incoming webhook trigger requests.
+type WebhookAuthConfiguration struct {
+	_ struct{} `type:"structure"`
+
+	// The property used to configure acceptance of webhooks in an IP address range.
+	// For IP, only the AllowedIPRange property must be set. This property must
+	// be set to a valid CIDR range.
+	AllowedIPRange *string `min:"1" type:"string"`
+
+	// The property used to configure GitHub authentication. For GITHUB_HMAC, only
+	// the SecretToken property must be set.
+	SecretToken *string `min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s WebhookAuthConfiguration) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s WebhookAuthConfiguration) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *WebhookAuthConfiguration) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "WebhookAuthConfiguration"}
+	if s.AllowedIPRange != nil && len(*s.AllowedIPRange) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("AllowedIPRange", 1))
+	}
+	if s.SecretToken != nil && len(*s.SecretToken) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("SecretToken", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAllowedIPRange sets the AllowedIPRange field's value.
+func (s *WebhookAuthConfiguration) SetAllowedIPRange(v string) *WebhookAuthConfiguration {
+	s.AllowedIPRange = &v
+	return s
+}
+
+// SetSecretToken sets the SecretToken field's value.
+func (s *WebhookAuthConfiguration) SetSecretToken(v string) *WebhookAuthConfiguration {
+	s.SecretToken = &v
+	return s
+}
+
+// Represents information about a webhook and its definition.
+type WebhookDefinition struct {
+	_ struct{} `type:"structure"`
+
+	// Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
+	//
+	//    * For information about the authentication scheme implemented by GITHUB_HMAC,
+	//    see Securing your webhooks (https://developer.github.com/webhooks/securing/)
+	//    on the GitHub Developer website.
+	//
+	//    * IP rejects webhooks trigger requests unless they originate from an IP
+	//    address in the IP range whitelisted in the authentication configuration.
+	//
+	//    * UNAUTHENTICATED accepts all webhook trigger requests regardless of origin.
+	//
+	// Authentication is a required field
+	Authentication *string `locationName:"authentication" type:"string" required:"true" enum:"WebhookAuthenticationType"`
+
+	// Properties that configure the authentication applied to incoming webhook
+	// trigger requests. The required properties depend on the authentication type.
+	// For GITHUB_HMAC, only the SecretToken property must be set. For IP, only
+	// the AllowedIPRange property must be set to a valid CIDR range. For UNAUTHENTICATED,
+	// no properties can be set.
+	//
+	// AuthenticationConfiguration is a required field
+	AuthenticationConfiguration *WebhookAuthConfiguration `locationName:"authenticationConfiguration" type:"structure" required:"true"`
+
+	// A list of rules applied to the body/payload sent in the POST request to a
+	// webhook URL. All defined rules must pass for the request to be accepted and
+	// the pipeline started.
+	//
+	// Filters is a required field
+	Filters []*WebhookFilterRule `locationName:"filters" type:"list" required:"true"`
+
+	// The name of the webhook.
+	//
+	// Name is a required field
+	Name *string `locationName:"name" min:"1" type:"string" required:"true"`
+
+	// The name of the action in a pipeline you want to connect to the webhook.
+	// The action must be from the source (first) stage of the pipeline.
+	//
+	// TargetAction is a required field
+	TargetAction *string `locationName:"targetAction" min:"1" type:"string" required:"true"`
+
+	// The name of the pipeline you want to connect to the webhook.
+	//
+	// TargetPipeline is a required field
+	TargetPipeline *string `locationName:"targetPipeline" min:"1" type:"string" required:"true"`
+}
+
+// String returns the string representation
+func (s WebhookDefinition) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s WebhookDefinition) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *WebhookDefinition) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "WebhookDefinition"}
+	if s.Authentication == nil {
+		invalidParams.Add(request.NewErrParamRequired("Authentication"))
+	}
+	if s.AuthenticationConfiguration == nil {
+		invalidParams.Add(request.NewErrParamRequired("AuthenticationConfiguration"))
+	}
+	if s.Filters == nil {
+		invalidParams.Add(request.NewErrParamRequired("Filters"))
+	}
+	if s.Name == nil {
+		invalidParams.Add(request.NewErrParamRequired("Name"))
+	}
+	if s.Name != nil && len(*s.Name) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("Name", 1))
+	}
+	if s.TargetAction == nil {
+		invalidParams.Add(request.NewErrParamRequired("TargetAction"))
+	}
+	if s.TargetAction != nil && len(*s.TargetAction) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("TargetAction", 1))
+	}
+	if s.TargetPipeline == nil {
+		invalidParams.Add(request.NewErrParamRequired("TargetPipeline"))
+	}
+	if s.TargetPipeline != nil && len(*s.TargetPipeline) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("TargetPipeline", 1))
+	}
+	if s.AuthenticationConfiguration != nil {
+		if err := s.AuthenticationConfiguration.Validate(); err != nil {
+			invalidParams.AddNested("AuthenticationConfiguration", err.(request.ErrInvalidParams))
+		}
+	}
+	if s.Filters != nil {
+		for i, v := range s.Filters {
+			if v == nil {
+				continue
+			}
+			if err := v.Validate(); err != nil {
+				invalidParams.AddNested(fmt.Sprintf("%s[%v]", "Filters", i), err.(request.ErrInvalidParams))
+			}
+		}
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetAuthentication sets the Authentication field's value.
+func (s *WebhookDefinition) SetAuthentication(v string) *WebhookDefinition {
+	s.Authentication = &v
+	return s
+}
+
+// SetAuthenticationConfiguration sets the AuthenticationConfiguration field's value.
+func (s *WebhookDefinition) SetAuthenticationConfiguration(v *WebhookAuthConfiguration) *WebhookDefinition {
+	s.AuthenticationConfiguration = v
+	return s
+}
+
+// SetFilters sets the Filters field's value.
+func (s *WebhookDefinition) SetFilters(v []*WebhookFilterRule) *WebhookDefinition {
+	s.Filters = v
+	return s
+}
+
+// SetName sets the Name field's value.
+func (s *WebhookDefinition) SetName(v string) *WebhookDefinition {
+	s.Name = &v
+	return s
+}
+
+// SetTargetAction sets the TargetAction field's value.
+func (s *WebhookDefinition) SetTargetAction(v string) *WebhookDefinition {
+	s.TargetAction = &v
+	return s
+}
+
+// SetTargetPipeline sets the TargetPipeline field's value.
+func (s *WebhookDefinition) SetTargetPipeline(v string) *WebhookDefinition {
+	s.TargetPipeline = &v
+	return s
+}
+
+// The event criteria that specify when a webhook notification is sent to your
+// URL.
+type WebhookFilterRule struct {
+	_ struct{} `type:"structure"`
+
+	// A JsonPath expression that is applied to the body/payload of the webhook.
+	// The value selected by the JsonPath expression must match the value specified
+	// in the MatchEquals field. Otherwise, the request is ignored. For more information,
+	// see Java JsonPath implementation (https://github.com/json-path/JsonPath)
+	// in GitHub.
+	//
+	// JsonPath is a required field
+	JsonPath *string `locationName:"jsonPath" min:"1" type:"string" required:"true"`
+
+	// The value selected by the JsonPath expression must match what is supplied
+	// in the MatchEquals field. Otherwise, the request is ignored. Properties from
+	// the target action configuration can be included as placeholders in this value
+	// by surrounding the action configuration key with curly brackets. For example,
+	// if the value supplied here is "refs/heads/{Branch}" and the target action
+	// has an action configuration property called "Branch" with a value of "master",
+	// the MatchEquals value is evaluated as "refs/heads/master". For a list of
+	// action configuration properties for built-in action types, see Pipeline Structure
+	// Reference Action Requirements (https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements).
+	MatchEquals *string `locationName:"matchEquals" min:"1" type:"string"`
+}
+
+// String returns the string representation
+func (s WebhookFilterRule) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s WebhookFilterRule) GoString() string {
+	return s.String()
+}
+
+// Validate inspects the fields of the type to determine if they are valid.
+func (s *WebhookFilterRule) Validate() error {
+	invalidParams := request.ErrInvalidParams{Context: "WebhookFilterRule"}
+	if s.JsonPath == nil {
+		invalidParams.Add(request.NewErrParamRequired("JsonPath"))
+	}
+	if s.JsonPath != nil && len(*s.JsonPath) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("JsonPath", 1))
+	}
+	if s.MatchEquals != nil && len(*s.MatchEquals) < 1 {
+		invalidParams.Add(request.NewErrParamMinLen("MatchEquals", 1))
+	}
+
+	if invalidParams.Len() > 0 {
+		return invalidParams
+	}
+	return nil
+}
+
+// SetJsonPath sets the JsonPath field's value.
+func (s *WebhookFilterRule) SetJsonPath(v string) *WebhookFilterRule {
+	s.JsonPath = &v
+	return s
+}
+
+// SetMatchEquals sets the MatchEquals field's value.
+func (s *WebhookFilterRule) SetMatchEquals(v string) *WebhookFilterRule {
+	s.MatchEquals = &v
+	return s
+}
+
+// The specified webhook was entered in an invalid format or cannot be found.
+type WebhookNotFoundException struct {
+	_            struct{}                  `type:"structure"`
+	RespMetadata protocol.ResponseMetadata `json:"-" xml:"-"`
+
+	Message_ *string `locationName:"message" type:"string"`
+}
+
+// String returns the string representation
+func (s WebhookNotFoundException) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s WebhookNotFoundException) GoString() string {
+	return s.String()
+}
+
+func newErrorWebhookNotFoundException(v protocol.ResponseMetadata) error {
+	return &WebhookNotFoundException{
+		RespMetadata: v,
+	}
+}
+
+// Code returns the exception type name.
+func (s *WebhookNotFoundException) Code() string {
+	return "WebhookNotFoundException"
+}
+
+// Message returns the exception's message.
+func (s *WebhookNotFoundException) Message() string {
+	if s.Message_ != nil {
+		return *s.Message_
+	}
+	return ""
+}
+
+// OrigErr always returns nil, satisfies awserr.Error interface.
+func (s *WebhookNotFoundException) OrigErr() error {
+	return nil
+}
+
+func (s *WebhookNotFoundException) Error() string {
+	return fmt.Sprintf("%s: %s", s.Code(), s.Message())
+}
+
+// Status code returns the HTTP status code for the request's response error.
+func (s *WebhookNotFoundException) StatusCode() int {
+	return s.RespMetadata.StatusCode
+}
+
+// RequestID returns the service's response RequestID for request.
+func (s *WebhookNotFoundException) RequestID() string {
+	return s.RespMetadata.RequestID
+}
+
 const (
 	// ActionCategorySource is a ActionCategory enum value
 	ActionCategorySource = "Source"
@@ -7697,6 +14104,18 @@ const (
 	ActionCategoryApproval = "Approval"
 )
 
+// ActionCategory_Values returns all elements of the ActionCategory enum
+func ActionCategory_Values() []string {
+	return []string{
+		ActionCategorySource,
+		ActionCategoryBuild,
+		ActionCategoryDeploy,
+		ActionCategoryTest,
+		ActionCategoryInvoke,
+		ActionCategoryApproval,
+	}
+}
+
 const (
 	// ActionConfigurationPropertyTypeString is a ActionConfigurationPropertyType enum value
 	ActionConfigurationPropertyTypeString = "String"
@@ -7708,9 +14127,21 @@ const (
 	ActionConfigurationPropertyTypeBoolean = "Boolean"
 )
 
+// ActionConfigurationPropertyType_Values returns all elements of the ActionConfigurationPropertyType enum
+func ActionConfigurationPropertyType_Values() []string {
+	return []string{
+		ActionConfigurationPropertyTypeString,
+		ActionConfigurationPropertyTypeNumber,
+		ActionConfigurationPropertyTypeBoolean,
+	}
+}
+
 const (
 	// ActionExecutionStatusInProgress is a ActionExecutionStatus enum value
 	ActionExecutionStatusInProgress = "InProgress"
+
+	// ActionExecutionStatusAbandoned is a ActionExecutionStatus enum value
+	ActionExecutionStatusAbandoned = "Abandoned"
 
 	// ActionExecutionStatusSucceeded is a ActionExecutionStatus enum value
 	ActionExecutionStatusSucceeded = "Succeeded"
@@ -7718,6 +14149,16 @@ const (
 	// ActionExecutionStatusFailed is a ActionExecutionStatus enum value
 	ActionExecutionStatusFailed = "Failed"
 )
+
+// ActionExecutionStatus_Values returns all elements of the ActionExecutionStatus enum
+func ActionExecutionStatus_Values() []string {
+	return []string{
+		ActionExecutionStatusInProgress,
+		ActionExecutionStatusAbandoned,
+		ActionExecutionStatusSucceeded,
+		ActionExecutionStatusFailed,
+	}
+}
 
 const (
 	// ActionOwnerAws is a ActionOwner enum value
@@ -7730,6 +14171,15 @@ const (
 	ActionOwnerCustom = "Custom"
 )
 
+// ActionOwner_Values returns all elements of the ActionOwner enum
+func ActionOwner_Values() []string {
+	return []string{
+		ActionOwnerAws,
+		ActionOwnerThirdParty,
+		ActionOwnerCustom,
+	}
+}
+
 const (
 	// ApprovalStatusApproved is a ApprovalStatus enum value
 	ApprovalStatusApproved = "Approved"
@@ -7738,25 +14188,77 @@ const (
 	ApprovalStatusRejected = "Rejected"
 )
 
+// ApprovalStatus_Values returns all elements of the ApprovalStatus enum
+func ApprovalStatus_Values() []string {
+	return []string{
+		ApprovalStatusApproved,
+		ApprovalStatusRejected,
+	}
+}
+
 const (
 	// ArtifactLocationTypeS3 is a ArtifactLocationType enum value
 	ArtifactLocationTypeS3 = "S3"
 )
+
+// ArtifactLocationType_Values returns all elements of the ArtifactLocationType enum
+func ArtifactLocationType_Values() []string {
+	return []string{
+		ArtifactLocationTypeS3,
+	}
+}
 
 const (
 	// ArtifactStoreTypeS3 is a ArtifactStoreType enum value
 	ArtifactStoreTypeS3 = "S3"
 )
 
+// ArtifactStoreType_Values returns all elements of the ArtifactStoreType enum
+func ArtifactStoreType_Values() []string {
+	return []string{
+		ArtifactStoreTypeS3,
+	}
+}
+
 const (
 	// BlockerTypeSchedule is a BlockerType enum value
 	BlockerTypeSchedule = "Schedule"
 )
 
+// BlockerType_Values returns all elements of the BlockerType enum
+func BlockerType_Values() []string {
+	return []string{
+		BlockerTypeSchedule,
+	}
+}
+
 const (
 	// EncryptionKeyTypeKms is a EncryptionKeyType enum value
 	EncryptionKeyTypeKms = "KMS"
 )
+
+// EncryptionKeyType_Values returns all elements of the EncryptionKeyType enum
+func EncryptionKeyType_Values() []string {
+	return []string{
+		EncryptionKeyTypeKms,
+	}
+}
+
+const (
+	// ExecutorTypeJobWorker is a ExecutorType enum value
+	ExecutorTypeJobWorker = "JobWorker"
+
+	// ExecutorTypeLambda is a ExecutorType enum value
+	ExecutorTypeLambda = "Lambda"
+)
+
+// ExecutorType_Values returns all elements of the ExecutorType enum
+func ExecutorType_Values() []string {
+	return []string{
+		ExecutorTypeJobWorker,
+		ExecutorTypeLambda,
+	}
+}
 
 const (
 	// FailureTypeJobFailed is a FailureType enum value
@@ -7777,6 +14279,18 @@ const (
 	// FailureTypeSystemUnavailable is a FailureType enum value
 	FailureTypeSystemUnavailable = "SystemUnavailable"
 )
+
+// FailureType_Values returns all elements of the FailureType enum
+func FailureType_Values() []string {
+	return []string{
+		FailureTypeJobFailed,
+		FailureTypeConfigurationError,
+		FailureTypePermissionError,
+		FailureTypeRevisionOutOfSync,
+		FailureTypeRevisionUnavailable,
+		FailureTypeSystemUnavailable,
+	}
+}
 
 const (
 	// JobStatusCreated is a JobStatus enum value
@@ -7801,9 +14315,31 @@ const (
 	JobStatusFailed = "Failed"
 )
 
+// JobStatus_Values returns all elements of the JobStatus enum
+func JobStatus_Values() []string {
+	return []string{
+		JobStatusCreated,
+		JobStatusQueued,
+		JobStatusDispatched,
+		JobStatusInProgress,
+		JobStatusTimedOut,
+		JobStatusSucceeded,
+		JobStatusFailed,
+	}
+}
+
 const (
+	// PipelineExecutionStatusCancelled is a PipelineExecutionStatus enum value
+	PipelineExecutionStatusCancelled = "Cancelled"
+
 	// PipelineExecutionStatusInProgress is a PipelineExecutionStatus enum value
 	PipelineExecutionStatusInProgress = "InProgress"
+
+	// PipelineExecutionStatusStopped is a PipelineExecutionStatus enum value
+	PipelineExecutionStatusStopped = "Stopped"
+
+	// PipelineExecutionStatusStopping is a PipelineExecutionStatus enum value
+	PipelineExecutionStatusStopping = "Stopping"
 
 	// PipelineExecutionStatusSucceeded is a PipelineExecutionStatus enum value
 	PipelineExecutionStatusSucceeded = "Succeeded"
@@ -7815,21 +14351,62 @@ const (
 	PipelineExecutionStatusFailed = "Failed"
 )
 
+// PipelineExecutionStatus_Values returns all elements of the PipelineExecutionStatus enum
+func PipelineExecutionStatus_Values() []string {
+	return []string{
+		PipelineExecutionStatusCancelled,
+		PipelineExecutionStatusInProgress,
+		PipelineExecutionStatusStopped,
+		PipelineExecutionStatusStopping,
+		PipelineExecutionStatusSucceeded,
+		PipelineExecutionStatusSuperseded,
+		PipelineExecutionStatusFailed,
+	}
+}
+
 const (
+	// StageExecutionStatusCancelled is a StageExecutionStatus enum value
+	StageExecutionStatusCancelled = "Cancelled"
+
 	// StageExecutionStatusInProgress is a StageExecutionStatus enum value
 	StageExecutionStatusInProgress = "InProgress"
 
 	// StageExecutionStatusFailed is a StageExecutionStatus enum value
 	StageExecutionStatusFailed = "Failed"
 
+	// StageExecutionStatusStopped is a StageExecutionStatus enum value
+	StageExecutionStatusStopped = "Stopped"
+
+	// StageExecutionStatusStopping is a StageExecutionStatus enum value
+	StageExecutionStatusStopping = "Stopping"
+
 	// StageExecutionStatusSucceeded is a StageExecutionStatus enum value
 	StageExecutionStatusSucceeded = "Succeeded"
 )
+
+// StageExecutionStatus_Values returns all elements of the StageExecutionStatus enum
+func StageExecutionStatus_Values() []string {
+	return []string{
+		StageExecutionStatusCancelled,
+		StageExecutionStatusInProgress,
+		StageExecutionStatusFailed,
+		StageExecutionStatusStopped,
+		StageExecutionStatusStopping,
+		StageExecutionStatusSucceeded,
+	}
+}
 
 const (
 	// StageRetryModeFailedActions is a StageRetryMode enum value
 	StageRetryModeFailedActions = "FAILED_ACTIONS"
 )
+
+// StageRetryMode_Values returns all elements of the StageRetryMode enum
+func StageRetryMode_Values() []string {
+	return []string{
+		StageRetryModeFailedActions,
+	}
+}
 
 const (
 	// StageTransitionTypeInbound is a StageTransitionType enum value
@@ -7838,3 +14415,63 @@ const (
 	// StageTransitionTypeOutbound is a StageTransitionType enum value
 	StageTransitionTypeOutbound = "Outbound"
 )
+
+// StageTransitionType_Values returns all elements of the StageTransitionType enum
+func StageTransitionType_Values() []string {
+	return []string{
+		StageTransitionTypeInbound,
+		StageTransitionTypeOutbound,
+	}
+}
+
+const (
+	// TriggerTypeCreatePipeline is a TriggerType enum value
+	TriggerTypeCreatePipeline = "CreatePipeline"
+
+	// TriggerTypeStartPipelineExecution is a TriggerType enum value
+	TriggerTypeStartPipelineExecution = "StartPipelineExecution"
+
+	// TriggerTypePollForSourceChanges is a TriggerType enum value
+	TriggerTypePollForSourceChanges = "PollForSourceChanges"
+
+	// TriggerTypeWebhook is a TriggerType enum value
+	TriggerTypeWebhook = "Webhook"
+
+	// TriggerTypeCloudWatchEvent is a TriggerType enum value
+	TriggerTypeCloudWatchEvent = "CloudWatchEvent"
+
+	// TriggerTypePutActionRevision is a TriggerType enum value
+	TriggerTypePutActionRevision = "PutActionRevision"
+)
+
+// TriggerType_Values returns all elements of the TriggerType enum
+func TriggerType_Values() []string {
+	return []string{
+		TriggerTypeCreatePipeline,
+		TriggerTypeStartPipelineExecution,
+		TriggerTypePollForSourceChanges,
+		TriggerTypeWebhook,
+		TriggerTypeCloudWatchEvent,
+		TriggerTypePutActionRevision,
+	}
+}
+
+const (
+	// WebhookAuthenticationTypeGithubHmac is a WebhookAuthenticationType enum value
+	WebhookAuthenticationTypeGithubHmac = "GITHUB_HMAC"
+
+	// WebhookAuthenticationTypeIp is a WebhookAuthenticationType enum value
+	WebhookAuthenticationTypeIp = "IP"
+
+	// WebhookAuthenticationTypeUnauthenticated is a WebhookAuthenticationType enum value
+	WebhookAuthenticationTypeUnauthenticated = "UNAUTHENTICATED"
+)
+
+// WebhookAuthenticationType_Values returns all elements of the WebhookAuthenticationType enum
+func WebhookAuthenticationType_Values() []string {
+	return []string{
+		WebhookAuthenticationTypeGithubHmac,
+		WebhookAuthenticationTypeIp,
+		WebhookAuthenticationTypeUnauthenticated,
+	}
+}

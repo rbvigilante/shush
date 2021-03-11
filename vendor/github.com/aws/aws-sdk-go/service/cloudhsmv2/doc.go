@@ -4,7 +4,7 @@
 // requests to AWS CloudHSM V2.
 //
 // For more information about AWS CloudHSM, see AWS CloudHSM (http://aws.amazon.com/cloudhsm/)
-// and the AWS CloudHSM User Guide (http://docs.aws.amazon.com/cloudhsm/latest/userguide/).
+// and the AWS CloudHSM User Guide (https://docs.aws.amazon.com/cloudhsm/latest/userguide/).
 //
 // See https://docs.aws.amazon.com/goto/WebAPI/cloudhsmv2-2017-04-28 for more information on this service.
 //
@@ -13,7 +13,7 @@
 //
 // Using the Client
 //
-// To AWS CloudHSM V2 with the SDK use the New function to create
+// To contact AWS CloudHSM V2 with the SDK use the New function to create
 // a new service client. With that client you can make API requests to the service.
 // These clients are safe to use concurrently.
 //

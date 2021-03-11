@@ -3,10 +3,10 @@
 // Package emr provides the client and types for making API
 // requests to Amazon Elastic MapReduce.
 //
-// Amazon EMR is a web service that makes it easy to process large amounts of
-// data efficiently. Amazon EMR uses Hadoop processing combined with several
-// AWS products to do tasks such as web indexing, data mining, log file analysis,
-// machine learning, scientific simulation, and data warehousing.
+// Amazon EMR is a web service that makes it easier to process large amounts
+// of data efficiently. Amazon EMR uses Hadoop processing combined with several
+// AWS services to do tasks such as web indexing, data mining, log file analysis,
+// machine learning, scientific simulation, and data warehouse management.
 //
 // See https://docs.aws.amazon.com/goto/WebAPI/elasticmapreduce-2009-03-31 for more information on this service.
 //
@@ -15,7 +15,7 @@
 //
 // Using the Client
 //
-// To Amazon Elastic MapReduce with the SDK use the New function to create
+// To contact Amazon Elastic MapReduce with the SDK use the New function to create
 // a new service client. With that client you can make API requests to the service.
 // These clients are safe to use concurrently.
 //

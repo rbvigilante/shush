@@ -80,6 +80,14 @@ type ECRAPI interface {
 	CreateRepositoryWithContext(aws.Context, *ecr.CreateRepositoryInput, ...request.Option) (*ecr.CreateRepositoryOutput, error)
 	CreateRepositoryRequest(*ecr.CreateRepositoryInput) (*request.Request, *ecr.CreateRepositoryOutput)
 
+	DeleteLifecyclePolicy(*ecr.DeleteLifecyclePolicyInput) (*ecr.DeleteLifecyclePolicyOutput, error)
+	DeleteLifecyclePolicyWithContext(aws.Context, *ecr.DeleteLifecyclePolicyInput, ...request.Option) (*ecr.DeleteLifecyclePolicyOutput, error)
+	DeleteLifecyclePolicyRequest(*ecr.DeleteLifecyclePolicyInput) (*request.Request, *ecr.DeleteLifecyclePolicyOutput)
+
+	DeleteRegistryPolicy(*ecr.DeleteRegistryPolicyInput) (*ecr.DeleteRegistryPolicyOutput, error)
+	DeleteRegistryPolicyWithContext(aws.Context, *ecr.DeleteRegistryPolicyInput, ...request.Option) (*ecr.DeleteRegistryPolicyOutput, error)
+	DeleteRegistryPolicyRequest(*ecr.DeleteRegistryPolicyInput) (*request.Request, *ecr.DeleteRegistryPolicyOutput)
+
 	DeleteRepository(*ecr.DeleteRepositoryInput) (*ecr.DeleteRepositoryOutput, error)
 	DeleteRepositoryWithContext(aws.Context, *ecr.DeleteRepositoryInput, ...request.Option) (*ecr.DeleteRepositoryOutput, error)
 	DeleteRepositoryRequest(*ecr.DeleteRepositoryInput) (*request.Request, *ecr.DeleteRepositoryOutput)
@@ -88,12 +96,23 @@ type ECRAPI interface {
 	DeleteRepositoryPolicyWithContext(aws.Context, *ecr.DeleteRepositoryPolicyInput, ...request.Option) (*ecr.DeleteRepositoryPolicyOutput, error)
 	DeleteRepositoryPolicyRequest(*ecr.DeleteRepositoryPolicyInput) (*request.Request, *ecr.DeleteRepositoryPolicyOutput)
 
+	DescribeImageScanFindings(*ecr.DescribeImageScanFindingsInput) (*ecr.DescribeImageScanFindingsOutput, error)
+	DescribeImageScanFindingsWithContext(aws.Context, *ecr.DescribeImageScanFindingsInput, ...request.Option) (*ecr.DescribeImageScanFindingsOutput, error)
+	DescribeImageScanFindingsRequest(*ecr.DescribeImageScanFindingsInput) (*request.Request, *ecr.DescribeImageScanFindingsOutput)
+
+	DescribeImageScanFindingsPages(*ecr.DescribeImageScanFindingsInput, func(*ecr.DescribeImageScanFindingsOutput, bool) bool) error
+	DescribeImageScanFindingsPagesWithContext(aws.Context, *ecr.DescribeImageScanFindingsInput, func(*ecr.DescribeImageScanFindingsOutput, bool) bool, ...request.Option) error
+
 	DescribeImages(*ecr.DescribeImagesInput) (*ecr.DescribeImagesOutput, error)
 	DescribeImagesWithContext(aws.Context, *ecr.DescribeImagesInput, ...request.Option) (*ecr.DescribeImagesOutput, error)
 	DescribeImagesRequest(*ecr.DescribeImagesInput) (*request.Request, *ecr.DescribeImagesOutput)
 
 	DescribeImagesPages(*ecr.DescribeImagesInput, func(*ecr.DescribeImagesOutput, bool) bool) error
 	DescribeImagesPagesWithContext(aws.Context, *ecr.DescribeImagesInput, func(*ecr.DescribeImagesOutput, bool) bool, ...request.Option) error
+
+	DescribeRegistry(*ecr.DescribeRegistryInput) (*ecr.DescribeRegistryOutput, error)
+	DescribeRegistryWithContext(aws.Context, *ecr.DescribeRegistryInput, ...request.Option) (*ecr.DescribeRegistryOutput, error)
+	DescribeRegistryRequest(*ecr.DescribeRegistryInput) (*request.Request, *ecr.DescribeRegistryOutput)
 
 	DescribeRepositories(*ecr.DescribeRepositoriesInput) (*ecr.DescribeRepositoriesOutput, error)
 	DescribeRepositoriesWithContext(aws.Context, *ecr.DescribeRepositoriesInput, ...request.Option) (*ecr.DescribeRepositoriesOutput, error)
@@ -110,6 +129,21 @@ type ECRAPI interface {
 	GetDownloadUrlForLayerWithContext(aws.Context, *ecr.GetDownloadUrlForLayerInput, ...request.Option) (*ecr.GetDownloadUrlForLayerOutput, error)
 	GetDownloadUrlForLayerRequest(*ecr.GetDownloadUrlForLayerInput) (*request.Request, *ecr.GetDownloadUrlForLayerOutput)
 
+	GetLifecyclePolicy(*ecr.GetLifecyclePolicyInput) (*ecr.GetLifecyclePolicyOutput, error)
+	GetLifecyclePolicyWithContext(aws.Context, *ecr.GetLifecyclePolicyInput, ...request.Option) (*ecr.GetLifecyclePolicyOutput, error)
+	GetLifecyclePolicyRequest(*ecr.GetLifecyclePolicyInput) (*request.Request, *ecr.GetLifecyclePolicyOutput)
+
+	GetLifecyclePolicyPreview(*ecr.GetLifecyclePolicyPreviewInput) (*ecr.GetLifecyclePolicyPreviewOutput, error)
+	GetLifecyclePolicyPreviewWithContext(aws.Context, *ecr.GetLifecyclePolicyPreviewInput, ...request.Option) (*ecr.GetLifecyclePolicyPreviewOutput, error)
+	GetLifecyclePolicyPreviewRequest(*ecr.GetLifecyclePolicyPreviewInput) (*request.Request, *ecr.GetLifecyclePolicyPreviewOutput)
+
+	GetLifecyclePolicyPreviewPages(*ecr.GetLifecyclePolicyPreviewInput, func(*ecr.GetLifecyclePolicyPreviewOutput, bool) bool) error
+	GetLifecyclePolicyPreviewPagesWithContext(aws.Context, *ecr.GetLifecyclePolicyPreviewInput, func(*ecr.GetLifecyclePolicyPreviewOutput, bool) bool, ...request.Option) error
+
+	GetRegistryPolicy(*ecr.GetRegistryPolicyInput) (*ecr.GetRegistryPolicyOutput, error)
+	GetRegistryPolicyWithContext(aws.Context, *ecr.GetRegistryPolicyInput, ...request.Option) (*ecr.GetRegistryPolicyOutput, error)
+	GetRegistryPolicyRequest(*ecr.GetRegistryPolicyInput) (*request.Request, *ecr.GetRegistryPolicyOutput)
+
 	GetRepositoryPolicy(*ecr.GetRepositoryPolicyInput) (*ecr.GetRepositoryPolicyOutput, error)
 	GetRepositoryPolicyWithContext(aws.Context, *ecr.GetRepositoryPolicyInput, ...request.Option) (*ecr.GetRepositoryPolicyOutput, error)
 	GetRepositoryPolicyRequest(*ecr.GetRepositoryPolicyInput) (*request.Request, *ecr.GetRepositoryPolicyOutput)
@@ -125,17 +159,63 @@ type ECRAPI interface {
 	ListImagesPages(*ecr.ListImagesInput, func(*ecr.ListImagesOutput, bool) bool) error
 	ListImagesPagesWithContext(aws.Context, *ecr.ListImagesInput, func(*ecr.ListImagesOutput, bool) bool, ...request.Option) error
 
+	ListTagsForResource(*ecr.ListTagsForResourceInput) (*ecr.ListTagsForResourceOutput, error)
+	ListTagsForResourceWithContext(aws.Context, *ecr.ListTagsForResourceInput, ...request.Option) (*ecr.ListTagsForResourceOutput, error)
+	ListTagsForResourceRequest(*ecr.ListTagsForResourceInput) (*request.Request, *ecr.ListTagsForResourceOutput)
+
 	PutImage(*ecr.PutImageInput) (*ecr.PutImageOutput, error)
 	PutImageWithContext(aws.Context, *ecr.PutImageInput, ...request.Option) (*ecr.PutImageOutput, error)
 	PutImageRequest(*ecr.PutImageInput) (*request.Request, *ecr.PutImageOutput)
+
+	PutImageScanningConfiguration(*ecr.PutImageScanningConfigurationInput) (*ecr.PutImageScanningConfigurationOutput, error)
+	PutImageScanningConfigurationWithContext(aws.Context, *ecr.PutImageScanningConfigurationInput, ...request.Option) (*ecr.PutImageScanningConfigurationOutput, error)
+	PutImageScanningConfigurationRequest(*ecr.PutImageScanningConfigurationInput) (*request.Request, *ecr.PutImageScanningConfigurationOutput)
+
+	PutImageTagMutability(*ecr.PutImageTagMutabilityInput) (*ecr.PutImageTagMutabilityOutput, error)
+	PutImageTagMutabilityWithContext(aws.Context, *ecr.PutImageTagMutabilityInput, ...request.Option) (*ecr.PutImageTagMutabilityOutput, error)
+	PutImageTagMutabilityRequest(*ecr.PutImageTagMutabilityInput) (*request.Request, *ecr.PutImageTagMutabilityOutput)
+
+	PutLifecyclePolicy(*ecr.PutLifecyclePolicyInput) (*ecr.PutLifecyclePolicyOutput, error)
+	PutLifecyclePolicyWithContext(aws.Context, *ecr.PutLifecyclePolicyInput, ...request.Option) (*ecr.PutLifecyclePolicyOutput, error)
+	PutLifecyclePolicyRequest(*ecr.PutLifecyclePolicyInput) (*request.Request, *ecr.PutLifecyclePolicyOutput)
+
+	PutRegistryPolicy(*ecr.PutRegistryPolicyInput) (*ecr.PutRegistryPolicyOutput, error)
+	PutRegistryPolicyWithContext(aws.Context, *ecr.PutRegistryPolicyInput, ...request.Option) (*ecr.PutRegistryPolicyOutput, error)
+	PutRegistryPolicyRequest(*ecr.PutRegistryPolicyInput) (*request.Request, *ecr.PutRegistryPolicyOutput)
+
+	PutReplicationConfiguration(*ecr.PutReplicationConfigurationInput) (*ecr.PutReplicationConfigurationOutput, error)
+	PutReplicationConfigurationWithContext(aws.Context, *ecr.PutReplicationConfigurationInput, ...request.Option) (*ecr.PutReplicationConfigurationOutput, error)
+	PutReplicationConfigurationRequest(*ecr.PutReplicationConfigurationInput) (*request.Request, *ecr.PutReplicationConfigurationOutput)
 
 	SetRepositoryPolicy(*ecr.SetRepositoryPolicyInput) (*ecr.SetRepositoryPolicyOutput, error)
 	SetRepositoryPolicyWithContext(aws.Context, *ecr.SetRepositoryPolicyInput, ...request.Option) (*ecr.SetRepositoryPolicyOutput, error)
 	SetRepositoryPolicyRequest(*ecr.SetRepositoryPolicyInput) (*request.Request, *ecr.SetRepositoryPolicyOutput)
 
+	StartImageScan(*ecr.StartImageScanInput) (*ecr.StartImageScanOutput, error)
+	StartImageScanWithContext(aws.Context, *ecr.StartImageScanInput, ...request.Option) (*ecr.StartImageScanOutput, error)
+	StartImageScanRequest(*ecr.StartImageScanInput) (*request.Request, *ecr.StartImageScanOutput)
+
+	StartLifecyclePolicyPreview(*ecr.StartLifecyclePolicyPreviewInput) (*ecr.StartLifecyclePolicyPreviewOutput, error)
+	StartLifecyclePolicyPreviewWithContext(aws.Context, *ecr.StartLifecyclePolicyPreviewInput, ...request.Option) (*ecr.StartLifecyclePolicyPreviewOutput, error)
+	StartLifecyclePolicyPreviewRequest(*ecr.StartLifecyclePolicyPreviewInput) (*request.Request, *ecr.StartLifecyclePolicyPreviewOutput)
+
+	TagResource(*ecr.TagResourceInput) (*ecr.TagResourceOutput, error)
+	TagResourceWithContext(aws.Context, *ecr.TagResourceInput, ...request.Option) (*ecr.TagResourceOutput, error)
+	TagResourceRequest(*ecr.TagResourceInput) (*request.Request, *ecr.TagResourceOutput)
+
+	UntagResource(*ecr.UntagResourceInput) (*ecr.UntagResourceOutput, error)
+	UntagResourceWithContext(aws.Context, *ecr.UntagResourceInput, ...request.Option) (*ecr.UntagResourceOutput, error)
+	UntagResourceRequest(*ecr.UntagResourceInput) (*request.Request, *ecr.UntagResourceOutput)
+
 	UploadLayerPart(*ecr.UploadLayerPartInput) (*ecr.UploadLayerPartOutput, error)
 	UploadLayerPartWithContext(aws.Context, *ecr.UploadLayerPartInput, ...request.Option) (*ecr.UploadLayerPartOutput, error)
 	UploadLayerPartRequest(*ecr.UploadLayerPartInput) (*request.Request, *ecr.UploadLayerPartOutput)
+
+	WaitUntilImageScanComplete(*ecr.DescribeImageScanFindingsInput) error
+	WaitUntilImageScanCompleteWithContext(aws.Context, *ecr.DescribeImageScanFindingsInput, ...request.WaiterOption) error
+
+	WaitUntilLifecyclePolicyPreviewComplete(*ecr.GetLifecyclePolicyPreviewInput) error
+	WaitUntilLifecyclePolicyPreviewCompleteWithContext(aws.Context, *ecr.GetLifecyclePolicyPreviewInput, ...request.WaiterOption) error
 }
 
 var _ ECRAPI = (*ecr.ECR)(nil)

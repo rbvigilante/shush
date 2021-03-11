@@ -597,6 +597,34 @@ func TestValues(t *testing.T) {
 		err      exprErrorMode
 	}{
 		{
+			name: "empty lists become null",
+			input: Builder{
+				expressionMap: map[expressionType]treeBuilder{
+					update: Name("groups").Equal(Value([]string{})),
+				},
+			},
+			expected: map[string]*dynamodb.AttributeValue{
+				":0": {
+					NULL: aws.Bool(true),
+				},
+			},
+		},
+		{
+			name: "dynamodb.AttributeValue values are used directly",
+			input: Builder{
+				expressionMap: map[expressionType]treeBuilder{
+					update: Name("key").Equal(Value(dynamodb.AttributeValue{
+						S: aws.String("value"),
+					})),
+				},
+			},
+			expected: map[string]*dynamodb.AttributeValue{
+				":0": {
+					S: aws.String("value"),
+				},
+			},
+		},
+		{
 			name: "condition",
 			input: Builder{
 				expressionMap: map[expressionType]treeBuilder{
@@ -973,6 +1001,39 @@ func TestBuildExpressionString(t *testing.T) {
 				if e, a := c.expectedExpression, expr; !reflect.DeepEqual(a, e) {
 					t.Errorf("expect %v, got %v", e, a)
 				}
+			}
+		})
+	}
+}
+
+func TestReturnExpression(t *testing.T) {
+	cases := []struct {
+		name     string
+		input    Expression
+		expected *string
+	}{
+		{
+			name: "projection exists",
+			input: Expression{
+				expressionMap: map[expressionType]string{
+					projection: "#0, #1, #2",
+				},
+			},
+			expected: aws.String("#0, #1, #2"),
+		},
+		{
+			name: "projection not exists",
+			input: Expression{
+				expressionMap: map[expressionType]string{},
+			},
+			expected: nil,
+		},
+	}
+	for _, c := range cases {
+		t.Run(c.name, func(t *testing.T) {
+			actual := c.input.returnExpression(projection)
+			if e, a := c.expected, actual; !reflect.DeepEqual(a, e) {
+				t.Errorf("expect %v, got %v", e, a)
 			}
 		})
 	}

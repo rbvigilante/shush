@@ -80,6 +80,10 @@ type SnowballAPI interface {
 	CreateJobWithContext(aws.Context, *snowball.CreateJobInput, ...request.Option) (*snowball.CreateJobOutput, error)
 	CreateJobRequest(*snowball.CreateJobInput) (*request.Request, *snowball.CreateJobOutput)
 
+	CreateReturnShippingLabel(*snowball.CreateReturnShippingLabelInput) (*snowball.CreateReturnShippingLabelOutput, error)
+	CreateReturnShippingLabelWithContext(aws.Context, *snowball.CreateReturnShippingLabelInput, ...request.Option) (*snowball.CreateReturnShippingLabelOutput, error)
+	CreateReturnShippingLabelRequest(*snowball.CreateReturnShippingLabelInput) (*request.Request, *snowball.CreateReturnShippingLabelOutput)
+
 	DescribeAddress(*snowball.DescribeAddressInput) (*snowball.DescribeAddressOutput, error)
 	DescribeAddressWithContext(aws.Context, *snowball.DescribeAddressInput, ...request.Option) (*snowball.DescribeAddressOutput, error)
 	DescribeAddressRequest(*snowball.DescribeAddressInput) (*request.Request, *snowball.DescribeAddressOutput)
@@ -99,6 +103,10 @@ type SnowballAPI interface {
 	DescribeJobWithContext(aws.Context, *snowball.DescribeJobInput, ...request.Option) (*snowball.DescribeJobOutput, error)
 	DescribeJobRequest(*snowball.DescribeJobInput) (*request.Request, *snowball.DescribeJobOutput)
 
+	DescribeReturnShippingLabel(*snowball.DescribeReturnShippingLabelInput) (*snowball.DescribeReturnShippingLabelOutput, error)
+	DescribeReturnShippingLabelWithContext(aws.Context, *snowball.DescribeReturnShippingLabelInput, ...request.Option) (*snowball.DescribeReturnShippingLabelOutput, error)
+	DescribeReturnShippingLabelRequest(*snowball.DescribeReturnShippingLabelInput) (*request.Request, *snowball.DescribeReturnShippingLabelOutput)
+
 	GetJobManifest(*snowball.GetJobManifestInput) (*snowball.GetJobManifestOutput, error)
 	GetJobManifestWithContext(aws.Context, *snowball.GetJobManifestInput, ...request.Option) (*snowball.GetJobManifestOutput, error)
 	GetJobManifestRequest(*snowball.GetJobManifestInput) (*request.Request, *snowball.GetJobManifestOutput)
@@ -111,6 +119,10 @@ type SnowballAPI interface {
 	GetSnowballUsageWithContext(aws.Context, *snowball.GetSnowballUsageInput, ...request.Option) (*snowball.GetSnowballUsageOutput, error)
 	GetSnowballUsageRequest(*snowball.GetSnowballUsageInput) (*request.Request, *snowball.GetSnowballUsageOutput)
 
+	GetSoftwareUpdates(*snowball.GetSoftwareUpdatesInput) (*snowball.GetSoftwareUpdatesOutput, error)
+	GetSoftwareUpdatesWithContext(aws.Context, *snowball.GetSoftwareUpdatesInput, ...request.Option) (*snowball.GetSoftwareUpdatesOutput, error)
+	GetSoftwareUpdatesRequest(*snowball.GetSoftwareUpdatesInput) (*request.Request, *snowball.GetSoftwareUpdatesOutput)
+
 	ListClusterJobs(*snowball.ListClusterJobsInput) (*snowball.ListClusterJobsOutput, error)
 	ListClusterJobsWithContext(aws.Context, *snowball.ListClusterJobsInput, ...request.Option) (*snowball.ListClusterJobsOutput, error)
 	ListClusterJobsRequest(*snowball.ListClusterJobsInput) (*request.Request, *snowball.ListClusterJobsOutput)
@@ -118,6 +130,10 @@ type SnowballAPI interface {
 	ListClusters(*snowball.ListClustersInput) (*snowball.ListClustersOutput, error)
 	ListClustersWithContext(aws.Context, *snowball.ListClustersInput, ...request.Option) (*snowball.ListClustersOutput, error)
 	ListClustersRequest(*snowball.ListClustersInput) (*request.Request, *snowball.ListClustersOutput)
+
+	ListCompatibleImages(*snowball.ListCompatibleImagesInput) (*snowball.ListCompatibleImagesOutput, error)
+	ListCompatibleImagesWithContext(aws.Context, *snowball.ListCompatibleImagesInput, ...request.Option) (*snowball.ListCompatibleImagesOutput, error)
+	ListCompatibleImagesRequest(*snowball.ListCompatibleImagesInput) (*request.Request, *snowball.ListCompatibleImagesOutput)
 
 	ListJobs(*snowball.ListJobsInput) (*snowball.ListJobsOutput, error)
 	ListJobsWithContext(aws.Context, *snowball.ListJobsInput, ...request.Option) (*snowball.ListJobsOutput, error)
@@ -133,6 +149,10 @@ type SnowballAPI interface {
 	UpdateJob(*snowball.UpdateJobInput) (*snowball.UpdateJobOutput, error)
 	UpdateJobWithContext(aws.Context, *snowball.UpdateJobInput, ...request.Option) (*snowball.UpdateJobOutput, error)
 	UpdateJobRequest(*snowball.UpdateJobInput) (*request.Request, *snowball.UpdateJobOutput)
+
+	UpdateJobShipmentState(*snowball.UpdateJobShipmentStateInput) (*snowball.UpdateJobShipmentStateOutput, error)
+	UpdateJobShipmentStateWithContext(aws.Context, *snowball.UpdateJobShipmentStateInput, ...request.Option) (*snowball.UpdateJobShipmentStateOutput, error)
+	UpdateJobShipmentStateRequest(*snowball.UpdateJobShipmentStateInput) (*request.Request, *snowball.UpdateJobShipmentStateOutput)
 }
 
 var _ SnowballAPI = (*snowball.Snowball)(nil)

@@ -10,55 +10,9 @@
 // for the most popular programming languages and build tools, such as Apache
 // Maven, Gradle, and more. You can also fully customize build environments
 // in AWS CodeBuild to use your own build tools. AWS CodeBuild scales automatically
-// to meet peak build requests, and you pay only for the build time you consume.
-// For more information about AWS CodeBuild, see the AWS CodeBuild User Guide.
-//
-// AWS CodeBuild supports these operations:
-//
-//    * BatchDeleteBuilds: Deletes one or more builds.
-//
-//    * BatchGetProjects: Gets information about one or more build projects.
-//    A build project defines how AWS CodeBuild will run a build. This includes
-//    information such as where to get the source code to build, the build environment
-//    to use, the build commands to run, and where to store the build output.
-//    A build environment represents a combination of operating system, programming
-//    language runtime, and tools that AWS CodeBuild will use to run a build.
-//    Also, you can add tags to build projects to help manage your resources
-//    and costs.
-//
-//    * CreateProject: Creates a build project.
-//
-//    * CreateWebhook: For an existing AWS CodeBuild build project that has
-//    its source code stored in a GitHub repository, enables AWS CodeBuild to
-//    begin automatically rebuilding the source code every time a code change
-//    is pushed to the repository.
-//
-//    * DeleteProject: Deletes a build project.
-//
-//    * DeleteWebhook: For an existing AWS CodeBuild build project that has
-//    its source code stored in a GitHub repository, stops AWS CodeBuild from
-//    automatically rebuilding the source code every time a code change is pushed
-//    to the repository.
-//
-//    * ListProjects: Gets a list of build project names, with each build project
-//    name representing a single build project.
-//
-//    * UpdateProject: Changes the settings of an existing build project.
-//
-//    * BatchGetBuilds: Gets information about one or more builds.
-//
-//    * ListBuilds: Gets a list of build IDs, with each build ID representing
-//    a single build.
-//
-//    * ListBuildsForProject: Gets a list of build IDs for the specified build
-//    project, with each build ID representing a single build.
-//
-//    * StartBuild: Starts running a build.
-//
-//    * StopBuild: Attempts to stop running a build.
-//
-//    * ListCuratedEnvironmentImages: Gets information about Docker images that
-//    are managed by AWS CodeBuild.
+// to meet peak build requests. You pay only for the build time you consume.
+// For more information about AWS CodeBuild, see the AWS CodeBuild User Guide
+// (https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html).
 //
 // See https://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06 for more information on this service.
 //
@@ -67,7 +21,7 @@
 //
 // Using the Client
 //
-// To AWS CodeBuild with the SDK use the New function to create
+// To contact AWS CodeBuild with the SDK use the New function to create
 // a new service client. With that client you can make API requests to the service.
 // These clients are safe to use concurrently.
 //
